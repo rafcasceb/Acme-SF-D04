@@ -10,10 +10,10 @@
 
 master.company.title = La empresa
 master.company.text = \
-	Acme One, Inc. es una empresa ficticia que ofrece un proyecto starter para los \
+	Acme Software Factory, Inc. es una empresa ficticia que ofrece un proyecto starter para los \
 	estudiantes de la asignatura Diseño y Pruebas de la titulación de \
 	Ingeniería del Software en la Universidad de Sevilla. 
-master.company.name = Acme One, Inc.
-master.company.address = 01 Acme One Drive, Wondercity, Wonderland
+master.company.name = Acme Software Factory, Inc.
+master.company.address = 01 Acme Software Factory Drive, Wondercity, Wonderland
 master.company.phone = +1 000 111 222
-master.company.email = contact@acme-one.com
+master.company.email = contact@acme-software-factory.com
