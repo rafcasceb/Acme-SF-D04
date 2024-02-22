@@ -1,5 +1,5 @@
 
-package entities.banners;
+package acme.entities.banners;
 
 import java.time.Duration;
 import java.util.Date;
@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -60,6 +61,7 @@ public class Banner extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 
+	@Transient
 	public Duration getDisplayPeriod() {
 		return Duration.between(this.displayStartDate.toInstant(), this.displayEndDate.toInstant());
 	}
