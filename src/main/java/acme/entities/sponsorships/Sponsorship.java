@@ -27,7 +27,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Sponsorship extends AbstractEntity {
-
+	
 	// Serialisation identifier -----------------------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -84,24 +84,26 @@ public class Sponsorship extends AbstractEntity {
 	public boolean isStartDateAfterMoment() {
 		return this.startDate.after(this.moment);
 	}
-
+	
 	// Constructor  ------------------------------------------------------------
+	
+	public Sponsorship(String code, Date moment, Date startDate, Date endDate, double amount, SponsorshipType type, String email, String link) {
+	    this.code = code;
+	    this.moment = moment;
+	    this.startDate = startDate;
+	    this.endDate = endDate;
+	    this.amount = amount;
+	    this.type = type;
+	    this.email = email;
+	    this.link = link;
 
-	public Sponsorship(final String code, final Date moment, final Date startDate, final Date endDate, final double amount, final SponsorshipType type, final String email, final String link) {
-		this.code = code;
-		this.moment = moment;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.amount = amount;
-		this.type = type;
-		this.email = email;
-		this.link = link;
-
-		if (!this.isTimeDurationGreaterThanOneMonth())
-			throw new IllegalArgumentException("The duration must be greater than one month");
-
-		if (!this.isStartDateAfterMoment())
-			throw new IllegalArgumentException("The start date must be after moment");
+	    if (!isTimeDurationGreaterThanOneMonth()) {
+	        throw new IllegalArgumentException("The duration must be greater than one month");
+	    }
+	    
+	    if (!isStartDateAfterMoment()) {
+	        throw new IllegalArgumentException("The start date must be after moment");
+	    }
 	}
 
 }
