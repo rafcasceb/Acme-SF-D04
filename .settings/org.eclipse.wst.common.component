@@ -265,9 +265,11 @@
         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+
         <dependent-module archiveName="Acme-Framework-24.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/Acme-Framework-24.1.0/Acme-Framework-24.1.0">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+
                                                                                                                                                                                                                                                                                                                                                                                                                                         
         
         
