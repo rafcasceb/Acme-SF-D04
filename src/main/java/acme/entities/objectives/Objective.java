@@ -44,14 +44,18 @@ public class Objective extends AbstractEntity {
 	@NotNull
 	private ObjectiveStatus		priority;
 
-	@NotNull
-	private Boolean				status;
+	private boolean				critical;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				duration;
+	private Date				start;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				deadline;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	// Derived attributes -----------------------------------------------------
