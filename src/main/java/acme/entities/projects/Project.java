@@ -28,7 +28,7 @@ public class Project extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}")
+	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "Use a pattern starting with three letters from A to Z, a '-' and by four digits, each from 0 to 9.")
 	@NotBlank
 	private String				code;
 
@@ -40,28 +40,11 @@ public class Project extends AbstractEntity {
 	@NotBlank
 	private String				abstract_;
 
-	private boolean				hasFatalErrors;
-
 	@NotNull
 	@Valid
 	private Money				cost;
 
 	@URL
 	private String				link;
-
-
-	public Project(final String code, final String title, final String abstract_, final Boolean hasFatalErrors, final Money cost, final String link) {
-		if (hasFatalErrors)
-			throw new IllegalArgumentException("A project cannot contain fatal errors.");
-		if (cost.getAmount() < 0)
-			throw new IllegalArgumentException("The amount of the cost must be positive or nought.");
-
-		this.code = code;
-		this.title = title;
-		this.abstract_ = abstract_;
-		this.hasFatalErrors = hasFatalErrors;
-		this.cost = cost;
-		this.link = link;
-	}
 
 }
