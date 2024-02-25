@@ -9,3 +9,4 @@
 # they accept any liabilities with respect to them.
 
 validation.claim.code	= El código debe estar en el formato 'C-' seguido de cuatro dígitos.
+validation.sponsorship.code	= El código debe estar en el formato de una a tres letras mayúsculas, '-' y tres dígitos. 
