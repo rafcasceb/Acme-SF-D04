@@ -40,11 +40,15 @@ public class Project extends AbstractEntity {
 	@NotBlank
 	private String				abstract_;
 
+	private boolean				fatalErrorPresent;
+
 	@NotNull
 	@Valid
 	private Money				cost;
 
 	@URL
 	private String				link;
+
+	private boolean				draftMode;
 
 }
