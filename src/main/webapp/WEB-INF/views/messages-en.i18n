@@ -12,3 +12,4 @@ validation.claim.code	= The code must be in the format 'C-' followed by four dig
 validation.audit.code	= The code must be in the format of one to three uppercase letters, followed by a hyphen, and then exactly three digits.
 validation.record.code	= The code must be in the format 'AU-' followed by four digits, a hyphen, and then exactly three digits.
 validation.invoice.code	= The code must be in the format 'IN-' followed by four digits, '-', and another four digits.
+validation.project.code	= The code must be in the format of three uppercase letters, followed by a hyphen, and then three digits.
