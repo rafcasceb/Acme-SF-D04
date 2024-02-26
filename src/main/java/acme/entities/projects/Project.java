@@ -28,7 +28,7 @@ public class Project extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "Use a pattern starting with three letters from A to Z, a '-' and by four digits, each from 0 to 9.")
+	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "{validation.project.code}")
 	@NotBlank
 	private String				code;
 
