@@ -48,11 +48,11 @@ public class Objective extends AbstractEntity {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				start;
+	private Date				startDate;
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				deadline;
+	private Date				endDate;
 
 	@URL
 	@Length(max = 255)
