@@ -35,11 +35,12 @@ public class Project extends AbstractEntity {
 
 	@Length(max = 100)
 	@NotBlank
-	private String				abstract_;
+	private String				abstractDescription;
 
 	private boolean				fatalErrorPresent;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	private boolean				published;		// Indicates if aggregation is not in draft mode.
