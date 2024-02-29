@@ -1,0 +1,3 @@
+key,title,description,estimatedCostInHours,acceptanceCriteria,priority,link,key:manager,key:project
+user-story-01,Title 1,Checking title,11,Acceptance criteria 1,MUST,https://link1.com,manager-01,project-01
+user-story-18,Title 1,Checking title,11,Acceptance criteria 1,MUST,https://link1.com,manager-01,project-18
