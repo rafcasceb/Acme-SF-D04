@@ -1,5 +1,5 @@
 
-package acme.entities.sponsorships;
+package acme.entities.audits;
 
 import java.util.Date;
 
@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -19,58 +18,51 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.client.data.datatypes.Money;
 import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Setter
 @Getter
-public class Sponsorship extends AbstractEntity {
+@Setter
+public class Audit extends AbstractEntity {
 
-	// Serialisation identifier -----------------------------------------------------------------
+	// Serialisation identifier -----------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
 
-	// Attributes -------------------------------------------------------------------------------
+	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.sponsorship.code}")
 	@NotBlank
+	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.audit.code}")
 	private String				code;
 
 	@Temporal(TemporalType.DATE)
 	@PastOrPresent
 	@NotNull
-	private Date				moment;
-
-	@Temporal(TemporalType.DATE)
-	@NotNull
-	private Date				startDate;
-
-	@Temporal(TemporalType.DATE)
-	@NotNull
-	private Date				endDate;
+	private Date				execution;
 
 	@NotNull
-	private Money				amount;
+	private AuditType			type;
 
-	@NotNull
-	private SponsorshipType		type;
-
-	@Email
-	@Length(max = 255)
-	private String				email;
+	@NotBlank
+	@Length(max = 100)
+	private String				correctiveActions;
 
 	@URL
 	@Length(max = 255)
 	private String				link;
 
+	// Derived Attributes --------------------------------------------------------
+
+	// TODO: Attribute "mark" which is the mode mark obtained from its records.
+
 	// Relationships  ------------------------------------------------------------
+
 	@NotNull
 	@Valid
-	@ManyToOne()
+	@ManyToOne(optional = false)
 	private Project				project;
 
 }

@@ -1,17 +1,22 @@
 
-package acme.entities.objectives;
+package acme.entities.contracts;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -20,7 +25,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Objective extends AbstractEntity {
+public class ProgressLog extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -28,38 +33,35 @@ public class Objective extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotNull
-	@PastOrPresent
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				instantiationMoment;
-
+	@Column(unique = true)
+	@Pattern(regexp = "PG-[A-Z]{1,2}-[0-9]{4}", message = "{validation.progressLog.code}")
 	@NotBlank
-	@Length(max = 75)
-	private String				title;
+	private String				recordId;
+
+	@Positive //Pendiente a preguntar
+	@Digits(integer = 3, fraction = 2)
+	private double				completeness;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				description;
+	private String				comment;
 
 	@NotNull
-	private ObjectiveStatus		priority;
-
-	private boolean				critical;
-
-	@NotNull
+	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				startDate;
+	private Date				registrationMoment;
 
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				endDate;
-
-	@URL
-	@Length(max = 255)
-	private String				link;
+	@NotBlank
+	@Length(max = 75)
+	private String				responsiblePerson;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Contract			contract;
 
 }
