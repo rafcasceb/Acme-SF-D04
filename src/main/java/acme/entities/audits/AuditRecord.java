@@ -1,5 +1,5 @@
 
-package acme.entities.contracts;
+package acme.entities.audits;
 
 import java.util.Date;
 
@@ -13,19 +13,19 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.URL;
+import org.yaml.snakeyaml.error.Mark;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Contract extends AbstractEntity {
+public class AuditRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -34,37 +34,33 @@ public class Contract extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.contract.code}")
 	@NotBlank
+	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}", message = "{validation.record.code}")
 	private String				code;
 
+	@URL
+	@Length(max = 255)
+	private String				link;
+
 	@NotNull
-	@PastOrPresent
+	private Mark				mark;
+
+	// TODO: validation "at least one hour long" of this period.
+
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				instantiationMoment;
+	@PastOrPresent
+	@NotNull
+	protected Date				initialMoment;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				providerName;
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
+	@NotNull
+	protected Date				finalMoment;
 
-	@NotBlank
-	@Length(max = 75)
-	private String				customerName;
-
-	@NotBlank
-	@Length(max = 100)
-	private String				goals;
-
-	@Positive  //Pendiente a preguntar si es Money
-	private double				budget;
-
-	// Derived attributes -----------------------------------------------------
-
-	// Relationships ----------------------------------------------------------
+	// Relationships  ------------------------------------------------------------
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Project				project;
-
+	private Audit				audit;
 }

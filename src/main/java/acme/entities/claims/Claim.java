@@ -33,7 +33,7 @@ public class Claim extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "C-[0-9]{4}")
+	@Pattern(regexp = "C-[0-9]{4}", message = "{validation.claim.code}")
 	private String				code;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -57,6 +57,7 @@ public class Claim extends AbstractEntity {
 	private String				email;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 }

@@ -1,0 +1,18 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+validation.claim.code	= El código debe estar en el formato 'C-' seguido de cuatro dígitos.
+validation.sponsorship.code	= El código debe estar en el formato de una a tres letras mayúsculas, '-' y tres dígitos. 
+validation.audit.code	= El código debe estar en el formato de una a tres letras mayúsculas, seguidas de un guión y luego exactamente tres dígitos.
+validation.record.code	= El códig debe estar en el formato 'AU-' seguido de cuatro dígitos, un guión, y luego exactamente tres dígitos.
+validation.invoice.code	= El código debe estar en el formato 'IN-' seguido de cuatro dígitos, '-', seguido de otros cuatro dígitos.
+validation.project.code = El código debe estar en el formato de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos.
+validation.contract.code = El código debe estar en el formato de una a tres letras mayúsculas, '-' y tres dígitos. 
+validation.progressLog.code	= El código debe estar en el formato 'PG-' seguido de una a dos letras mayúsculas, '-' y cuatro dígitos.

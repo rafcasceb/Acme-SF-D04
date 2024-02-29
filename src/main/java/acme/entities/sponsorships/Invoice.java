@@ -1,7 +1,6 @@
 
 package acme.entities.sponsorships;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,16 +10,20 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
-import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +39,7 @@ public class Invoice extends AbstractEntity {
 	// Attributes -------------------------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}")
+	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}", message = "{validation.invoice.code}")
 	@NotBlank
 	private String				code;
 
@@ -51,13 +54,16 @@ public class Invoice extends AbstractEntity {
 
 	@Min(1)
 	@NotNull
-	private double				quantity;
+	private Money				quantity;
 
-	@Min(0)
 	@NotNull
-	private double				tax;
+	@DecimalMin(value = "0.0", inclusive = true)
+	@DecimalMax(value = "1.0", inclusive = true)
+	@Digits(integer = 1, fraction = 2)
+	private Double				tax;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
 	// Derived Attributes -------------------------------------------------------------------------------
@@ -65,31 +71,7 @@ public class Invoice extends AbstractEntity {
 
 	@Transient
 	public Double getValue() {
-		return this.tax + this.quantity;
-	}
-
-	// Validation  ------------------------------------------------------------
-	@AssertTrue(message = "Due date must be at least one month ahead the registration time")
-	public boolean isDueDateOneMonthAhead() {
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(this.registrationTime);
-		cal.add(Calendar.MONTH, 1);
-
-		return this.dueDate.after(cal.getTime());
-	}
-
-	// Constructor  ------------------------------------------------------------
-
-	public Invoice(final String code, final Date registrationTime, final Date dueDate, final double quantity, final double tax, final String link) {
-		this.code = code;
-		this.registrationTime = registrationTime;
-		this.dueDate = dueDate;
-		this.quantity = quantity;
-		this.tax = tax;
-		this.link = link;
-
-		if (!this.isDueDateOneMonthAhead())
-			throw new IllegalArgumentException("Due date must be at least one month ahead of registration time");
+		return this.quantity.getAmount() + this.quantity.getAmount() * this.tax;
 	}
 
 
