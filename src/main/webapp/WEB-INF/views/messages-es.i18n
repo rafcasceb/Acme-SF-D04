@@ -16,3 +16,4 @@ validation.invoice.code	= El código debe estar en el formato 'IN-' seguido de c
 validation.project.code = El código debe estar en el formato de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos.
 validation.contract.code = El código debe estar en el formato de una a tres letras mayúsculas, '-' y tres dígitos. 
 validation.progressLog.code	= El código debe estar en el formato 'PG-' seguido de una a dos letras mayúsculas, '-' y cuatro dígitos.
+validation.risk.code = El código debe estar en el formato 'R-' seguido por tres dígitos.

@@ -16,3 +16,4 @@ validation.invoice.code	= The code must be in the format 'IN-' followed by four 
 validation.project.code	= The code must be in the format of three uppercase letters, followed by a hyphen, and then three digits.
 validation.contract.code = The code must be in the format one to three uppercase letters, '-' and three digits.
 validation.progressLog.code	= The code must be in the format 'PG-' followed by one to two uppercase letters, '-' and four digits.
+validation.risk.code = The code must be in format 'R-' followed by three digits.
