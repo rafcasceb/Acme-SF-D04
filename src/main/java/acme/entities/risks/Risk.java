@@ -34,7 +34,7 @@ public class Risk extends AbstractEntity {
 	// Attributes -------------------------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "R-[0-9]{3}", message = "Use a pattern starting with 'R-' followed by three digits, each from 0 to 9.")
+	@Pattern(regexp = "R-[0-9]{3}", message = "{validation.risk.code}")
 	@NotBlank
 	private String				reference;
 
