@@ -61,5 +61,5 @@ public class AuditRecord extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Audit				audit;
+	private CodeAudit				audit;
 }
