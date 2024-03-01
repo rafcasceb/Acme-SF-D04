@@ -1,0 +1,3 @@
+key,firm,professionalID,certifications,link,key:user-account
+auditor-01,ABC Auditing Firm,PRO-001,Certification 1,https://certification-link1.com,user-account-auditor-01
+auditor-02,XYZ Audit Services,PRO-002,"Certification 1, Certification 2",https://certification-link2.com,user-account-auditor-02

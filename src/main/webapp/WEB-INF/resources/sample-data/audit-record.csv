@@ -1,0 +1,16 @@
+key,code,link,mark,initialMoment,finalMoment,key:audit
+record-01,AU-2001-001,https://example.com/record-01,A,2001/01/01 08:00,2001/01/01 09:00,audit-01
+record-02,AU-2002-002,null,A,2002/02/02 10:00,2002/02/02 11:00,audit-02
+record-03,AU-2003-003,https://example.com/record-03,B,2003/03/03 12:00,2003/03/03 13:00,audit-03
+record-04,AU-2004-004,https://example.com/record-04,C,2004/04/04 14:00,2004/04/04 15:00,audit-04
+record-05,AU-2005-005,null,F,2005/05/05 16:00,2005/05/05 17:00,audit-05
+record-06,AU-2006-006,https://example.com/record-06,F_MINUS,2006/06/06 18:00,2006/06/06 19:00,audit-06
+record-07,AU-2007-007,https://example.com/record-07,A_PLUS,2007/07/07 20:00,2007/07/07 21:00,audit-07
+record-08,AU-2008-008,null,A,2008/08/08 22:00,2008/08/08 23:00,audit-08
+record-09,AU-2009-009,https://example.com/record-09,B,2009/09/09 00:00,2009/09/09 01:00,audit-09
+record-10,AU-2010-010,https://example.com/record-10,C,2010/10/10 02:00,2010/10/10 03:00,audit-10
+record-11,AU-2001-011,null,F_MINUS,2011/11/11 04:00,2011/11/11 05:00,audit-01
+record-12,AU-2002-012,https://example.com/record-12,A_PLUS,2012/12/12 06:00,2012/12/12 07:00,audit-02
+record-13,AU-2003-013,null,A,2013/01/13 08:00,2013/01/13 09:00,audit-03
+record-14,AU-2004-014,https://example.com/record-14,B,2014/02/14 10:00,2014/02/14 11:00,audit-04
+record-15,AU-2005-015,https://example.com/record-15,C,2015/03/15 12:00,2015/03/15 13:00,audit-05
