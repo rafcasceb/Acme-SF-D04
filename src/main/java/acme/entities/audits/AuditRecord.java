@@ -16,7 +16,6 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
-import org.yaml.snakeyaml.error.Mark;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
