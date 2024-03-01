@@ -21,3 +21,4 @@ user-account-manager-15,true,"UserIdentity{name: 'Katharine', surname: 'Hepburn'
 user-account-manager-16,true,"UserIdentity{name: 'Audrey', surname: 'Hepburn', email: 'ahepburn@acme.com'}",manager16,manager16
 user-account-auditor-01,true,"UserIdentity{name: 'Emily', surname: 'Brown', email: 'ebrown@acme.com'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'Andreas', surname: 'Müller', email: 'andreasmuller@acme.com'}",auditor2,auditor2
+user-account-auditor-03,true,"UserIdentity{name: 'Napoleon', surname: 'Bonaparte', email: 'boni@acme.com'}",auditor3,auditor3
