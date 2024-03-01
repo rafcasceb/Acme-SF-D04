@@ -15,5 +15,9 @@ user-account-manager-09,true,"UserIdentity{name: 'Lucía', surname: 'Sánchez', 
 user-account-manager-10,true,"UserIdentity{name: 'Manuel', surname: 'Gómez', email: 'mgomez@acme.com'}",manager10,manager10
 user-account-manager-11,true,"UserIdentity{name: 'Elena', surname: 'Martín', email: 'emartin@acme.com'}",manager11,manager11
 user-account-manager-12,true,"UserIdentity{name: 'Abigaíl', surname: 'Pérez', email: 'aperez@acme.com'}",manager12,manager12
+user-account-manager-13,true,"UserIdentity{name: 'Catherine', surname: 'Blanchett', email: 'cblanchett@acme.com'}",manager13,manager13
+user-account-manager-14,true,"UserIdentity{name: 'Katherine', surname: 'Winslet', email: 'kwinslet@acme.com'}",manager14,manager14
+user-account-manager-15,true,"UserIdentity{name: 'Katharine', surname: 'Hepburn', email: 'khepburn@acme.com'}",manager15,manager15
+user-account-manager-16,true,"UserIdentity{name: 'Audrey', surname: 'Hepburn', email: 'ahepburn@acme.com'}",manager16,manager16
 user-account-auditor-01,true,"UserIdentity{name: 'Emily', surname: 'Brown', email: 'ebrown@acme.com'}",auditor1,auditor1
 user-account-auditor-02,true,"UserIdentity{name: 'Andreas', surname: 'Müller', email: 'andreasmuller@acme.com'}",auditor2,auditor2
