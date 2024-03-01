@@ -26,4 +26,4 @@ user-story-24,Title 1,Description 1,11,Acceptance criteria 1,SHOULD,https://link
 user-story-25,Title 1,Description 1,11,Acceptance criteria 1,COULD,https://link1.com,manager-01,project-10
 user-story-26,Title 1,Description 1,11,Acceptance criteria 1,WONT,https://link1.com,manager-02,project-15
 user-story-27,Title 1,Description 1,11,Acceptance criteria 1,MUST,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,manager-01,project-20
-user-story-28,Title 1,Description 1,11,Acceptance criteria 1,MUST,null,manager-01,project-20
+user-story-28,Title 1,Description 1,11,Acceptance criteria 1,MUST,,manager-01,project-20
