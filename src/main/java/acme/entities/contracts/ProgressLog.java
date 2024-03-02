@@ -1,5 +1,5 @@
 
-package acme.entities.audits;
+package acme.entities.contracts;
 
 import java.util.Date;
 
@@ -9,13 +9,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import lombok.Getter;
@@ -24,7 +25,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class AuditRecord extends AbstractEntity {
+public class ProgressLog extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -33,33 +34,34 @@ public class AuditRecord extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
+	@Pattern(regexp = "PG-[A-Z]{1,2}-[0-9]{4}", message = "{validation.progressLog.code}")
 	@NotBlank
-	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}", message = "{validation.record.code}")
-	private String				code;
+	private String				recordId;
 
-	@URL
-	@Length(max = 255)
-	private String				link;
+	@Positive //Pendiente a preguntar
+	@Digits(integer = 3, fraction = 2)
+	private double				completeness;
+
+	@NotBlank
+	@Length(max = 100)
+	private String				comment;
 
 	@NotNull
-	private Mark				mark;
-
-	// TODO: validation "at least one hour long" of this period.
-
-	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
-	@NotNull
-	protected Date				initialMoment;
-
 	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				finalMoment;
+	private Date				registrationMoment;
 
-	// Relationships  ------------------------------------------------------------
+	@NotBlank
+	@Length(max = 75)
+	private String				responsiblePerson;
+
+	// Derived attributes -----------------------------------------------------
+
+	// Relationships ----------------------------------------------------------
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private CodeAudit				audit;
+	private Contract			contract;
+
 }
