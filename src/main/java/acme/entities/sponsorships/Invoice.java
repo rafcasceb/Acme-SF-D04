@@ -52,7 +52,6 @@ public class Invoice extends AbstractEntity {
 	@NotNull
 	private Date				dueDate;
 
-	@Min(1)
 	@NotNull
 	private Money				quantity;
 
