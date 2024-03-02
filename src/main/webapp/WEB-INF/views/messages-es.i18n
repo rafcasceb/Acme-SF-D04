@@ -17,3 +17,5 @@ validation.project.code = El código debe estar en el formato de tres letras may
 validation.contract.code = El código debe estar en el formato de una a tres letras mayúsculas, '-' y tres dígitos. 
 validation.progressLog.code	= El código debe estar en el formato 'PG-' seguido de una a dos letras mayúsculas, '-' y cuatro dígitos.
 validation.risk.code = El código debe estar en el formato 'R-' seguido por tres dígitos.
+validation.configuration.default = La divisa debe estar en el formato 'XXX' que es un código de divisa en mayúsculas de tres letras.
+validation.configuration.accepted = La divisa debe estar en el formato 'XXX' o 'XXX, XXX, ...' donde XXX es un código de divisa en mayúsculas de tres letras.
