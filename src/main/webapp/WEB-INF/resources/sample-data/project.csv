@@ -1,4 +1,4 @@
-key,code,title,abstractDescription,fatalErrorPresent,link,published
+key,code,title,abstract-description,fatal-error-present,link,published
 project-01,AAA-0000,Title 1,Description 1,false,https://link1.com,false
 project-02,ZZZ-0000,Title 1,Description 1,false,https://link1.com,false
 project-03,CDR-0000,Title 1,Description 1,false,https://link1.com,false
