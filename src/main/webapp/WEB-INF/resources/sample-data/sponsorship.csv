@@ -1,0 +1,35 @@
+key, code, moment, startDate, endDate, amount, type, email, link, key:project
+sponsorship-01,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+
+sponsorship-02, 2020/02/28 23:59,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-03, 2021/12/31 12:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-04, 2022/07/29 23:59,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-05, 2022/07/30 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+
+sponsorship-06, 2022/07/29 00:00,2024/02/29 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-07, 2022/07/29 00:00,2023/12/31 23:59,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-08, 2022/07/29 00:00,2022/07/29 00:01,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+
+sponsorship-09, 2022/07/29 00:00,2022/08/06 00:00,2028/02/29 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-10, 2022/07/29 00:00,2022/08/06 00:00,2023/12/31 23:59,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-11, 2022/07/29 00:00,2022/08/06 00:00,2022/09/06 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+
+sponsorship-12,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 0.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-13,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,USD 20,000.50,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-14,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,CAD 1,000,000.50,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-15,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,THB 3,000,000.50,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+sponsorship-16,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,BGP 9,000,000,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-01
+
+sponsorship-17,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,IN_KIND,sample@gmail.com,https://sample.com, project-01
+
+sponsorship-18,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,,https://sample.com, project-01
+sponsorship-19,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@hotmail.com,https://sample.com, project-01
+sponsorship-20,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@outlook.es,https://sample.com, project-01
+sponsorship-21,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmno@gmail.com,https://sample.com, project-01
+
+sponsorship-22,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,, project-01
+sponsorship-23,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,ftp://example.com/image.jpg, project-01
+sponsorship-24,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmno.jpg,ftp://example.com/image.jpg, project-01
+
+sponsorship-25,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-02
+sponsorship-26,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 20,000.00,FINANCIAL,sample@gmail.com,https://sample.com, project-03
