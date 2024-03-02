@@ -56,6 +56,7 @@ public class Sponsorship extends AbstractEntity {
 	@NotNull
 	private Money				amount;
 
+
 	@NotNull
 	private SponsorshipType		type;
 
@@ -72,5 +73,6 @@ public class Sponsorship extends AbstractEntity {
 	@Valid
 	@ManyToOne()
 	private Project				project;
+
 
 }
