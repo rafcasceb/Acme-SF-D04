@@ -19,13 +19,12 @@ public class Configuration extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{3}$")
+	@Pattern(regexp = "^[A-Z]{3}$", message = "{validation.configuration.default}")
 	protected String			defaultCurrency;
 
 	@NotBlank
-	@Pattern(regexp = "^([A-Z]{3})(,\\s*[A-Z]{3})*$")
+	@Pattern(regexp = "^([A-Z]{3})(,\\s*[A-Z]{3})*$", message = "{validation.configuration.accepted}")
 	protected String			acceptedCurrencies;
 }
