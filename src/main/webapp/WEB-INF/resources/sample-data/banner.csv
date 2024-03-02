@@ -1,0 +1,26 @@
+key,moment,display-start-date,display-end-date,picture,slogan,target
+banner-01, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-02, 2020/02/28 23:59,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-03, 2021/12/31 12:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-04, 2022/07/29 23:59,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-05, 2022/07/30 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-06, 2022/07/29 00:00,2024/02/29 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-07, 2022/02/28 23:59,2023/12/31 23:59,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-08, 2022/02/28 23:59,2024/02/28 23:59,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-09, 2022/07/29 00:00,2022/08/06 00:00,2024/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-10, 2022/07/29 00:00,2022/12/31 23:59,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-11, 2022/07/29 00:00,2023/01/01 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-12, 2022/07/29 00:00,2022/08/13 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-13, 2022/07/29 00:00,2022/08/13 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-14, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,ftp://example.com/image.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-15, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmno.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-16, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,ftp://example.com/22/image.jpg,Interesting Slogan!,https://ejemplo.com/offer
+banner-17, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,http://username@example.com/image.jpg,Interesting Slogan!,https://ejemplo.com/offer
+banner-18, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg,貸んい建濯よ芝弾テソ,https://ejemplo.com/offer
+banner-19, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg,Λορεμ ιπσθμ δολορ σιτ αμετ,https://ejemplo.com/offer
+banner-20, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg,75CharactersCharactersCharactersCharactersCharactersCharactersCharacters75 ,https://ejemplo.com/offer
+banner-21, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg,<script>alert('Este es un ejemplo de inyecci�n de HTML!'), https://ejemplo.com/offer
+banner-22, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg,Interesting Slogan!,ftp://example.com/offer?param1=value1&param2=value2
+banner-23, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg,Interesting Slogan!,http://example.com/offer/subfolder/file.pdf
+banner-24, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg,Interesting Slogan!,https://example.com:22/offer
+banner-25, 2022/07/29 00:00,2022/08/06 00:00,2022/08/13 00:00,https://ejemplo.com/imagen.jpg,Interesting Slogan!,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmno
