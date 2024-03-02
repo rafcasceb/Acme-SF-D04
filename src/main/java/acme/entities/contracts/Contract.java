@@ -33,8 +33,8 @@ public class Contract extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Column(unique = true) //Pendiente a terminar
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
+	@Column(unique = true)
+	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.contract.code}")
 	@NotBlank
 	private String				code;
 
@@ -55,7 +55,7 @@ public class Contract extends AbstractEntity {
 	@Length(max = 100)
 	private String				goals;
 
-	@Positive  //Pendiente a terminar
+	@Positive  //Pendiente a preguntar si es Money
 	private double				budget;
 
 	// Derived attributes -----------------------------------------------------

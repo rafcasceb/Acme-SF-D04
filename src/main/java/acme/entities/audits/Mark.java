@@ -17,4 +17,5 @@ public enum Mark {
 			return super.toString();
 		}
 	}
+
 }
