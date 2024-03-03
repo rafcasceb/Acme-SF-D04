@@ -24,3 +24,5 @@ user-account-auditor-02,true,"UserIdentity{name: 'Andreas', surname: 'Müller', 
 user-account-auditor-03,true,"UserIdentity{name: 'Napoleon', surname: 'Bonaparte', email: 'boni@acme.com'}",auditor3,auditor3
 user-account-administrator-02,true,"UserIdentity{name: 'Ronaldo', surname: 'Ramírez', email: 'ron@acme.com'}",administrator1,administrator1
 user-account-administrator-03,true,"UserIdentity{name: 'Jesús', surname: 'Fuentres', email: 'jusus@acme.com'}",administrator2,administrator2
+user-account-sponsor-01,true,"UserIdentity{name: 'Isabel', surname: 'La Católica', email: 'isaII@acme.com'}",sponsor1,sponsor1
+user-account-sponsor-02,true,"UserIdentity{name: 'Fernando', surname: 'Alonso', email: 'nano@acme.com'}",sponsor2,sponsor2

@@ -17,9 +17,9 @@ invoice-15,IN-2134-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.00,http
 invoice-16,IN-3234-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.01,https://sample.com,sponsorship-01
 invoice-17,IN-4234-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.99,https://sample.com,sponsorship-01
 invoice-18,IN-5234-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,1.00,https://sample.com,sponsorship-01
-invoice-19,IN-6234-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.21,ftp://example.com/image.jpg,sponsorship-01
+invoice-19,IN-6234-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.21,ftp://sample.com?service=mail,sponsorship-01
 invoice-20,IN-7234-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.21,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmno.jpg,sponsorship-01
-invoice-21,IN-8234-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.21,http://sample.com?service=mail,sponsorship-01
+invoice-21,IN-8234-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.21,,sponsorship-01
 invoice-22,IN-9234-1234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.21,https://sample.com,sponsorship-02
 invoice-23,IN-1234-2234,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.21,https://sample.com,sponsorship-03
 invoice-24,IN-9999-9999,2022/07/29 00:00,2023/08/06 00:00,EUR 20000.00,0.21,https://sample.com,sponsorship-01
