@@ -25,8 +25,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Setter
 @Getter
+@Setter
 public class Sponsorship extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------------------------
@@ -56,7 +56,6 @@ public class Sponsorship extends AbstractEntity {
 	@NotNull
 	private Money				amount;
 
-
 	@NotNull
 	private SponsorshipType		type;
 
@@ -73,6 +72,5 @@ public class Sponsorship extends AbstractEntity {
 	@Valid
 	@ManyToOne()
 	private Project				project;
-
 
 }
