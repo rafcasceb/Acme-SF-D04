@@ -1,0 +1,3 @@
+key,name,expected-benefits-list,link,email,key:userAccount
+sponsor-01,Isabel,Benefit1,https://sample.com,isaII@acme.com,user-account-sponsor-01
+sponsor-02,Fernando,Benefit2,https://sample.com,nano@acme.com,user-account-sponsor-02
