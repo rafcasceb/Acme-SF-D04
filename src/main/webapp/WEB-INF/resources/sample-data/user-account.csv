@@ -26,3 +26,6 @@ user-account-administrator-02,true,"UserIdentity{name: 'Ronaldo', surname: 'Ram�
 user-account-administrator-03,true,"UserIdentity{name: 'Jesús', surname: 'Fuentres', email: 'jusus@acme.com'}",administrator2,administrator2
 user-account-sponsor-01,true,"UserIdentity{name: 'Isabel', surname: 'La Católica', email: 'isaII@acme.com'}",sponsor1,sponsor1
 user-account-sponsor-02,true,"UserIdentity{name: 'Fernando', surname: 'Alonso', email: 'nano@acme.com'}",sponsor2,sponsor2
+user-account-client-01,true,"UserIdentity{name: 'Illia', surname: 'Topuria', email: 'illia@acme.com'}",client1,client1
+user-account-client-02,true,"UserIdentity{name: 'Juan Alberto', surname: 'García', email: 'juanalberto@acme.com'}",client2,client2
+user-account-client-03,true,"UserIdentity{name: 'Cliente', surname: 'Cliente', email: 'cliente@acme.com'}",client3,client3
