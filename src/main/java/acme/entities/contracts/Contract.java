@@ -56,7 +56,9 @@ public class Contract extends AbstractEntity {
 	private String				goals;
 
 	@Positive  //Pendiente a preguntar si es Money
-	private double				budget;
+	private int					budget;
+
+	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
