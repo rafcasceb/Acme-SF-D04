@@ -16,9 +16,9 @@ record-14,AU-0014-001,https://example.com,A_PLUS,2020/01/01 08:00,2021/01/01 00:
 record-15,AU-0015-001,https://example.com,A_PLUS,2020/01/01 08:00,2021/01/01 23:59,audit-15
 record-16,AU-0016-001,https://example.com,A_PLUS,2020/01/01 08:00,2020/12/31 00:00,audit-16
 record-17,AU-0017-001,https://example.com,A_PLUS,2020/01/01 08:00,2020/12/31 23:59,audit-17
-record-18,AU-9999-999,https://example.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-18
-record-19,AU-0000-000,https://example.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-19
-record-20,AU-0019-001,https://filler.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-20
-record-21,AU-0021-001,https://filler.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-21
-record-22,AU-0022-001,https://filler.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-22
-record-23,AU-0002-002,https://example.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-02
+record-18,AU-0018-001,https://example.com,A_PLUS,2020/01/01 08:00,2000/01/01 00:00,audit-18
+record-19,AU-9999-999,https://example.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-19
+record-20,AU-0000-000,https://example.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-20
+record-21,AU-0019-001,https://filler.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-21
+record-22,AU-0021-001,https://filler.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-22
+record-23,AU-0002-002,https://filler.com,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-02
