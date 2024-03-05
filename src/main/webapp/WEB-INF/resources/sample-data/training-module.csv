@@ -1,0 +1,28 @@
+key,code,details,difficulty-level,creation-moment,update-moment,link,estimated-total-time,draft-mode,key:project
+module-01,ABC-123,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-02,XYZ-123,السلام عليكم ورحمة الله وبركاته. كيف حالكم اليوم؟,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-03,DEF-789,Привет! Как дела? Надеюсь у тебя всё хорошо.,BASIC,2020/04/04 14:35,2020/04/19 14:54, https://example.es,20,false,project-01
+module-04,WXY-234,你好！今天天气很好 你想做些什么？,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-05,GHI-345,こんにちは。今日はいい天気ですね。一緒にお出かけしませんか？,BASIC,2020/04/04 14:35,2020/04/19 14:54, https://example.es,20,false,project-01
+module-06,RST-121,T,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-07,RST-122,Th,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-08,RST-123,Lorem ipsum dolor sit amets consectetur adipiscing elit.,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-09,RST-124,The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-10,RST-125,<title>My Webpage</title>,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-11,RST-126,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-12,QRS-678,This is a test text,INTERMEDIATE,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-13,JKL-678,This is a test text,ADVANCED,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-14,PQR-901,This is a test text,BASIC,2020/12/31 23:59,2020/04/19 14:54,https://example.es,20,false,project-01
+module-15,BCD-890,This is a test text,BASIC,2021/01/01 00:00,2020/04/19 14:54,https://example.es,20,false,project-01
+module-16,EFG-789,This is a test text,BASIC,2020/02/29 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-17,UVW-456,This is a test text,BASIC,2020/04/04 14:35,2020/12/31 23:59,https://example.es,20,false,project-01
+module-18,ABC-124,This is a test text,BASIC,2020/04/04 14:35,2021/01/01 00:00,https://example.es,20,false,project-01
+module-19,VWX-567,This is a test text,BASIC,2020/04/04 14:35,2020/02/29 14:35,https://example.es,20,false,project-01
+module-20,LMN-012,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01
+module-21,STU-234,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://examp?le.es,20,false,project-01
+module-22,IJK-567,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,,20,false,project-01
+module-23,MNO-890,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://x.com/,20,false,project-01
+module-24,MNO-890,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefg,20,false,project-01
+module-25,MNO-890,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzaabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz11223344556677889900abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzaabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz11223344556677889900,20,false,project-01
+module-26,XYZ-125,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,1,false,project-01
+module-27,DEF-782,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,true,project-01
