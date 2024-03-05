@@ -1,17 +1,13 @@
 
-package acme.entities.audits;
-
-import java.util.Date;
+package acme.entities.trainingmodule;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -24,8 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class AuditRecord extends AbstractEntity {
-
+public class TrainingSession extends AbstractEntity {
 	// Serialisation identifier -----------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -33,33 +28,31 @@ public class AuditRecord extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
+	@Pattern(regexp = "TS-[A-Z]{1,3}-[0-9]{3}", message = "{validation.project.code}")
 	@NotBlank
-	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}", message = "{validation.record.code}")
 	private String				code;
 
+	@Length(max = 75)
+	@NotBlank
+	private String				location;
+
+	@Length(max = 75)
+	@NotBlank
+	private String				instructor;
+
+	@Length(max = 225)
+	@NotBlank
+	private String				email;
+
 	@URL
-	@Length(max = 255)
 	private String				link;
 
-	@NotNull
-	private Mark				mark;
-
-	// TODO: validation "at least one hour long" of this period.
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				initialMoment;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@PastOrPresent
-	@NotNull
-	protected Date				finalMoment;
-
-	// Relationships  ------------------------------------------------------------
+	// Relations ------------------------------------------------------------------------
 
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private CodeAudit				audit;
+	@OneToMany()
+	private TrainingModule		trainingModule;
+
 }

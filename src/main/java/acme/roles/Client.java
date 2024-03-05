@@ -1,24 +1,24 @@
 
-package acme.entities.projects;
+package acme.roles;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.client.data.AbstractEntity;
+import acme.client.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Project extends AbstractEntity {
+public class Client extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -27,28 +27,23 @@ public class Project extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "{validation.project.code}")
+	@Pattern(regexp = "CLI-[0-9]{4}", message = "{validation.client.code}")
 	@NotBlank
-	private String				code;
+	private String				identification;
 
+	@NotBlank
 	@Length(max = 75)
+	private String				companyName;
+
+	@NotNull
+	private ClientType			type;
+
 	@NotBlank
-	private String				title;
-
-	@Length(max = 100)
-	@NotBlank
-	private String				abstractDescription;
-
-	private boolean				fatalErrorPresent;
-
-	@Min(0)
-	@Max(2000)
-	private int					estimatedCostInHours;
+	@Email
+	private String				email;
 
 	@URL
 	@Length(max = 255)
 	private String				link;
-
-	private boolean				published;		// Indicates if aggregation is not in draft mode.
 
 }
