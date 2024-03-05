@@ -3,6 +3,8 @@ package acme.entities.projects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -38,6 +40,10 @@ public class Project extends AbstractEntity {
 	private String				abstractDescription;
 
 	private boolean				fatalErrorPresent;
+
+	@Min(0)
+	@Max(2000)
+	private int					estimatedCostInHours;
 
 	@URL
 	@Length(max = 255)
