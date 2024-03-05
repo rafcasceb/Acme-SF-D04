@@ -28,7 +28,7 @@ public class Developer extends AbstractRole {
 
 	@Length(max = 100)
 	@NotBlank
-	private String				skilsList;
+	private String				skillsList;
 
 	@Length(max = 100)
 	@NotBlank
