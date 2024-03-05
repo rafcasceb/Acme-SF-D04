@@ -1,9 +1,17 @@
 
 package acme.entities.audits;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -16,7 +24,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Record extends AbstractEntity {
+public class AuditRecord extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -33,5 +41,25 @@ public class Record extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
-	// Missing: relationship with audits, attribute "period" and a mark (“A+”, “A”, “B”, “C”, “F”, or “F-”).
+	@NotNull
+	private Mark				mark;
+
+	// TODO: validation "at least one hour long" of this period.
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
+	@NotNull
+	protected Date				initialMoment;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@PastOrPresent
+	@NotNull
+	protected Date				finalMoment;
+
+	// Relationships  ------------------------------------------------------------
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private CodeAudit				audit;
 }

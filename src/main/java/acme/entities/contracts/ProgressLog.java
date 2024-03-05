@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -18,14 +19,13 @@ import javax.validation.constraints.Positive;
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Contract extends AbstractEntity {
+public class ProgressLog extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -34,31 +34,26 @@ public class Contract extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.contract.code}")
+	@Pattern(regexp = "PG-[A-Z]{1,2}-[0-9]{4}", message = "{validation.progressLog.code}")
 	@NotBlank
-	private String				code;
+	private String				recordId;
 
-	@NotNull
-	@PastOrPresent
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date				instantiationMoment;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				providerName;
-
-	@NotBlank
-	@Length(max = 75)
-	private String				customerName;
+	@Positive //Pendiente a preguntar
+	@Digits(integer = 3, fraction = 2)
+	private double				completeness;
 
 	@NotBlank
 	@Length(max = 100)
-	private String				goals;
+	private String				comment;
 
-	@Positive  //Pendiente a preguntar si es Money
-	private int					budget;
+	@NotNull //ESTA HORA DEBE SER POSTERIOR A LA DEL CONTRATO
+	@PastOrPresent
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				registrationMoment;
 
-	private boolean				draftMode;
+	@NotBlank
+	@Length(max = 75)
+	private String				responsiblePerson;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -67,6 +62,6 @@ public class Contract extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Project				project;
+	private Contract			contract;
 
 }
