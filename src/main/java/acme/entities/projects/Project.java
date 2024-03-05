@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
@@ -39,16 +40,19 @@ public class Project extends AbstractEntity {
 	@NotBlank
 	private String				abstractDescription;
 
-	private boolean				fatalErrorPresent;
+	@NotNull
+	private Boolean				fatalErrorPresent;
 
 	@Min(0)
 	@Max(2000)
-	private int					estimatedCostInHours;
+	@NotNull
+	private Integer				estimatedCostInHours;
 
 	@URL
 	@Length(max = 255)
 	private String				link;
 
-	private boolean				published;		// Indicates if aggregation is not in draft mode.
+	@NotNull
+	private Boolean				published;		// Indicates if aggregation is not in draft mode.
 
 }
