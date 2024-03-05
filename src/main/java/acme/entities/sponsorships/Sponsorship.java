@@ -1,33 +1,34 @@
 
 package acme.entities.sponsorships;
 
-import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
-import javax.validation.constraints.AssertTrue;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
+import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Setter
 @Getter
+@Setter
 public class Sponsorship extends AbstractEntity {
-	
+
 	// Serialisation identifier -----------------------------------------------------------------
 
 	private static final long	serialVersionUID	= 1L;
@@ -35,7 +36,7 @@ public class Sponsorship extends AbstractEntity {
 	// Attributes -------------------------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}")
+	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.sponsorship.code}")
 	@NotBlank
 	private String				code;
 
@@ -52,58 +53,24 @@ public class Sponsorship extends AbstractEntity {
 	@NotNull
 	private Date				endDate;
 
-	@Min(0)
 	@NotNull
-	private double				amount;
+	private Money				amount;
 
 	@NotNull
 	private SponsorshipType		type;
 
 	@Email
+	@Length(max = 255)
 	private String				email;
 
 	@URL
+	@Length(max = 255)
 	private String				link;
 
-	// Derived Attributes -------------------------------------------------------------------------------
-
-
-	@Transient
-	public Duration getDuration() {
-		return Duration.between(this.startDate.toInstant(), this.endDate.toInstant());
-	}
-	// Validation  ------------------------------------------------------------
-
-	@AssertTrue(message = "The duration must be greater than one month")
-	public boolean isTimeDurationGreaterThanOneMonth() {
-		Duration oneMonth = Duration.ofDays(30);
-		return this.getDuration().compareTo(oneMonth) >= 0;
-	}
-
-	@AssertTrue(message = "The start date must be after moment")
-	public boolean isStartDateAfterMoment() {
-		return this.startDate.after(this.moment);
-	}
-	
-	// Constructor  ------------------------------------------------------------
-	
-	public Sponsorship(String code, Date moment, Date startDate, Date endDate, double amount, SponsorshipType type, String email, String link) {
-	    this.code = code;
-	    this.moment = moment;
-	    this.startDate = startDate;
-	    this.endDate = endDate;
-	    this.amount = amount;
-	    this.type = type;
-	    this.email = email;
-	    this.link = link;
-
-	    if (!isTimeDurationGreaterThanOneMonth()) {
-	        throw new IllegalArgumentException("The duration must be greater than one month");
-	    }
-	    
-	    if (!isStartDateAfterMoment()) {
-	        throw new IllegalArgumentException("The start date must be after moment");
-	    }
-	}
+	// Relationships  ------------------------------------------------------------
+	@NotNull
+	@Valid
+	@ManyToOne()
+	private Project				project;
 
 }
