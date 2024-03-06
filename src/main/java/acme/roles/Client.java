@@ -26,6 +26,7 @@ public class Client extends AbstractRole {
 
 	// Attributes -------------------------------------------------------------
 
+	//TODO: ver si el patron esta bien implementado
 	@Column(unique = true)
 	@Pattern(regexp = "CLI-[0-9]{4}", message = "{validation.client.code}")
 	@NotBlank
