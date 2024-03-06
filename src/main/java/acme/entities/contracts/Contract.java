@@ -13,11 +13,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Positive;
 
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
+import acme.client.data.datatypes.Money;
 import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,6 +33,7 @@ public class Contract extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	//TODO: ver si el patron esta bien implementado
 	@Column(unique = true)
 	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.contract.code}")
 	@NotBlank
@@ -55,14 +56,18 @@ public class Contract extends AbstractEntity {
 	@Length(max = 100)
 	private String				goals;
 
-	@Positive  //Pendiente a preguntar si es Money
-	private int					budget;
+	//TODO: implementar custom constrain budget <= coste total del proyecto asociado
+	//TODO: tiene que ser positivo
+	@NotNull
+	private Money				budget;
 
 	private boolean				draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
+
+	//TODO: ver si hay relacion Cliente -> Contrato
 
 	@NotNull
 	@Valid
