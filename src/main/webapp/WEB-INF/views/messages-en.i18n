@@ -20,3 +20,5 @@ validation.risk.code = The code must be in format 'R-' followed by three digits.
 validation.configuration.default = The currency must be in the format 'XXX' which is a three-letter uppercase currency code.
 validation.configuration.accepted = The currency must be in the format 'XXX' or 'XXX, XXX, ...' where XXX is a three-letter uppercase currency code.
 validation.client.code	= The code must be in the format 'CLI-' and four digits.
+validation.module.code	= The code must be in the format of three uppercase letters, followed by a hyphen, and then three digits.
+validation.session.code	= The code must be in the format of "TS", followed by a hyphen, followed by three uppercase letters, followed by a hyphen, and then three digits.
