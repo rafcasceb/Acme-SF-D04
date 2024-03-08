@@ -34,6 +34,7 @@ public class CodeAudit extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@NotNull
 	private boolean				draftMode;
 
 	@Column(unique = true)
