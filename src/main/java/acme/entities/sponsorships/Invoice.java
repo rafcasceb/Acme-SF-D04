@@ -52,6 +52,7 @@ public class Invoice extends AbstractEntity {
 	private Date				dueDate;
 
 	@NotNull
+	@Valid
 	private Money				quantity;
 
 	@DecimalMin(value = "0.0", inclusive = true)
