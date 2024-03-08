@@ -1,12 +1,6 @@
 
 package acme.forms;
 
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
 import acme.client.data.AbstractForm;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,48 +15,17 @@ public class SponsorDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------
 
-	@Min(value = 0)
-	@Max(value = 1000000)
-	private Integer				totalNumberInvoicesTaxEqualOrLessThan21;
+	private int					totalNumberInvoicesTaxEqualOrLessThan21;
+	private int					totalNumberSponsorshipsWithLink;
 
-	@Min(value = 0)
-	@Max(value = 1000000)
-	private Integer				totalNumberSponsorshipsWithLink;
+	private Double				averageAmountSponsorships;
+	private Double				stdevAmountSponsorships;
+	private Double				minimumAmountSponsorships;
+	private Double				maximumAmountSponsorships;
 
-	@DecimalMin(value = "0.0")
-	@DecimalMax(value = "1000000.00")
-	@Digits(integer = 7, fraction = 2)
-	private Double				averageSponsorships;
-
-	@DecimalMin(value = "0.0")
-	@DecimalMax(value = "1000000.00")
-	@Digits(integer = 7, fraction = 2)
-	private Double				deviationSponsorships;
-
-	@Min(value = 0)
-	@Max(value = 1000000)
-	private Integer				minimumQuantitySponsorships;
-
-	@Min(value = 0)
-	@Max(value = 1000000)
-	private Integer				maximumQuantitySponsorships;
-
-	@DecimalMin(value = "0.0")
-	@DecimalMax(value = "1000000.00")
-	@Digits(integer = 7, fraction = 2)
-	private Double				averageInvoices;
-
-	@DecimalMin(value = "0.0")
-	@DecimalMax(value = "1000000.00")
-	@Digits(integer = 7, fraction = 2)
-	private Double				deviationInvoices;
-
-	@Min(value = 0)
-	@Max(value = 1000000)
-	private Integer				minimumInvoices;
-
-	@Min(value = 0)
-	@Max(value = 1000000)
-	private Integer				maximumInvoices;
+	private Double				averageQuantityInvoices;
+	private Double				stdevQuantityInvoices;
+	private Double				minimumQuantityInvoices;
+	private Double				maximumQuantityInvoices;
 
 }
