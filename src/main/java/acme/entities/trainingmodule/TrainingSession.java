@@ -1,11 +1,15 @@
 
 package acme.entities.trainingmodule;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -32,6 +36,14 @@ public class TrainingSession extends AbstractEntity {
 	@NotBlank
 	private String				code;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	private Date				startDate;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@NotNull
+	private Date				endDate;
+
 	@Length(max = 75)
 	@NotBlank
 	private String				location;
@@ -40,11 +52,12 @@ public class TrainingSession extends AbstractEntity {
 	@NotBlank
 	private String				instructor;
 
-	@Length(max = 225)
-	@NotBlank
+	@Email
+	@Length(min = 0, max = 255)
 	private String				email;
 
 	@URL
+	@Length(min = 0, max = 255)
 	private String				link;
 
 	// Relations ------------------------------------------------------------------------
@@ -52,7 +65,6 @@ public class TrainingSession extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	@OneToMany()
 	private TrainingModule		trainingModule;
 
 }

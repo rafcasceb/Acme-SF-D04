@@ -22,7 +22,7 @@ public class ClientDashboard extends AbstractForm {
 
 	Double						contractBudgetAverage;
 	Double						contractBudgetDeviation;
-	Double						minimumBudget;   // Pendiente de Integer
-	Double						maximumBudget;   // Pendiente de Integer
+	Double						minimumBudget;
+	Double						maximumBudget;
 
 }
