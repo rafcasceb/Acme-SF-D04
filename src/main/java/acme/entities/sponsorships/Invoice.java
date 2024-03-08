@@ -13,7 +13,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -43,7 +42,7 @@ public class Invoice extends AbstractEntity {
 	@NotBlank
 	private String				code;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
 	@NotNull
 	private Date				registrationTime;
@@ -55,11 +54,10 @@ public class Invoice extends AbstractEntity {
 	@NotNull
 	private Money				quantity;
 
-	@NotNull
 	@DecimalMin(value = "0.0", inclusive = true)
 	@DecimalMax(value = "1.0", inclusive = true)
 	@Digits(integer = 1, fraction = 2)
-	private Double				tax;
+	private double				tax;
 
 	@URL
 	@Length(max = 255)
