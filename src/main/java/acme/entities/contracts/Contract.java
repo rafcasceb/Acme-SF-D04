@@ -57,7 +57,8 @@ public class Contract extends AbstractEntity {
 	private String				goals;
 
 	//TODO: implementar custom constrain budget <= coste total del proyecto asociado
-	//TODO: tiene que ser positivo
+	//TODO: tiene que ser positivo > 0
+	@Valid
 	@NotNull
 	private Money				budget;
 
