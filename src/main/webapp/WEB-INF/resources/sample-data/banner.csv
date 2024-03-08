@@ -1,4 +1,4 @@
-key,moment,display-start-date,display-end-date,picture,slogan,target
+key,moment,display-start-moment,display-end-moment,picture,slogan,target
 banner-01,2022/07/29 00:00,2023/08/06 00:00,2024/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
 banner-02,2020/02/28 23:59,2023/08/06 00:00,2024/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
 banner-03,2021/12/31 12:00,2023/08/06 00:00,2024/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
@@ -11,7 +11,7 @@ banner-09,2022/07/29 00:00,2022/07/29 00:00,2024/08/13 00:00,https://ejemplo.com
 banner-10,2022/07/29 00:00,2023/08/06 00:00,2024/02/29 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
 banner-11,2022/07/29 00:00,2023/08/06 00:00,2024/12/31 23:59,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
 banner-12,2022/07/29 00:00,2023/08/06 00:00,2023/08/13 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
-banner-13,2022/07/29 00:00,2023/08/06 00:00,2023/08/13 00:01,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
+banner-13,2022/07/29 00:00,2023/08/06 00:00,2222/07/29 00:00,https://ejemplo.com/imagen.jpg, Interesting Slogan!,https://ejemplo.com/offer
 banner-14,2022/07/29 00:00,2023/08/06 00:00,2024/08/13 00:00,ftp://example.com/image.jpg, Interesting Slogan!,https://ejemplo.com/offer
 banner-15,2022/07/29 00:00,2023/08/06 00:00,2024/08/13 00:00,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmno.jpg, Interesting Slogan!,https://ejemplo.com/offer
 banner-16,2022/07/29 00:00,2023/08/06 00:00,2024/08/13 00:00,ftp://example.com/22/image.jpg,Interesting Slogan!,https://ejemplo.com/offer
