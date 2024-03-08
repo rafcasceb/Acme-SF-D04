@@ -18,13 +18,13 @@ public class AuditorDashboard extends AbstractForm {
 	private int					totalStaticAudits;
 	private int					totalDynamicAudits;
 
-	private double				averageAuditRecords;
-	private double				deviationAuditRecords;
-	private int					minimumAuditRecords;
-	private int					maximumAuditRecords;
+	private Double				averageAuditRecords;
+	private Double				deviationAuditRecords;
+	private Integer				minimumAuditRecords;
+	private Integer				maximumAuditRecords;
 
-	private double				averageRecordPeriod;
-	private double				deviationRecordPeriod;
-	private double				minimumRecordPeriod;
-	private double				maximumRecordPeriod;
+	private Double				averageRecordPeriod;
+	private Double				deviationRecordPeriod;
+	private Double				minimumRecordPeriod;
+	private Double				maximumRecordPeriod;
 }
