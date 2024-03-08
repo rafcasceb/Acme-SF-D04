@@ -3,6 +3,7 @@ package acme.entities.projects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -52,7 +53,12 @@ public class Project extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
-	@NotNull
-	private Boolean				published;		// Indicates if aggregation is not in draft mode.
+	private boolean				draftMode;
+
+
+	@Transient
+	public Boolean isPublished() {
+		return !this.draftMode;
+	}
 
 }
