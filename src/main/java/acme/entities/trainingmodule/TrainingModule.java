@@ -36,7 +36,7 @@ public class TrainingModule extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.project.code}")
+	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.module.code}")
 	@NotBlank
 	private String				code;
 
@@ -58,7 +58,7 @@ public class TrainingModule extends AbstractEntity {
 	private Date				updateMoment;
 
 	@URL
-	@Length(min = 0, max = 255)
+	@Length(max = 255)
 	private String				link;
 
 	@Positive
