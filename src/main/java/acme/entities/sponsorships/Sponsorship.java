@@ -40,7 +40,7 @@ public class Sponsorship extends AbstractEntity {
 	@NotBlank
 	private String				code;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
 	@NotNull
 	private Date				moment;
