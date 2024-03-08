@@ -35,11 +35,11 @@ public class Banner extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	private Date				displayStartDate;
+	private Date				displayStartMoment;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	private Date				displayEndDate;
+	private Date				displayEndMoment;
 
 	@NotBlank
 	@URL
@@ -58,7 +58,5 @@ public class Banner extends AbstractEntity {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	// Validation  ------------------------------------------------------------
 
 }
