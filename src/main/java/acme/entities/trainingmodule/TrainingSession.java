@@ -32,7 +32,7 @@ public class TrainingSession extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "TS-[A-Z]{1,3}-[0-9]{3}", message = "{validation.project.code}")
+	@Pattern(regexp = "TS-[A-Z]{1,3}-[0-9]{3}", message = "{validation.session.code}")
 	@NotBlank
 	private String				code;
 
@@ -53,11 +53,10 @@ public class TrainingSession extends AbstractEntity {
 	private String				instructor;
 
 	@Email
-	@Length(min = 0, max = 255)
 	private String				email;
 
 	@URL
-	@Length(min = 0, max = 255)
+	@Length(max = 255)
 	private String				link;
 
 	// Relations ------------------------------------------------------------------------
