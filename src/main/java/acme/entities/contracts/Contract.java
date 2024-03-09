@@ -19,6 +19,7 @@ import org.hibernate.validator.constraints.Length;
 import acme.client.data.AbstractEntity;
 import acme.client.data.datatypes.Money;
 import acme.entities.projects.Project;
+import acme.roles.Client;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,7 +36,7 @@ public class Contract extends AbstractEntity {
 
 	//TODO: ver si el patron esta bien implementado
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.contract.code}")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.contract.code}")
 	@NotBlank
 	private String				code;
 
@@ -62,7 +63,7 @@ public class Contract extends AbstractEntity {
 	@NotNull
 	private Money				budget;
 
-	private boolean				draftMode;
+	private boolean				published;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -74,5 +75,10 @@ public class Contract extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Client				client;
 
 }
