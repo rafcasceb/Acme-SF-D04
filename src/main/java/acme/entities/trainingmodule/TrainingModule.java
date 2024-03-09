@@ -21,6 +21,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.entities.projects.Project;
+import acme.roles.Developer;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +37,7 @@ public class TrainingModule extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.module.code}")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.module.code}")
 	@NotBlank
 	private String				code;
 
@@ -62,11 +63,10 @@ public class TrainingModule extends AbstractEntity {
 	private String				link;
 
 	@Positive
-	@Max(200)
+	@Max(10000)
 	private int					estimatedTotalTime;
 
-	@NotNull
-	private boolean				draftMode;
+	private boolean				published;
 
 	//Relations --------------------------------------------------------------------
 
@@ -74,5 +74,10 @@ public class TrainingModule extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Project				project;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Developer			developer;
 
 }
