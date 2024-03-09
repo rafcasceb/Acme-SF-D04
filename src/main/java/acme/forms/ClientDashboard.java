@@ -15,11 +15,11 @@ public class ClientDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------
 
-	int[]						progressLogsCounter;
+	private int[]				progressLogsCounter;
 
-	Double						contractBudgetAverage;
-	Double						contractBudgetDeviation;
-	Double						minimumBudget;
-	Double						maximumBudget;
+	private Double				contractBudgetAverage;
+	private Double				contractBudgetDeviation;
+	private Double				minimumBudget;
+	private Double				maximumBudget;
 
 }
