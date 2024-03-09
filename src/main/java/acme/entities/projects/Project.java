@@ -3,7 +3,8 @@ package acme.entities.projects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -14,6 +15,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.roles.Manager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,8 +30,10 @@ public class Project extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	private boolean				published;
+
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "{validation.project.code}")
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{4}$", message = "{validation.project.code}")
 	@NotBlank
 	private String				code;
 
@@ -41,24 +45,19 @@ public class Project extends AbstractEntity {
 	@NotBlank
 	private String				abstractDescription;
 
-	@NotNull
-	private Boolean				fatalErrorPresent;
+	private boolean				fatalErrorPresent;
 
 	@Min(0)
-	@Max(2000)
-	@NotNull
-	private Integer				estimatedCostInHours;
+	@Max(300)
+	private int					estimatedCostInHours;
 
 	@URL
 	@Length(max = 255)
 	private String				link;
 
-	private boolean				draftMode;
-
-
-	@Transient
-	public Boolean isPublished() {
-		return !this.draftMode;
-	}
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Manager				manager;
 
 }

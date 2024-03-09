@@ -5,11 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
-import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -20,7 +18,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
-import acme.entities.projects.Project;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +33,7 @@ public class Risk extends AbstractEntity {
 	// Attributes -------------------------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "R-[0-9]{3}", message = "{validation.risk.code}")
+	@Pattern(regexp = "^R-[0-9]{3}$", message = "{validation.risk.code}")
 	@NotBlank
 	private String				reference;
 
@@ -46,12 +43,10 @@ public class Risk extends AbstractEntity {
 	private Date				identificationDate;
 
 	@Digits(integer = 1, fraction = 2)
-	@NotNull
-	private Double				impact;
+	private double				impact;
 
 	@Digits(integer = 1, fraction = 2)
-	@NotNull
-	private Double				probability;
+	private double				probability;
 
 	@Length(max = 100)
 	@NotBlank
@@ -61,14 +56,9 @@ public class Risk extends AbstractEntity {
 	@Length(max = 255)
 	private String				link;
 
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Project				project;
-
 
 	@Transient
-	public Double getValue() {
+	public double getValue() {
 		return this.impact * this.probability;
 	}
 
