@@ -18,6 +18,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
+import acme.roles.Auditor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,7 +35,7 @@ public class AuditRecord extends AbstractEntity {
 
 	@Column(unique = true)
 	@NotBlank
-	@Pattern(regexp = "AU-[0-9]{4}-[0-9]{3}", message = "{validation.record.code}")
+	@Pattern(regexp = "^AU-[0-9]{4}-[0-9]{3}$", message = "{validation.record.code}")
 	private String				code;
 
 	@URL
@@ -61,5 +62,10 @@ public class AuditRecord extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private CodeAudit				audit;
+	private CodeAudit			audit;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Auditor				auditor;
 }
