@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>6</zoom_level>
+  <zoom_level>5</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>594</x>
-      <y>576</y>
-      <w>210</w>
-      <h>66</h>
+      <x>670</x>
+      <y>440</y>
+      <w>175</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 Manager
@@ -24,10 +24,10 @@ bg=RED
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>582</x>
-      <y>186</y>
-      <w>240</w>
-      <h>96</h>
+      <x>660</x>
+      <y>115</y>
+      <w>200</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Project
@@ -48,10 +48,10 @@ bg=RED
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>264</x>
-      <y>528</y>
-      <w>264</w>
-      <h>114</h>
+      <x>395</x>
+      <y>400</y>
+      <w>220</w>
+      <h>95</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Form&gt;&gt;
 ManagerDashboard
@@ -72,10 +72,10 @@ bg=RED</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>408</x>
-      <y>402</y>
-      <w>120</w>
-      <h>66</h>
+      <x>515</x>
+      <y>295</y>
+      <w>100</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
 UserStoryPriority
@@ -92,10 +92,10 @@ bg=BLUE</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>588</x>
-      <y>402</y>
-      <w>228</w>
-      <h>84</h>
+      <x>665</x>
+      <y>295</y>
+      <w>190</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 UserStory
@@ -114,10 +114,10 @@ bg=RED
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
-      <y>276</y>
-      <w>18</w>
-      <h>138</h>
+      <x>755</x>
+      <y>190</y>
+      <w>15</w>
+      <h>115</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-x
 bg=BLACK</panel_attributes>
@@ -126,10 +126,10 @@ bg=BLACK</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>708</x>
-      <y>498</y>
-      <w>24</w>
-      <h>18</h>
+      <x>765</x>
+      <y>375</y>
+      <w>20</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>0..*
 style=wordwrap</panel_attributes>
@@ -138,10 +138,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>708</x>
-      <y>372</y>
-      <w>24</w>
-      <h>18</h>
+      <x>765</x>
+      <y>270</y>
+      <w>20</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>0..*
 style=wordwrap</panel_attributes>
@@ -150,10 +150,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
-      <y>480</y>
-      <w>18</w>
-      <h>108</h>
+      <x>755</x>
+      <y>360</y>
+      <w>15</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x</panel_attributes>
     <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
@@ -161,10 +161,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>990</x>
-      <y>900</y>
-      <w>294</w>
-      <h>18</h>
+      <x>1000</x>
+      <y>710</y>
+      <w>245</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>
 
@@ -175,13 +175,14 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>780</x>
-      <y>330</y>
-      <w>114</w>
+      <x>875</x>
+      <y>320</y>
+      <w>85</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>A published project must 
-have 2 or more user stories.
+    <panel_attributes>A project can only have
+user stories of the one
+manager it belongs to.
 
 bg=pink</panel_attributes>
     <additional_attributes/>
@@ -189,10 +190,10 @@ bg=pink</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>648</x>
-      <y>96</y>
-      <w>114</w>
-      <h>30</h>
+      <x>715</x>
+      <y>40</y>
+      <w>95</w>
+      <h>25</h>
     </coordinates>
     <panel_attributes>A published project must 
 not have fatal errors present.
@@ -203,13 +204,13 @@ bg=pink</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>504</x>
-      <y>330</y>
-      <w>114</w>
-      <h>30</h>
+      <x>595</x>
+      <y>235</y>
+      <w>95</w>
+      <h>25</h>
     </coordinates>
-    <panel_attributes>A project can only have
-user stories of one manager.
+    <panel_attributes>A published project must 
+have at least 1 user story.
 
 bg=pink</panel_attributes>
     <additional_attributes/>
@@ -217,10 +218,10 @@ bg=pink</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
-      <y>120</y>
-      <w>18</w>
-      <h>78</h>
+      <x>755</x>
+      <y>60</y>
+      <w>15</w>
+      <h>65</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
@@ -228,32 +229,32 @@ bg=pink</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>816</x>
-      <y>276</y>
-      <w>24</w>
-      <h>66</h>
+      <x>855</x>
+      <y>190</y>
+      <w>65</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>20.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>110.0;260.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>810</x>
-      <y>354</y>
-      <w>30</w>
-      <h>60</h>
+      <x>850</x>
+      <y>330</y>
+      <w>35</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>30.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>354</y>
-      <w>30</w>
-      <h>60</h>
+      <x>650</x>
+      <y>255</y>
+      <w>25</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;30.0;80.0</additional_attributes>
@@ -261,10 +262,10 @@ bg=pink</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>564</x>
-      <y>276</y>
-      <w>30</w>
-      <h>66</h>
+      <x>645</x>
+      <y>190</y>
+      <w>25</w>
+      <h>55</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;90.0;30.0;10.0</additional_attributes>
@@ -272,10 +273,10 @@ bg=pink</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>708</x>
-      <y>552</y>
-      <w>24</w>
-      <h>18</h>
+      <x>765</x>
+      <y>420</y>
+      <w>20</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>1
 style=wordwrap</panel_attributes>
@@ -284,22 +285,22 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>798</x>
-      <y>234</y>
-      <w>144</w>
-      <h>390</h>
+      <x>840</x>
+      <y>155</y>
+      <w>145</w>
+      <h>325</h>
     </coordinates>
     <panel_attributes>lt=&lt;-x
 bg=BLACK</panel_attributes>
-    <additional_attributes>10.0;630.0;220.0;630.0;220.0;10.0;40.0;10.0</additional_attributes>
+    <additional_attributes>10.0;630.0;270.0;630.0;270.0;10.0;40.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>840</x>
-      <y>222</y>
-      <w>24</w>
-      <h>18</h>
+      <x>875</x>
+      <y>145</y>
+      <w>20</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>0..*
 style=wordwrap</panel_attributes>
@@ -308,14 +309,49 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>816</x>
-      <y>624</y>
-      <w>24</w>
-      <h>18</h>
+      <x>855</x>
+      <y>480</y>
+      <w>20</w>
+      <h>15</h>
     </coordinates>
     <panel_attributes>1
 style=wordwrap
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>840</x>
+      <y>345</y>
+      <w>80</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>140.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>980</x>
+      <y>310</y>
+      <w>45</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>belongs to
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>760</x>
+      <y>400</y>
+      <w>45</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>elicited by
+style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

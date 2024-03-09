@@ -1,27 +1,35 @@
-key,code,title,abstract-description,fatal-error-present,estimated-cost-in-hours,link,published
-project-01,AAA-0000,Title 1,Description 1,false,1000,https://link1.com,false
-project-02,ZZZ-0000,Title 1,Description 1,false,1000,https://link1.com,false
-project-03,CDR-0000,Title 1,Description 1,false,1000,https://link1.com,false
-project-04,CDR-9999,Title 1,Description 1,false,1000,https://link1.com,false
-project-05,CDR-1234,Title 1,Description 1,false,1000,https://link1.com,false
-project-06,CDR-0006,"""Title comillas""",Description 1,false,1000,https://link1.com,false
-project-07,CDR-0007,a,Description 1,false,1000,https://link1.com,false
-project-08,CDR-0008,Filler title of project to reach seventy five characters in attribute title,Description 1,false,1000,https://link1.com,false
-project-09,CDR-0009,貸んい建濯よ芝弾テソ,Description 1,false,1000,https://link1.com,false
-project-10,CDR-0010,Λορεμ ιπσθμ δολορ σιτ αμετ,Description 1,false,1000,https://link1.com,false
-project-11,CDR-0011,коза коза,Description 1,false,1000,https://link1.com,false
-project-12,CDR-0012,<script> window.location = ‘https://example.com’; </script>,Description 1,false,1000,https://link1.com,false
-project-13,CDR-0013,Title 1,Λορεμ ιπσθμ δολορ σιτ αμετ,false,1000,https://link1.com,false
-project-14,CDR-0014,Title 1,a,false,1000,https://link1.com,false
-project-15,CDR-0015,Title 1,Filler abstract to reach one hundred (100) characters in the attribute called as abstractDescription,false,1000,https://link1.com,false
-project-16,CDR-0016,Title 1,<script> window.location = ‘https://example.com’; </script>,false,1000,https://link1.com,false
-project-17,CDR-0017,Title 1,Description 1,true,1000,https://link1.com,false
-project-18,CDR-0018,Title 1,Description 1,true,0,https://link1.com,false
-project-19,CDR-0019,Title 1,Description 1,true,1,https://link1.com,false
-project-20,CDR-0020,Title 1,Description 1,true,1999,https://link1.com,false
-project-21,CDR-0021,Title 1,Description 1,true,2000,https://link1.com,false
-project-22,CDR-0022,Title 1,Description 1,false,1000,,false
-project-23,CDR-0023,Title 1,Description 1,false,1000,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,false
-project-24,CDR-0024,Title 1,Description 1,false,1000,https://link1.com,true
-project-25,CDR-0025,Title 1,Description 1,false,1000,https://link1.com,true
-project-26,CDR-0026,Title 1,Description 1,false,1000,https://link1.com,true
+key,published,code,title,abstract-description,fatal-error-present,estimated-cost-in-hours,link,key:manager
+project-01,false,CDR-0001,Title 1,Description 1,false,200,https://link1.com,manager-01
+project-02,true,CDR-0002,Title 1,Description 1,false,200,https://link1.com,manager-02
+project-03,false,AAA-0000,Title 1,Description 1,false,200,https://link1.com,manager-02
+project-04,false,ZZZ-0000,Title 1,Description 1,false,200,https://link1.com,manager-05
+project-05,false,CDR-0000,Title 1,Description 1,false,200,https://link1.com,manager-01
+project-06,false,CDR-9999,Title 1,Description 1,false,200,https://link1.com,manager-02
+project-07,false,CDR-0007,a,Description 1,false,200,https://link1.com,manager-05
+project-08,false,CDR-0008,aa,Description 1,false,200,https://link1.com,manager-05
+project-09,false,CDR-0009,Filler title of project to reach seventy five minus 1 characters in title.,Description 1,false,200,https://link1.com,manager-05
+project-10,false,CDR-0010,Filler title of project to reach seventy five characters in attribute title,Description 1,false,200,https://link1.com,manager-01
+project-11,false,CDR-0011,貸んい建濯よ芝弾テソ,Description 1,false,200,https://link1.com,manager-05
+project-12,false,CDR-0012,وصف المثال.,Description 1,false,200,https://link1.com,manager-05
+project-13,false,CDR-0013,коза коза,Description 1,false,200,https://link1.com,manager-05
+project-14,false,CDR-0014,<script> window.location = ‘https://example.com’; </script>,Description 1,false,200,https://link1.com,manager-05
+project-15,false,CDR-0015,Title 1,a,false,200,https://link1.com,manager-01
+project-16,false,CDR-0016,Title 1,aa,false,200,https://link1.com,manager-05
+project-17,false,CDR-0017,Title 1,Filler abstract to reach one hundred (100) characters in the attribute called as abstractDescription,false,200,https://link1.com,manager-05
+project-18,false,CDR-0018,Title 1,Filler abstract to reach ninety nine (99) characters in the attribute called as abstractDescription,false,200,https://link1.com,manager-05
+project-19,false,CDR-0019,Title 1,Λορεμ ιπσθμ δολορ σιτ αμετ,false,200,https://link1.com,manager-05
+project-20,false,CDR-0020,Title 1,وصف المثال.,false,200,https://link1.com,manager-05
+project-21,false,CDR-0021,Title 1,<script> window.location = ‘https://example.com’; </script>,false,200,https://link1.com,manager-05
+project-22,false,CDR-0022,Title 1,Description 1,true,200,https://link1.com,manager-05
+project-23,false,CDR-0023,Title 1,Description 1,false,0,https://link1.com,manager-05
+project-24,false,CDR-0024,Title 1,Description 1,false,1,https://link1.com,manager-05
+project-25,false,CDR-0025,Title 1,Description 1,false,299,https://link1.com,manager-05
+project-26,false,CDR-0026,Title 1,Description 1,false,300,https://link1.com,manager-05
+project-27,false,CDR-0027,Title 1,Description 1,false,200,,manager-05
+project-28,false,CDR-0028,Title 1,Description 1,false,200,https://a.com,manager-05
+project-29,false,CDR-0029,Title 1,Description 1,false,200,https://aa.com,manager-05
+project-30,false,CDR-0030,Title 1,Description 1,false,200,https://fillerURL.com/254characters/maxLength-1/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,manager-05
+project-31,false,CDR-0031,Title 1,Description 1,false,200,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,manager-05
+project-32,true,CDR-0032,Title 1,Description 1,false,200,https://link1.com,manager-05
+project-33,true,CDR-0033,Title 1,Description 1,false,200,https://link1.com,manager-02
+project-34,true,CDR-0034,Title 1,Description 1,false,200,https://link1.com,manager-01
