@@ -1,0 +1,14 @@
+key,identification,company-name,type,email,link,key:user-account
+client-01,CLI-0001,Software SA,INDIVIDUAL,illia@acme.com,https://certification-link1.com,user-account-client-01
+client-02,CLI-0002,Software SA,INDIVIDUAL,juanalberto@acme.com,https://certification-link1.com,user-account-client-02
+client-03,CLI-0003,Software SA,INDIVIDUAL,cliente@acme.com,https://certification-link1.com,user-account-client-03
+client-04,CLI-0000,Software SA,INDIVIDUAL,cliente@acme.com,https://certification-link1.com,user-account-client-03
+client-05,CLI-9999,Software SA,INDIVIDUAL,cliente@acme.com,https://certification-link1.com,user-account-client-03
+client-06,CLI-0004,ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJ,INDIVIDUAL,cliente@acme.com,https://certification-link1.com,user-account-client-03
+client-07,CLI-0005,"ABC审计公司",INDIVIDUAL,cliente@acme.com,https://certification-link1.com,user-account-client-03
+client-08,CLI-0006,شركة ABC للتدقيق,INDIVIDUAL,cliente@acme.com,https://certification-link1.com,user-account-client-03
+client-09,CLI-0007,<h1>Example Heading</h1>,INDIVIDUAL,cliente@acme.com,https://certification-link1.com,user-account-client-03
+client-10,CLI-0008,Software SA,COMPANY,cliente@acme.com,https://certification-link1.com,user-account-client-03
+client-11,CLI-0009,Software SA,INDIVIDUAL,ABC監査法人@acme.com,https://certification-link1.com,user-account-client-03
+client-12,CLI-0010,Software SA,INDIVIDUAL,cliente@acme.com,,user-account-client-03
+client-13,CLI-0011,Software SA,INDIVIDUAL,cliente@acme.com,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,user-account-client-03
