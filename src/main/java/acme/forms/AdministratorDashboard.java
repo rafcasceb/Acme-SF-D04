@@ -23,15 +23,15 @@ public class AdministratorDashboard extends AbstractForm {
 	private Double				ratioOfObjetiveCritical;
 	private Double				ratioOfObjetiveNonCritical;
 
-	private Double				avgValueInRisk;
-	private Double				stanDevValueInRisk;
-	private Double				maximumValueInRisk;
-	private Double				minimumValueInRisk;
+	private Double				avgValueInRisks;
+	private Double				stanDevValueInRisks;
+	private Double				maximumValueInRisks;
+	private Double				minimumValueInRisks;
 
 	//TODO: average, minimum, maximum, and standard deviation of the number of claims posted over the last 10 weeks
-	private Double				avgNumberOfClaims;
-	private Double				stanDevNumberOfClaims;
-	private Double				maximumNumberOfClaims;
-	private Double				minimumNumberOfClaims;
+	private Double				avgNumberOfClaimsLastTenWeeks;
+	private Double				stanDevNumberOfClaimsLastTenWeeks;
+	private Integer				maximumNumberOfClaimsLastTenWeeks;
+	private Integer				minimumNumberOfClaimsLastTenWeeks;
 
 }
