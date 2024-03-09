@@ -56,11 +56,10 @@ public class Invoice extends AbstractEntity {
 	@Valid
 	private Money				quantity;
 
-	@NotNull
 	@DecimalMin(value = "0.0", inclusive = true)
 	@DecimalMax(value = "1.0", inclusive = true)
 	@Digits(integer = 1, fraction = 2)
-	private Double				tax;
+	private double				tax;
 
 	@URL
 	@Length(max = 255)

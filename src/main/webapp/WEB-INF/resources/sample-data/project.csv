@@ -1,4 +1,4 @@
-key,code,title,abstract-description,fatal-error-present,estimated-cost-in-hours,link,draft-mode
+key,code,title,abstract-description,fatal-error-present,estimated-cost-in-hours,link,published
 project-01,AAA-0000,Title 1,Description 1,false,1000,https://link1.com,false
 project-02,ZZZ-0000,Title 1,Description 1,false,1000,https://link1.com,false
 project-03,CDR-0000,Title 1,Description 1,false,1000,https://link1.com,false
