@@ -14,12 +14,12 @@ public class DeveloperDashboard extends AbstractForm {
 
 	// Attributes -------------------------------------------------------
 
-	Integer						totalNumberTrainingModulesWithUpdateMoment;
-	Integer						totalNumberTrainingSessionsWithLink;
+	int							totalNumberTrainingModulesWithUpdateMoment;
+	int							totalNumberTrainingSessionsWithLink;
 
 	Double						averageTimeTrainingModules;
 	Double						deviationTimeTrainingModules;
-	Double						minimumTimeTrainingModules;
-	Double						maximumTimeTrainingModules;
+	int							minimumTimeTrainingModules;
+	int							maximumTimeTrainingModules;
 
 }

@@ -19,3 +19,6 @@ validation.progressLog.code	= El código debe estar en el formato 'PG-' seguido 
 validation.risk.code = El código debe estar en el formato 'R-' seguido por tres dígitos.
 validation.configuration.default = La divisa debe estar en el formato 'XXX' que es un código de divisa en mayúsculas de tres letras.
 validation.configuration.accepted = La divisa debe estar en el formato 'XXX' o 'XXX, XXX, ...' donde XXX es un código de divisa en mayúsculas de tres letras.
+validation.client.code	= El código debe estar en el formato 'CLI-' y cuatro dígitos.
+validation.module.code = El código debe estar en el formato de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos.
+validation.session.code = El código debe estar en el formato de "TS" seguido de un guión, seguido de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos.

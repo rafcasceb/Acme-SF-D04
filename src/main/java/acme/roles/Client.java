@@ -1,11 +1,9 @@
 
-package acme.entities.projects;
+package acme.roles;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Transient;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -13,14 +11,14 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.client.data.AbstractEntity;
+import acme.client.data.AbstractRole;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Project extends AbstractEntity {
+public class Client extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -28,37 +26,25 @@ public class Project extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	//TODO: ver si el patron esta bien implementado
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{3}-[0-9]{4}", message = "{validation.project.code}")
+	@Pattern(regexp = "CLI-[0-9]{4}", message = "{validation.client.code}")
 	@NotBlank
-	private String				code;
+	private String				identification;
 
+	@NotBlank
 	@Length(max = 75)
-	@NotBlank
-	private String				title;
-
-	@Length(max = 100)
-	@NotBlank
-	private String				abstractDescription;
+	private String				companyName;
 
 	@NotNull
-	private Boolean				fatalErrorPresent;
+	private ClientType			type;
 
-	@Min(0)
-	@Max(2000)
-	@NotNull
-	private Integer				estimatedCostInHours;
+	@NotBlank
+	@Email
+	private String				email;
 
 	@URL
 	@Length(max = 255)
 	private String				link;
-
-	private boolean				draftMode;
-
-
-	@Transient
-	public Boolean isPublished() {
-		return !this.draftMode;
-	}
 
 }

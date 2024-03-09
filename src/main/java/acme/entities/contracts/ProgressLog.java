@@ -33,11 +33,14 @@ public class ProgressLog extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	//TODO: ver si el patron esta bien implementado
 	@Column(unique = true)
 	@Pattern(regexp = "PG-[A-Z]{1,2}-[0-9]{4}", message = "{validation.progressLog.code}")
 	@NotBlank
 	private String				recordId;
 
+	//TODO: ver si el rango es de 0.00 a 100.00 o de 0.00 a 1.00
+	//TODO: ver si el incremento tiene que ser estrictamente positivo respecto al anterior PG
 	@Positive //Pendiente a preguntar
 	@Digits(integer = 3, fraction = 2)
 	private double				completeness;
@@ -46,6 +49,7 @@ public class ProgressLog extends AbstractEntity {
 	@Length(max = 100)
 	private String				comment;
 
+	//TODO: esta hora tiene que ser posterior a la de creacion del contrato (servicio)
 	@NotNull
 	@PastOrPresent
 	@Temporal(TemporalType.TIMESTAMP)
