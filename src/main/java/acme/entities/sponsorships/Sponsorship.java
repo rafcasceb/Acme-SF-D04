@@ -21,6 +21,7 @@ import org.hibernate.validator.constraints.URL;
 import acme.client.data.AbstractEntity;
 import acme.client.data.datatypes.Money;
 import acme.entities.projects.Project;
+import acme.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +37,7 @@ public class Sponsorship extends AbstractEntity {
 	// Attributes -------------------------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "[A-Z]{1,3}-[0-9]{3}", message = "{validation.sponsorship.code}")
+	@Pattern(regexp = "^[A-Z]{1,3}-[0-9]{3}$", message = "{validation.sponsorship.code}")
 	@NotBlank
 	private String				code;
 
@@ -61,17 +62,22 @@ public class Sponsorship extends AbstractEntity {
 	private SponsorshipType		type;
 
 	@Email
-	@Length(max = 255)
 	private String				email;
 
 	@URL
 	@Length(max = 255)
 	private String				link;
 
+	private boolean				published;
+
 	// Relationships  ------------------------------------------------------------
 	@NotNull
 	@Valid
-	@ManyToOne()
+	@ManyToOne(optional = false)
 	private Project				project;
 
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Sponsor				sponsor;
 }
