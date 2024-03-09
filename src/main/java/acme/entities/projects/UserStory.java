@@ -37,7 +37,7 @@ public class UserStory extends AbstractEntity {
 	private String				description;
 
 	@Min(0)
-	@Max(200)
+	@Max(10)
 	private int					estimatedCostInHours;
 
 	@NotBlank
