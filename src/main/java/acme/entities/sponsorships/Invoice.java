@@ -23,6 +23,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.client.data.datatypes.Money;
+import acme.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,7 +39,7 @@ public class Invoice extends AbstractEntity {
 	// Attributes -------------------------------------------------------------------------------
 
 	@Column(unique = true)
-	@Pattern(regexp = "IN-[0-9]{4}-[0-9]{4}", message = "{validation.invoice.code}")
+	@Pattern(regexp = "^IN-[0-9]{4}-[0-9]{4}$", message = "{validation.invoice.code}")
 	@NotBlank
 	private String				code;
 
@@ -47,7 +48,7 @@ public class Invoice extends AbstractEntity {
 	@NotNull
 	private Date				registrationTime;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
 	private Date				dueDate;
 
@@ -76,7 +77,12 @@ public class Invoice extends AbstractEntity {
 	// Relationships  ------------------------------------------------------------
 	@NotNull
 	@Valid
-	@ManyToOne()
-	private Sponsorship sponsorship;
+	@ManyToOne(optional = false)
+	private Sponsorship	sponsorship;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Sponsor		sponsor;
 
 }
