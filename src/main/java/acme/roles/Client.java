@@ -28,7 +28,7 @@ public class Client extends AbstractRole {
 
 	//TODO: ver si el patron esta bien implementado
 	@Column(unique = true)
-	@Pattern(regexp = "CLI-[0-9]{4}", message = "{validation.client.code}")
+	@Pattern(regexp = "^CLI-[0-9]{4}$", message = "{validation.client.code}")
 	@NotBlank
 	private String				identification;
 

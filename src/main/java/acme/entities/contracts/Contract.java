@@ -69,8 +69,6 @@ public class Contract extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
-	//TODO: ver si hay relacion Cliente -> Contrato
-
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
