@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -18,6 +20,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 
 import acme.client.data.AbstractEntity;
+import acme.roles.Client;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -40,6 +43,8 @@ public class ProgressLog extends AbstractEntity {
 
 	//TODO: ver si el rango es de 0.00 a 100.00 o de 0.00 a 1.00
 	//TODO: ver si el incremento tiene que ser estrictamente positivo respecto al anterior PG
+	@DecimalMin(value = "0.00", inclusive = true)
+	@DecimalMax(value = "100.00", inclusive = true)
 	@Digits(integer = 3, fraction = 2)
 	private double				completeness;
 
@@ -65,5 +70,10 @@ public class ProgressLog extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Contract			contract;
+
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	private Client				client;
 
 }
