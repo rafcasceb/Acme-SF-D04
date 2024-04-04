@@ -8,7 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.project.list.title = Mis proyectos
+manager.project.list.title = Listado de mis proyectos
+manager.project.list.title = Detalles de proyecto
 
 manager.project.list.label.published = Publicado
 manager.project.list.label.code = Código
@@ -17,3 +18,11 @@ manager.project.list.label.abstractDescription = Descripción abstracta
 manager.project.list.label.fatalErrorPresent = Errores fatales presentes
 manager.project.list.label.estimatedCostInHours = Coste estimado en horas
 manager.project.list.label.link = Enlace
+
+manager.project.form.label.published = Publicado:
+manager.project.form.label.code = Código:
+manager.project.form.label.title = Título:
+manager.project.form.label.abstractDescription = Descripción abstracta:
+manager.project.form.label.fatalErrorPresent = Errores fatales presentes:
+manager.project.form.label.estimatedCostInHours = Coste estimado en horas:
+manager.project.form.label.link = Enlace:
