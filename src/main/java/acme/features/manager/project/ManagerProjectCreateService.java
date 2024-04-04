@@ -10,7 +10,7 @@ import acme.entities.projects.Project;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectShowService extends AbstractService<Manager, Project> {
+public class ManagerProjectCreateService extends AbstractService<Manager, Project> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -22,29 +22,39 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int masterId;
-		Project project;
-		Manager manager;
-
-		masterId = super.getRequest().getData("id", int.class);
-		project = this.repository.findOneProjectById(masterId);
-		manager = project == null ? null : project.getManager();
-		status = project != null && super.getRequest().getPrincipal().hasRole(manager);
-
-		super.getResponse().setAuthorised(status);
-		//super.getResponse().setAuthorised(true);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
 		Project object;
-		int id;
+		Manager manager;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneProjectById(id);
+		manager = this.repository.findOneManagerById(super.getRequest().getPrincipal().getActiveRoleId());
+		object = new Project();
+		object.setPublished(false);
+		object.setManager(manager);
 
 		super.getBuffer().addData(object);
+	}
+
+	@Override
+	public void bind(final Project object) {
+		assert object != null;
+
+		super.bind(object, "code", "title", "abstractDescription", "fatalErrorPresent", "score", "estimatedCostInHours", "link");
+	}
+
+	@Override
+	public void validate(final Project object) {
+		assert object != null;
+	}
+
+	@Override
+	public void perform(final Project object) {
+		assert object != null;
+
+		this.repository.save(object);
 	}
 
 	@Override

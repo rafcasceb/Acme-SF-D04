@@ -24,3 +24,5 @@
 	<acme:list-column code="manager.project.list.label.estimatedCostInHours" path="estimatedCostInHours" width="10%"/>
 	<acme:list-column code="manager.project.list.label.link" path="link" width="10%"/>
 </acme:list>
+
+<acme:button code="manager.project.list.button.create" action="/manager/project/create"/>
