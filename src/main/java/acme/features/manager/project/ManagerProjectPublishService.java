@@ -1,16 +1,19 @@
 
 package acme.features.manager.project;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
+import acme.entities.projects.UserStory;
 import acme.roles.Manager;
 
 @Service
-public class ManagerProjectShowService extends AbstractService<Manager, Project> {
+public class ManagerProjectPublishService extends AbstractService<Manager, Project> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -30,10 +33,9 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 		masterId = super.getRequest().getData("id", int.class);
 		project = this.repository.findOneProjectById(masterId);
 		manager = project == null ? null : project.getManager();
-		status = project != null && super.getRequest().getPrincipal().hasRole(manager);
+		status = project != null && !project.isPublished() && super.getRequest().getPrincipal().hasRole(manager);
 
 		super.getResponse().setAuthorised(status);
-		//super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -45,6 +47,36 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 		object = this.repository.findOneProjectById(id);
 
 		super.getBuffer().addData(object);
+	}
+
+	@Override
+	public void bind(final Project object) {
+		assert object != null;
+
+		super.bind(object, "code", "title", "abstractDescription", "fatalErrorPresent", "score", "estimatedCostInHours", "link");
+	}
+
+	@Override
+	public void validate(final Project object) {
+		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("fatalErrorPresent"))
+			super.state(!object.isFatalErrorPresent(), "fatalErrorPresent", "manager.project.form.error.fatal-errors");
+
+		{
+			Collection<UserStory> userStories;
+
+			userStories = this.repository.findManyUserStoriesByProjectId(object.getId());
+			super.state(!userStories.isEmpty(), "*", "manager.project.form.error.zero-user-stories");
+		}
+	}
+
+	@Override
+	public void perform(final Project object) {
+		assert object != null;
+
+		object.setPublished(true);
+		this.repository.save(object);
 	}
 
 	@Override

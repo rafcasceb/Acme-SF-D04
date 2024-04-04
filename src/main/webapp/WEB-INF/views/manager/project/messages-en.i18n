@@ -24,3 +24,13 @@ manager.project.form.label.abstractDescription = Abstract description:
 manager.project.form.label.fatalErrorPresent = Fatal error present:
 manager.project.form.label.estimatedCostInHours = Estimated cost in hours:
 manager.project.form.label.link = Link:
+
+manager.project.list.button.create = Create
+manager.project.form.button.create = Create
+manager.project.form.button.update = Save changes
+manager.project.form.button.delete = Delete
+manager.project.form.button.publish = Publish
+
+manager.project.form.error.fatal-errors = A project with fatal errors cannot be published
+manager.project.form.error.zero-user-stories = A project without user stories cannot be published
+manager.project.form.error.already-published = A published project cannot be updated or deleted

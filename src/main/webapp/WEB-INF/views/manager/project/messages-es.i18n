@@ -26,3 +26,13 @@ manager.project.form.label.abstractDescription = Descripción abstracta:
 manager.project.form.label.fatalErrorPresent = Errores fatales presentes:
 manager.project.form.label.estimatedCostInHours = Coste estimado en horas:
 manager.project.form.label.link = Enlace:
+
+manager.project.list.button.create = Crear
+manager.project.form.button.create = Crear
+manager.project.form.button.update = Guardar cambios
+manager.project.form.button.delete = Eliminar
+manager.project.form.button.publish = Publicar
+
+manager.project.form.error.fatal-errors = No se puede publicar un proyecto con errores fatales
+manager.project.form.error.zero-user-stories = No se puede publicar un proyecto sin user stories
+manager.project.form.error.already-published = No se puede editar o borrar un proyecto ya publicado
