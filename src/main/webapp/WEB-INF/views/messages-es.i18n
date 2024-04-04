@@ -8,19 +8,19 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-validation.claim.code	= El código debe estar en el formato 'C-' seguido de cuatro dígitos.
+validation.claim.code	= El código debe estar en el formato 'C-' seguido de cuatro dígitos
 validation.sponsorship.code	= El código debe estar en el formato de una a tres letras mayúsculas, '-' y tres dígitos. 
-validation.audit.code	= El código debe estar en el formato de una a tres letras mayúsculas, seguidas de un guión y luego exactamente tres dígitos.
+validation.audit.code	= El código debe estar en el formato de una a tres letras mayúsculas, seguidas de un guión y luego exactamente tres dígitos
 validation.record.code	= El códig debe estar en el formato 'AU-' seguido de cuatro dígitos, un guión, y luego exactamente tres dígitos.
 validation.invoice.code	= El código debe estar en el formato 'IN-' seguido de cuatro dígitos, '-', seguido de otros cuatro dígitos.
 validation.project.code = El código debe estar en el formato de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos.
 validation.contract.code = El código debe estar en el formato de una a tres letras mayúsculas, '-' y tres dígitos. 
 validation.progressLog.code	= El código debe estar en el formato 'PG-' seguido de una a dos letras mayúsculas, '-' y cuatro dígitos.
 validation.risk.code = El código debe estar en el formato 'R-' seguido por tres dígitos.
-validation.configuration.default = La divisa debe estar en el formato 'XXX' que es un código de divisa en mayúsculas de tres letras.
-validation.configuration.accepted = La divisa debe estar en el formato 'XXX' o 'XXX, XXX, ...' donde XXX es un código de divisa en mayúsculas de tres letras.
+validation.configuration.default = La divisa debe estar en el formato 'XXX' que es un código de divisa en mayúsculas de tres letras
+validation.configuration.accepted = La divisa debe estar en el formato 'XXX' o 'XXX, XXX, ...' donde XXX es un código de divisa en mayúsculas de tres letras
 validation.client.code	= El código debe estar en el formato 'CLI-' y cuatro dígitos.
 validation.module.code = El código debe estar en el formato de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos.
 validation.session.code = El código debe estar en el formato de "TS" seguido de un guión, seguido de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos.
-validation.claim.publish.message = Debes confirmar la reclamación antes de publicarla.
-validation.claim.code.duplicate = Este código no está disponible. Por favor, pruebe con otro código.
+validation.claim.publish.message = Debes confirmar la reclamación antes de publicarla
+validation.claim.code.duplicate = Este código no está disponible. Por favor, pruebe con otro código
