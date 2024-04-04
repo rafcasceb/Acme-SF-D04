@@ -1,0 +1,38 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.project.list.title = Listado de mis proyectos
+manager.project.list.title = Detalles de proyecto
+
+manager.project.list.label.published = Publicado
+manager.project.list.label.code = Código
+manager.project.list.label.title = Título
+manager.project.list.label.abstractDescription = Descripción abstracta
+manager.project.list.label.fatalErrorPresent = Errores fatales presentes
+manager.project.list.label.estimatedCostInHours = Coste estimado en horas
+manager.project.list.label.link = Enlace
+
+manager.project.form.label.published = Publicado:
+manager.project.form.label.code = Código:
+manager.project.form.label.title = Título:
+manager.project.form.label.abstractDescription = Descripción abstracta:
+manager.project.form.label.fatalErrorPresent = Errores fatales presentes:
+manager.project.form.label.estimatedCostInHours = Coste estimado en horas:
+manager.project.form.label.link = Enlace:
+
+manager.project.list.button.create = Crear
+manager.project.form.button.create = Crear
+manager.project.form.button.update = Guardar cambios
+manager.project.form.button.delete = Eliminar
+manager.project.form.button.publish = Publicar
+
+manager.project.form.error.fatal-errors = No se puede publicar un proyecto con errores fatales
+manager.project.form.error.zero-user-stories = No se puede publicar un proyecto sin user stories
+manager.project.form.error.already-published = No se puede editar o borrar un proyecto ya publicado
