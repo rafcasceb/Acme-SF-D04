@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 authenticated.risk.list.title = Listado de Riesgos
-authenticated.risk.list.title = Formulario de Riesgo
+authenticated.risk.form.title = Formulario de Riesgo
 
 authenticated.risk.list.label.reference = Referencia
 authenticated.risk.list.label.identificationDate = Fecha de identificación
