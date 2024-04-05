@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 administrator.risk.list.title = Listado de Riesgos
-administrator.risk.list.title = Formulario de Riesgo
+administrator.risk.form.title = Formulario de Riesgo
 
 administrator.risk.list.label.reference = Referencia
 administrator.risk.list.label.identificationDate = Fecha de identificación
@@ -23,3 +23,12 @@ administrator.risk.form.label.probability = Probabilidad
 administrator.risk.form.label.value = Valor
 administrator.risk.form.label.description = Descripción
 administrator.risk.form.label.link = Enlace
+
+administrator.risk.list.button.create = Crear
+administrator.risk.form.button.create = Crear
+administrator.risk.form.button.update = Guardar cambios
+administrator.risk.form.button.delete = Eliminar
+
+manager.project.form.error.identification-date = La fecha de identificación tiene que ser posterior a 01/01/2000
+manager.project.form.error.impact = El impacto debe estar en el rango [0'0, 1'0] 
+manager.project.form.error.probability = La probabilidad debe estar en el rango [0'0, 1'0]
