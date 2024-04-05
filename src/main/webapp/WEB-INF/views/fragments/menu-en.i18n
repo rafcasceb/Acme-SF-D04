@@ -24,16 +24,26 @@ master.menu.anonymous.favourite-link-adrvencon = 77848654W: Vento Conesa, Adrian
 master.menu.anonymous.favourite-link-rafcasceb = 49520278J: Castillo Cebolla, Rafael
 master.menu.anonymous.favourite-link-rauherper = 77929367P: Heras Pérez, Raúl
 master.menu.anonymous.favourite-link-luimeldia = 54255799H: Mellado Díaz, Luis
+master.menu.anonymous.claims = List claims
 
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.risks = List risks
+master.menu.authenticated.objectives = List objectives
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.risks = List Risks
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
+master.menu.banner = Banner
+master.menu.banner.create = Create
+master.menu.banner.list = List
 
 # master.menu.auditor ########################################################
 
@@ -49,6 +59,11 @@ master.menu.provider.favourite-link = Favourite link
 
 master.menu.consumer = Consumer
 master.menu.consumer.favourite-link = Favourite link
+
+# master.menu.manager ##########################################################
+
+master.menu.manager = Manager
+master.menu.manager.list-my-projects = List my projects
 
 # master.menu.user-account ####################################################
 

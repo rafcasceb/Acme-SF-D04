@@ -8,17 +8,19 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-validation.claim.code	= The code must be in the format 'C-' followed by four digits.
-validation.sponsorship.code	= The code must be in the format one to three uppercase letters, '-' and three digits.
-validation.audit.code	= The code must be in the format of one to three uppercase letters, followed by a hyphen, and then exactly three digits.
-validation.record.code	= The code must be in the format 'AU-' followed by four digits, a hyphen, and then exactly three digits.
-validation.invoice.code	= The code must be in the format 'IN-' followed by four digits, '-', and another four digits.
-validation.project.code	= The code must be in the format of three uppercase letters, followed by a hyphen, and then three digits.
-validation.contract.code = The code must be in the format one to three uppercase letters, '-' and three digits.
-validation.progressLog.code	= The code must be in the format 'PG-' followed by one to two uppercase letters, '-' and four digits.
-validation.risk.code = The code must be in format 'R-' followed by three digits.
-validation.configuration.default = The currency must be in the format 'XXX' which is a three-letter uppercase currency code.
-validation.configuration.accepted = The currency must be in the format 'XXX' or 'XXX, XXX, ...' where XXX is a three-letter uppercase currency code.
-validation.client.code	= The code must be in the format 'CLI-' and four digits.
-validation.module.code	= The code must be in the format of three uppercase letters, followed by a hyphen, and then three digits.
-validation.session.code	= The code must be in the format of "TS", followed by a hyphen, followed by three uppercase letters, followed by a hyphen, and then three digits.
+validation.claim.code	= The code must be in the format 'C-' followed by four digits
+validation.sponsorship.code	= The code must be in the format one to three uppercase letters, '-' and three digits
+validation.audit.code	= The code must be in the format of one to three uppercase letters, followed by a hyphen, and then exactly three digits
+validation.record.code	= The code must be in the format 'AU-' followed by four digits, a hyphen, and then exactly three digits
+validation.invoice.code	= The code must be in the format 'IN-' followed by four digits, '-', and another four digits
+validation.project.code	= The code must be in the format of three uppercase letters, followed by a hyphen, and then three digits
+validation.contract.code = The code must be in the format one to three uppercase letters, '-' and three digits
+validation.progressLog.code	= The code must be in the format 'PG-' followed by one to two uppercase letters, '-' and four digits
+validation.risk.code = The code must be in format 'R-' followed by three digits
+validation.configuration.default = The currency must be in the format 'XXX' which is a three-letter uppercase currency code
+validation.configuration.accepted = The currency must be in the format 'XXX' or 'XXX, XXX, ...' where XXX is a three-letter uppercase currency code
+validation.client.code	= The code must be in the format 'CLI-' and four digits
+validation.module.code	= The code must be in the format of three uppercase letters, followed by a hyphen, and then three digits
+validation.session.code	= The code must be in the format of "TS", followed by a hyphen, followed by three uppercase letters, followed by a hyphen, and then three digits
+validation.claim.publish.message = You must confirm the claim before publishing it
+validation.claim.code.duplicate = This code is taken. Please, try with another code
