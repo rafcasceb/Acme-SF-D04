@@ -8,20 +8,20 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.project.list.title = Listing of my projects
+manager.project.list.title = Listing of my Projects
 manager.project.form.title = Project form
 manager.project.list.label.published = Publishedmanager.project.list.label.code = Code
 manager.project.list.label.title = Title
 manager.project.list.label.fatalErrorPresent = Fatal error present
 manager.project.list.label.estimatedCostInHours = Estimated cost in hours
 
-manager.project.form.label.published = Published:
-manager.project.form.label.code = Code:
-manager.project.form.label.title = Title:
-manager.project.form.label.abstractDescription = Abstract description:
-manager.project.form.label.fatalErrorPresent = Fatal error present:
-manager.project.form.label.estimatedCostInHours = Estimated cost in hours:
-manager.project.form.label.link = Link:
+manager.project.form.label.published = Published
+manager.project.form.label.code = Code
+manager.project.form.label.title = Title
+manager.project.form.label.abstractDescription = Abstract description
+manager.project.form.label.fatalErrorPresent = Fatal error present
+manager.project.form.label.estimatedCostInHours = Estimated cost in hours
+manager.project.form.label.link = Link
 
 manager.project.list.button.create = Create
 manager.project.form.button.create = Create

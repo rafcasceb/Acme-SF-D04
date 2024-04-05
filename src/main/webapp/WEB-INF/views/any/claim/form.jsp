@@ -18,6 +18,7 @@
 <acme:form>
 	<acme:input-textbox code="any.claim.form.label.code" path="code"/>	
 	<acme:input-textbox code="any.claim.form.label.heading" path="heading"/>
+	<acme:input-textbox code="any.claim.list.label.moment" path="moment"/>
 	<acme:input-textbox code="any.claim.form.label.description" path="description"/>
 	<acme:input-textbox code="any.claim.form.label.department" path="department"/>
 	<acme:input-textbox code="any.claim.form.label.email" path="email"/>
