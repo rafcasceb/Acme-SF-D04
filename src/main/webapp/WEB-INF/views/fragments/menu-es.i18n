@@ -26,6 +26,11 @@ master.menu.anonymous.favourite-link-rauherper = 77929367P: Heras Pérez, Raúl
 master.menu.anonymous.favourite-link-luimeldia = 54255799H: Mellado Díaz, Luis
 master.menu.anonymous.claims = Listar reclamaciones
 
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.risks = Listar riesgos
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
