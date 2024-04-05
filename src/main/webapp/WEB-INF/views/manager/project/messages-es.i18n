@@ -31,6 +31,7 @@ manager.project.form.button.update = Guardar cambios
 manager.project.form.button.delete = Eliminar
 manager.project.form.button.publish = Publicar
 
+manager.project.form.error.duplicate = El código de un proyecto debe ser único
 manager.project.form.error.fatal-errors = No se puede publicar un proyecto con errores fatales
 manager.project.form.error.zero-user-stories = No se puede publicar un proyecto sin user stories
 manager.project.form.error.already-published = No se puede editar o borrar un proyecto ya publicado
