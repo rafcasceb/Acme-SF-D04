@@ -17,10 +17,20 @@
 
 <acme:form>
 	<acme:input-textbox code="administrator.risk.form.label.reference" path="reference"/>
-	<acme:input-textbox code="administrator.risk.form.label.identificationDate" path="identificationDate"/>
-	<acme:input-textbox code="administrator.risk.form.label.impact" path="impact"/>
-	<acme:input-textbox code="administrator.risk.form.label.probability" path="probability"/>
-	<acme:input-textbox code="administrator.risk.form.label.value" path="value"/>
+	<acme:input-moment code="administrator.risk.form.label.identificationDate" path="identificationDate"/>
+	<acme:input-double code="administrator.risk.form.label.impact" path="impact"/>
+	<acme:input-double code="administrator.risk.form.label.probability" path="probability"/>
 	<acme:input-textbox code="administrator.risk.form.label.description" path="description"/>
-	<acme:input-textbox code="administrator.risk.form.label.link" path="link"/>
+	<acme:input-url code="administrator.risk.form.label.link" path="link"/>
+	
+	<jstl:choose>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
+			<acme:submit code="administrator.risk.form.button.update" action="/administrator/risk/update"/>
+			<acme:submit code="administrator.risk.form.button.delete" action="/administrator/risk/delete"/>
+		</jstl:when>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="administrator.risk.form.button.create" action="/administrator/risk/create"/>
+		</jstl:when>	
+	</jstl:choose>
+		
 </acme:form>
