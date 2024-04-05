@@ -30,6 +30,7 @@ master.menu.anonymous.claims = List claims
 
 master.menu.authenticated = Authenticated
 master.menu.authenticated.risks = List risks
+master.menu.authenticated.objectives = List objectives
 
 # master.menu.administrator ###################################################
 
