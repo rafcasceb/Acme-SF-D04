@@ -10,7 +10,8 @@
 
 authenticated.risk.list.title = Listing of Risks
 authenticated.risk.form.title = Risk form
-authenticated.risk.list.label.reference = Reference
+
+authenticated.risk.list.label.reference = Reference
 authenticated.risk.list.label.identificationDate = Identification date
 authenticated.risk.list.label.impact = Impact
 authenticated.risk.list.label.probability = Probability
