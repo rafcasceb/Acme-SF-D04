@@ -17,12 +17,10 @@
 
 <acme:list>
 	<acme:list-column code="manager.project.list.label.code" path="code" width="10%"/>
-	<acme:list-column code="manager.project.list.label.title" path="title" width="20%"/>
+	<acme:list-column code="manager.project.list.label.title" path="title" width="50%"/>
 	<acme:list-column code="manager.project.list.label.published" path="published" width="10%"/>
-	<acme:list-column code="manager.project.list.label.abstractDescription" path="abstractDescription" width="30%"/>
-	<acme:list-column code="manager.project.list.label.fatalErrorPresent" path="fatalErrorPresent" width="10%"/>
-	<acme:list-column code="manager.project.list.label.estimatedCostInHours" path="estimatedCostInHours" width="10%"/>
-	<acme:list-column code="manager.project.list.label.link" path="link" width="10%"/>
+	<acme:list-column code="manager.project.list.label.fatalErrorPresent" path="fatalErrorPresent" width="15%"/>
+	<acme:list-column code="manager.project.list.label.estimatedCostInHours" path="estimatedCostInHours" width="15%"/>
 </acme:list>
 
 <acme:button code="manager.project.list.button.create" action="/manager/project/create"/>
