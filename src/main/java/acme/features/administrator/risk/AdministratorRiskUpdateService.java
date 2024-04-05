@@ -58,18 +58,24 @@ public class AdministratorRiskUpdateService extends AbstractService<Administrato
 	public void validate(final Risk object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("reference")) {
+			Risk riskSameReference;
+			riskSameReference = this.repository.findRiskByReference(object.getReference());
+			super.state(riskSameReference == null, "reference", "administrator.risk.form.error.duplicate");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("identificationDate")) {
 			Date minimumDate;
 
 			minimumDate = MomentHelper.parse("01/01/2000", "dd/MM/yyyy");
-			super.state(MomentHelper.isAfter(object.getIdentificationDate(), minimumDate), "probability", "manager.project.form.error.identification-date");
+			super.state(MomentHelper.isAfter(object.getIdentificationDate(), minimumDate), "probability", "administrator.risk.form.error.identification-date");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("impact"))
-			super.state(object.getImpact() > 0.0 && object.getImpact() < 1.0, "impact", "manager.project.form.error.impact");
+			super.state(object.getImpact() >= 0.0 && object.getImpact() <= 1.0, "impact", "administrator.risk.form.error.impact");
 
 		if (!super.getBuffer().getErrors().hasErrors("probability"))
-			super.state(object.getProbability() > 0.0 && object.getProbability() < 1.0, "probability", "manager.project.form.error.probability");
+			super.state(object.getProbability() >= 0.0 && object.getProbability() <= 1.0, "probability", "administrator.risk.form.error.probability");
 	}
 
 	@Override
