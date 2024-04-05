@@ -1,0 +1,40 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+developer.trainingModule.form.title = Training Module form 
+developer.trainingModule.list.title = Listing of Training Modules
+
+developer.trainingModule.form.label.code = Code:
+developer.trainingModule.form.label.details = Details: 
+developer.trainingModule.form.label.level = Difficulty Level:
+developer.trainingModule.form.label.creationMoment = Creation Moment:
+developer.trainingModule.form.label.updateMoment = Update Moment: (Optional):
+developer.trainingModule.form.label.link = Link: (Optional): 
+developer.trainingModule.form.label.estimatedTotalTime = Estimated total time:
+developer.trainingModule.form.label.published = Published:
+
+developer.trainingModule.form.placeholder.time = 0 - 100
+		
+developer.trainingModule.form.button.trainingSessions = Training Sessions
+developer.trainingModule.form.button.update = Update
+developer.trainingModule.form.button.delete = Delete
+developer.trainingModule.form.button.publish = Publish
+developer.trainingModule.form.button.create = Create
+
+developer.trainingModule.form.error.duplicated = This reference is taken
+developer.trainingModule.form.error.not-after = Update moment must be after creation moment
+
+
+developer.trainingModule.list.label.code = Code
+developer.trainingModule.list.label.details = Details
+developer.trainingModule.list.label.creationMoment = Creation Moment
+developer.trainingModule.list.label.difficultyLevel = Difficulty Level
+
+developer.trainingModule.list.button.create = Create
