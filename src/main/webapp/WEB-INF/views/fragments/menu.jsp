@@ -27,6 +27,10 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-luimeldia" action="https://www.speedrun.com/es-ES"/>
 			<acme:menu-suboption code="master.menu.anonymous.claims" action="/any/claim/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.risks" action="/authenticated/risk/list"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
