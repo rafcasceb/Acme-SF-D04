@@ -20,7 +20,7 @@
 	<acme:input-textbox code="any.claim.form.label.heading" path="heading"/>
 	<acme:input-textbox code="any.claim.form.label.description" path="description"/>
 	<acme:input-textbox code="any.claim.form.label.department" path="department"/>
-	<acme:input-textbox code="any.claim.form.label.email" path="email"/>
+	<acme:input-email code="any.claim.form.label.email" path="email"/>
 	<acme:input-url code="any.claim.form.label.link" path="link"/>
 	<jstl:if test="${_command == 'show'}">
 		<acme:input-textbox code="any.claim.list.label.moment" path="moment"/>
