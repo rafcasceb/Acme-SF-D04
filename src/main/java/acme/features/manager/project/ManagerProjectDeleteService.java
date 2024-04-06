@@ -8,16 +8,12 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.contracts.Contract;
-import acme.entities.contracts.ProgressLog;
 import acme.entities.projects.Project;
-import acme.entities.projects.UserStory;
-import acme.entities.sponsorships.Invoice;
+import acme.entities.projects.ProjectUserStory;
 import acme.entities.sponsorships.Sponsorship;
 import acme.entities.trainingmodule.TrainingModule;
-import acme.entities.trainingmodule.TrainingSession;
 import acme.roles.Manager;
 
 @Service
@@ -70,53 +66,35 @@ public class ManagerProjectDeleteService extends AbstractService<Manager, Projec
 
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "manager.project.form.error.already-published");
+
+		{
+			Collection<CodeAudit> codeAudits;
+			Collection<Contract> contracts;
+			Collection<Sponsorship> sponsorships;
+			Collection<TrainingModule> trainingModules;
+
+			codeAudits = this.repository.findManyCodeAuditsByProjectId(object.getId());
+			super.state(codeAudits.isEmpty(), "*", "manager.project.form.error.children-audits");
+
+			contracts = this.repository.findManyContractsByProjectId(object.getId());
+			super.state(contracts.isEmpty(), "*", "manager.project.form.error.children-contracts");
+
+			sponsorships = this.repository.findManySponsorshipsByProjectId(object.getId());
+			super.state(sponsorships.isEmpty(), "*", "manager.project.form.error.children-sponsorships");
+
+			trainingModules = this.repository.findManyTrainingModulesByProjectId(object.getId());
+			super.state(trainingModules.isEmpty(), "*", "manager.project.form.error.children-training-modules");
+		}
 	}
 
 	@Override
 	public void perform(final Project object) {
 		assert object != null;
 
-		Collection<UserStory> userStories;
-		Collection<CodeAudit> codeAudits;
-		Collection<Contract> contracts;
-		Collection<Sponsorship> sponsorships;
-		Collection<TrainingModule> trainingModules;
+		Collection<ProjectUserStory> projectUserStoryTables;
 
-		userStories = this.repository.findManyUserStoriesByProjectId(object.getId());
-
-		codeAudits = this.repository.findManyCodeAuditsByProjectId(object.getId());
-		codeAudits.stream().forEach(ca -> {
-			Collection<AuditRecord> auditRecords;
-			auditRecords = this.repository.findManyAuditRecordsByAuditId(ca.getId());
-			this.repository.deleteAll(auditRecords);
-		});
-
-		contracts = this.repository.findManyContractsByProjectId(object.getId());
-		contracts.stream().forEach(c -> {
-			Collection<ProgressLog> progressLogs;
-			progressLogs = this.repository.findManyProgressLogsByContractId(c.getId());
-			this.repository.deleteAll(progressLogs);
-		});
-
-		sponsorships = this.repository.findManySponsorshipsByProjectId(object.getId());
-		sponsorships.stream().forEach(s -> {
-			Collection<Invoice> invoices;
-			invoices = this.repository.findManyInvoicesBySponsorshipId(s.getId());
-			this.repository.deleteAll(invoices);
-		});
-
-		trainingModules = this.repository.findManyTrainingModulesByProjectId(object.getId());
-		trainingModules.stream().forEach(tm -> {
-			Collection<TrainingSession> trainingSessions;
-			trainingSessions = this.repository.findManyTrainingSessionsByTrainingModuleId(tm.getId());
-			this.repository.deleteAll(trainingSessions);
-		});
-
-		this.repository.deleteAll(userStories);
-		this.repository.deleteAll(codeAudits);
-		this.repository.deleteAll(contracts);
-		this.repository.deleteAll(sponsorships);
-		this.repository.deleteAll(trainingModules);
+		projectUserStoryTables = this.repository.findManyProjectUserStoryTablesByProjectId(object.getId());
+		this.repository.deleteAll(projectUserStoryTables);
 		this.repository.delete(object);
 	}
 

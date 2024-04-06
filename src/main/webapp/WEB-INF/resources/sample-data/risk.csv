@@ -24,7 +24,9 @@ risk-24,R-024,2012/12/12 00:00,0.33,0.80,貸んい建濯よ芝弾テソ,https://
 risk-25,R-025,2012/12/12 00:00,0.33,0.80,Λορεμ ιπσθμ δολορ σιτ αμετ,https://link1.com
 risk-26,R-026,2012/12/12 00:00,0.33,0.80,коза коза,https://link1.com
 risk-27,R-027,2012/12/12 00:00,0.33,0.80,وصف المثال.,https://link1.com
-risk-28,R-028,2012/12/12 00:00,0.33,0.80,<script> window.location = ‘https://example.com’; </script>,https://link1.com
+risk-28.0,R-028,2012/12/12 00:00,0.33,0.80,<script> window.location = ‘https://example.com’; </script>,https://link1.com
+risk-28.1,R-128,2012/12/12 00:00,0.33,0.80,<h1>Example Heading</h1>,https://link1.com
+risk-28.2,R-228,2012/12/12 00:00,0.33,0.80,SELECT * FROM users WHERE username = '' AND password = '' OR '1'='1';,https://link1.com
 risk-29,R-029,2012/12/12 00:00,0.33,0.80,a,https://link1.com
 risk-30,R-030,2012/12/12 00:00,0.33,0.80,aa,https://link1.com
 risk-31,R-031,2012/12/12 00:00,0.33,0.80,Filler abstract to reach ninety nine (99) characters in the attribute of a risk called description.,https://link1.com
