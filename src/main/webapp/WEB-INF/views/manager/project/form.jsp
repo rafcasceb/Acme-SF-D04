@@ -19,7 +19,7 @@
 	<acme:input-textbox code="manager.project.form.label.code" path="code"/>
 	<acme:input-textbox code="manager.project.form.label.title" path="title"/>
 	<acme:input-textbox code="manager.project.form.label.abstractDescription" path="abstractDescription"/>
-	<acme:input-textbox code="manager.project.form.label.fatalErrorPresent" path="fatalErrorPresent"/>
+	<acme:input-checkbox code="manager.project.form.label.fatalErrorPresent" path="fatalErrorPresent"/>
 	<acme:input-integer code="manager.project.form.label.estimatedCostInHours" path="estimatedCostInHours"/>
 	<acme:input-url code="manager.project.form.label.link" path="link"/>
 	
