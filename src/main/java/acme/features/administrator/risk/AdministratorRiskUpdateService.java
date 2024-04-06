@@ -60,8 +60,11 @@ public class AdministratorRiskUpdateService extends AbstractService<Administrato
 
 		if (!super.getBuffer().getErrors().hasErrors("reference")) {
 			Risk riskSameReference;
+			Boolean isReferenceUsedByAnotherRisk;
+
 			riskSameReference = this.repository.findRiskByReference(object.getReference());
-			super.state(riskSameReference == null, "reference", "administrator.risk.form.error.duplicate");
+			isReferenceUsedByAnotherRisk = riskSameReference != null && riskSameReference.getId() != object.getId();
+			super.state(!isReferenceUsedByAnotherRisk, "reference", "administrator.risk.form.error.duplicate");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("identificationDate")) {
@@ -92,6 +95,7 @@ public class AdministratorRiskUpdateService extends AbstractService<Administrato
 		Dataset dataset;
 
 		dataset = super.unbind(object, "reference", "identificationDate", "impact", "probability", "description", "link");
+		dataset.put("derivedValue", object.getValue());
 
 		super.getResponse().addData(dataset);
 	}
