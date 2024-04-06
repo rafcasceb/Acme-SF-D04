@@ -1,24 +1,23 @@
 
-package acme.features.manager.project;
+package acme.features.any.project;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
-import acme.roles.Manager;
 
 @Service
-public class ManagerProjectListMineService extends AbstractService<Manager, Project> {
+public class AnyProjectListService extends AbstractService<Any, Project> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private AnyProjectRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -31,10 +30,8 @@ public class ManagerProjectListMineService extends AbstractService<Manager, Proj
 	@Override
 	public void load() {
 		Collection<Project> objects;
-		Principal principal;
 
-		principal = super.getRequest().getPrincipal();
-		objects = this.repository.findManyProjectsByManagerId(principal.getActiveRoleId());
+		objects = this.repository.findAllPublishedProjects();
 
 		super.getBuffer().addData(objects);
 	}

@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.risk.list.title = Listing of Risks
+administrator.risk.list.title = List of risks
 administrator.risk.form.title = Risk form
 
 administrator.risk.list.label.reference = Reference

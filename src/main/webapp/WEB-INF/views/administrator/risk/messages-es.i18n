@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.risk.list.title = Listado de Riesgos
-administrator.risk.form.title = Formulario de Riesgo
+administrator.risk.list.title = Listado de riesgos
+administrator.risk.form.title = Formulario de riesgo
 
 administrator.risk.list.label.reference = Referencia
 administrator.risk.list.label.identificationDate = Fecha de identificación
