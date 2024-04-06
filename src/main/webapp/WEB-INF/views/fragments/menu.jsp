@@ -42,7 +42,6 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.banner.create" action="/administrator/banner/create"/>
 			<acme:menu-suboption code="master.menu.banner.list" action="/administrator/banner/list-all"/>
 		</acme:menu-option>
 

@@ -43,8 +43,8 @@ master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
 
 master.menu.administrator = Banner
-master.menu.administrator.create = Crear
-master.menu.administrator.list = Listar
+master.menu.administrator.create = Crear Banner
+master.menu.administrator.list = Listar Banners
 
 # master.menu.provider ########################################################
 

@@ -43,8 +43,8 @@ master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 
 master.menu.banner = Banner
-master.menu.banner.create = Create
-master.menu.banner.list = List
+master.menu.banner.create = Create Banner
+master.menu.banner.list = List Banners
 
 
 # master.menu.provider ########################################################
