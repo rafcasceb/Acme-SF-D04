@@ -15,7 +15,6 @@ manager.project.list.label.published = Publicado
 manager.project.list.label.code = Código
 manager.project.list.label.title = Título
 manager.project.list.label.fatalErrorPresent = Errores fatales presentes
-manager.project.list.label.estimatedCostInHours = Coste estimado en horas
 
 manager.project.form.label.published = Publicado
 manager.project.form.label.code = Código
@@ -31,7 +30,12 @@ manager.project.form.button.update = Guardar cambios
 manager.project.form.button.delete = Eliminar
 manager.project.form.button.publish = Publicar
 
-manager.project.form.error.duplicate = El código de un proyecto debe ser único
+manager.project.form.error.duplicate = Este código ya está en uso
 manager.project.form.error.fatal-errors = No se puede publicar un proyecto con errores fatales
-manager.project.form.error.zero-user-stories = No se puede publicar un proyecto sin user stories
-manager.project.form.error.already-published = No se puede editar o borrar un proyecto ya publicado
+manager.project.form.error.zero-user-stories = No se puede publicar un proyecto sin User stories
+manager.project.form.error.unpublished-user-stories = No se puede publicar un proyecto con User stories no publicadas
+manager.project.form.error.children-audits = El proyecto no puede ser eliminado porque tiene Auditorías que dependen de él
+manager.project.form.error.children-contracts = El proyecto no puede ser eliminado porque tiene Contratos que dependen de él
+manager.project.form.error.children-sponsorships = El proyecto no puede ser eliminado porque tiene Patrocinios que dependen de él
+manager.project.form.error.children-training-modules = El proyecto no puede ser eliminado porque tiene Módulos de entrenamiento que dependen de él
+manager.project.form.error.already-published = No se puede editar o eliminar un proyecto ya publicado

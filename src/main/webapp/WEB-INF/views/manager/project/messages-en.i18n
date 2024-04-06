@@ -13,7 +13,6 @@ manager.project.form.title = Project form
 manager.project.list.label.published = Publishedmanager.project.list.label.code = Code
 manager.project.list.label.title = Title
 manager.project.list.label.fatalErrorPresent = Fatal error present
-manager.project.list.label.estimatedCostInHours = Estimated cost in hours
 
 manager.project.form.label.published = Published
 manager.project.form.label.code = Code
@@ -29,7 +28,12 @@ manager.project.form.button.update = Save changes
 manager.project.form.button.delete = Delete
 manager.project.form.button.publish = Publish
 
-manager.project.form.error.duplicate = The code of a project must be unique
+manager.project.form.error.duplicate = This code is already in use
 manager.project.form.error.fatal-errors = A project with fatal errors cannot be published
-manager.project.form.error.zero-user-stories = A project without user stories cannot be published
+manager.project.form.error.zero-user-stories = A project without User stories cannot be published
+manager.project.form.error.unpublished-user-stories = A project with non-published User stories cannot be published
+manager.project.form.error.children-audits = The project cannot be deleted because it has Audits that depend on it
+manager.project.form.error.children-contracts = The project cannot be deleted because it has Contracts that depend on it
+manager.project.form.error.children-sponsorships = The project cannot be deleted because it has Sponsorhips that depend on it
+manager.project.form.error.children-training-modules = The project cannot be deleted because it has Training modules that depend on it
 manager.project.form.error.already-published = A published project cannot be updated or deleted
