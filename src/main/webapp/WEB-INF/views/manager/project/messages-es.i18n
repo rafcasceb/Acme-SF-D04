@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-manager.project.list.title = Listado de mis Proyectos
-manager.project.form.title = Detalles de Proyecto
+manager.project.list.title = Listado de mis proyectos
+manager.project.form.title = Detalles de proyecto
 
 manager.project.list.label.published = Publicado
 manager.project.list.label.code = Código
