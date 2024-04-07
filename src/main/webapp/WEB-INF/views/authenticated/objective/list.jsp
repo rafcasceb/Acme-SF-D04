@@ -16,10 +16,8 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="manager.project.list.label.code" path="code" width="10%"/>
-	<acme:list-column code="manager.project.list.label.title" path="title" width="65%"/>
-	<acme:list-column code="manager.project.list.label.published" path="published" width="10%"/>
-	<acme:list-column code="manager.project.list.label.fatalErrorPresent" path="fatalErrorPresent" width="15%"/>
+	<acme:list-column code="authenticated.objective.list.label.title" path="title" width="10%"/>
+	<acme:list-column code="authenticated.objective.list.label.startDate" path="startDate" width="10%"/>
+	<acme:list-column code="authenticated.objective.list.label.endDate" path="endDate" width="10%"/>
+	<acme:list-column code="authenticated.objective.list.label.priority" path="priority" width="10%"/>
 </acme:list>
-
-<acme:button code="manager.project.list.button.create" action="/manager/project/create"/>

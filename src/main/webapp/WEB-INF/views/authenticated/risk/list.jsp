@@ -16,10 +16,8 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="manager.project.list.label.code" path="code" width="10%"/>
-	<acme:list-column code="manager.project.list.label.title" path="title" width="65%"/>
-	<acme:list-column code="manager.project.list.label.published" path="published" width="10%"/>
-	<acme:list-column code="manager.project.list.label.fatalErrorPresent" path="fatalErrorPresent" width="15%"/>
+	<acme:list-column code="authenticated.risk.list.label.reference" path="reference" width="10%"/>
+	<acme:list-column code="authenticated.risk.list.label.identificationDate" path="identificationDate" width="10%"/>
+	<acme:list-column code="authenticated.risk.list.label.impact" path="impact" width="10%"/>
+	<acme:list-column code="authenticated.risk.list.label.probability" path="probability" width="10%"/>
 </acme:list>
-
-<acme:button code="manager.project.list.button.create" action="/manager/project/create"/>
