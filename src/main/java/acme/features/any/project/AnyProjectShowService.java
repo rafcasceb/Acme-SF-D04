@@ -1,21 +1,21 @@
 
-package acme.features.manager.project;
+package acme.features.any.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.projects.Project;
-import acme.roles.Manager;
 
 @Service
-public class ManagerProjectShowService extends AbstractService<Manager, Project> {
+public class AnyProjectShowService extends AbstractService<Any, Project> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private AnyProjectRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -25,12 +25,10 @@ public class ManagerProjectShowService extends AbstractService<Manager, Project>
 		boolean status;
 		int masterId;
 		Project project;
-		Manager manager;
 
 		masterId = super.getRequest().getData("id", int.class);
 		project = this.repository.findOneProjectById(masterId);
-		manager = project == null ? null : project.getManager();
-		status = project != null && super.getRequest().getPrincipal().hasRole(manager);
+		status = project != null && project.isPublished();
 
 		super.getResponse().setAuthorised(status);
 	}

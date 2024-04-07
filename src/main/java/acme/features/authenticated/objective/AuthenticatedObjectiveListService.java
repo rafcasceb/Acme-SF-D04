@@ -1,24 +1,23 @@
 
-package acme.features.manager.project;
+package acme.features.authenticated.objective;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
+import acme.client.data.accounts.Authenticated;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.projects.Project;
-import acme.roles.Manager;
+import acme.entities.objectives.Objective;
 
 @Service
-public class ManagerProjectListMineService extends AbstractService<Manager, Project> {
+public class AuthenticatedObjectiveListService extends AbstractService<Authenticated, Objective> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private AuthenticatedObjectiveRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -30,22 +29,20 @@ public class ManagerProjectListMineService extends AbstractService<Manager, Proj
 
 	@Override
 	public void load() {
-		Collection<Project> objects;
-		Principal principal;
+		Collection<Objective> objects;
 
-		principal = super.getRequest().getPrincipal();
-		objects = this.repository.findManyProjectsByManagerId(principal.getActiveRoleId());
+		objects = this.repository.findAllObjectives();
 
 		super.getBuffer().addData(objects);
 	}
 
 	@Override
-	public void unbind(final Project object) {
+	public void unbind(final Objective object) {
 		assert object != null;
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "published", "code", "title", "fatalErrorPresent");
+		dataset = super.unbind(object, "title", "startDate", "endDate", "priority");
 
 		super.getResponse().addData(dataset);
 	}

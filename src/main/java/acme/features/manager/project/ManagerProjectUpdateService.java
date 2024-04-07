@@ -57,6 +57,15 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 	public void validate(final Project object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Project projectSameCode;
+			Boolean isCodeUsedByAnotherProject;
+
+			projectSameCode = this.repository.findProjectByCode(object.getCode());
+			isCodeUsedByAnotherProject = projectSameCode != null && projectSameCode.getId() != object.getId();
+			super.state(!isCodeUsedByAnotherProject, "code", "manager.project.form.error.duplicate");
+		}
+
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "manager.project.form.error.already-published");
 	}

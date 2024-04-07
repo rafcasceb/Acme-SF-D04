@@ -18,6 +18,10 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+		<acme:menu-option code="master.menu.any">
+			<acme:menu-suboption code="master.menu.any.projects" action="/any/project/list"/>
+			<acme:menu-suboption code="master.menu.any.claims" action="/any/claim/list"/>
+		</acme:menu-option>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-danflode" action="https://stackoverflow.com/"/>
@@ -25,11 +29,18 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-rafcasceb" action="https://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-rauherper" action="https://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-luimeldia" action="https://www.speedrun.com/es-ES"/>
-			<acme:menu-suboption code="master.menu.anonymous.claims" action="/any/claim/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
+			<acme:menu-suboption code="master.menu.authenticated.risks" action="/authenticated/risk/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.objectives" action="/authenticated/objective/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
+			<acme:menu-suboption code="master.menu.administrator.risks" action="/administrator/risk/list"/>
+			<acme:menu-suboption code="master.menu.administrator.list-banner" action="/administrator/banner/list-all"/>
+			<acme:menu-suboption code="master.menu.administrator.create-banner" action="/administrator/banner/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/system/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/system/populate-sample"/>			

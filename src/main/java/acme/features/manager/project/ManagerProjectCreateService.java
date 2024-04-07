@@ -47,6 +47,12 @@ public class ManagerProjectCreateService extends AbstractService<Manager, Projec
 
 	@Override
 	public void validate(final Project object) {
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Project projectSameCode;
+			projectSameCode = this.repository.findProjectByCode(object.getCode());
+			super.state(projectSameCode == null, "code", "manager.project.form.error.duplicate");
+		}
+
 		assert object != null;
 	}
 

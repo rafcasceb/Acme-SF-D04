@@ -1,24 +1,23 @@
 
-package acme.features.manager.project;
+package acme.features.administrator.risk;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
+import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.projects.Project;
-import acme.roles.Manager;
+import acme.entities.risks.Risk;
 
 @Service
-public class ManagerProjectListMineService extends AbstractService<Manager, Project> {
+public class AdministratorRiskListService extends AbstractService<Administrator, Risk> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ManagerProjectRepository repository;
+	private AdministratorRiskRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -30,22 +29,20 @@ public class ManagerProjectListMineService extends AbstractService<Manager, Proj
 
 	@Override
 	public void load() {
-		Collection<Project> objects;
-		Principal principal;
+		Collection<Risk> objects;
 
-		principal = super.getRequest().getPrincipal();
-		objects = this.repository.findManyProjectsByManagerId(principal.getActiveRoleId());
+		objects = this.repository.findAllRisks();
 
 		super.getBuffer().addData(objects);
 	}
 
 	@Override
-	public void unbind(final Project object) {
+	public void unbind(final Risk object) {
 		assert object != null;
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "published", "code", "title", "fatalErrorPresent");
+		dataset = super.unbind(object, "reference", "identificationDate", "impact", "probability");
 
 		super.getResponse().addData(dataset);
 	}
