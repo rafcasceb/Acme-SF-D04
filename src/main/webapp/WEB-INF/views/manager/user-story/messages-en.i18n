@@ -26,5 +26,7 @@ manager.user-story.form.button.create = Create
 manager.user-story.form.button.update = Save changes
 manager.user-story.form.button.delete = Delete
 manager.user-story.form.button.publish = Publish
+manager.user-story.form.button.link-project = Link project
+manager.user-story.form.button.unlink-project = Unlink project
 
 manager.user-story.form.error.already-published = A published user story cannot be updated or deleted
