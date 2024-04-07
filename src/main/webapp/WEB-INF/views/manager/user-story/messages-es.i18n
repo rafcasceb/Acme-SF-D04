@@ -27,5 +27,7 @@ manager.user-story.form.button.create = Crear
 manager.user-story.form.button.update = Guardar cambios
 manager.user-story.form.button.delete = Eliminar
 manager.user-story.form.button.publish = Publicar
+manager.user-story.form.button.link-project = Conectar proyecto
+manager.user-story.form.button.unlink-project = Desconectar proyecto
 
 manager.user-story.form.error.already-published = No se puede editar o eliminar una historia de usuario ya publicada

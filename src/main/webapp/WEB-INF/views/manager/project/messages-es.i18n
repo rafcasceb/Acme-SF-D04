@@ -28,11 +28,12 @@ manager.project.form.button.create = Crear
 manager.project.form.button.update = Guardar cambios
 manager.project.form.button.delete = Eliminar
 manager.project.form.button.publish = Publicar
+manager.project.form.button.user-stories = Ver historias de usuario
 
 manager.project.form.error.duplicate = Este código ya está en uso
 manager.project.form.error.fatal-errors = No se puede publicar un proyecto con errores fatales
 manager.project.form.error.zero-user-stories = No se puede publicar un proyecto sin User stories
-manager.project.form.error.unpublished-user-stories = No se puede publicar un proyecto con User stories no publicadas
+manager.project.form.error.unpublished-user-stories = No se puede publicar un proyecto con Historias de usuario no publicadas
 manager.project.form.error.children-audits = El proyecto no puede ser eliminado porque tiene Auditorías que dependen de él
 manager.project.form.error.children-contracts = El proyecto no puede ser eliminado porque tiene Contratos que dependen de él
 manager.project.form.error.children-sponsorships = El proyecto no puede ser eliminado porque tiene Patrocinios que dependen de él

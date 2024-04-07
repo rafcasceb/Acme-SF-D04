@@ -24,10 +24,16 @@
 	<acme:input-url code="manager.user-story.form.label.link" path="link"/>
 	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
-			<acme:submit code="manager.user-story.form.button.update" action="/manager/user-story/update"/>
-			<acme:submit code="manager.user-story.form.button.delete" action="/manager/user-story/delete"/>
-			<acme:submit code="manager.user-story.form.button.publish" action="/manager/user-story/publish"/>
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+			<jstl:if test="${_command== 'show'}">
+				<acme:button code="manager.user-story.form.button.link-project" action="/manager/project-user-story/create?userStoryId=${id}"/>
+				<acme:button code="manager.user-story.form.button.unlink-project" action="/manager/project-user-story/delete?userStoryId=${id}"/>	
+			</jstl:if>
+			<jstl:if test="${published == false}">
+				<acme:submit code="manager.user-story.form.button.update" action="/manager/user-story/update"/>
+				<acme:submit code="manager.user-story.form.button.delete" action="/manager/user-story/delete"/>
+				<acme:submit code="manager.user-story.form.button.publish" action="/manager/user-story/publish"/>
+			</jstl:if>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="manager.user-story.form.button.create" action="/manager/user-story/create"/>
