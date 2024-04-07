@@ -16,7 +16,6 @@ manager.project.list.label.code = Código
 manager.project.list.label.title = Título
 manager.project.list.label.fatalErrorPresent = Errores fatales presentes
 
-manager.project.form.label.published = Publicado
 manager.project.form.label.code = Código
 manager.project.form.label.title = Título
 manager.project.form.label.abstractDescription = Descripción abstracta

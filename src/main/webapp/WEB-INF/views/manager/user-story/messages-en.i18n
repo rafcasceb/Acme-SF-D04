@@ -1,0 +1,30 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.user-story.list.title = Listing of my user stories
+manager.user-story.form.title = User story form
+manager.user-story.list.label.published = Published
+manager.user-story.list.label.title = Title
+manager.user-story.list.label.priority = Priority
+
+manager.user-story.form.label.title = Title
+manager.user-story.form.label.description = Description
+manager.user-story.form.label.estimatedCostInHours = Estimated cost in hours
+manager.user-story.form.label.acceptanceCriteria = Acceptance criteria
+manager.user-story.form.label.priority = Priority
+manager.user-story.form.label.link = Link
+
+manager.user-story.list.button.create = Create
+manager.user-story.form.button.create = Create
+manager.user-story.form.button.update = Save changes
+manager.user-story.form.button.delete = Delete
+manager.user-story.form.button.publish = Publish
+
+manager.user-story.form.error.already-published = A published user story cannot be updated or deleted
