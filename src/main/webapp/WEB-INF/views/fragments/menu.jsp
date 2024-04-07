@@ -55,9 +55,9 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
-			<acme:menu-suboption code="master.menu.sponsor.sponsorships" action="/sponsor/sponsorships/list"/>
+			<acme:menu-suboption code="master.menu.sponsor.sponsorships" action="/sponsor/sponsorship/list"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.sponsor.invoices" action="/sponsor/invoices/list"/>
+			<acme:menu-suboption code="master.menu.sponsor.invoices" action="/sponsor/invoice/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">

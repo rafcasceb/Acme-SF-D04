@@ -60,7 +60,8 @@ public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice>
 		assert object != null;
 
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "quantity");
+		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
+		dataset.put("value", object.getValue());
 
 		super.getResponse().addData(dataset);
 	}
