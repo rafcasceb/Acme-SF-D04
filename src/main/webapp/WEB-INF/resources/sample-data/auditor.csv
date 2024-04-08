@@ -8,8 +8,9 @@ auditor-06,ABC审计公司,PRO-001,Certification 1,https://certification-link1.c
 auditor-07,شركة ABC للتدقيق,PRO-001,Certification 1,https://certification-link1.com,user-account-auditor-03
 auditor-08,ABC監査法人,PRO-001,Certification 1,https://certification-link1.com,user-account-auditor-03
 auditor-09,Аудиторская фирма АБС,PRO-001,Certification 1,https://certification-link1.com,user-account-auditor-03
-auditor-10,<script>alert("alert!")</script>,PRO-001,Certification 1,https://certification-link1.com,user-account-auditor-03
+auditor-10,"<script>alert(""alert!"")</script>",PRO-001,Certification 1,https://certification-link1.com,user-account-auditor-03
 auditor-11,<h1>Example Heading</h1>,PRO-001,Certification 1,https://certification-link1.com,user-account-auditor-03
+auditor-37,SELECT * FROM users WHERE username = '' AND password = '' OR '1'='1';,PRO-001,Certification 1,https://certification-link1.com,user-account-auditor-03
 auditor-12,ABC Auditing Firm,A,Certification 1,https://certification-link1.com,user-account-auditor-03
 auditor-13,ABC Auditing Firm,AB,Certification 1,https://certification-link1.com,user-account-auditor-03
 auditor-14,ABC Auditing Firm,ABCDEFGHIJKLMNOPQRSTUVWX,Certification 1,https://certification-link1.com,user-account-auditor-03
@@ -19,6 +20,7 @@ auditor-17,ABC Auditing Firm,المهنية 001,Certification 1,https://certific
 auditor-18,ABC Auditing Firm,プロフェッショナル001,Certification 1,https://certification-link1.com,user-account-auditor-03
 auditor-19,ABC Auditing Firm,Профессионал 001,Certification 1,https://certification-link1.com,user-account-auditor-03
 auditor-20,ABC Auditing Firm,<h1>Example Heading</h1>,Certification 1,https://certification-link1.com,user-account-auditor-03
+auditor-38,ABC Auditing Firm,' OR '1'='1;,Certification 1,https://certification-link1.com,user-account-auditor-03
 auditor-21,ABC Auditing Firm,PRO-001,A,https://certification-link1.com,user-account-auditor-03
 auditor-22,ABC Auditing Firm,PRO-001,AB,https://certification-link1.com,user-account-auditor-03
 auditor-23,ABC Auditing Firm,PRO-001,ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM,https://certification-link1.com,user-account-auditor-03
@@ -27,8 +29,9 @@ auditor-25,ABC Auditing Firm,PRO-001,认证1,https://certification-link1.com,use
 auditor-26,ABC Auditing Firm,PRO-001,شهادة 1,https://certification-link1.com,user-account-auditor-03
 auditor-27,ABC Auditing Firm,PRO-001,認定 1,https://certification-link1.com,user-account-auditor-03
 auditor-28,ABC Auditing Firm,PRO-001,Сертификация 1,https://certification-link1.com,user-account-auditor-03
-auditor-29,ABC Auditing Firm,PRO-001,<script>alert("alert!")</script>,https://certification-link1.com,user-account-auditor-03
+auditor-29,ABC Auditing Firm,PRO-001,"<script>alert(""alert!"")</script>",https://certification-link1.com,user-account-auditor-03
 auditor-30,ABC Auditing Firm,PRO-001,<h1>Example Heading</h1>,https://certification-link1.com,user-account-auditor-03
+auditor-40,ABC Auditing Firm,PRO-001,SELECT * FROM users WHERE username = '' AND password = '' OR '1'='1';,https://certification-link1.com,user-account-auditor-03
 auditor-31,ABC Auditing Firm,PRO-001,Certification 1,,user-account-auditor-03
 auditor-32,ABC Auditing Firm,PRO-001,Certification 1,https://fillerURL.com/254characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,user-account-auditor-03
 auditor-33,ABC Auditing Firm,PRO-001,Certification 1,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,user-account-auditor-03
