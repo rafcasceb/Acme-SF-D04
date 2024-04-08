@@ -23,7 +23,7 @@
 	</jstl:if>
 	<acme:input-textbox code="any.claim.form.label.description" path="description"/>
 	<acme:input-textbox code="any.claim.form.label.department" path="department"/>
-	<acme:input-textbox code="any.claim.form.label.email" path="email"/>
+	<acme:input-email code="any.claim.form.label.email" path="email"/>
 	<acme:input-url code="any.claim.form.label.link" path="link"/>
 	<jstl:if test="${_command == 'create'}">
 		<acme:input-checkbox code="any.claim.form.label.confirmation" path="confirmation"/>

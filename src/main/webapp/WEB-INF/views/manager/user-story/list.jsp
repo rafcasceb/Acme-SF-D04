@@ -16,10 +16,12 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-	<acme:list-column code="manager.project.list.label.code" path="code" width="10%"/>
-	<acme:list-column code="manager.project.list.label.title" path="title" width="65%"/>
-	<acme:list-column code="manager.project.list.label.published" path="published" width="10%"/>
-	<acme:list-column code="manager.project.list.label.fatalErrorPresent" path="fatalErrorPresent" width="15%"/>
+	<acme:list-column code="manager.user-story.list.label.title" path="title" width="65%"/>
+	<acme:list-column code="manager.user-story.list.label.published" path="published" width="15%"/>
+	<acme:list-column code="manager.user-story.list.label.priority" path="priority" width="20%"/>
 </acme:list>
 
-<acme:button code="manager.project.list.button.create" action="/manager/project/create"/>
+<jstl:if test="${_command != 'list-for-project'}">
+	<acme:button code="manager.user-story.list.button.create" action="/manager/user-story/create"/>
+</jstl:if>
+
