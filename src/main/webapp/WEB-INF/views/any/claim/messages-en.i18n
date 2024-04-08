@@ -25,3 +25,6 @@ any.claim.list.label.heading = Heading
 
 any.claim.form.button.create = Publish
 any.claim.list.button.create = Create
+
+validation.claim.publish.message = You must confirm the claim before publishing it
+validation.claim.code.duplicate = This code is taken. Please, try with another code
