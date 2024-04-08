@@ -22,5 +22,3 @@ validation.configuration.accepted = The currency must be in the format 'XXX' or 
 validation.client.code	= The code must be in the format 'CLI-' and four digits
 validation.module.code	= The code must be in the format of three uppercase letters, followed by a hyphen, and then three digits
 validation.session.code	= The code must be in the format of "TS", followed by a hyphen, followed by three uppercase letters, followed by a hyphen, and then three digits
-validation.claim.publish.message = You must confirm the claim before publishing it
-validation.claim.code.duplicate = This code is taken. Please, try with another code

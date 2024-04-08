@@ -18,10 +18,12 @@
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+		
 		<acme:menu-option code="master.menu.any">
 			<acme:menu-suboption code="master.menu.any.projects" action="/any/project/list"/>
 			<acme:menu-suboption code="master.menu.any.claims" action="/any/claim/list"/>
 		</acme:menu-option>
+
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-danflode" action="https://stackoverflow.com/"/>
@@ -46,6 +48,10 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/system/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
+			<acme:menu-suboption code="master.menu.auditor.codeaudit.list-mine" action="/auditor/code-audit/list-mine"/>
 		</acme:menu-option>
 
 
