@@ -30,7 +30,11 @@ master.menu.anonymous.favourite-link-adrvencon = 77848654W: Vento Conesa, Adrian
 master.menu.anonymous.favourite-link-rafcasceb = 49520278J: Castillo Cebolla, Rafael
 master.menu.anonymous.favourite-link-rauherper = 77929367P: Heras Pérez, Raúl
 master.menu.anonymous.favourite-link-luimeldia = 54255799H: Mellado Díaz, Luis
-master.menu.anonymous.claims = List claims
+
+# master.menu.any ###################################################
+
+master.menu.any = Any
+master.menu.any.claims = List claims
 
 # master.menu.authenticated ###################################################
 
@@ -49,6 +53,11 @@ master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down
 master.menu.administrator.create-banner = Create banner
 master.menu.administrator.list-banner = List banners
+
+# master.menu.auditor ########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.codeaudit.list-mine = List my code audits
 
 # master.menu.provider ########################################################
 
