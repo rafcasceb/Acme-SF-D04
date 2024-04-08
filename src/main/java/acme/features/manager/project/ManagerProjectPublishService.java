@@ -53,7 +53,7 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 	public void bind(final Project object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstractDescription", "fatalErrorPresent", "score", "estimatedCostInHours", "link");
+		super.bind(object, "code", "title", "abstractDescription", "fatalErrorPresent", "estimatedCostInHours", "link");
 	}
 
 	@Override
@@ -68,6 +68,8 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 
 			userStories = this.repository.findManyUserStoriesByProjectId(object.getId());
 			super.state(!userStories.isEmpty(), "*", "manager.project.form.error.zero-user-stories");
+
+			super.state(userStories.stream().allMatch(UserStory::isPublished), "*", "manager.project.form.error.unpublished-user-stories");
 		}
 	}
 
