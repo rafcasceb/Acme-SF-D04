@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.projects.UserStory;
 import acme.entities.trainingmodule.TrainingModule;
 import acme.entities.trainingmodule.TrainingSession;
 import acme.roles.Developer;
@@ -64,10 +63,6 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		trainingSessions = this.repository.findManyTrainingSessionByModuleId(object.getId());
 		super.state(!trainingSessions.isEmpty(), "*", "developer.trainingModule.form.error.no-training-sessions");
 	}
-
-
-	}
-
 
 	@Override
 	public void perform(final TrainingModule object) {
