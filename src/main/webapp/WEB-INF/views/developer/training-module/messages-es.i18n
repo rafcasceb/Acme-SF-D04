@@ -30,6 +30,8 @@ developer.trainingModule.form.button.create = Crear
 
 developer.trainingModule.form.error.duplicated = Esta referencia está en uso
 developer.trainingModule.form.error.not-after = El momento de actualización debe ser posterior al momento de creación
+developer.trainingModule.form.error.already-published = No se puede editar o borrar un módulo de entrenamiento ya publicado
+developer.trainingModule.form.error.no-training-sessions = No se puede publicar un modulo de entrenamiento sin sesiones.
 
 
 developer.trainingModule.list.label.code = Código

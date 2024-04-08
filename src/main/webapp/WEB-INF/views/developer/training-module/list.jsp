@@ -10,6 +10,5 @@
 	<acme:list-column code="developer.trainingModule.list.label.creationMoment" path="creationMoment" width="40%"/>
 </acme:list>	
 
-<jstl:when test="${_command == 'list-mine' }">
-<acme:button code ="developer.trainingModule.list.button.create" action ="/developer/trainingModule/create"/>
-</jstl:when>
+
+<acme:button code ="developer.trainingModule.list.button.create" action ="/developer/training-module/create"/>

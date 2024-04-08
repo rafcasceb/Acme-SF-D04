@@ -4,14 +4,16 @@ package acme.features.developer.trainingModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Authenticated;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
+import acme.entities.trainingmodule.DifficultyLevel;
 import acme.entities.trainingmodule.TrainingModule;
+import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleShowService extends AbstractService<Authenticated, TrainingModule> {
+public class DeveloperTrainingModuleShowService extends AbstractService<Developer, TrainingModule> {
 
 	// Internal state -----------------------------------------------------------------------------------
 
@@ -50,8 +52,13 @@ public class DeveloperTrainingModuleShowService extends AbstractService<Authenti
 		assert object != null;
 
 		Dataset dataset;
+		SelectChoices choices;
+
+		choices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 
 		dataset = super.unbind(object, "code", "details", "difficultyLevel", "creationMoment", "updateMoment", "link", "estimatedTotalTime", "published", "project.title");
+		dataset.put("difficultyLevel", choices.getSelected().getKey());
+		dataset.put("difficultyLevels", choices);
 
 		super.getResponse().addData(dataset);
 	}
