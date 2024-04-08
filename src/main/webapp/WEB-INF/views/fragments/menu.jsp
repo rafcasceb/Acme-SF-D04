@@ -25,7 +25,10 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-rafcasceb" action="https://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-rauherper" action="https://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-luimeldia" action="https://www.speedrun.com/es-ES"/>
-			<acme:menu-suboption code="master.menu.anonymous.claims" action="/any/claim/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any">
+			<acme:menu-suboption code="master.menu.any.claims" action="/any/claim/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
