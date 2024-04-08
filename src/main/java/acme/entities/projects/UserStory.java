@@ -28,6 +28,8 @@ public class UserStory extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	private boolean				published;
+
 	@NotBlank
 	@Length(max = 75)
 	private String				title;
@@ -55,10 +57,5 @@ public class UserStory extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Manager				manager;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Project				project;
 
 }

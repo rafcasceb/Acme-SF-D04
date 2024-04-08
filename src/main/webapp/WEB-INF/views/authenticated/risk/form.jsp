@@ -17,10 +17,10 @@
 
 <acme:form>
 	<acme:input-textbox code="authenticated.risk.form.label.reference" path="reference"/>
-	<acme:input-textbox code="authenticated.risk.form.label.identificationDate" path="identificationDate"/>
-	<acme:input-textbox code="authenticated.risk.form.label.impact" path="impact"/>
-	<acme:input-textbox code="authenticated.risk.form.label.probability" path="probability"/>
-	<acme:input-textbox code="authenticated.risk.form.label.value" path="value"/>
+	<acme:input-moment code="authenticated.risk.form.label.identificationDate" path="identificationDate"/>
+	<acme:input-double code="authenticated.risk.form.label.impact" path="impact"/>
+	<acme:input-double code="authenticated.risk.form.label.probability" path="probability"/>
+	<acme:input-double code="authenticated.risk.form.label.value" path="value"/>
 	<acme:input-textbox code="authenticated.risk.form.label.description" path="description"/>
-	<acme:input-textbox code="authenticated.risk.form.label.link" path="link"/>
+	<acme:input-url code="authenticated.risk.form.label.link" path="link"/>
 </acme:form>

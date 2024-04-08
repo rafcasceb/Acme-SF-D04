@@ -50,7 +50,7 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 	public void bind(final Project object) {
 		assert object != null;
 
-		super.bind(object, "code", "title", "abstractDescription", "fatalErrorPresent", "score", "estimatedCostInHours", "link");
+		super.bind(object, "code", "title", "abstractDescription", "fatalErrorPresent", "estimatedCostInHours", "link");
 	}
 
 	@Override
@@ -59,6 +59,16 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "manager.project.form.error.already-published");
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Project projectSameCode;
+			Boolean isCodeUsedByAnotherProject;
+
+			projectSameCode = this.repository.findProjectByCode(object.getCode());
+			isCodeUsedByAnotherProject = projectSameCode != null && projectSameCode.getId() != object.getId();
+			super.state(!isCodeUsedByAnotherProject, "code", "manager.project.form.error.duplicate");
+		}
+
 	}
 
 	@Override
