@@ -13,14 +13,9 @@ record-11,AU-0011-001,https://example.com,F,2021/01/01 08:00,2021/01/01 09:00,au
 record-12,AU-0012-001,https://example.com,F_MINUS,2021/01/01 08:00,2021/01/01 09:00,audit-10,auditor-10
 record-13,AU-0013-001,https://example.com,A_PLUS,2000/01/01 00:00,2021/01/01 09:00,audit-11,auditor-11
 record-14,AU-0014-001,https://example.com,A_PLUS,2000/01/01 00:01,2021/01/01 09:00,audit-12,auditor-12
-record-15,AU-0015-001,https://example.com,A_PLUS,2022/07/29 23:59,2021/01/01 09:00,audit-13,auditor-13
-record-16,AU-0016-001,https://example.com,A_PLUS,2022/07/30 00:00,2021/01/01 09:00,audit-13,auditor-13
 record-17,AU-0017-001,https://example.com,A_PLUS,2020/02/29 00:00,2021/01/01 09:00,audit-13,auditor-13
 record-18,AU-0018-001,https://example.com,A_PLUS,2020/12/31 23:59,2021/01/01 09:00,audit-13,auditor-13
-record-19,AU-0019-001,https://example.com,A_PLUS,2020/01/01 08:00,2000/01/01 00:00,audit-14,auditor-14
-record-20,AU-0020-001,https://example.com,A_PLUS,2020/01/01 08:00,2000/01/01 00:01,audit-15,auditor-15
 record-21,AU-0021-001,https://example.com,A_PLUS,2020/01/01 08:00,2022/07/29 23:59,audit-16,auditor-16
-record-22,AU-0022-001,https://example.com,A_PLUS,2020/01/01 08:00,2020/12/31 23:59,audit-17,auditor-17
 record-23,AU-0023-001,https://example.com,A_PLUS,2020/01/01 08:00,2022/07/30 00:00,audit-18,auditor-18
 record-24,AU-0024-001,https://example.com,A_PLUS,2020/01/01 08:00,2020/02/29 00:00,audit-18,auditor-18
 record-25,AU-0025-001,https://example.com,A_PLUS,2020/01/01 08:00,2020/12/31 23:59,audit-18,auditor-18
