@@ -43,6 +43,7 @@ public class AdministratorRiskShowService extends AbstractService<Administrator,
 		Dataset dataset;
 
 		dataset = super.unbind(object, "reference", "identificationDate", "impact", "probability", "description", "link");
+		dataset.put("derivedValue", object.getValue());
 
 		super.getResponse().addData(dataset);
 	}
