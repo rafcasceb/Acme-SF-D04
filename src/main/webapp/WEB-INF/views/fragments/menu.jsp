@@ -40,14 +40,11 @@
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-suboption code="master.menu.administrator.risks" action="/administrator/risk/list"/>
 			<acme:menu-suboption code="master.menu.administrator.list-banner" action="/administrator/banner/list-all"/>
-			<acme:menu-suboption code="master.menu.administrator.create-banner" action="/administrator/banner/create"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/administrator/system/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/system/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.banner.list" action="/administrator/banner/list-all"/>
 		</acme:menu-option>
 
 

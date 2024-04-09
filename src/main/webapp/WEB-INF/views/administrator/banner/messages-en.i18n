@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 administrator.banner.form.title = Banner Form
-administrator.banner.form.label.moment = Creation Date
+administrator.banner.form.label.moment = Instantiation Date
 administrator.banner.form.label.displayStartDate = Start Date
 administrator.banner.form.label.displayEndDate = End Date
 administrator.banner.form.label.slogan = Slogan
@@ -25,3 +25,7 @@ administrator.banner.list.button.create = Create
 administrator.banner.form.button.delete = Delete
 administrator.banner.form.button.update = Update
 administrator.banner.form.label.confirmation = Please, confirm that the banner is correct
+
+administrator.banner.form.error.startDate = Display start date must be after instantiation date
+administrator.banner.form.error.endDate = Display end date must be after display start date
+administrator.banner.form.error.period = Display period must be at least one week long
