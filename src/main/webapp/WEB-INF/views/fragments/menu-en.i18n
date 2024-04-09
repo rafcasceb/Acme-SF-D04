@@ -74,6 +74,7 @@ master.menu.consumer.favourite-link = Favourite link
 master.menu.manager = Manager
 master.menu.manager.list-my-projects = List my projects
 master.menu.manager.list-my-user-stories = List my user stories
+master.menu.manager.show-dashboard = Dashboard
 
 # master.menu.user-account ####################################################
 
