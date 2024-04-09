@@ -3,7 +3,6 @@ package acme.features.manager.managerDashboard;
 
 import java.util.Collection;
 import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.jpa.repository.Query;
@@ -20,17 +19,16 @@ public interface ManagerDashboardRepository extends AbstractRepository {
 
 	default Map<UserStoryPriority, Integer> totalNumberUserStoriesByPriority(final int managerId) {
 		Map<UserStoryPriority, Integer> sol;
-		Collection<UserStoryPriority> query;
-		List<UserStoryPriority> priorities;
+		Collection<UserStoryPriority> prioritiesQuery;
 
 		sol = new EnumMap<UserStoryPriority, Integer>(UserStoryPriority.class);
-		query = this.findUserStoriesAsPriorities(managerId);
-		priorities = List.of(UserStoryPriority.MUST, UserStoryPriority.SHOULD, UserStoryPriority.COULD, UserStoryPriority.WONT);
+		prioritiesQuery = this.findUserStoriesAsPriorities(managerId);
 
-		for (UserStoryPriority priority : priorities) {
-			Integer countPriority = (int) query.stream().filter(p -> p.equals(priority)).count();
-			sol.put(priority, countPriority);
-		}
+		for (UserStoryPriority priority : UserStoryPriority.values())
+			sol.put(priority, 0);
+
+		for (UserStoryPriority priority : prioritiesQuery)
+			sol.put(priority, sol.get(priority) + 1);
 
 		return sol;
 	}
