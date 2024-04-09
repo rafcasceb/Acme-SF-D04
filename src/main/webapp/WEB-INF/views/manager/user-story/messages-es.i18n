@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 manager.user-story.list.title = Lista de mis historias de usuario
-manager.user-story.form.title = Formulario de historia de usuario
+manager.user-story.form.title = Detalles de historia de usuario
 
 manager.user-story.list.label.published = Publicada
 manager.user-story.list.label.title = Título

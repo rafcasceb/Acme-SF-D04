@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.data.accounts.UserAccount;
 import acme.client.repositories.AbstractRepository;
-import acme.roles.Consumer;
+import acme.roles.Manager;
 
 @Repository
 public interface AuthenticatedManagerRepository extends AbstractRepository {
@@ -26,6 +26,6 @@ public interface AuthenticatedManagerRepository extends AbstractRepository {
 	UserAccount findOneUserAccountById(int id);
 
 	@Query("select m from Manager m where m.userAccount.id = :id")
-	Consumer findOneConsumerByUserAccountId(int id);
+	Manager findOneManagerByUserAccountId(int id);
 
 }

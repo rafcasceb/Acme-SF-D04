@@ -8,8 +8,8 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.risk.list.title = Listado de Riesgos
-authenticated.risk.form.title = Formulario de Riesgo
+authenticated.risk.list.title = Listado de riesgos
+authenticated.risk.form.title = Detalles de riesgo
 
 authenticated.risk.list.label.reference = Referencia
 authenticated.risk.list.label.identificationDate = Fecha de identificación
