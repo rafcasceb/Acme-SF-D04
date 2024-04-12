@@ -21,13 +21,13 @@
 	<acme:input-integer code="manager.dashboard.form.label.totalNumberUserStoriesPriorityCould" path="totalNumberUserStoriesPriorityCould" readonly="true"/>
 	<acme:input-integer code="manager.dashboard.form.label.totalNumberUserStoriesPriorityWont" path="totalNumberUserStoriesPriorityWont" readonly="true"/>
 	
-	<acme:input-double code="manager.dashboard.form.label.averageEstimatedCostUserStories" path="averageEstimatedCostUserStories" readonly="true"/>
-	<acme:input-double code="manager.dashboard.form.label.deviationEstimatedCostUserStories" path="deviationEstimatedCostUserStories" readonly="true"/>
-	<acme:input-integer code="manager.dashboard.form.label.minimumEstimatedCostUserStories" path="minimumEstimatedCostUserStories" readonly="true"/>
-	<acme:input-integer code="manager.dashboard.form.label.maximumEstimatedCostUserStories" path="maximumEstimatedCostUserStories" readonly="true"/>
-	<acme:input-double code="manager.dashboard.form.label.averageCostProjects" path="averageCostProjects" readonly="true"/>
-	<acme:input-double code="manager.dashboard.form.label.deviationCostProjects" path="deviationCostProjects" readonly="true"/>
-	<acme:input-integer code="manager.dashboard.form.label.minimumCostProjects" path="minimumCostProjects" readonly="true"/>
-	<acme:input-integer code="manager.dashboard.form.label.maximumCostProjects" path="maximumCostProjects" readonly="true"/>
+	<acme:input-double code="manager.dashboard.form.label.averageEstimatedCostUserStories" path="averageEstimatedCostUserStories" readonly="true" placeholder="--"/>
+	<acme:input-double code="manager.dashboard.form.label.deviationEstimatedCostUserStories" path="deviationEstimatedCostUserStories" readonly="true" placeholder="--"/>
+	<acme:input-integer code="manager.dashboard.form.label.minimumEstimatedCostUserStories" path="minimumEstimatedCostUserStories" readonly="true" placeholder="--"/>
+	<acme:input-integer code="manager.dashboard.form.label.maximumEstimatedCostUserStories" path="maximumEstimatedCostUserStories" readonly="true" placeholder="--"/>
+	<acme:input-double code="manager.dashboard.form.label.averageCostProjects" path="averageCostProjects" readonly="true" placeholder="--"/>
+	<acme:input-double code="manager.dashboard.form.label.deviationCostProjects" path="deviationCostProjects" readonly="true" placeholder="--"/>
+	<acme:input-integer code="manager.dashboard.form.label.minimumCostProjects" path="minimumCostProjects" readonly="true" placeholder="--"/>
+	<acme:input-integer code="manager.dashboard.form.label.maximumCostProjects" path="maximumCostProjects" readonly="true" placeholder="--"/>
 </acme:form>
 
