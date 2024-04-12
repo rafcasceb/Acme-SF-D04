@@ -12,8 +12,8 @@ claim-10,C-0010,2020/02/01 10:30,AB,Example description.,Department,email@exampl
 claim-11,C-0011,2020/02/01 10:30,ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI,Example description.,Department,email@example.com,https://example.com/claim
 claim-12,C-0012,2020/02/01 10:30,ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJ,Example description.,Department,email@example.com,https://example.com/claim
 claim-13,C-0013,2020/02/01 10:30,<h1>Example Heading</h1>,Example description.,Department,email@example.com,https://example.com/claim
-claim-14,C-0014,2020/02/01 10:30,<script>alert("alert!")</script>,Example description.,Department,email@example.com,https://example.com/claim
-claim-53,C-0053,2020/02/01 10:30,SELECT * FROM users WHERE username = '' AND password = '' OR '1'='1';,Example description.,Department,email@example.com,https://example.com/claim
+claim-14,C-0014,2020/02/01 10:30,"<script>alert(""alert!"")</script>",Example description.,Department,email@example.com,https://example.com/claim
+claim-53,C-0053,2020/02/01 10:30,' OR '1,Example description.,Department,email@example.com,https://example.com/claim
 claim-15,C-0015,2020/02/01 10:30,عنوان المثال,Example description.,Department,email@example.com,https://example.com/claim
 claim-16,C-0016,2020/02/01 10:30,見出しの例,Example description.,Department,email@example.com,https://example.com/claim
 claim-17,C-0017,2020/02/01 10:30,Пример заголовка,Example description.,Department,email@example.com,https://example.com/claim
@@ -23,8 +23,8 @@ claim-20,C-0020,2020/02/01 10:30,Example Heading,AB,Department,email@example.com
 claim-21,C-0021,2020/02/01 10:30,Example Heading,ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM,Department,email@example.com,https://example.com/claim
 claim-22,C-0022,2020/02/01 10:30,Example Heading,ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMN,Department,email@example.com,https://example.com/claim
 claim-23,C-0023,2020/02/01 10:30,Example Heading,<h1>Example Heading</h1>,Department,email@example.com,https://example.com/claim
-claim-24,C-0024,2020/02/01 10:30,Example Heading,<script>alert("alert!")</script>,Department,email@example.com,https://example.com/claim
-claim-54,C-0054,2020/02/01 10:30,Example Heading,SELECT * FROM users WHERE username = '' AND password = '' OR '1'='1';,Department,email@example.com,https://example.com/claim
+claim-24,C-0024,2020/02/01 10:30,Example Heading,"<script>alert(""alert!"")</script>",Department,email@example.com,https://example.com/claim
+claim-54,C-0054,2020/02/01 10:30,Example Heading,' OR '1,Department,email@example.com,https://example.com/claim
 claim-25,C-0025,2020/02/01 10:30,Example Heading,وصف المثال.,Department,email@example.com,https://example.com/claim
 claim-26,C-0026,2020/02/01 10:30,Example Heading,例の説明。,Department,email@example.com,https://example.com/claim
 claim-27,C-0027,2020/02/01 10:30,Example Heading,Пример описания.,Department,email@example.com,https://example.com/claim
@@ -34,8 +34,8 @@ claim-30,C-0030,2020/02/01 10:30,Example Heading,Example description.,AB,email@e
 claim-31,C-0031,2020/02/01 10:30,Example Heading,Example description.,ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLM,email@example.com,https://example.com/claim
 claim-32,C-0032,2020/02/01 10:30,Example Heading,Example description.,ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMN,email@example.com,https://example.com/claim
 claim-33,C-0033,2020/02/01 10:30,Example Heading,Example description.,<h1>Example Heading</h1>,email@example.com,https://example.com/claim
-claim-34,C-0034,2020/02/01 10:30,Example Heading,Example description.,<script>alert("alert!")</script>,email@example.com,https://example.com/claim
-claim-55,C-0055,2020/02/01 10:30,Example Heading,Example description.,SELECT * FROM users WHERE username = '' AND password = '' OR '1'='1';,email@example.com,https://example.com/claim
+claim-34,C-0034,2020/02/01 10:30,Example Heading,Example description.,"<script>alert(""alert!"")</script>",email@example.com,https://example.com/claim
+claim-55,C-0055,2020/02/01 10:30,Example Heading,Example description.,' OR '1,email@example.com,https://example.com/claim
 claim-35,C-0035,2020/02/01 10:30,Example Heading,Example description.,قسم,email@example.com,https://example.com/claim
 claim-36,C-0036,2020/02/01 10:30,Example Heading,Example description.,部門,email@example.com,https://example.com/claim
 claim-37,C-0037,2020/02/01 10:30,Example Heading,Example description.,Отделение,email@example.com,https://example.com/claim
@@ -52,5 +52,7 @@ claim-47,C-0047,2020/02/01 10:30,Example Heading,Example description.,Department
 claim-58,C-0048,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,ftp://example.com/claim
 claim-49,C-0049,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://example.com/claim/otherpage?utm_source=google&utm_medium=cpc
 claim-50,C-0050,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,http://example.com/claim#section-1
+claim-51,C-0051,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://www.example.com/example_page?
+claim-52,C-0052,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://www.example.com/example_page?activo=true
 claim-51,C-0000,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://example.com/claim
 claim-52,C-9999,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://example.com/claim

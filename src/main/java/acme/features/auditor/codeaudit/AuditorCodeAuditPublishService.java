@@ -30,13 +30,14 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	public void authorise() {
 		boolean status;
 		int id;
-		int auditorId;
+		Auditor auditor;
 		CodeAudit codeAudit;
 
 		id = super.getRequest().getData("id", int.class);
-		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 		codeAudit = this.repository.findOneCodeAuditById(id);
-		status = auditorId == codeAudit.getAuditor().getId();
+
+		auditor = codeAudit == null ? null : codeAudit.getAuditor();
+		status = codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(auditor);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -56,14 +57,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		int projectId;
-		Project project;
-
-		projectId = super.getRequest().getData("project", int.class);
-		project = this.repository.findOneProjectById(projectId);
-
-		object.setProject(project);
-		super.bind(object, "code", "execution", "type", "correctiveActions", "link");
+		super.bind(object, "publish");
 	}
 
 	@Override
