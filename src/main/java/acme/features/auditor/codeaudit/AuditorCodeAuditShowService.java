@@ -11,6 +11,7 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
+import acme.entities.audits.Mark;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
@@ -58,7 +59,10 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		SelectChoices choices;
 		SelectChoices projects;
 		Dataset dataset;
+		String modeMark;
 
+		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
+		modeMark = EnumMode.mode(marks);
 		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
 		projects = SelectChoices.from(unpublishedProjects, "title", object.getProject());
 		choices = SelectChoices.from(AuditType.class, object.getType());
@@ -67,6 +71,7 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		dataset.put("project", projects.getSelected().getKey());
 		dataset.put("projects", projects);
 		dataset.put("auditTypes", choices);
+		dataset.put("modeMark", modeMark);
 
 		super.getResponse().addData(dataset);
 	}
