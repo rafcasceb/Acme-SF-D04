@@ -55,7 +55,6 @@ public class TrainingModule extends AbstractEntity {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@PastOrPresent
-	@NotNull
 	private Date				updateMoment;
 
 	@URL
