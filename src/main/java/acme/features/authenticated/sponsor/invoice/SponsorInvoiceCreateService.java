@@ -50,7 +50,6 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		object.setRegistrationTime(moment);
 		object.setDueDate(moment);
 		object.setLink(null);
-		object.setQuantity(null);
 		object.setTax(0.21);
 
 		super.getBuffer().addData(object);
@@ -87,7 +86,6 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		Dataset dataset;
 
 		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
-		dataset.put("readonly", false);
 
 		super.getResponse().addData(dataset);
 	}

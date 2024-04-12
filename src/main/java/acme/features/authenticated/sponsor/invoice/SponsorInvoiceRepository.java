@@ -23,8 +23,8 @@ import acme.entities.sponsorships.Invoice;
 @Repository
 public interface SponsorInvoiceRepository extends AbstractRepository {
 
-	@Query("select i from Invoice i where i.sponsor.id = :id")
-	Collection<Invoice> findInvoiceBySponsorId(int id);
+	@Query("select i from Invoice i where i.sponsorship.id = :id")
+	Collection<Invoice> findInvoiceBySponsorshipId(int id);
 
 	@Query("select i from Invoice i where i.id = :id")
 	Invoice findOneInvoiceById(int id);

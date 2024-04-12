@@ -23,7 +23,6 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.client.data.AbstractEntity;
 import acme.client.data.datatypes.Money;
-import acme.roles.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -68,8 +67,12 @@ public class Invoice extends AbstractEntity {
 
 
 	@Transient
-	public Double getValue() {
-		return this.quantity.getAmount() + this.quantity.getAmount() * this.tax;
+	public Money getValue() {
+		Double amount = this.quantity.getAmount() + this.quantity.getAmount() * this.tax;
+		Money value = new Money();
+		value.setAmount(amount);
+		value.setCurrency(this.quantity.getCurrency());
+		return value;
 	}
 
 
@@ -77,11 +80,6 @@ public class Invoice extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Sponsorship	sponsorship;
-
-	@NotNull
-	@Valid
-	@ManyToOne(optional = false)
-	private Sponsor		sponsor;
+	private Sponsorship sponsorship;
 
 }
