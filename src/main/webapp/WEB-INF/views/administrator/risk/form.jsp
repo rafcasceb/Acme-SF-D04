@@ -20,6 +20,9 @@
 	<acme:input-moment code="administrator.risk.form.label.identificationDate" path="identificationDate"/>
 	<acme:input-double code="administrator.risk.form.label.impact" path="impact"/>
 	<acme:input-double code="administrator.risk.form.label.probability" path="probability"/>
+	<jstl:if test="${_command == 'show'}">
+		<acme:input-double code="administrator.risk.form.label.value" path="derivedValue" readonly="true"/>
+	</jstl:if>
 	<acme:input-textbox code="administrator.risk.form.label.description" path="description"/>
 	<acme:input-url code="administrator.risk.form.label.link" path="link"/>
 	
