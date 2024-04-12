@@ -13,21 +13,28 @@ public class EnumMode {
 		if (marks == null || marks.isEmpty())
 			return null;
 
-		Map<Mark, Integer> countMap = new HashMap<>();
+		Map<Mark, Integer> frequencyMap = new HashMap<>();
 
 		for (Mark mark : marks)
-			countMap.put(mark, countMap.getOrDefault(mark, 0) + 1);
+			if (frequencyMap.containsKey(mark))
+				frequencyMap.put(mark, frequencyMap.get(mark) + 1);
+			else
+				frequencyMap.put(mark, 1);
 
 		Mark modeMark = null;
-		int maxCount = 0;
-		for (Map.Entry<Mark, Integer> entry : countMap.entrySet())
-			if (entry.getValue() > maxCount || entry.getValue() == maxCount && entry.getKey().compareTo(modeMark) < 0) {
-				modeMark = entry.getKey();
-				maxCount = entry.getValue();
+		int maxFrequency = 0;
+
+		for (Map.Entry<Mark, Integer> entry : frequencyMap.entrySet()) {
+			Mark mark = entry.getKey();
+			int frequency = entry.getValue();
+
+			if (frequency > maxFrequency || frequency == maxFrequency && mark.ordinal() > modeMark.ordinal()) {
+				modeMark = mark;
+				maxFrequency = frequency;
 			}
+		}
 
 		return modeMark.toString();
-
 	}
 
 }
