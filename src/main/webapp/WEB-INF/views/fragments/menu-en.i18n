@@ -77,6 +77,11 @@ master.menu.manager.list-my-projects = List my projects
 master.menu.manager.list-my-user-stories = List my user stories
 master.menu.manager.show-dashboard = Dashboard
 
+# master.menu.developer ##########################################################
+
+master.menu.developer = Developer
+master.menu.developer.list-my-training-modules = List my training modules
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account

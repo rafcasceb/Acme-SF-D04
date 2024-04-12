@@ -1,0 +1,34 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+developer.training-session.list.title = List of Training sessions
+developer.training-session.form.title = Training session form
+
+developer.training-session.list.label.code = Code
+developer.training-session.list.label.start-date = Start Date
+developer.training-session.list.label.end-date = End Date
+developer.training-session.list.label.location = Location
+developer.training-session.list.label.instructor = Instructor
+
+developer.training-session.form.label.code = Code:
+developer.training-session.form.label.start-date = Start Date:
+developer.training-session.form.label.end-date = End Date:
+developer.training-session.form.label.location = Location:
+developer.training-session.form.label.instructor = Instructor:
+developer.training-session.form.label.email = Email:
+developer.training-session.form.label.link = Link (Optional):
+developer.training-session.form.label.published = Published:
+
+developer.training-session.list.button.create-form=Create Training session
+
+developer.training-session.form.button.create-training-session= Create
+developer.training-session.form.button.update=Update
+developer.training-session.form.button.delete=Delete
+developer.training-session.form.button.publish=Publish
