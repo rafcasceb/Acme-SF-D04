@@ -76,6 +76,12 @@ master.menu.manager.list-my-projects = Listar mis proyectos
 master.menu.manager.list-my-user-stories = Listar mis historias de usuario
 master.menu.manager.show-dashboard = Panel de estadísticas
 
+# master.menu.developer ##########################################################
+
+master.menu.developer = Desarrollador
+master.menu.developer.list-my-traning-modules = Listar mis módulos de entrenamiento
+
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
