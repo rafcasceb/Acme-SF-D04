@@ -106,7 +106,7 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 				ExchangeRate.class, //
 				sourceCurrency, //
 				targetCurrency, //
-				"63259d4389193b9554785f5cea807177");
+				"3kDolndpzPKo5AF8mAhkNbB5V8A9JMtf");
 
 			assert record != null;
 			key = String.format("%s%s", sourceCurrency, targetCurrency);

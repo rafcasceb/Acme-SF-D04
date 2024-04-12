@@ -13,8 +13,6 @@ public class ExchangeRate {
 	// Attributes -------------------------------------------------------------
 
 	public boolean				success;
-	public String				terms;
-	public String				privacy;
 	public long					timestamp;
 	public String				source;
 	public Map<String, Double>	quotes;
