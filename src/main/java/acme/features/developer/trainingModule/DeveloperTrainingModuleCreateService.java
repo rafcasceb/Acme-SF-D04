@@ -11,6 +11,7 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
+import acme.entities.trainingmodule.DifficultyLevel;
 import acme.entities.trainingmodule.TrainingModule;
 import acme.roles.Developer;
 
@@ -53,7 +54,7 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "details", "difficultyLevel", "creationMoment", "updateMoment", "link", "estimatedTotalTime", "published");
+		super.bind(object, "code", "details", "difficultyLevel", "creationMoment", "updateMoment", "link", "estimatedTotalTime", "project");
 		object.setProject(project);
 	}
 
@@ -61,7 +62,14 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 	public void validate(final TrainingModule object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("updateMoment"))
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			TrainingModule existing;
+
+			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
+			super.state(existing == null || existing.equals(object), "code", "developer.training-module.form.error.duplicated");
+		}
+
+		if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
 			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.trainingModule.form.error.not-after");
 	}
 
@@ -78,14 +86,17 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 
 		Collection<Project> projects;
 		SelectChoices choices;
+		SelectChoices projectChoices;
 		Dataset dataset;
 
 		projects = this.repository.findManyProjects();
-		choices = SelectChoices.from(projects, "title", object.getProject());
+		projectChoices = SelectChoices.from(projects, "title", object.getProject());
+		choices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 
 		dataset = super.unbind(object, "code", "details", "difficultyLevel", "creationMoment", "updateMoment", "link", "estimatedTotalTime", "published");
-		dataset.put("project", choices.getSelected().getKey());
-		dataset.put("projects", choices);
+		dataset.put("project", projectChoices.getSelected().getKey());
+		dataset.put("projects", projectChoices);
+		dataset.put("difficultyLevels", choices);
 
 		super.getResponse().addData(dataset);
 	}

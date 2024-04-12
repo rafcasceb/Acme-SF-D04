@@ -11,32 +11,37 @@
 developer.training-module.form.title = Training Module form 
 developer.training-module.list.title = Listing of Training Modules
 
-developer.trainingModule.form.label.code = Code:
-developer.trainingModule.form.label.details = Details: 
-developer.trainingModule.form.label.difficultyLevel = Difficulty Level:
-developer.trainingModule.form.label.creationMoment = Creation Moment:
-developer.trainingModule.form.label.updateMoment = Update Moment: (Optional):
-developer.trainingModule.form.label.link = Link: (Optional): 
-developer.trainingModule.form.label.estimatedTotalTime = Estimated total time:
-developer.trainingModule.form.label.published = Published:
+developer.training-module.form.label.code = Code:
+developer.training-module.form.label.details = Details: 
+developer.training-module.form.label.difficultyLevel = Difficulty Level:
+developer.training-module.form.label.creationMoment = Creation Moment:
+developer.training-module.form.label.updateMoment = Update Moment: (Optional):
+developer.training-module.form.label.link = Link: (Optional): 
+developer.training-module.form.label.estimatedTotalTime = Estimated total time:
+developer.training-module.form.label.published = Published:
+developer.training-module.form.label.projects = Projects
 
 
-developer.trainingModule.form.placeholder.time = 0 - 100
+developer.training-module.form.placeholder.time = 0 - 100
 		
-developer.trainingModule.form.button.trainingSessions = Training Sessions
-developer.trainingModule.form.button.update = Update
-developer.trainingModule.form.button.delete = Delete
-developer.trainingModule.form.button.publish = Publish
-developer.trainingModule.form.button.create = Create
+developer.training-module.form.button.training-sessions = Training Sessions
+developer.training-module.form.button.update = Update
+developer.training-module.form.button.delete = Delete
+developer.training-module.form.button.publish = Publish
+developer.training-module.form.button.create = Create
 
-developer.trainingModule.form.error.duplicated = This reference is taken
-developer.trainingModule.form.error.not-after = Update moment must be after creation moment
-developer.trainingModule.form.error.already-published = A published training module cannot be updated or deleted
-developer.trainingModule.form.error.no-training-sessions = A published training module without training sessions cannot be published.
+developer.training-module.form.error.duplicated = This reference is taken
+developer.training-module.form.error.not-after = Update moment must be after creation moment
+developer.training-module.form.error.already-published = A published training module cannot be updated or deleted
+developer.training-module.form.error.no-training-sessions = A published training module without training sessions cannot be published.
 
-developer.trainingModule.list.label.code = Code
-developer.trainingModule.list.label.details = Details
-developer.trainingModule.list.label.creationMoment = Creation Moment
-developer.trainingModule.list.label.difficultyLevel = Difficulty Level
+developer.training-module.list.label.code = Code
+developer.training-module.list.label.creation-moment = Creation Moment
+developer.training-module.list.label.details = Details
+developer.training-module.list.label.difficulty-level = Difficulty Level
+developer.training-module.list.label.update-moment = Update Moment
+developer.training-module.list.label.link = Link
+developer.training-module.list.label.estimated-total-time = Estimated Total Time
+developer.training-module.list.label.published = Published
+developer.training-module.list.button.create = Create
 
-developer.trainingModule.list.button.create = Create

@@ -61,7 +61,7 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 		projectId = super.getRequest().getData("project", int.class);
 		project = this.repository.findOneProjectById(projectId);
 
-		super.bind(object, "code", "details", "difficultyLevel", "creationMoment", "updateMoment", "link", "estimatedTotalTime", "published", "project.title");
+		super.bind(object, "code", "details", "difficultyLevel", "creationMoment", "updateMoment", "link", "estimatedTotalTime", "project");
 		object.setProject(project);
 	}
 
@@ -84,17 +84,20 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 	@Override
 	public void unbind(final TrainingModule object) {
 		assert object != null;
-
 		SelectChoices choices;
+		SelectChoices projectsChoices;
+		Collection<Project> projects;
+
 		Dataset dataset;
-
 		choices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
-
-		dataset = super.unbind(object, "code", "details", "difficultyLevel", "creationMoment", "updateMoment", "link", "estimatedTotalTime", "published", "project.title");
-		dataset.put("masterId", object.getProject().getId());
-		dataset.put("type", choices);
-
+		projects = this.repository.findManyProjects();
+		projectsChoices = SelectChoices.from(projects, "code", object.getProject());
+		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "estimatedTotalTime", "published", "project");
+		dataset.put("difficultyLevels", choices);
+		dataset.put("project", projectsChoices.getSelected().getKey());
+		dataset.put("projects", projectsChoices);
 		super.getResponse().addData(dataset);
+
 	}
 
 }
