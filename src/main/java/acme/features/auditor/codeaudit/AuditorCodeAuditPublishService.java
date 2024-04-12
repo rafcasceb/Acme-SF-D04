@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.entities.audits.AuditRecord;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
+import acme.entities.audits.Mark;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
@@ -29,7 +29,15 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	@Override
 	public void authorise() {
 		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
+		int id;
+		int auditorId;
+		CodeAudit codeAudit;
+
+		id = super.getRequest().getData("id", int.class);
+		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
+		codeAudit = this.repository.findOneCodeAuditById(id);
+		status = auditorId == codeAudit.getAuditor().getId();
+
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -62,10 +70,17 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
-		Collection<AuditRecord> auditRecords;
-		auditRecords = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
-		super.state(!auditRecords.isEmpty(), "*", "validation.codeaudit.auditrecord.zero-auditrecords");
+		String modeMark;
 
+		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
+		modeMark = EnumMode.mode(marks);
+
+		if (!super.getBuffer().getErrors().hasErrors("modeMark"))
+			if (modeMark != null) {
+				boolean isMarkAtLeastC = modeMark.equals("C") || modeMark.equals("B") || modeMark.equals("A") || modeMark.equals("A_PLUS");
+				super.state(isMarkAtLeastC, "modeMark", "validation.codeaudit.mode.less-than-c");
+			} else
+				super.state(false, "modeMark", "validation.codeaudit.mode.less-than-c");
 	}
 
 	@Override
@@ -83,6 +98,10 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		SelectChoices choices;
 		SelectChoices projects;
 		Dataset dataset;
+		String modeMark;
+
+		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
+		modeMark = EnumMode.mode(marks);
 
 		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
 		projects = SelectChoices.from(unpublishedProjects, "title", object.getProject());
@@ -92,6 +111,7 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		dataset.put("project", projects.getSelected().getKey());
 		dataset.put("projects", projects);
 		dataset.put("auditTypes", choices);
+		dataset.put("modeMark", modeMark);
 
 		super.getResponse().addData(dataset);
 	}

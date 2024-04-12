@@ -19,15 +19,16 @@
 	<acme:input-textbox code="auditor.codeaudit.label.code" path="code" />
 	<acme:input-moment code="auditor.codeaudit.label.execution" path="execution" />
 	<acme:input-select code="auditor.codeaudit.label.type" path="type" choices="${auditTypes}" />
+	<jstl:if test="${acme:anyOf(_command, 'show|update|delete|publish')}">
+		<acme:input-textbox code="auditor.codeaudit.label.modeMark" path="modeMark" placeholder="validation.codeaudit.mode.empty" readonly="true"/>
+	</jstl:if>
 	<acme:input-textbox code="auditor.codeaudit.label.correctiveActions" path="correctiveActions" />
 	<acme:input-url code="auditor.codeaudit.label.link" path="link" />
 	<acme:input-select code="auditor.codeaudit.label.project" path="project" choices="${projects}"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
-			<jstl:if test="${_command== 'show'}">
-				<acme:button code="auditor.codeaudit.form.button.auditrecords" action="/manager/user-story/list-for-project?projectId=${id}"/>
-			</jstl:if>
+			<acme:button code="auditor.codeaudit.form.button.auditrecords" action="/manager/user-story/list-for-project?projectId=${id}"/>
 			<acme:submit code="auditor.codeaudit.form.button.update" action="/auditor/code-audit/update"/>
 			<acme:submit code="auditor.codeaudit.form.button.delete" action="/auditor/code-audit/delete"/>
 			<acme:submit code="auditor.codeaudit.form.button.publish" action="/auditor/code-audit/publish"/>

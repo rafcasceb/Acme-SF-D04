@@ -15,6 +15,9 @@ auditor.codeaudit.label.type = Tipo
 auditor.codeaudit.label.correctiveActions = Acciones correctivas
 auditor.codeaudit.label.link = Enlace
 auditor.codeaudit.label.project = Proyecto
+auditor.codeaudit.label.modeMark = Nota
+auditor.codeaudit.label.published = Publicado
+
 auditor.codeaudit.list.button.create = Crear
 
 auditor.code-audit.form.title = Detalles de la auditoría de código
@@ -27,3 +30,5 @@ auditor.codeaudit.form.button.auditrecords = Registros de auditoría
 validation.codeaudit.code.duplicate = Este código no está disponible. Por favor, pruebe con otro código
 validation.codeaudit.published = Esta auditoría de código está publicada
 validation.codeaudit.auditrecord.zero-auditrecords = No se puede publicar una auditoría de código sin registros de auditoría
+validation.codeaudit.mode.empty = Esta auditoría de código no tiene registros de auditoría.
+validation.codeaudit.mode.less-than-c = La nota debe ser al menos una C para ser publicada

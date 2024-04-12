@@ -27,9 +27,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 
 	@Override
 	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRole(Auditor.class);
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
@@ -85,7 +83,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		Dataset dataset;
 
 		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
-		projects = SelectChoices.from(unpublishedProjects, "title", object.getProject());
+		projects = SelectChoices.from(unpublishedProjects, "code", object.getProject());
 		choices = SelectChoices.from(AuditType.class, object.getType());
 
 		dataset = super.unbind(object, "code", "published", "execution", "type", "correctiveActions", "link");
