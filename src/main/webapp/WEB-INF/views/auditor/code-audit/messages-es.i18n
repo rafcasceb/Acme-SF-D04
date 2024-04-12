@@ -8,14 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-auditor.code-audit.list.title = Mis Auditorías de Código
+auditor.code-audit.list.title = Mis auditorías de código
 auditor.codeaudit.label.code = Código
 auditor.codeaudit.label.execution = Ejecución
 auditor.codeaudit.label.type = Tipo
-auditor.codeaudit.label.correctiveActions = Acciones Correctivas
+auditor.codeaudit.label.correctiveActions = Acciones correctivas
 auditor.codeaudit.label.link = Enlace
+auditor.codeaudit.label.project = Proyecto
+auditor.codeaudit.list.button.create = Crear
 
-auditor.code-audit.form.title = Detalles de la Auditoría de Código
-auditor.codeaudit.button.create = Crear
-auditor.codeaudit.button.delete = Actualizar
-auditor.codeaudit.button.update = Borrar
+auditor.code-audit.form.title = Detalles de la auditoría de código
+auditor.codeaudit.form.button.create = Crear
+auditor.codeaudit.form.button.update = Actualizar
+auditor.codeaudit.form.button.delete = Borrar
+auditor.codeaudit.form.button.publish = Publicar
+auditor.codeaudit.form.button.auditrecords = Registros de auditoría
+
+validation.codeaudit.code.duplicate = Este código no está disponible. Por favor, pruebe con otro código
+validation.codeaudit.published = Esta auditoría de código está publicada
+validation.codeaudit.auditrecord.zero-auditrecords = No se puede publicar una auditoría de código sin registros de auditoría

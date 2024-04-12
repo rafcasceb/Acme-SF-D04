@@ -16,27 +16,24 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-textbox code="auditor.codeaudit.label.code"
-		path="code" />
-	<acme:input-textbox code="auditor.codeaudit.label.execution"
-		path="execution" />
-	<acme:input-textbox code="auditor.codeaudit.label.type"
-		path="type" />
-	<acme:input-double code="auditor.codeaudit.label.correctiveActions"
-		path="correctiveActions" />
-	<acme:input-textbox code="auditor.codeaudit.label.link"
-		path="link" />
-
+	<acme:input-textbox code="auditor.codeaudit.label.code" path="code" />
+	<acme:input-moment code="auditor.codeaudit.label.execution" path="execution" />
+	<acme:input-select code="auditor.codeaudit.label.type" path="type" choices="${auditTypes}" />
+	<acme:input-textbox code="auditor.codeaudit.label.correctiveActions" path="correctiveActions" />
+	<acme:input-url code="auditor.codeaudit.label.link" path="link" />
+	<acme:input-select code="auditor.codeaudit.label.project" path="project" choices="${projects}"/>
+	
 	<jstl:choose>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete')}">
-			<acme:submit code="auditor.codeaudit.button.update"
-				action="/employer/works-for/update" />
-			<acme:submit code="auditor.codeaudit.button.delete"
-				action="/employer/works-for/delete" />
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">
+			<jstl:if test="${_command== 'show'}">
+				<acme:button code="auditor.codeaudit.form.button.auditrecords" action="/manager/user-story/list-for-project?projectId=${id}"/>
+			</jstl:if>
+			<acme:submit code="auditor.codeaudit.form.button.update" action="/auditor/code-audit/update"/>
+			<acme:submit code="auditor.codeaudit.form.button.delete" action="/auditor/code-audit/delete"/>
+			<acme:submit code="auditor.codeaudit.form.button.publish" action="/auditor/code-audit/publish"/>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="auditor.codeaudit.button.create"
-				action="/employer/works-for/create" />
+			<acme:submit code="auditor.codeaudit.form.button.create" action="/auditor/code-audit/create"/>
 		</jstl:when>
 	</jstl:choose>
 </acme:form>

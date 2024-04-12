@@ -8,14 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-auditor.code-audit.list.title = My Code Audits
+auditor.code-audit.list.title = My code audits
 auditor.codeaudit.label.code = Code
 auditor.codeaudit.label.execution = Execution
 auditor.codeaudit.label.type = Type
-auditor.codeaudit.label.correctiveActions = Corrective Actions
+auditor.codeaudit.label.correctiveActions = Corrective actions
 auditor.codeaudit.label.link = Link
+auditor.codeaudit.label.project = Project
+auditor.codeaudit.list.button.create = Create
 
-auditor.code-audit.form.title = Code Audit Details
-auditor.codeaudit.button.create = Create
-auditor.codeaudit.button.delete = Update
-auditor.codeaudit.button.update = Delete
+auditor.code-audit.form.title = Code audit details
+auditor.codeaudit.form.button.create = Create
+auditor.codeaudit.form.button.update = Update
+auditor.codeaudit.form.button.delete = Delete
+auditor.codeaudit.form.button.publish = Publish
+auditor.codeaudit.form.button.auditrecords = Audit records
+
+validation.codeaudit.code.duplicate = This code is taken. Please, try with another code
+validation.codeaudit.published = This code audit is published
+validation.codeaudit.auditrecord.zero-auditrecords = A code audit with zero audit records cannot be published 
