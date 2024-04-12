@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
+import acme.entities.projects.Project;
+import acme.entities.trainingmodule.DifficultyLevel;
 import acme.entities.trainingmodule.TrainingModule;
 import acme.roles.Developer;
 
@@ -42,12 +45,20 @@ public class DeveloperTrainingModuleListMineService extends AbstractService<Deve
 	@Override
 	public void unbind(final TrainingModule object) {
 		assert object != null;
+		SelectChoices choices;
+		SelectChoices projectsChoices;
+		Collection<Project> projects;
 
 		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "details", "difficultyLevel", "creationMoment", "updateMoment", "link", "estimatedTotalTime", "published", "project.title");
-
+		choices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
+		projects = this.repository.findManyProjects();
+		projectsChoices = SelectChoices.from(projects, "code", object.getProject());
+		dataset = super.unbind(object, "code", "creationMoment", "details", "difficultyLevel", "updateMoment", "link", "estimatedTotalTime", "published", "project");
+		dataset.put("difficultyLevels", choices);
+		dataset.put("project", projectsChoices.getSelected().getKey());
+		dataset.put("projects", projectsChoices);
 		super.getResponse().addData(dataset);
+
 	}
 
 }
