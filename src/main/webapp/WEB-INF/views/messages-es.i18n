@@ -22,5 +22,3 @@ validation.configuration.accepted = La divisa debe estar en el formato 'XXX' o '
 validation.client.code	= El código debe estar en el formato 'CLI-' y cuatro dígitos
 validation.module.code = El código debe estar en el formato de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos
 validation.session.code = El código debe estar en el formato de "TS" seguido de un guión, seguido de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos
-validation.claim.publish.message = Debes confirmar la reclamación antes de publicarla
-validation.claim.code.duplicate = Este código no está disponible. Por favor, pruebe con otro código

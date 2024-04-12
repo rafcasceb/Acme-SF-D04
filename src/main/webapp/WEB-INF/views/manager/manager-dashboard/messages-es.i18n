@@ -1,0 +1,24 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+manager.manager-dashboard.form.title = Panel de estadísticas de manager
+
+manager.dashboard.form.label.totalNumberUserStoriesPriorityMust = Número total de historias de usuario de prioridad "Must"
+manager.dashboard.form.label.totalNumberUserStoriesPriorityShould = Número total de historias de usuario de prioridad "Should"
+manager.dashboard.form.label.totalNumberUserStoriesPriorityCould = Número total de historias de usuario de prioridad "Could"
+manager.dashboard.form.label.totalNumberUserStoriesPriorityWont = Número total de historias de usuario de prioridad "Won't"
+manager.dashboard.form.label.averageEstimatedCostUserStories = Media del coste estimado de historias de usuario
+manager.dashboard.form.label.deviationEstimatedCostUserStories = Desviación estándar del coste estimado de historias de usuario
+manager.dashboard.form.label.minimumEstimatedCostUserStories = Mínimo coste estimado de historias de usuario
+manager.dashboard.form.label.maximumEstimatedCostUserStories = Máximo coste estimado de historias de usuario
+manager.dashboard.form.label.averageCostProjects = Media del coste estimado de proyecto
+manager.dashboard.form.label.deviationCostProjects = Desviación estándar del coste estimado de proyecto
+manager.dashboard.form.label.minimumCostProjects = Mínimo coste estimado de proyecto
+manager.dashboard.form.label.maximumCostProjects = Máximo coste estimado de proyecto

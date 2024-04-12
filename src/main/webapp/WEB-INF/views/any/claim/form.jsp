@@ -18,13 +18,13 @@
 <acme:form>
 	<acme:input-textbox code="any.claim.form.label.code" path="code"/>	
 	<acme:input-textbox code="any.claim.form.label.heading" path="heading"/>
+	<jstl:if test="${_command == 'show'}">
+		<acme:input-textbox code="any.claim.list.label.moment" path="moment"/>
+	</jstl:if>
 	<acme:input-textbox code="any.claim.form.label.description" path="description"/>
 	<acme:input-textbox code="any.claim.form.label.department" path="department"/>
 	<acme:input-email code="any.claim.form.label.email" path="email"/>
 	<acme:input-url code="any.claim.form.label.link" path="link"/>
-	<jstl:if test="${_command == 'show'}">
-		<acme:input-textbox code="any.claim.list.label.moment" path="moment"/>
-	</jstl:if>
 	<jstl:if test="${_command == 'create'}">
 		<acme:input-checkbox code="any.claim.form.label.confirmation" path="confirmation"/>
 		<acme:submit code="any.claim.form.button.create" action="/any/claim/create"/>
