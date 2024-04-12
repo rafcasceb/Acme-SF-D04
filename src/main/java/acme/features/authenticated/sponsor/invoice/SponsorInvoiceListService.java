@@ -44,7 +44,7 @@ public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice>
 		int sponsorId;
 
 		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
-		objects = this.repository.findInvoiceBySponsorId(sponsorId);
+		objects = this.repository.findInvoiceBySponsorshipId(sponsorId);
 
 		super.getBuffer().addData(objects);
 	}
