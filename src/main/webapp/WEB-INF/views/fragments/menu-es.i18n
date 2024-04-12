@@ -74,6 +74,7 @@ master.menu.consumer.favourite-link = Enlace favorito
 master.menu.manager = Manager
 master.menu.manager.list-my-projects = Listar mis proyectos
 master.menu.manager.list-my-user-stories = Listar mis historias de usuario
+master.menu.manager.show-dashboard = Panel de estadísticas
 
 # master.menu.developer ##########################################################
 
@@ -89,3 +90,5 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.manager = Datos de manager
+master.menu.user-account.become-manager = Hazte manager
