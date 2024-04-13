@@ -6,8 +6,8 @@ record-04,AU-0004-001,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaa
 record-05,AU-0005-001,ftp://example.com/record,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-02
 record-06,AU-0006-001,https://example.com/record/otherpage?utm_source=google&utm_medium=cpc,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-03
 record-07,AU-0007-001,http://example.com/record#section-1,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-04
-record-08,AU-0007-001,https://www.example.com/example_page?,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-04
-record-09,AU-0007-001,https://www.example.com/example_page?activo=true,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-04
+record-08,AU-0107-001,https://www.example.com/example_page?,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-04
+record-09,AU-0207-001,https://www.example.com/example_page?activo=true,A_PLUS,2021/01/01 08:00,2021/01/01 09:00,audit-04
 record-10,AU-0008-001,https://example.com,A,2021/01/01 08:00,2021/01/01 09:00,audit-06
 record-11,AU-0009-001,https://example.com,B,2021/01/01 08:00,2021/01/01 09:00,audit-07
 record-12,AU-0010-001,https://example.com,C,2021/01/01 08:00,2021/01/01 09:00,audit-08
