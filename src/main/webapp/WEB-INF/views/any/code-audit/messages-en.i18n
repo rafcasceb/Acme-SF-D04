@@ -17,7 +17,6 @@ any.codeaudit.label.type = Type
 any.codeaudit.label.correctiveActions = Corrective actions
 any.codeaudit.label.link = Link
 any.codeaudit.label.project = Project
-any.codeaudit.label.published = Published
 any.codeaudit.label.modeMark = Mark
 
 any.codeaudit.form.button.auditrecords = Audit records
