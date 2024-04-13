@@ -1,42 +1,40 @@
 
-package acme.features.auditor.auditRecord;
+package acme.features.any.auditRecord;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
-import acme.roles.Auditor;
 
 @Service
-public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, AuditRecord> {
+public class AnyAuditRecordShowService extends AbstractService<Any, AuditRecord> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorAuditRecordRepository repository;
+	private AnyAuditRecordRepository repository;
 
-	// AbstractService<Auditor, AuditRecord> ---------------------------
+	// AbstractService<Any, AuditRecord> ---------------------------
 
 
 	@Override
 	public void authorise() {
 		boolean status;
 		int id;
-		Auditor auditor;
 		AuditRecord auditRecord;
 
 		id = super.getRequest().getData("id", int.class);
 		auditRecord = this.repository.findOneAuditRecordById(id);
 
-		auditor = auditRecord == null ? null : auditRecord.getAudit().getAuditor();
-		status = auditRecord != null && !auditRecord.isPublished() && super.getRequest().getPrincipal().hasRole(auditor);
+		status = auditRecord != null && auditRecord.isPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -50,39 +48,6 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 		object = this.repository.findOneAuditRecordById(id);
 
 		super.getBuffer().addData(object);
-	}
-
-	@Override
-	public void bind(final AuditRecord object) {
-		assert object != null;
-
-		int codeAuditId;
-		CodeAudit codeAudit;
-
-		codeAuditId = super.getRequest().getData("audit", int.class);
-		codeAudit = this.repository.findOneCodeAuditById(codeAuditId);
-
-		object.setAudit(codeAudit);
-		super.bind(object, "code", "link", "mark", "initialMoment", "finalMoment");
-	}
-
-	@Override
-	public void validate(final AuditRecord object) {
-		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("audit"))
-			super.state(!object.getAudit().isPublished(), "audit", "validation.auditrecord.published.audit-is-published");
-
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "validation.auditrecord.published");
-
-	}
-
-	@Override
-	public void perform(final AuditRecord object) {
-		assert object != null;
-
-		this.repository.delete(object);
 	}
 
 	@Override

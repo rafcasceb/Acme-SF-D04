@@ -1,11 +1,12 @@
 
-package acme.features.auditor.codeAudit;
+package acme.features.any.codeAudit;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
@@ -13,31 +14,28 @@ import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
 import acme.entities.projects.Project;
-import acme.roles.Auditor;
+import acme.features.auditor.codeAudit.EnumMode;
 
 @Service
-public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAudit> {
+public class AnyCodeAuditShowService extends AbstractService<Any, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditRepository repository;
+	private AnyCodeAuditRepository repository;
 
-	// AbstractService<Auditor, CodeAudit> ---------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
-		Auditor auditor;
+		int masterId;
 		CodeAudit codeAudit;
 
-		id = super.getRequest().getData("id", int.class);
-		codeAudit = this.repository.findOneCodeAuditById(id);
-
-		auditor = codeAudit == null ? null : codeAudit.getAuditor();
-		status = codeAudit != null && super.getRequest().getPrincipal().hasRole(auditor);
+		masterId = super.getRequest().getData("id", int.class);
+		codeAudit = this.repository.findOneCodeAuditById(masterId);
+		status = codeAudit != null && codeAudit.isPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -76,5 +74,4 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 		super.getResponse().addData(dataset);
 	}
-
 }

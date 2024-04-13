@@ -42,8 +42,8 @@ public interface AuditorCodeAuditRepository extends AbstractRepository {
 	@Query("select p from Project p where p.id = :projectId")
 	Project findOneProjectById(int projectId);
 
-	@Query("select p from Project p where p.published = false")
-	Collection<Project> findAllUnpublishedProjects();
+	@Query("select p from Project p")
+	Collection<Project> findAllProjects();
 
 	@Query("select c from CodeAudit c where c.code = :code and c.id != :auditId")
 	CodeAudit findCodeAuditByCodeDifferentId(String code, int auditId);
