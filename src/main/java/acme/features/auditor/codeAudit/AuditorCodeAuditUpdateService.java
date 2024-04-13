@@ -1,5 +1,5 @@
 
-package acme.features.auditor.codeaudit;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -9,14 +9,13 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.entities.audits.AuditRecord;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -71,6 +70,11 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			CodeAudit isCodeUnique;
+			isCodeUnique = this.repository.findCodeAuditByCodeDifferentId(object.getCode(), object.getId());
+			super.state(isCodeUnique == null, "code", "validation.codeaudit.code.duplicate");
+		}
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "validation.codeaudit.published");
 	}
@@ -78,12 +82,7 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
-
-		Collection<AuditRecord> codeAuditsRecords;
-
-		codeAuditsRecords = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
-		this.repository.deleteAll(codeAuditsRecords);
-		this.repository.delete(object);
+		this.repository.save(object);
 	}
 
 	@Override
@@ -105,5 +104,4 @@ public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, Code
 
 		super.getResponse().addData(dataset);
 	}
-
 }
