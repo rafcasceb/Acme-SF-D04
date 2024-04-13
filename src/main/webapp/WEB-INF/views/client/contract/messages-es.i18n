@@ -23,6 +23,7 @@ client.contract.form.label.customerName = Nombre del cliente
 client.contract.form.label.budget = Presupuesto
 client.contract.form.label.goals = Metas
 client.contract.form.label.published = Publicado
+client.contract.form.label.project = Proyecto asociado
 
 client.contract.list.button.create = Crear
 client.contract.form.button.create = Crear

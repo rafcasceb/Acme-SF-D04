@@ -27,8 +27,17 @@ public interface ClientContractRepository extends AbstractRepository {
 	@Query("select c from Contract c where c.code = :code")
 	Contract findContractByCode(String code);
 
+	@Query("select c from Contract c where c.code = :code and c.id != :contractId")
+	Contract findContractByCodeDifferentId(String code, int contractId);
+
 	@Query("select p from Project p where p.id = :id")
 	Project findOneProjectById(int id);
+
+	@Query("select p from Project p")
+	Collection<Project> findManyProjects();
+
+	@Query("select p from Project p where p.published = false")
+	Collection<Project> findAllUnpublishedProjects();
 
 	@Query("select p from ProgressLog p where p.contract.id = :contractId ")
 	Collection<ProgressLog> findManyProgressLogsByContractId(int contractId);
