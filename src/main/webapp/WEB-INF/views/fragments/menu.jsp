@@ -52,7 +52,10 @@
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.codeaudit.list-mine" action="/auditor/code-audit/list-mine"/>
 		</acme:menu-option>
-
+		
+		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
+			<acme:menu-suboption code="master.menu.client.contract.list-mine" action="/client/contract/list-mine"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
 			<acme:menu-suboption code="master.menu.provider.favourite-link" action="http://www.example.com/"/>
