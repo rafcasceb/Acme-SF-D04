@@ -69,6 +69,11 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.client ##########################################################
+
+master.menu.client = Cliente
+master.menu.client.contract.list-mine = Listar mis contratos
+
 # master.menu.manager ##########################################################
 
 master.menu.manager = Manager
