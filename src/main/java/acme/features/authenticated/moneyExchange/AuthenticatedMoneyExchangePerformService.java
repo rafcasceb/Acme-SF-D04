@@ -63,6 +63,7 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 			object.setTarget(null);
 			object.setDate(null);
 		} else {
+			super.state(exchange.getDate() != null, "*", "authenticated.money-exchange.form.label.api-error");
 			target = exchange.getTarget();
 			object.setTarget(target);
 			date = exchange.getDate();
@@ -94,6 +95,7 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 		Double sourceAmount, targetAmount, rate;
 		Money target;
 		Date moment;
+		//String moment;
 
 		try {
 			api = new RestTemplate();
@@ -102,15 +104,14 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 			sourceAmount = source.getAmount();
 
 			record = api.getForObject( //				
-				"http://apilayer.net/api/live?source={0}&currencies={1}&access_key={2}&format=1", //
+				"https://api.currencyapi.com/v3/latest?apikey={0}&base_currency={1}&currencies={2}", //
 				ExchangeRate.class, //
+				"cur_live_9CS0QA54yYzg4W3iJ1QQMMktAfPY2DpLVpUjpPKP", //
 				sourceCurrency, //
-				targetCurrency, //
-				"3kDolndpzPKo5AF8mAhkNbB5V8A9JMtf");
+				targetCurrency);
 
 			assert record != null;
-			key = String.format("%s%s", sourceCurrency, targetCurrency);
-			rate = record.getQuotes().get(key);
+			rate = Double.valueOf(record.getData().get(targetCurrency).get("value"));
 			assert rate != null;
 			targetAmount = rate * sourceAmount;
 
@@ -118,7 +119,7 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 			target.setAmount(targetAmount);
 			target.setCurrency(targetCurrency);
 
-			moment = new Date(record.getTimestamp() * 1000L);
+			moment = record.getDate();
 
 			result = new MoneyExchange();
 			result.setSource(source);
