@@ -58,6 +58,8 @@ master.menu.administrator.list-banner = Listar banners
 
 master.menu.auditor = Auditor
 master.menu.auditor.codeaudit.list-mine = Listar mis auditorías de código
+master.menu.auditor.auditrecord.list-my-audit-records = Listar mis registros de auditoría
+master.menu.auditor.show-dashboard = Panel de estadísticas
 
 # master.menu.provider ########################################################
 

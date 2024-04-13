@@ -1,5 +1,5 @@
 
-package acme.features.auditor.codeaudit;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.audits.AuditRecord;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
-import acme.entities.audits.Mark;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditPublishService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -57,32 +57,33 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 	public void bind(final CodeAudit object) {
 		assert object != null;
 
-		super.bind(object, "publish");
+		int projectId;
+		Project project;
+
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
+
+		object.setProject(project);
+		super.bind(object, "code", "execution", "type", "correctiveActions", "link");
 	}
 
 	@Override
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
-		String modeMark;
-
-		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
-		modeMark = EnumMode.mode(marks);
-
-		if (!super.getBuffer().getErrors().hasErrors("modeMark"))
-			if (modeMark != null) {
-				boolean isMarkAtLeastC = modeMark.equals("C") || modeMark.equals("B") || modeMark.equals("A") || modeMark.equals("A_PLUS");
-				super.state(isMarkAtLeastC, "modeMark", "validation.codeaudit.mode.less-than-c");
-			} else
-				super.state(false, "modeMark", "validation.codeaudit.mode.less-than-c");
+		if (!super.getBuffer().getErrors().hasErrors("published"))
+			super.state(!object.isPublished(), "published", "validation.codeaudit.published");
 	}
 
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
 
-		object.setPublished(true);
-		this.repository.save(object);
+		Collection<AuditRecord> codeAuditsRecords;
+
+		codeAuditsRecords = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
+		this.repository.deleteAll(codeAuditsRecords);
+		this.repository.delete(object);
 	}
 
 	@Override
@@ -92,10 +93,6 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		SelectChoices choices;
 		SelectChoices projects;
 		Dataset dataset;
-		String modeMark;
-
-		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
-		modeMark = EnumMode.mode(marks);
 
 		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
 		projects = SelectChoices.from(unpublishedProjects, "title", object.getProject());
@@ -105,7 +102,6 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		dataset.put("project", projects.getSelected().getKey());
 		dataset.put("projects", projects);
 		dataset.put("auditTypes", choices);
-		dataset.put("modeMark", modeMark);
 
 		super.getResponse().addData(dataset);
 	}

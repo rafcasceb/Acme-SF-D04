@@ -1,5 +1,5 @@
 
-package acme.features.auditor.codeaudit;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -16,7 +16,7 @@ import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditPublishService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -37,7 +37,7 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 		codeAudit = this.repository.findOneCodeAuditById(id);
 
 		auditor = codeAudit == null ? null : codeAudit.getAuditor();
-		status = codeAudit != null && super.getRequest().getPrincipal().hasRole(auditor);
+		status = codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(auditor);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -54,6 +54,38 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 	}
 
 	@Override
+	public void bind(final CodeAudit object) {
+		assert object != null;
+
+		super.bind(object, "publish");
+	}
+
+	@Override
+	public void validate(final CodeAudit object) {
+		assert object != null;
+
+		String modeMark;
+
+		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
+		modeMark = EnumMode.mode(marks);
+
+		if (!super.getBuffer().getErrors().hasErrors("modeMark"))
+			if (modeMark != null) {
+				boolean isMarkAtLeastC = modeMark.equals("C") || modeMark.equals("B") || modeMark.equals("A") || modeMark.equals("A_PLUS");
+				super.state(isMarkAtLeastC, "modeMark", "validation.codeaudit.mode.less-than-c");
+			} else
+				super.state(false, "modeMark", "validation.codeaudit.mode.less-than-c");
+	}
+
+	@Override
+	public void perform(final CodeAudit object) {
+		assert object != null;
+
+		object.setPublished(true);
+		this.repository.save(object);
+	}
+
+	@Override
 	public void unbind(final CodeAudit object) {
 		assert object != null;
 
@@ -64,6 +96,7 @@ public class AuditorCodeAuditShowService extends AbstractService<Auditor, CodeAu
 
 		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
 		modeMark = EnumMode.mode(marks);
+
 		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
 		projects = SelectChoices.from(unpublishedProjects, "title", object.getProject());
 		choices = SelectChoices.from(AuditType.class, object.getType());
