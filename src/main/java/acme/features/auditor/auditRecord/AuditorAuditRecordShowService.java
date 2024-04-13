@@ -60,7 +60,7 @@ public class AuditorAuditRecordShowService extends AbstractService<Auditor, Audi
 		SelectChoices codeAudits;
 		Dataset dataset;
 
-		Collection<CodeAudit> unpublishedCodeAudits = this.repository.findAllUnpublishedCodeAudits();
+		Collection<CodeAudit> unpublishedCodeAudits = this.repository.findAllCodeAudits();
 		codeAudits = SelectChoices.from(unpublishedCodeAudits, "code", object.getAudit());
 		choices = SelectChoices.from(Mark.class, object.getMark());
 

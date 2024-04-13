@@ -73,6 +73,9 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 	public void validate(final AuditRecord object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("audit"))
+			super.state(!object.getAudit().isPublished(), "audit", "validation.auditrecord.published.audit-is-published");
+
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "validation.auditrecord.published");
 
@@ -106,8 +109,8 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		SelectChoices codeAudits;
 		Dataset dataset;
 
-		Collection<CodeAudit> unpublishedCodeAudits = this.repository.findAllUnpublishedCodeAudits();
-		codeAudits = SelectChoices.from(unpublishedCodeAudits, "code", object.getAudit());
+		Collection<CodeAudit> allCodeAudits = this.repository.findAllCodeAudits();
+		codeAudits = SelectChoices.from(allCodeAudits, "code", object.getAudit());
 		choices = SelectChoices.from(Mark.class, object.getMark());
 
 		dataset = super.unbind(object, "code", "published", "link", "mark", "initialMoment", "finalMoment");

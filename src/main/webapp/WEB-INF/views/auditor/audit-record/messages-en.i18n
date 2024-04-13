@@ -28,3 +28,4 @@ validation.auditrecord.code.duplicate = This code is taken. Please, try with ano
 validation.auditrecord.moment.initial-after-final = The start date must be before the end date
 validation.auditrecord.moment.minimum-one-hour = The time between the start and the end date must be of at least an hour long
 validation.auditrecord.published = You cannot delete nor modify a published code audit
+validation.auditrecord.published.audit-is-published = This code audit has already been published

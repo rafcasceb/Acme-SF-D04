@@ -20,6 +20,7 @@ master.menu.sign-out = Salir
 master.menu.any = Cualquiera
 master.menu.any.projects = Listar proyectos
 master.menu.any.claims = Listar reclamaciones
+master.menu.any.codeaudits = Listar auditorías de código
 
 # master.menu.anonymous #######################################################
 

@@ -81,8 +81,8 @@ public class AuditorAuditRecordPublishService extends AbstractService<Auditor, A
 		SelectChoices codeAudits;
 		Dataset dataset;
 
-		Collection<CodeAudit> unpublishedCodeAudits = this.repository.findAllUnpublishedCodeAudits();
-		codeAudits = SelectChoices.from(unpublishedCodeAudits, "code", object.getAudit());
+		Collection<CodeAudit> allCodeAudits = this.repository.findAllCodeAudits();
+		codeAudits = SelectChoices.from(allCodeAudits, "code", object.getAudit());
 		choices = SelectChoices.from(Mark.class, object.getMark());
 
 		dataset = super.unbind(object, "code", "published", "link", "mark", "initialMoment", "finalMoment");
