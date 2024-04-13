@@ -20,5 +20,4 @@
 	<acme:list-column code="any.codeaudit.label.execution" path="execution" width="10%"/>
 	<acme:list-column code="any.codeaudit.label.type" path="type" width="10%"/>
 	<acme:list-column code="any.codeaudit.label.modeMark" path="modeMark"/>
-	<acme:list-column code="any.codeaudit.label.published" path="published" width="10%"/>
 </acme:list>

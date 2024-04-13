@@ -48,7 +48,7 @@ public class AnyCodeAuditListService extends AbstractService<Any, CodeAudit> {
 		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
 		modeMark = EnumMode.mode(marks);
 
-		dataset = super.unbind(object, "code", "type", "execution", "published");
+		dataset = super.unbind(object, "code", "type", "execution");
 		dataset.put("modeMark", modeMark);
 
 		super.getResponse().addData(dataset);

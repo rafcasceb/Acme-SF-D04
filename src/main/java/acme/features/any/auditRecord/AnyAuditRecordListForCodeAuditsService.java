@@ -54,7 +54,7 @@ public class AnyAuditRecordListForCodeAuditsService extends AbstractService<Any,
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "mark", "published");
+		dataset = super.unbind(object, "code", "mark");
 
 		super.getResponse().addData(dataset);
 	}

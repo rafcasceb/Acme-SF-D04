@@ -18,6 +18,5 @@
 <acme:list>
 	<acme:list-column code="any.auditrecord.label.code" path="code" width="10%"/>
 	<acme:list-column code="any.auditrecord.label.mark" path="mark"/>
-	<acme:list-column code="any.auditrecord.label.published" path="published" width="10%"/>
 </acme:list>
 	
