@@ -17,11 +17,11 @@
 
 <acme:form>
 	<acme:input-textbox code="client.contract.form.label.code" path="code"/>
-	<acme:input-moment code="client.contract.form.label.instantiationMoment" path="instantiationMoment" readonly = "True"/>
 	<acme:input-textbox code="client.contract.form.label.providerName" path="providerName"/>
 	<acme:input-textbox code="client.contract.form.label.customerName" path="customerName"/>
 	<acme:input-textbox code="client.contract.form.label.goals" path="goals"/>
 	<acme:input-money code="client.contract.form.label.budget" path="budget"/>
+	<acme:input-select code="client.contract.form.label.project" path="project" choices="${projects}"/>
 
 	
 	<jstl:choose>
