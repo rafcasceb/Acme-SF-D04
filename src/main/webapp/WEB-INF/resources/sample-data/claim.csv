@@ -52,7 +52,7 @@ claim-47,C-0047,2020/02/01 10:30,Example Heading,Example description.,Department
 claim-58,C-0048,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,ftp://example.com/claim
 claim-49,C-0049,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://example.com/claim/otherpage?utm_source=google&utm_medium=cpc
 claim-50,C-0050,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,http://example.com/claim#section-1
-claim-51,C-0051,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://www.example.com/example_page?
+claim-56,C-0051,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://www.example.com/example_page?
 claim-52,C-0052,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://www.example.com/example_page?activo=true
 claim-51,C-0000,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://example.com/claim
-claim-52,C-9999,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://example.com/claim
+claim-59,C-9999,2020/02/01 10:30,Example Heading,Example description.,Department,email@example.com,https://example.com/claim
