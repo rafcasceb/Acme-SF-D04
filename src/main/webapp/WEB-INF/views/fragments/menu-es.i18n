@@ -20,6 +20,7 @@ master.menu.sign-out = Salir
 master.menu.any = Cualquiera
 master.menu.any.projects = Listar proyectos
 master.menu.any.claims = Listar reclamaciones
+master.menu.any.codeaudits = Listar auditorías de código
 
 # master.menu.anonymous #######################################################
 
@@ -58,6 +59,8 @@ master.menu.administrator.list-banner = Listar banners
 
 master.menu.auditor = Auditor
 master.menu.auditor.codeaudit.list-mine = Listar mis auditorías de código
+master.menu.auditor.auditrecord.list-my-audit-records = Listar mis registros de auditoría
+master.menu.auditor.show-dashboard = Panel de estadísticas
 
 # master.menu.provider ########################################################
 
@@ -68,6 +71,11 @@ master.menu.provider.favourite-link = Enlace favorito
 
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
+
+# master.menu.client ##########################################################
+
+master.menu.client = Cliente
+master.menu.client.contract.list-mine = Listar mis contratos
 
 # master.menu.manager ##########################################################
 
@@ -92,3 +100,5 @@ master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.manager = Datos de manager
 master.menu.user-account.become-manager = Hazte manager
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-auditor = Hazte auditor

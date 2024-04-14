@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.auditor.codeaudit;
+package acme.features.authenticated.auditor;
 
 import javax.annotation.PostConstruct;
 
@@ -18,43 +18,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
-import acme.entities.audits.CodeAudit;
+import acme.client.data.accounts.Authenticated;
 import acme.roles.Auditor;
 
 @Controller
-public class AuditorCodeAuditController extends AbstractController<Auditor, CodeAudit> {
+public class AuthenticatedAuditorController extends AbstractController<Authenticated, Auditor> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuditorCodeAuditListMineService	listMineService;
+	private AuthenticatedAuditorCreateService	createService;
 
 	@Autowired
-	private AuditorCodeAuditShowService		showService;
-
-	@Autowired
-	private AuditorCodeAuditCreateService	createService;
-
-	@Autowired
-	private AuditorCodeAuditUpdateService	updateService;
-
-	@Autowired
-	private AuditorCodeAuditDeleteService	deleteService;
-
-	@Autowired
-	private AuditorCodeAuditPublishService	publishService;
+	private AuthenticatedAuditorUpdateService	updateService;
 
 	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
 	protected void initialise() {
-		super.addCustomCommand("list-mine", "list", this.listMineService);
-		super.addCustomCommand("publish", "update", this.publishService);
-		super.addBasicCommand("show", this.showService);
 		super.addBasicCommand("create", this.createService);
 		super.addBasicCommand("update", this.updateService);
-		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }

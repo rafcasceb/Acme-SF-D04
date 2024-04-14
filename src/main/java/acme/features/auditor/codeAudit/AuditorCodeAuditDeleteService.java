@@ -1,5 +1,5 @@
 
-package acme.features.auditor.codeaudit;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -9,13 +9,14 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.audits.AuditRecord;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
 @Service
-public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, CodeAudit> {
+public class AuditorCodeAuditDeleteService extends AbstractService<Auditor, CodeAudit> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -29,13 +30,14 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	public void authorise() {
 		boolean status;
 		int id;
-		int auditorId;
+		Auditor auditor;
 		CodeAudit codeAudit;
 
 		id = super.getRequest().getData("id", int.class);
-		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
 		codeAudit = this.repository.findOneCodeAuditById(id);
-		status = auditorId == codeAudit.getAuditor().getId();
+
+		auditor = codeAudit == null ? null : codeAudit.getAuditor();
+		status = codeAudit != null && !codeAudit.isPublished() && super.getRequest().getPrincipal().hasRole(auditor);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -69,11 +71,6 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			CodeAudit isCodeUnique;
-			isCodeUnique = this.repository.findCodeAuditByCodeDifferentId(object.getCode(), object.getId());
-			super.state(isCodeUnique == null, "code", "validation.codeaudit.code.duplicate");
-		}
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "validation.codeaudit.published");
 	}
@@ -81,7 +78,12 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 	@Override
 	public void perform(final CodeAudit object) {
 		assert object != null;
-		this.repository.save(object);
+
+		Collection<AuditRecord> codeAuditsRecords;
+
+		codeAuditsRecords = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
+		this.repository.deleteAll(codeAuditsRecords);
+		this.repository.delete(object);
 	}
 
 	@Override
@@ -92,8 +94,8 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 		SelectChoices projects;
 		Dataset dataset;
 
-		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
-		projects = SelectChoices.from(unpublishedProjects, "title", object.getProject());
+		Collection<Project> allProjects = this.repository.findAllProjects();
+		projects = SelectChoices.from(allProjects, "title", object.getProject());
 		choices = SelectChoices.from(AuditType.class, object.getType());
 
 		dataset = super.unbind(object, "code", "published", "execution", "type", "correctiveActions", "link");
@@ -103,4 +105,5 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 
 		super.getResponse().addData(dataset);
 	}
+
 }
