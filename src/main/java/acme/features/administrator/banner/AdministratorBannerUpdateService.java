@@ -48,7 +48,7 @@ public class AdministratorBannerUpdateService extends AbstractService<Administra
 	public void bind(final Banner object) {
 		assert object != null;
 
-		super.bind(object, "moment", "displayStartMoment", "displayEndMoment", "picture", "slogan", "target");
+		super.bind(object, "displayStartMoment", "displayEndMoment", "picture", "slogan", "target");
 		Date moment;
 		moment = MomentHelper.getCurrentMoment();
 		object.setMoment(moment);
