@@ -1,45 +1,52 @@
 
-package acme.features.developer.trainingModule;
+package acme.features.any.trainingModule;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.accounts.Principal;
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
 import acme.entities.trainingmodule.DifficultyLevel;
 import acme.entities.trainingmodule.TrainingModule;
-import acme.roles.Developer;
 
 @Service
-public class DeveloperTrainingModuleListMineService extends AbstractService<Developer, TrainingModule> {
+public class AnyTrainingModuleShowService extends AbstractService<Any, TrainingModule> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private DeveloperTrainingModuleRepository repository;
+	private AnyTrainingModuleRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int masterId;
+		TrainingModule trainingModule;
+
+		masterId = super.getRequest().getData("id", int.class);
+		trainingModule = this.repository.findOneTrainingModuleById(masterId);
+		status = trainingModule != null && trainingModule.isPublished();
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		Collection<TrainingModule> objects;
-		Principal principal;
+		TrainingModule object;
+		int id;
 
-		principal = super.getRequest().getPrincipal();
-		objects = this.repository.findManyTrainingModulesByDeveloperId(principal.getActiveRoleId());
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneTrainingModuleById(id);
 
-		super.getBuffer().addData(objects);
+		super.getBuffer().addData(object);
 	}
 
 	@Override
