@@ -26,7 +26,7 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		boolean status;
 
 		Principal principal = super.getRequest().getPrincipal();
-		int id = principal.getAccountId();
+		int id = principal.getActiveRoleId();
 		Developer developer = this.dashboardRepository.findDeveloperById(id);
 		status = developer != null && principal.hasRole(Developer.class);
 
@@ -36,10 +36,10 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 	@Override
 	public void load() {
 		final Principal principal = super.getRequest().getPrincipal();
-		int userAccountId = principal.getAccountId();
+		int id = principal.getActiveRoleId();
 		DeveloperDashboard developerDashboard = new DeveloperDashboard();
-		Collection<TrainingModule> modules = this.dashboardRepository.findAllTrainingModulesByDeveloperId(userAccountId);
-		Collection<TrainingSession> sessions = this.dashboardRepository.findAllTrainingSessionsByDeveloperId(userAccountId);
+		Collection<TrainingModule> modules = this.dashboardRepository.findAllTrainingModulesByDeveloperId(id);
+		Collection<TrainingSession> sessions = this.dashboardRepository.findAllTrainingSessionsByDeveloperId(id);
 
 		developerDashboard.setTotalNumberTrainingSessionsWithLink(0);
 		developerDashboard.setTotalNumberTrainingModulesWithUpdateMoment(0);
@@ -49,17 +49,18 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		developerDashboard.setMaximumTimeTrainingModules(0);
 
 		if (!modules.isEmpty()) {
-			developerDashboard.setTotalNumberTrainingModulesWithUpdateMoment(this.dashboardRepository.totalTrainingModulesWithUpdateMoment(userAccountId));
-			developerDashboard.setAverageTimeTrainingModules(this.dashboardRepository.averageTrainingModulesTime(userAccountId));
-			developerDashboard.setDeviationTimeTrainingModules(this.dashboardRepository.deviatonTrainingModulesTime(userAccountId));
-			developerDashboard.setMinimumTimeTrainingModules(this.dashboardRepository.minimumTrainingModulesTime(userAccountId));
-			developerDashboard.setMaximumTimeTrainingModules(this.dashboardRepository.maximumTrainingModulesTime(userAccountId));
+			developerDashboard.setTotalNumberTrainingModulesWithUpdateMoment(this.dashboardRepository.totalTrainingModulesWithUpdateMoment(id));
+			developerDashboard.setAverageTimeTrainingModules(this.dashboardRepository.averageTrainingModulesTime(id));
+			developerDashboard.setDeviationTimeTrainingModules(this.dashboardRepository.deviatonTrainingModulesTime(id));
+			developerDashboard.setMinimumTimeTrainingModules(this.dashboardRepository.minimumTrainingModulesTime(id));
+			developerDashboard.setMaximumTimeTrainingModules(this.dashboardRepository.maximumTrainingModulesTime(id));
 		}
 
 		if (!sessions.isEmpty())
-			developerDashboard.setTotalNumberTrainingSessionsWithLink(this.dashboardRepository.totalTrainingSessionsWithLink(userAccountId));
+			developerDashboard.setTotalNumberTrainingSessionsWithLink(this.dashboardRepository.totalTrainingSessionsWithLink(id));
 
 		super.getBuffer().addData(developerDashboard);
+		System.out.println(this.dashboardRepository.deviatonTrainingModulesTime(id));
 
 	}
 
@@ -67,7 +68,7 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 	public void unbind(final DeveloperDashboard object) {
 		Dataset dataset;
 
-		dataset = super.unbind(object, "totalNumberTrainingModulesWithUpdateMoment", "totalNumberTrainingSessionsWithLink", "averageTimeTrainingModules", "deviatonTimeTrainingModules", "minimumTimeTrainingModules", "maximumTimeTrainingModules");
+		dataset = super.unbind(object, "totalNumberTrainingModulesWithUpdateMoment", "totalNumberTrainingSessionsWithLink", "averageTimeTrainingModules", "deviationTimeTrainingModules", "minimumTimeTrainingModules", "maximumTimeTrainingModules");
 
 		super.getResponse().addData(dataset);
 	}

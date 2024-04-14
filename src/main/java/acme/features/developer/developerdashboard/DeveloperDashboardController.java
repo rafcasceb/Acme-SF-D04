@@ -14,11 +14,12 @@ import acme.roles.Developer;
 public class DeveloperDashboardController extends AbstractController<Developer, DeveloperDashboard> {
 
 	@Autowired
-	//private DeveloperDashboardShowService showService;
+	private DeveloperDashboardShowService showService;
+
 
 	@PostConstruct
 	protected void initialise() {
-		//super.addBasicCommand("show", this.showService);
+		super.addBasicCommand("show", this.showService);
 	}
 
 }

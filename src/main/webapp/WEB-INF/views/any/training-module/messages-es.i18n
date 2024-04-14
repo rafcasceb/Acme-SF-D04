@@ -8,36 +8,17 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-developer.trainingModule.form.title = Formulario del Módulo de Entrenamiento
-developer.trainingModule.list.title = Lista de Módulos de Entrenamiento
+any.trainingModule.form.title = Formulario del Módulo de Entrenamiento
+any.trainingModule.list.title = Lista de Módulos de Entrenamiento
 
-developer.trainingModule.form.label.code = Código:
-developer.trainingModule.form.label.details = Detalles:
-developer.trainingModule.form.label.level = Nivel de Dificultad:
-developer.trainingModule.form.label.creationMoment = Momento de Creación:
-developer.trainingModule.form.label.updateMoment = Momento de Actualización (Opcional):
-developer.trainingModule.form.label.link = Enlace (Opcional):
-developer.trainingModule.form.label.estimatedTotalTime = Tiempo Total Estimado:
-developer.trainingModule.form.label.published = Publicado:
+any.trainingModule.form.label.code = Código:
+any.trainingModule.form.label.details = Detalles:
+any.trainingModule.form.label.level = Nivel de Dificultad:
+any.trainingModule.form.label.creationMoment = Momento de Creación:
+any.trainingModule.form.label.updateMoment = Momento de Actualización (Opcional):
+any.trainingModule.form.label.link = Enlace (Opcional):
+any.trainingModule.form.label.estimatedTotalTime = Tiempo Total Estimado:
+any.trainingModule.form.label.published = Publicado:
+any.training-module.form.label.project = Projecto:
 
-developer.trainingModule.form.placeholder.time = 0 - 100
-		
-developer.trainingModule.form.button.trainingSessions = Sesiones de Entrenamiento
-developer.trainingModule.form.button.update = Actualizar
-developer.trainingModule.form.button.delete = Eliminar
-developer.trainingModule.form.button.publish = Publicar
-developer.trainingModule.form.button.create = Crear
-
-developer.trainingModule.form.error.duplicated = Esta referencia está en uso
-developer.trainingModule.form.error.not-after = El momento de actualización debe ser posterior al momento de creación
-developer.trainingModule.form.error.already-published = No se puede editar o borrar un módulo de entrenamiento ya publicado
-developer.trainingModule.form.error.no-training-sessions = No se puede publicar un modulo de entrenamiento sin sesiones.
-
-
-developer.trainingModule.list.label.code = Código
-developer.trainingModule.list.label.details = Detalles
-developer.trainingModule.list.label.creationMoment = Momento de Creación
-developer.trainingModule.list.label.difficultyLevel = Nivel de Dificultad
-
-developer.trainingModule.list.button.create = Crear
 
