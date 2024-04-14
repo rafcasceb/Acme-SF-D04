@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.auditor.codeaudit;
+package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
 
@@ -21,6 +21,7 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.audits.CodeAudit;
+import acme.entities.audits.Mark;
 import acme.roles.Auditor;
 
 @Service
@@ -55,8 +56,13 @@ public class AuditorCodeAuditListMineService extends AbstractService<Auditor, Co
 		assert object != null;
 
 		Dataset dataset;
+		String modeMark;
 
-		dataset = super.unbind(object, "code", "execution", "type", "correctiveActions", "link");
+		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
+		modeMark = EnumMode.mode(marks);
+
+		dataset = super.unbind(object, "code", "type", "execution", "published");
+		dataset.put("modeMark", modeMark);
 
 		super.getResponse().addData(dataset);
 	}
