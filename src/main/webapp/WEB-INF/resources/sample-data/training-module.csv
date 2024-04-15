@@ -10,7 +10,7 @@ module-08,RST-123,Lorem ipsum dolor sit amets consectetur adipiscing elit.,BASIC
 module-09,RST-124,The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet consectetur adipiscing elit,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01,developer-01
 module-10,RST-724,The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet consectetur adipiscing elit.,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01,developer-01
 module-11,RST-125,<button onclick="showAlert()">Alert</button>,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01,developer-01
-module-40,RST-129,SELECT t FROM TrainingModule t,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01,developer-01
+module-40,RST-129,OR 1=1,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01,developer-01
 module-12,RST-126,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01,developer-01
 module-13,QRS-678,This is a test text,INTERMEDIATE,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01,developer-01
 module-14,JKL-678,This is a test text,ADVANCED,2020/04/04 14:35,2020/04/19 14:54,https://example.es,20,false,project-01,developer-01
@@ -29,6 +29,8 @@ module-26,LMN-013,This is a test text,BASIC,2020/04/04 14:35,2000/01/01 00:01,ht
 module-27,LMN-014,This is a test text,BASIC,2020/04/04 14:35,2022/07/29 23:59,https://example.es,20,false,project-01,developer-01
 module-28,LMN-015,This is a test text,BASIC,2020/04/04 14:35,2020/07/30 00:00,https://example.es,20,false,project-01,developer-01
 module-29,STU-234,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://examp?le.es,20,false,project-01,developer-01
+module-41,STF-234,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es/training/user?id=1234,20,false,project-01,developer-01
+module-42,STX-234,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.es/training/user?,20,false,project-01,developer-01
 module-30,IJK-567,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,,20,false,project-01,developer-01
 module-31,MNO-890,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,http://x.com,20,false,project-01,developer-01
 module-32,MNO-891,This is a test text,BASIC,2020/04/04 14:35,2020/04/19 14:54,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz,20,false,project-01,developer-01
