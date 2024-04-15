@@ -11,6 +11,8 @@
 sponsor.invoice.form.title = Invoice Form
 sponsor.invoice.list.title = Invoices
 
+sponsor.invoice.form.button.create = Create
+sponsor.invoice.form.button.update = Update
 
 sponsor.invoice.form.label.code = Code
 sponsor.invoice.form.label.registrationTime = Registration Date
@@ -19,9 +21,13 @@ sponsor.invoice.form.label.quantity = Quantity
 sponsor.invoice.form.label.tax = Tax
 sponsor.invoice.form.label.link = link
 sponsor.invoice.form.label.value = Total
-
+sponsor.invoice.form.label.sponsorship = Sponsorship
 
 
 sponsor.invoice.list.label.code = Code
 sponsor.invoice.list.label.dueDate = Due Date
 sponsor.invoice.list.label.value = Total
+
+sponsor.invoice.form.error.duplicate = Duplicate code
+sponsor.invoice.form.error.dueDate = Due date must be in the future
+sponsor.invoice.form.error.period = Validity period must be at least a Month

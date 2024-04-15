@@ -1,21 +1,21 @@
 
-package acme.features.authenticated.sponsor.sponsorship;
+package acme.features.sponsor.invoice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.sponsorships.Sponsorship;
+import acme.entities.sponsorships.Invoice;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sponsorship> {
+public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoice> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipRepository repository;
+	private SponsorInvoiceRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -27,39 +27,39 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void load() {
-		Sponsorship object;
+		Invoice object;
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneSponsorshipById(id);
+		object = this.repository.findOneInvoiceById(id);
 
 		super.getBuffer().addData(object);
 	}
 
 	@Override
-	public void bind(final Sponsorship object) {
+	public void bind(final Invoice object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "startDate", "endDate", "amount", "email", "link", "published");
+		super.bind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
 	}
 
 	@Override
-	public void validate(final Sponsorship object) {
+	public void validate(final Invoice object) {
 		assert object != null;
 
 	}
 
 	@Override
-	public void perform(final Sponsorship object) {
+	public void perform(final Invoice object) {
 		assert object != null;
 		this.repository.save(object);
 	}
 
 	@Override
-	public void unbind(final Sponsorship object) {
+	public void unbind(final Invoice object) {
 		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "email", "link", "published", "project.title");
+		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
 		super.getResponse().addData(dataset);
 	}
 

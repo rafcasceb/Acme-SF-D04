@@ -1,5 +1,5 @@
 /*
- * EmployerApplicationShowService.java
+ * EmployerApplicationListService.java
  *
  * Copyright (C) 2012-2024 Rafael Corchuelo.
  *
@@ -10,59 +10,50 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.sponsor.invoice;
+package acme.features.sponsor.sponsorship;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.sponsorships.Invoice;
+import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice> {
+public class SponsorSponsorshipListService extends AbstractService<Sponsor, Sponsorship> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorInvoiceRepository repository;
+	private SponsorSponsorshipRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int invoiceId;
-		Invoice invoice;
-
-		invoiceId = super.getRequest().getData("id", int.class);
-		invoice = this.repository.findOneInvoiceById(invoiceId);
-		status = invoice != null && super.getRequest().getPrincipal().hasRole(invoice.getSponsorship().getSponsor());
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		Invoice object;
-		int id;
+		Collection<Sponsorship> objects;
+		int sponsorId;
 
-		id = super.getRequest().getData("id", int.class);
-		object = this.repository.findOneInvoiceById(id);
+		sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
+		objects = this.repository.findSponsorshipsBySponsorId(sponsorId);
 
-		super.getBuffer().addData(object);
+		super.getBuffer().addData(objects);
 	}
 
 	@Override
-	public void unbind(final Invoice object) {
+	public void unbind(final Sponsorship object) {
 		assert object != null;
-
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
-		dataset.put("value", object.getValue());
-
+		dataset = super.unbind(object, "code", "amount", "type", "published", "project.title");
 		super.getResponse().addData(dataset);
 	}
 

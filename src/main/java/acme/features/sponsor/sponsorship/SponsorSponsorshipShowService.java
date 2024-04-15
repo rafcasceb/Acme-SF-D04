@@ -10,14 +10,19 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.sponsor.sponsorship;
+package acme.features.sponsor.sponsorship;
+
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
+import acme.entities.projects.Project;
 import acme.entities.sponsorships.Sponsorship;
+import acme.entities.sponsorships.SponsorshipType;
 import acme.roles.Sponsor;
 
 @Service
@@ -60,10 +65,17 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		assert object != null;
 
 		Dataset dataset;
+		SelectChoices choices;
+		SelectChoices projects;
 
-		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "email", "link", "published", "project.title");
-		dataset.put("masterId", object.getProject().getId());
-		dataset.put("type", object.getType().name());
+		choices = SelectChoices.from(SponsorshipType.class, object.getType());
+		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
+		projects = SelectChoices.from(unpublishedProjects, "code", object.getProject());
+
+		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "email", "link", "published");
+		dataset.put("project", projects.getSelected().getKey());
+		dataset.put("projects", projects);
+		dataset.put("types", choices);
 
 		super.getResponse().addData(dataset);
 	}

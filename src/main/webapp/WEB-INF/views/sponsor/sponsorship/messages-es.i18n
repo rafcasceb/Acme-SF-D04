@@ -13,6 +13,8 @@ sponsor.sponsorship.list.title = Patrocinadores
 sponsor.sponsorship.list.button.create = Crear
 sponsor.sponsorship.form.button.create = Crear
 sponsor.sponsorship.form.button.update = Actualizar
+sponsor.sponsorship.list.button.delete = Eliminar
+sponsor.sponsorship.list.button.publish = Publicar
 
 
 sponsor.sponsorship.form.label.code = Código
@@ -30,3 +32,9 @@ sponsor.sponsorship.list.label.code = Code
 sponsor.sponsorship.list.label.project = Project
 sponsor.sponsorship.list.label.type = Type
 sponsor.sponsorship.list.label.amount = Amount
+
+sponsor.sponsorhsip.form.error.duplicate = Este código ya existe
+sponsor.sponsorhsip.form.error.period = El periódo de duración debe superar un mes
+sponsor.sponsorhsip.form.error.startDate = La fecha de inicio debe estar en el futuro
+sponsor.sponsorhsip.form.error.endDate = La fecha de fin debe ser posterior a la de inicio
+sponsor.sponsorhsip.form.error.amount = Los recibos deben sumar la cantidad a pagar
