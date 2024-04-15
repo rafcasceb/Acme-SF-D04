@@ -1,5 +1,5 @@
 /*
- * AdministratorAnnouncementCreateService.java
+ * EmployerApplicationShowService.java
  *
  * Copyright (C) 2012-2024 Rafael Corchuelo.
  *
@@ -10,21 +10,18 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.sponsor.invoice;
-
-import java.util.Date;
+package acme.features.sponsor.invoice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorships.Invoice;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoice> {
+public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -36,47 +33,26 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int invoiceId;
+		Invoice invoice;
+
+		invoiceId = super.getRequest().getData("id", int.class);
+		invoice = this.repository.findOneInvoiceById(invoiceId);
+		status = invoice != null && super.getRequest().getPrincipal().hasRole(invoice.getSponsorship().getSponsor());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Invoice object;
-		Date moment;
-		moment = MomentHelper.getCurrentMoment();
+		int id;
 
-		object = new Invoice();
-		object.setCode("");
-		object.setRegistrationTime(moment);
-		object.setDueDate(moment);
-		object.setLink(null);
-		object.setTax(0.21);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneInvoiceById(id);
 
 		super.getBuffer().addData(object);
-	}
-
-	@Override
-	public void bind(final Invoice object) {
-		assert object != null;
-
-		super.bind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
-	}
-
-	@Override
-	public void validate(final Invoice object) {
-		assert object != null;
-
-	}
-
-	@Override
-	public void perform(final Invoice object) {
-		assert object != null;
-
-		Date moment;
-
-		moment = MomentHelper.getCurrentMoment();
-		object.setRegistrationTime(moment);
-		this.repository.save(object);
 	}
 
 	@Override
@@ -84,8 +60,8 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		assert object != null;
 
 		Dataset dataset;
-
 		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
+		dataset.put("value", object.getValue());
 
 		super.getResponse().addData(dataset);
 	}

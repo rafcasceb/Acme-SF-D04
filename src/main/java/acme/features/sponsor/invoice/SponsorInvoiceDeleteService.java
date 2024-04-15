@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.sponsor.invoice;
+package acme.features.sponsor.invoice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

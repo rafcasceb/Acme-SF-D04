@@ -8,12 +8,12 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-sponsor.sponsorship.form.title = Patrocinador
-sponsor.sponsorship.list.title = Patrocinadores
+sponsor.invoice.form.title = Factura
+sponsor.invoice.list.title = Facturas
 
 
-sponsor.form.button.create = Crear
-sponsor.form.button.update = Actualizar
+sponsor.invoice.form.button.create = Crear
+sponsor.invoice.form.button.update = Actualizar
 
 sponsor.form.label.code = Código
 sponsor.form.label.project = Proyecto
@@ -25,8 +25,14 @@ sponsor.form.label.amount = Cantidad
 sponsor.form.label.link = Link
 sponsor.form.label.email = Email
 sponsor.form.label.published = Publicado
+sponsor.invoice.form.label.sponsorship = Patrocinio
 
-sponsor.slogan.list.label.code = Code
-sponsor.slogan.list.label.project = Project
-sponsor.slogan.list.label.type = Type
-sponsor.slogan.list.label.amount = Amount
+
+sponsor.slogan.list.label.code = Codigo
+sponsor.slogan.list.label.project = Proyecto
+sponsor.slogan.list.label.type = Tipo
+sponsor.slogan.list.label.amount = Cantidad
+
+sponsor.invoice.form.error.duplicate = Código ya existente
+sponsor.invoice.form.error.dueDate = La fecha de finalización debe ser en el futuro
+sponsor.invoice.form.error.period = El periódo de validez debe superar al menos 30 días

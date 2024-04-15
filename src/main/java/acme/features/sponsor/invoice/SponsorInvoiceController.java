@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.sponsor.invoice;
+package acme.features.sponsor.invoice;
 
 import javax.annotation.PostConstruct;
 
