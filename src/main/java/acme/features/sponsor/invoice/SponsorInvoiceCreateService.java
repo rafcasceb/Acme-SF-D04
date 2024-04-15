@@ -61,7 +61,6 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 
 	@Override
 	public void bind(final Invoice object) {
-		System.out.println("bind");
 
 		assert object != null;
 
@@ -73,14 +72,11 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		object.setSponsorship(sponsorship);
 
 		super.bind(object, "code", "link", "dueDate", "quantity", "tax");
-		System.out.println(object);
 
 	}
 
 	@Override
 	public void validate(final Invoice object) {
-
-		System.out.println("validate");
 
 		assert object != null;
 
@@ -90,26 +86,25 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 			super.state(invoiceSameCode == null, "code", "sponsor.invoice.form.error.duplicate");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("sponsorship"))
+			super.state(object.getSponsorship().isPublished() == false, "sponsorship", "sponsor.invoice.form.error.sponsorship");
+
 		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
 			super.state(MomentHelper.isAfter(object.getDueDate(), object.getRegistrationTime()), "dueDate", "sponsor.invoice.form.error.dueDate");
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
+		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
 			super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
-		System.out.println("validate");
 
 	}
 
 	@Override
 	public void perform(final Invoice object) {
-		System.out.println("perform");
-		System.out.println(object.toString());
 		assert object != null;
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Invoice object) {
-		System.out.println("unbind");
 
 		assert object != null;
 

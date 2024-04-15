@@ -21,6 +21,7 @@ master.menu.any = Any
 master.menu.any.projects = List projects
 master.menu.any.claims = List claims
 master.menu.any.training-modules = List training modules
+master.menu.any.sponsorships = List sponsorships
 
 # master.menu.anonymous #######################################################
 
@@ -100,6 +101,11 @@ master.menu.user-account.become-consumer = Become a consumer
 master.menu.sponsor = Sponsor
 master.menu.sponsor.sponsorships = Sponsorships
 master.menu.sponsor.invoices = Invoices
+master.menu.sponsor.dashboard = Dashboard
+
+
+
+
 master.menu.user-account.manager = Manager data
 master.menu.user-account.become-manager = Become a manager
 master.menu.user-account.developer = Developer data

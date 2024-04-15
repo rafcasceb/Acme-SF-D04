@@ -13,6 +13,7 @@ sponsor.invoice.list.title = Facturas
 
 
 sponsor.invoice.form.button.create = Crear
+sponsor.invoice.form.button.delete = Eliminar
 sponsor.invoice.form.button.update = Actualizar
 
 sponsor.form.label.code = Código
@@ -32,6 +33,8 @@ sponsor.slogan.list.label.code = Codigo
 sponsor.slogan.list.label.project = Proyecto
 sponsor.slogan.list.label.type = Tipo
 sponsor.slogan.list.label.amount = Cantidad
+sponsor.invoice.list.label.sponsorship = Patrocinio
+
 
 sponsor.invoice.form.error.duplicate = Código ya existente
 sponsor.invoice.form.error.dueDate = La fecha de finalización debe ser en el futuro

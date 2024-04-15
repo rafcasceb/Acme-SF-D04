@@ -33,9 +33,3 @@ sponsor.sponsorship.list.label.project = Proyecto
 sponsor.sponsorship.list.label.type = Tipo
 sponsor.sponsorship.list.label.amount = Cantidad
 
-sponsor.sponsorhsip.form.error.duplicate = Este código ya existe
-sponsor.sponsorhsip.form.error.period = El periódo de duración debe superar un mes
-sponsor.sponsorhsip.form.error.startDate = La fecha de inicio debe estar en el futuro
-sponsor.sponsorhsip.form.error.endDate = La fecha de fin debe ser posterior a la de inicio
-sponsor.sponsorhsip.form.error.amount = Los recibos deben sumar la cantidad a pagar
-sponsor.invoice.form.error.sponsorship = Imposible asociar una factura a un patrocionio ya publicado

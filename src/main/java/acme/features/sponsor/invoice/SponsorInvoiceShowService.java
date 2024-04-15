@@ -12,12 +12,16 @@
 
 package acme.features.sponsor.invoice;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.client.views.SelectChoices;
 import acme.entities.sponsorships.Invoice;
+import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
@@ -57,11 +61,28 @@ public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice>
 
 	@Override
 	public void unbind(final Invoice object) {
+
 		assert object != null;
 
 		Dataset dataset;
+		SelectChoices sponsorships;
+		int sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
+
+		Collection<Sponsorship> sponsorSponsorships = this.repository.findSponsorshipBySponsorId(sponsorId);
+		sponsorships = SelectChoices.from(sponsorSponsorships, "code", object.getSponsorship());
+
 		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
-		dataset.put("value", object.getValue());
+		Sponsorship selectedSponsorship = this.repository.findOneSponsorshipById(Integer.valueOf(sponsorships.getSelected().getKey()));
+
+		dataset.put("sponsorship", sponsorships.getSelected().getKey());
+
+		sponsorSponsorships = this.repository.findSponsorUnpublishedSponsorship(sponsorId);
+		if (!sponsorSponsorships.contains(selectedSponsorship))
+			sponsorSponsorships.add(selectedSponsorship);
+
+		sponsorships = SelectChoices.from(sponsorSponsorships, "code", object.getSponsorship());
+
+		dataset.put("sponsorships", sponsorships);
 
 		super.getResponse().addData(dataset);
 	}

@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.sponsor.invoice;
+package acme.features.any.sponsorship;
 
 import java.util.Collection;
 
@@ -18,31 +18,19 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
-import acme.entities.sponsorships.Invoice;
+import acme.entities.projects.Project;
 import acme.entities.sponsorships.Sponsorship;
 
 @Repository
-public interface SponsorInvoiceRepository extends AbstractRepository {
+public interface AnySponsorshipRepository extends AbstractRepository {
 
-	@Query("select i from Invoice i where i.sponsorship.id = :id")
-	Collection<Invoice> findInvoiceBySponsorshipId(int id);
-
-	@Query("select i from Invoice i ")
-	Collection<Invoice> findAllInvoices();
-
-	@Query("select i from Invoice i where i.id = :id")
-	Invoice findOneInvoiceById(int id);
+	@Query("select s from Sponsorship s")
+	Collection<Sponsorship> findAllSponsorships();
 
 	@Query("select s from Sponsorship s where s.id = :id")
 	Sponsorship findOneSponsorshipById(int id);
 
-	@Query("select s from Sponsorship s where s.published = false AND s.sponsor.id = :id")
-	Collection<Sponsorship> findSponsorUnpublishedSponsorship(int id);
-
-	@Query("select s from Sponsorship s where s.sponsor.id = :id")
-	Collection<Sponsorship> findSponsorshipBySponsorId(int id);
-
-	@Query("select i from Invoice i where i.code = :code")
-	Invoice findInvoiceByCode(String code);
+	@Query("select p from Project p")
+	Collection<Project> findAllProjects();
 
 }
