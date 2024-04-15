@@ -21,7 +21,7 @@ session-19,TS-JKL-672,2020/04/04 14:35,2020/04/14 14:35,ShortStringWithoutAnyCom
 session-20,TS-JKL-673,2020/04/04 14:35,2020/04/14 14:35,ShortStringWithoutAnyCommas1234567891ShortStringWithoutAnyCommas1234567891,This is a test text,test@gmail.com,https://example.es,false,module-06
 session-21,TS-JKL-674,2020/04/04 14:35,2020/04/14 14:35,ShortStringWithoutAnyCommas1234567891ShortStringWithoutAnyCommas12345678912,This is a test text,test@gmail.com,https://example.es,false,module-06
 session-111,TS-WXY-238,2000/01/01 00:00,2020/04/14 14:35,<button onclick="showAlert()">Alert</button>,This is a test text,test@gmail.com,https://example.es,false,module-18
-session-112,TS-WXY-239,2000/01/01 00:00,2020/04/14 14:35,SELECT ts FROM TrainingSession ts,This is a test text,test@gmail.com,https://example.es,false,module-18
+session-112,TS-WXY-239,2000/01/01 00:00,2020/04/14 14:35,OR 1=1,This is a test text,test@gmail.com,https://example.es,false,module-18
 session-22,TS-JKL-675,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.es,false,module-06
 session-23,TS-PQR-901,2020/04/04 14:35,2020/04/14 14:35,This is a test text,السلام عليكم ورحمة الله وبركاته. كيف حالكم اليوم؟,test@gmail.com,https://example.es,false,module-07
 session-24,TS-STU-234,2020/04/04 14:35,2020/04/14 14:35,This is a test text,Привет! Как дела? Надеюсь,test@gmail.com,https://example.es,false,module-08
@@ -33,7 +33,7 @@ session-29,TS-JKL-676,2020/04/04 14:35,2020/04/14 14:35,This is a test text,Shor
 session-30,TS-JKL-643,2020/04/04 14:35,2020/04/14 14:35,This is a test text,ShortStringWithoutAnyCommas1234567891ShortStringWithoutAnyCommas1234567891,test@gmail.com,https://example.es,false,module-06
 session-31,TS-JKL-684,2020/04/04 14:35,2020/04/14 14:35,This is a test text,ShortStringWithoutAnyCommas1234567891ShortStringWithoutAnyCommas12345678912,test@gmail.com,https://example.es,false,module-06
 session-114,TS-WXY-237,2000/01/01 00:00,2020/04/14 14:35,This is a test text,<button onclick="showAlert()">Alert</button>,test@gmail.com,https://example.es,false,module-18
-session-117,TS-WXY-294,2000/01/01 00:00,2020/04/14 14:35,This is a test text,SELECT ts FROM TrainingSession ts,test@gmail.com,https://example.es,false,module-18
+session-117,TS-WXY-294,2000/01/01 00:00,2020/04/14 14:35,This is a test text,OR 1=1,test@gmail.com,https://example.es,false,module-18
 session-32,TS-RST-123,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.es,false,module-11
 session-33,TS-EFG-789,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,a@g.com,https://example.es,false,module-13
 session-34,TS-RST-128,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,ab@gm.com,https://example.es,false,module-11
@@ -43,6 +43,8 @@ session-37,TS-EFG-786,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This
 session-38,TS-RST-129,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.es,false,module-11
 session-39,TS-RST-124,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.es,false,module-11
 session-40,TS-HIJ-012,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://examp?le.es,false,module-14
+session-45,TS-HIX-012,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.es/training/user?id=1234,false,module-14
+session-46,TS-HSJ-012,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.es/training/user?,false,module-14
 session-41,TS-NOP-345,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,,false,module-15
 session-42,TS-QRS-678,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcd,false,module-16
 session-43,TS-TUV-971,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.com/abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz,false,module-17
