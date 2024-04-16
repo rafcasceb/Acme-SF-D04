@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-sponsor.dashboard.form.title = Panel de Sponsor
+sponsor.sponsor-dashboard.form.title = Panel de Sponsor
 
 sponsor.dashboard.form.label.totalNumberInvoicesTaxEqualOrLessThan21 = Número total de facturas con impuestos iguales o inferiores a 21
 sponsor.dashboard.form.label.totalNumberSponsorshipsWithLink = Número total de patrocinios con enlace
