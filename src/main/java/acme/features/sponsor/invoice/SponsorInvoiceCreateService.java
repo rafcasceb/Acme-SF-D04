@@ -115,7 +115,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		Collection<Sponsorship> unpublishedSponsorships = this.repository.findSponsorUnpublishedSponsorship(sponsorId);
 		sponsorships = SelectChoices.from(unpublishedSponsorships, "code", object.getSponsorship());
 
-		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
+		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax", "published");
 
 		dataset.put("sponsorship", sponsorships.getSelected().getKey());
 		dataset.put("sponsorships", sponsorships);

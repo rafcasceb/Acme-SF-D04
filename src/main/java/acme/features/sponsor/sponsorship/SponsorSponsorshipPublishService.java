@@ -79,7 +79,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 			Double total = 0.0;
 			Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorshipId(object.getId());
 			for (Invoice invoice : invoices)
-				total += invoice.getValue().getAmount();
+				if (invoice.isPublished())
+					total += invoice.getValue().getAmount();
 
 			System.out.println(total + " " + amount);
 			super.state(amount == total, "published", "sponsor.sponsorship.form.error.amount");

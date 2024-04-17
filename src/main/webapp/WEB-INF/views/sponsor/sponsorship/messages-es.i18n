@@ -8,13 +8,13 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-sponsor.sponsorship.form.title = Patrocinador
-sponsor.sponsorship.list.title = Patrocinadores
+sponsor.sponsorship.form.title = Patrocinio
+sponsor.sponsorship.list.title = Patrocinios
 sponsor.sponsorship.list.button.create = Crear
 sponsor.sponsorship.form.button.create = Crear
 sponsor.sponsorship.form.button.update = Actualizar
-sponsor.sponsorship.list.button.delete = Eliminar
-sponsor.sponsorship.list.button.publish = Publicar
+sponsor.sponsorship.form.button.delete = Eliminar
+sponsor.sponsorship.form.button.publish = Publicar
 
 
 sponsor.sponsorship.form.label.code = Código
@@ -39,3 +39,4 @@ sponsor.sponsorhsip.form.error.startDate = La fecha de inicio debe estar en el f
 sponsor.sponsorhsip.form.error.endDate = La fecha de fin debe ser posterior a la de inicio
 sponsor.sponsorhsip.form.error.amount = Los recibos deben sumar la cantidad a pagar
 sponsor.invoice.form.error.sponsorship = Imposible asociar una factura a un patrocionio ya publicado
+sponsor.sponsorship.form.error.published = Imposible modificar un patrocinio ya publicado
