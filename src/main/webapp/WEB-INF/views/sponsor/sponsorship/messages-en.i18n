@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-sponsor.sponsorship.form.title = Sponsor Form
+sponsor.sponsorship.form.title = Sponsorship Form
 sponsor.sponsorship.list.title = Sponsorships
 
 
@@ -40,3 +40,4 @@ sponsor.sponsorhsip.form.error.startDate = Start date must be in the future
 sponsor.sponsorhsip.form.error.endDate = End date must be after the start date
 sponsor.sponsorhsip.form.error.amount = The invoices must add up to amount
 sponsor.invoice.form.error.sponsorship = Cannot associate an invoice to an already published sponsorship
+sponsor.sponsorship.form.error.published = Cannot modify an already published sponsorship

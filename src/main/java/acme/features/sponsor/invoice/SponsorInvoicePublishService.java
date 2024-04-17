@@ -1,7 +1,6 @@
 
 package acme.features.sponsor.invoice;
 
-import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.Date;
 
@@ -17,76 +16,93 @@ import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoice> {
+public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoice> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private SponsorInvoiceRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Auditor, CodeAudit> ---------------------------
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		Sponsor sponsor;
+		Invoice invoice;
+
+		id = super.getRequest().getData("id", int.class);
+		invoice = this.repository.findOneInvoiceById(id);
+
+		sponsor = invoice == null ? null : invoice.getSponsorship().getSponsor();
+		status = invoice != null && !invoice.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor);
+
+		super.getResponse().setAuthorised(status);
+		System.out.println(status);
+
 	}
 
 	@Override
 	public void load() {
+
 		Invoice object;
 		int id;
+		Date instantiationMoment;
+		instantiationMoment = MomentHelper.getCurrentMoment();
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneInvoiceById(id);
-
-		Date moment;
-		moment = MomentHelper.getCurrentMoment();
-		object.setRegistrationTime(moment);
+		object.setRegistrationTime(instantiationMoment);
+		object.setPublished(false);
 
 		super.getBuffer().addData(object);
+
 	}
 
 	@Override
 	public void bind(final Invoice object) {
 		assert object != null;
+		super.bind(object, "published");
 
-		super.bind(object, "code", "link", "dueDate", "quantity", "tax", "sponsorship");
 	}
 
 	@Override
 	public void validate(final Invoice object) {
+		System.out.println("val");
+
 		assert object != null;
+		double total = 0.0;
 
-		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Invoice invoiceSameCode;
-			invoiceSameCode = this.repository.findInvoiceByCode(object.getCode());
-			int id = invoiceSameCode.getId();
-			super.state(id == object.getId() || invoiceSameCode == null, "code", "sponsor.invoice.form.error.duplicate");
+		if (!super.getBuffer().getErrors().hasErrors("sponsorship")) {
+			Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorshipId(object.getSponsorship().getId());
+			for (Invoice invoice : invoices)
+				if (invoice.isPublished())
+					total += invoice.getValue().getAmount();
+
+			System.out.println("validate");
+			System.out.println(total + " " + object.getValue().getAmount());
+			System.out.println(object.getSponsorship().getAmount().getAmount());
+			System.out.println(invoices);
+
+			super.state(total + object.getValue().getAmount() <= object.getSponsorship().getAmount().getAmount(), "sponsorship", "invoice.sponsorship.form.error.amount");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
-			super.state(MomentHelper.isAfter(object.getDueDate(), MomentHelper.getCurrentMoment()), "dueDate", "sponsor.invoice.form.error.dueDate");
-
-		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
-			super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
-
-		if (!super.getBuffer().getErrors().hasErrors("sponsorship"))
-			super.state(object.getSponsorship().isPublished() == false, "sponsorship", "sponsor.invoice.form.error.sponsorship");
-
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(object.isPublished() == false, "sponsorship", "sponsor.invoice.form.error.published");
 
 	}
 
 	@Override
 	public void perform(final Invoice object) {
+
 		assert object != null;
+		object.setPublished(true);
 		this.repository.save(object);
+
 	}
 
 	@Override
 	public void unbind(final Invoice object) {
+
 		assert object != null;
 
 		Dataset dataset;
@@ -108,6 +124,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		dataset.put("sponsorships", sponsorships);
 
 		super.getResponse().addData(dataset);
+
 	}
 
 }

@@ -45,6 +45,8 @@ public class SponsorInvoiceDeleteService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void validate(final Invoice object) {
 		assert object != null;
+		if (!super.getBuffer().getErrors().hasErrors("published"))
+			super.state(object.isPublished() == false, "sponsorship", "sponsor.invoice.form.error.published");
 	}
 
 	@Override
@@ -57,7 +59,7 @@ public class SponsorInvoiceDeleteService extends AbstractService<Sponsor, Invoic
 	public void unbind(final Invoice object) {
 		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax");
+		dataset = super.unbind(object, "code", "link", "registrationTime", "dueDate", "quantity", "tax", "published");
 		super.getResponse().addData(dataset);
 	}
 

@@ -15,27 +15,33 @@ sponsor.invoice.list.title = Facturas
 sponsor.invoice.form.button.create = Crear
 sponsor.invoice.form.button.delete = Eliminar
 sponsor.invoice.form.button.update = Actualizar
+sponsor.invoice.form.button.publish = Publicar
 
-sponsor.form.label.code = Código
-sponsor.form.label.project = Proyecto
-sponsor.form.label.moment = Fecha de Creación
-sponsor.form.label.startDate = Fecha de Inicialización
-sponsor.form.label.endDate = Fecha de Finalización
-sponsor.form.label.type = Tipo
-sponsor.form.label.amount = Cantidad
-sponsor.form.label.link = Link
-sponsor.form.label.email = Email
-sponsor.form.label.published = Publicado
+
+sponsor.invoice.form.label.code = Código
+sponsor.invoice.form.label.project = Proyecto
+sponsor.invoice.form.label.moment = Fecha de Creación
+sponsor.invoice.form.label.startDate = Fecha de Inicialización
+sponsor.invoice.form.label.dueDate = Vencimiento
+sponsor.invoice.form.label.quantity = Cantidad
+sponsor.invoice.form.label.tax = Impuesto
+sponsor.invoice.form.label.link = Link
+sponsor.invoice.form.label.email = Email
+sponsor.invoice.form.label.published = Publicado
 sponsor.invoice.form.label.sponsorship = Patrocinio
 
 
-sponsor.slogan.list.label.code = Codigo
-sponsor.slogan.list.label.project = Proyecto
-sponsor.slogan.list.label.type = Tipo
-sponsor.slogan.list.label.amount = Cantidad
+
+sponsor.invoice.list.label.code = Codigo
+sponsor.invoice.list.label.dueDate = Vencimiento
+sponsor.invoice.list.label.type = Tipo
+sponsor.invoice.list.label.value = Valor
 sponsor.invoice.list.label.sponsorship = Patrocinio
+
 
 
 sponsor.invoice.form.error.duplicate = Código ya existente
 sponsor.invoice.form.error.dueDate = La fecha de finalización debe ser en el futuro
 sponsor.invoice.form.error.period = El periódo de validez debe superar al menos 30 días
+sponsor.invoice.form.error.published = Imposible modificar una factura ya publicada
+invoice.sponsorship.form.error.amount = Imposible publicar una factura tal que el valor total del patrocinio supere el el importe real
