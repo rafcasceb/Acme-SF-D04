@@ -17,6 +17,7 @@ sponsor.sponsorship.form.button.update = Update
 sponsor.sponsorship.list.button.create = Create
 sponsor.sponsorship.form.button.delete = Delete
 sponsor.sponsorship.form.button.publish = Publish
+sponsor.sponsorship.form.button.invoices = Associated Invoices
 
 sponsor.sponsorship.form.label.code = Code
 sponsor.sponsorship.form.label.project = Project
@@ -38,6 +39,6 @@ sponsor.sponsorhsip.form.error.duplicate = This code already exists
 sponsor.sponsorhsip.form.error.period = Period must be at least a month
 sponsor.sponsorhsip.form.error.startDate = Start date must be in the future
 sponsor.sponsorhsip.form.error.endDate = End date must be after the start date
-sponsor.sponsorhsip.form.error.amount = The invoices must add up to amount
+sponsor.sponsorship.form.error.amount = The invoices must add up to amount
 sponsor.invoice.form.error.sponsorship = Cannot associate an invoice to an already published sponsorship
 sponsor.sponsorship.form.error.published = Cannot modify an already published sponsorship

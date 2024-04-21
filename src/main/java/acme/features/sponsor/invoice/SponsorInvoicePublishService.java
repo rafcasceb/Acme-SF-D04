@@ -40,7 +40,6 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		status = invoice != null && !invoice.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
-		System.out.println(status);
 
 	}
 
@@ -70,7 +69,6 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 
 	@Override
 	public void validate(final Invoice object) {
-		System.out.println("val");
 
 		assert object != null;
 		double total = 0.0;
@@ -80,11 +78,6 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			for (Invoice invoice : invoices)
 				if (invoice.isPublished())
 					total += invoice.getValue().getAmount();
-
-			System.out.println("validate");
-			System.out.println(total + " " + object.getValue().getAmount());
-			System.out.println(object.getSponsorship().getAmount().getAmount());
-			System.out.println(invoices);
 
 			super.state(total + object.getValue().getAmount() <= object.getSponsorship().getAmount().getAmount(), "sponsorship", "invoice.sponsorship.form.error.amount");
 		}

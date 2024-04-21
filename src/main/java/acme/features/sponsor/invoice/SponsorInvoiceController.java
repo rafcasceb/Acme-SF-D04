@@ -27,22 +27,25 @@ public class SponsorInvoiceController extends AbstractController<Sponsor, Invoic
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorInvoiceListService		listService;
+	private SponsorInvoiceListService				listService;
 
 	@Autowired
-	private SponsorInvoiceShowService		showService;
+	private SponsorInvoiceListForSponsorshipService	listForSponsorshipService;
 
 	@Autowired
-	private SponsorInvoiceUpdateService		updateService;
+	private SponsorInvoiceShowService				showService;
 
 	@Autowired
-	private SponsorInvoiceDeleteService		deleteService;
+	private SponsorInvoiceUpdateService				updateService;
 
 	@Autowired
-	private SponsorInvoiceCreateService		createService;
+	private SponsorInvoiceDeleteService				deleteService;
 
 	@Autowired
-	private SponsorInvoicePublishService	publishService;
+	private SponsorInvoiceCreateService				createService;
+
+	@Autowired
+	private SponsorInvoicePublishService			publishService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -55,6 +58,7 @@ public class SponsorInvoiceController extends AbstractController<Sponsor, Invoic
 		super.addBasicCommand("delete", this.deleteService);
 		super.addBasicCommand("create", this.createService);
 		super.addCustomCommand("publish", "update", this.publishService);
+		super.addCustomCommand("list-for-sponsorship", "list", this.listForSponsorshipService);
 
 	}
 
