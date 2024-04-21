@@ -31,6 +31,9 @@
 			<acme:submit code="sponsor.sponsorship.form.button.update" action="/sponsor/sponsorship/update"/>
 			<acme:submit code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
 			<acme:submit code="sponsor.sponsorship.form.button.publish" action="/sponsor/sponsorship/publish"/>
+			<jstl:if test="${_command== 'show'}">
+				<acme:button code="sponsor.sponsorship.form.button.invoices" action="/sponsor/invoice/list-for-sponsorship?sponsorshipId=${id}"/>
+			</jstl:if>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="sponsor.sponsorship.form.button.create" action="/sponsor/sponsorship/create"/>

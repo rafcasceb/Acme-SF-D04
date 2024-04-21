@@ -30,7 +30,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 	@Override
 	public void authorise() {
-		System.out.println("auth");
 		boolean status;
 		int id;
 		Sponsor sponsor;
@@ -43,12 +42,10 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		status = sponsorship != null && !sponsorship.isPublished() && super.getRequest().getPrincipal().hasRole(sponsor);
 
 		super.getResponse().setAuthorised(status);
-		System.out.println(status);
 	}
 
 	@Override
 	public void load() {
-		System.out.println("load");
 		Sponsorship object;
 		int id;
 		Date instantiationMoment;
@@ -59,19 +56,16 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		object.setMoment(instantiationMoment);
 
 		super.getBuffer().addData(object);
-		System.out.println(object);
 	}
 
 	@Override
 	public void bind(final Sponsorship object) {
-		System.out.println("bind");
 		assert object != null;
 		super.bind(object, "published");
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
-		System.out.println("validate");
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("published")) {
@@ -82,24 +76,20 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 				if (invoice.isPublished())
 					total += invoice.getValue().getAmount();
 
-			System.out.println(total + " " + amount);
-			super.state(amount == total, "published", "sponsor.sponsorship.form.error.amount");
+			super.state(amount.equals(total), "published", "sponsor.sponsorship.form.error.amount");
 		}
 
 	}
 
 	@Override
 	public void perform(final Sponsorship object) {
-		System.out.println("perfonm");
 		assert object != null;
 		object.setPublished(true);
 		this.repository.save(object);
-		System.out.println(object);
 	}
 
 	@Override
 	public void unbind(final Sponsorship object) {
-		System.out.println("unbind");
 		assert object != null;
 		Dataset dataset;
 		SelectChoices choices;
@@ -117,7 +107,6 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		dataset.put("projects", projects);
 
 		super.getResponse().addData(dataset);
-		System.out.println(dataset);
 	}
 
 }

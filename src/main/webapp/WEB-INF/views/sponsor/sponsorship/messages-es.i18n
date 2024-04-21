@@ -15,6 +15,7 @@ sponsor.sponsorship.form.button.create = Crear
 sponsor.sponsorship.form.button.update = Actualizar
 sponsor.sponsorship.form.button.delete = Eliminar
 sponsor.sponsorship.form.button.publish = Publicar
+sponsor.sponsorship.form.button.invoices = Ver facturas
 
 
 sponsor.sponsorship.form.label.code = Código
@@ -37,6 +38,6 @@ sponsor.sponsorhsip.form.error.duplicate = Este código ya existe
 sponsor.sponsorhsip.form.error.period = El periódo de duración debe superar un mes
 sponsor.sponsorhsip.form.error.startDate = La fecha de inicio debe estar en el futuro
 sponsor.sponsorhsip.form.error.endDate = La fecha de fin debe ser posterior a la de inicio
-sponsor.sponsorhsip.form.error.amount = Los recibos deben sumar la cantidad a pagar
+sponsor.sponsorship.form.error.amount = Los recibos deben sumar la cantidad a pagar
 sponsor.invoice.form.error.sponsorship = Imposible asociar una factura a un patrocionio ya publicado
 sponsor.sponsorship.form.error.published = Imposible modificar un patrocinio ya publicado
