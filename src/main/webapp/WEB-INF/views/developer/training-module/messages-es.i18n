@@ -8,37 +8,40 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-developer.trainingModule.form.title = Formulario del Módulo de Entrenamiento
-developer.trainingModule.list.title = Lista de Módulos de Entrenamiento
+developer.training-module.form.title = Formulario de Módulo de Entrenamiento 
+developer.training-module.list.title = Listado de Módulos de Entrenamiento
 
-developer.trainingModule.form.label.code = Código:
-developer.trainingModule.form.label.details = Detalles:
-developer.trainingModule.form.label.level = Nivel de Dificultad:
-developer.trainingModule.form.label.creationMoment = Momento de Creación:
-developer.trainingModule.form.label.updateMoment = Momento de Actualización (Opcional):
-developer.trainingModule.form.label.link = Enlace (Opcional):
-developer.trainingModule.form.label.estimatedTotalTime = Tiempo Total Estimado:
-developer.trainingModule.form.label.published = Publicado:
-developer.training-module.form.label.project = Projecto:
+developer.training-module.form.label.code = Código:
+developer.training-module.form.label.details = Detalles: 
+developer.training-module.form.label.difficultyLevel = Nivel de Dificultad:
+developer.training-module.form.label.creationMoment = Momento de Creación:
+developer.training-module.form.label.updateMoment = Momento de Actualización (Opcional):
+developer.training-module.form.label.link = Enlace (Opcional): 
+developer.training-module.form.label.estimatedTotalTime = Tiempo Total Estimado:
+developer.training-module.form.label.published = Publicado:
+developer.training-module.form.label.project = Proyecto:
 
-developer.trainingModule.form.placeholder.time = 0 - 100
+
+developer.training-module.form.placeholder.time = 0 - 100
 		
-developer.trainingModule.form.button.trainingSessions = Sesiones de Entrenamiento
-developer.trainingModule.form.button.update = Actualizar
-developer.trainingModule.form.button.delete = Eliminar
-developer.trainingModule.form.button.publish = Publicar
-developer.trainingModule.form.button.create = Crear
+developer.training-module.form.button.training-sessions = Sesiones de Entrenamiento
+developer.training-module.form.button.update = Actualizar
+developer.training-module.form.button.delete = Eliminar
+developer.training-module.form.button.publish = Publicar
+developer.training-module.form.button.create = Crear
 
-developer.trainingModule.form.error.duplicated = Esta referencia está en uso
-developer.trainingModule.form.error.not-after = El momento de actualización debe ser posterior al momento de creación
-developer.trainingModule.form.error.already-published = No se puede editar o borrar un módulo de entrenamiento ya publicado
-developer.trainingModule.form.error.no-training-sessions = No se puede publicar un modulo de entrenamiento sin sesiones.
+developer.training-module.form.error.duplicated = Esta referencia está tomada
+developer.training-module.form.error.not-after = El momento de actualización debe ser posterior al momento de creación
+developer.training-module.form.error.already-published = Un módulo de entrenamiento publicado no puede ser actualizado o eliminado
+developer.training-module.form.error.no-training-sessions = Un módulo de entrenamiento publicado sin sesiones de entrenamiento no puede ser publicado.
 
-
-developer.trainingModule.list.label.code = Código
-developer.trainingModule.list.label.details = Detalles
-developer.trainingModule.list.label.creationMoment = Momento de Creación
-developer.trainingModule.list.label.difficultyLevel = Nivel de Dificultad
-
-developer.trainingModule.list.button.create = Crear
+developer.training-module.list.label.code = Código
+developer.training-module.list.label.creation-moment = Momento de Creación
+developer.training-module.list.label.details = Detalles
+developer.training-module.list.label.difficulty-level = Nivel de Dificultad
+developer.training-module.list.label.update-moment = Momento de Actualización
+developer.training-module.list.label.link = Enlace
+developer.training-module.list.label.estimated-total-time = Tiempo Total Estimado
+developer.training-module.list.label.published = Publicado
+developer.training-module.list.button.create = Crear
 
