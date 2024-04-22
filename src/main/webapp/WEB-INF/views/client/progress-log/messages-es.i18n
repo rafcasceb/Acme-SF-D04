@@ -1,0 +1,34 @@
+# messages-es.i18n
+#
+# Copyright (C) 2012-2024 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+client.progress-log.list.title = Listado de registros de progreso
+client.progress-log.form.title = Detalles del registro de progreso
+
+client.progresslog.list.published = Publicado
+client.progresslog.list.recordId = Código
+client.progresslog.list.completeness = Completitud (%)
+
+
+client.progresslog.label.recordId = Código
+client.progresslog.label.completeness = Completitud (%)
+client.progresslog.label.comment = Comentario
+client.progresslog.label.responsiblePerson = Responsable
+client.progresslog.label.contract = Contrato asociado
+
+
+client.progresslog.list.button.create = Create
+client.progresslog.form.button.create = Create
+client.progresslog.form.button.update = Save changes
+client.progresslog.form.button.delete = Delete
+client.progresslog.form.button.publish = Publish
+
+client.contract.form.error.duplicate = Este código ya está en uso
+manager.project.form.error.unpublished-user-stories = No se puede publicar un proyecto con Historias de usuario no publicadas
+client.contract.form.error.already-published = No se puede editar o eliminar un contrato ya publicado

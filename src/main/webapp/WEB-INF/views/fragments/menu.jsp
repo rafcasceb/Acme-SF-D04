@@ -60,6 +60,11 @@
 			<acme:menu-suboption code="master.menu.auditor.auditrecord.list-my-audit-records" action="/auditor/audit-record/list-mine"/>
 			<acme:menu-suboption code="master.menu.auditor.show-dashboard" action="/auditor/auditor-dashboard/show"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
+			<acme:menu-suboption code="master.menu.client.contract.list-mine" action="/client/contract/list-mine"/>
+			<acme:menu-suboption code="master.menu.client.progress-log.list-mine" action="/client/progress-log/list-mine"/>
+		</acme:menu-option>
 
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
