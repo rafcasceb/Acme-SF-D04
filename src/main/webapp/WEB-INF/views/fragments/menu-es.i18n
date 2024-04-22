@@ -66,6 +66,12 @@ master.menu.auditor.codeaudit.list-mine = Listar mis auditorías de código
 master.menu.auditor.auditrecord.list-my-audit-records = Listar mis registros de auditoría
 master.menu.auditor.show-dashboard = Panel de estadísticas
 
+# master.menu.client ########################################################
+
+master.menu.client = Cliente
+master.menu.client.contract.list-mine = Listar mis contratos
+master.menu.client.progress-log.list-mine = Listar mis registros de progreso
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
