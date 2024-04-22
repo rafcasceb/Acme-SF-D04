@@ -1,5 +1,5 @@
 
-package acme.features.client;
+package acme.features.client.contract;
 
 import java.util.Collection;
 

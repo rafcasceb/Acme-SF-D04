@@ -1,5 +1,5 @@
 
-package acme.features.client;
+package acme.features.client.contract;
 
 import java.util.Collection;
 import java.util.Date;
@@ -16,33 +16,42 @@ import acme.entities.projects.Project;
 import acme.roles.Client;
 
 @Service
-public class ClientContractCreateService extends AbstractService<Client, Contract> {
+public class ClientContractUpdateService extends AbstractService<Client, Contract> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private ClientContractRepository repository;
 
-	// AbstractService interface ----------------------------------------------
+	// AbstractService<Auditor, CodeAudit> ---------------------------
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int id;
+		Client client;
+		Contract contract;
+
+		id = super.getRequest().getData("id", int.class);
+		contract = this.repository.findOneContractById(id);
+
+		client = contract == null ? null : contract.getClient();
+		status = contract != null && !contract.isPublished() && super.getRequest().getPrincipal().hasRole(client);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Contract object;
-		Client client;
+		int id;
 		Date instantiationMoment;
 		instantiationMoment = MomentHelper.getCurrentMoment();
 
-		client = this.repository.findOneClientById(super.getRequest().getPrincipal().getActiveRoleId());
-		object = new Contract();
-		object.setClient(client);
+		id = super.getRequest().getData("id", int.class);
+		object = this.repository.findOneContractById(id);
 		object.setInstantiationMoment(instantiationMoment);
-		object.setPublished(false);
 
 		super.getBuffer().addData(object);
 	}
@@ -50,6 +59,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 	@Override
 	public void bind(final Contract object) {
 		assert object != null;
+
 		int projectId;
 		Project project;
 
@@ -58,7 +68,6 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		object.setProject(project);
 		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
-
 	}
 
 	@Override
@@ -66,17 +75,19 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
-			Contract contractSameCode;
-			contractSameCode = this.repository.findContractByCode(object.getCode());
-			super.state(contractSameCode == null, "code", "client.contract.form.error.duplicate");
+			Contract isCodeUnique;
+			isCodeUnique = this.repository.findContractByCodeDifferentId(object.getCode(), object.getId());
+			super.state(isCodeUnique == null, "code", "client.contract.form.error.duplicate");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("published"))
+			super.state(!object.isPublished(), "published", "client.contract.form.error.already-published");
+
 		//TODO: formato de budget
 	}
 
 	@Override
 	public void perform(final Contract object) {
 		assert object != null;
-
 		this.repository.save(object);
 	}
 
@@ -96,5 +107,4 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		super.getResponse().addData(dataset);
 	}
-
 }

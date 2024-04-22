@@ -34,7 +34,6 @@ public class ProgressLog extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	//TODO: ver si el patron esta bien implementado
 	@Column(unique = true)
 	@Pattern(regexp = "^PG-[A-Z]{1,2}-[0-9]{4}$", message = "{validation.progressLog.code}")
 	@NotBlank
@@ -60,6 +59,8 @@ public class ProgressLog extends AbstractEntity {
 	@NotBlank
 	@Length(max = 75)
 	private String				responsiblePerson;
+
+	boolean						published;
 
 	// Derived attributes -----------------------------------------------------
 
