@@ -1,5 +1,5 @@
 
-package acme.features.client;
+package acme.features.client.contract;
 
 import java.util.Collection;
 import java.util.Date;
@@ -12,11 +12,12 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.contracts.Contract;
+import acme.entities.contracts.ProgressLog;
 import acme.entities.projects.Project;
 import acme.roles.Client;
 
 @Service
-public class ClientContractUpdateService extends AbstractService<Client, Contract> {
+public class ClientContractPublishService extends AbstractService<Client, Contract> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -60,14 +61,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 	public void bind(final Contract object) {
 		assert object != null;
 
-		int projectId;
-		Project project;
-
-		projectId = super.getRequest().getData("project", int.class);
-		project = this.repository.findOneProjectById(projectId);
-
-		object.setProject(project);
-		super.bind(object, "code", "providerName", "customerName", "goals", "budget");
+		super.bind(object, "publish");
 	}
 
 	@Override
@@ -79,20 +73,27 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			isCodeUnique = this.repository.findContractByCodeDifferentId(object.getCode(), object.getId());
 			super.state(isCodeUnique == null, "code", "client.contract.form.error.duplicate");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "client.contract.form.error.already-published");
 
+		Collection<ProgressLog> pl;
+
+		pl = this.repository.findManyProgressLogsByContractId(object.getId());
+
+		super.state(pl.stream().allMatch(ProgressLog::isPublished), "*", "validation.contract.publish.unpublished-progress-log");
 		//TODO: formato de budget
+		//TODO: validacion del budget que tiene que ser menor al del proyecto asociado
 	}
 
 	@Override
 	public void perform(final Contract object) {
 		assert object != null;
+
+		object.setPublished(true);
 		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final Contract object) {
+
 		assert object != null;
 
 		SelectChoices projects;
@@ -107,4 +108,5 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 
 		super.getResponse().addData(dataset);
 	}
+
 }
