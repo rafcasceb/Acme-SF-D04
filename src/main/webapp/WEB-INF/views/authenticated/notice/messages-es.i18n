@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.notice.list.title = Listado de Avisos
+authenticated.notice.list.title = Listado de Avisos Recientes
 authenticated.notice.form.title = Formulario de Aviso
 
 authenticated.notice.list.label.title = Titulo
