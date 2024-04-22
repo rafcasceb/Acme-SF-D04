@@ -21,7 +21,7 @@ public interface ManagerDashboardRepository extends AbstractRepository {
 		Map<UserStoryPriority, Integer> sol;
 		Collection<UserStoryPriority> prioritiesQuery;
 
-		sol = new EnumMap<UserStoryPriority, Integer>(UserStoryPriority.class);
+		sol = new EnumMap<>(UserStoryPriority.class);
 		prioritiesQuery = this.findUserStoriesAsPriorities(managerId);
 
 		for (UserStoryPriority priority : UserStoryPriority.values())
