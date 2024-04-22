@@ -25,12 +25,13 @@ client.contract.form.label.goals = Metas
 client.contract.form.label.published = Publicado
 client.contract.form.label.project = Proyecto asociado
 
+
 client.contract.list.button.create = Crear
 client.contract.form.button.create = Crear
 client.contract.form.button.update = Guardar cambios
 client.contract.form.button.delete = Eliminar
 client.contract.form.button.publish = Publicar
-manager.project.form.button.user-stories = Ver historias de usuario
+client.contract.form.button.progressLog = Ver registros de progreso
 
 client.contract.form.error.duplicate = Este código ya está en uso
 manager.project.form.error.unpublished-user-stories = No se puede publicar un proyecto con Historias de usuario no publicadas
