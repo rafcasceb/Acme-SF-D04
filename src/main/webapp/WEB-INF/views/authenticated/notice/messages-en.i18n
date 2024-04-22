@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.notice.list.title = Listing of Notices
+authenticated.notice.list.title = Listing of Recent Notices
 authenticated.notice.form.title = Notice Form
 
 authenticated.notice.list.label.title = Title
