@@ -21,6 +21,7 @@ master.menu.any = Any
 master.menu.any.projects = List projects
 master.menu.any.claims = List claims
 master.menu.any.training-modules = List training modules
+master.menu.any.codeaudits = List code audits
 
 # master.menu.anonymous #######################################################
 
@@ -31,11 +32,6 @@ master.menu.anonymous.favourite-link-adrvencon = 77848654W: Vento Conesa, Adrian
 master.menu.anonymous.favourite-link-rafcasceb = 49520278J: Castillo Cebolla, Rafael
 master.menu.anonymous.favourite-link-rauherper = 77929367P: Heras Pérez, Raúl
 master.menu.anonymous.favourite-link-luimeldia = 54255799H: Mellado Díaz, Luis
-
-# master.menu.any ###################################################
-
-master.menu.any = Any
-master.menu.any.claims = List claims
 
 # master.menu.authenticated ###################################################
 
@@ -61,6 +57,8 @@ master.menu.administrator.configuration = System configuration
 
 master.menu.auditor = Auditor
 master.menu.auditor.codeaudit.list-mine = List my code audits
+master.menu.auditor.auditrecord.list-my-audit-records = List my audit records
+master.menu.auditor.show-dashboard = Dashboard
 
 # master.menu.provider ########################################################
 
@@ -93,3 +91,5 @@ master.menu.user-account.manager = Manager data
 master.menu.user-account.become-manager = Become a manager
 master.menu.user-account.developer = Developer data
 master.menu.user-account.become-developer = Become a developer
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
