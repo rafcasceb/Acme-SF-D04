@@ -41,7 +41,6 @@ public class AuthenticatedNoticeCreateService extends AbstractService<Authentica
 		name = this.repository.findOneUserAccountById(accountId).getIdentity().getFullName();
 		username = super.getRequest().getPrincipal().getUsername();
 		author = username + "-" + name;
-		System.out.println(author);
 
 		moment = MomentHelper.getCurrentMoment();
 
@@ -56,11 +55,7 @@ public class AuthenticatedNoticeCreateService extends AbstractService<Authentica
 	public void bind(final Notice object) {
 		assert object != null;
 
-		System.out.println("hhh" + super.getBuffer().getErrors());
-
 		super.bind(object, "title", "message", "email", "link");
-		System.out.println(object.getAuthor());
-
 	}
 
 	@Override
@@ -86,7 +81,6 @@ public class AuthenticatedNoticeCreateService extends AbstractService<Authentica
 		assert object != null;
 
 		Dataset dataset;
-		System.out.println(super.getBuffer().getErrors());
 
 		dataset = super.unbind(object, "title", "instantiationMoment", "message", "email", "link", "author");
 		dataset.put("confirmation", false);
