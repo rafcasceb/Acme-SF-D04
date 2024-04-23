@@ -25,6 +25,6 @@ public class Configuration extends AbstractEntity {
 	protected String			defaultCurrency;
 
 	@NotBlank
-	@Pattern(regexp = "^([A-Z]{3})(?:,\\\\\\\\s*[A-Z]{3})*+$", message = "{validation.configuration.accepted}")
+	@Pattern(regexp = "^([A-Z]{3})(,\\s*[A-Z]{3})*$", message = "{validation.configuration.accepted}")
 	protected String			acceptedCurrencies;
 }
