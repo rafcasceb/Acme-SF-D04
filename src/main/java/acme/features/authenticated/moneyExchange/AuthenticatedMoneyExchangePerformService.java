@@ -90,12 +90,11 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 
 		MoneyExchange result;
 		RestTemplate api;
-		ExchangeRate record;
-		String sourceCurrency, key;
+		ExchangeRate record_response;
+		String sourceCurrency;
 		Double sourceAmount, targetAmount, rate;
 		Money target;
 		Date moment;
-		//String moment;
 
 		try {
 			api = new RestTemplate();
@@ -103,15 +102,15 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 			sourceCurrency = source.getCurrency();
 			sourceAmount = source.getAmount();
 
-			record = api.getForObject( //				
+			record_response = api.getForObject( //				
 				"https://api.currencyapi.com/v3/latest?apikey={0}&base_currency={1}&currencies={2}", //
 				ExchangeRate.class, //
 				"cur_live_9CS0QA54yYzg4W3iJ1QQMMktAfPY2DpLVpUjpPKP", //
 				sourceCurrency, //
 				targetCurrency);
 
-			assert record != null;
-			rate = Double.valueOf(record.getData().get(targetCurrency).get("value"));
+			assert record_response != null;
+			rate = Double.valueOf(record_response.getData().get(targetCurrency).get("value"));
 			assert rate != null;
 			targetAmount = rate * sourceAmount;
 
@@ -119,7 +118,7 @@ public class AuthenticatedMoneyExchangePerformService extends AbstractService<Au
 			target.setAmount(targetAmount);
 			target.setCurrency(targetCurrency);
 
-			moment = record.getDate();
+			moment = record_response.getDate();
 
 			result = new MoneyExchange();
 			result.setSource(source);

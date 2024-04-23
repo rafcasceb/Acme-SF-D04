@@ -25,17 +25,17 @@ public class MoneyExchange extends AbstractForm {
 
 	@NotNull
 	@Valid
-	public Money				source;
+	private Money				source;
 
 	@NotBlank
 	@Pattern(regexp = "[A-Z]{3}")
-	public String				targetCurrency;
+	private String				targetCurrency;
 
 	// Response attributes ----------------------------------------------------
 
 	@Valid
-	public Money				target;
+	private Money				target;
 
-	public Date					date;
+	private Date				date;
 
 }
