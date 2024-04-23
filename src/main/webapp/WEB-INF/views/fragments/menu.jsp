@@ -38,6 +38,7 @@
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.risks" action="/authenticated/risk/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.objectives" action="/authenticated/objective/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.notices" action="/authenticated/notice/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.authenticated.money-exchange" action="/authenticated/money-exchange/perform"/>
 		</acme:menu-option>
