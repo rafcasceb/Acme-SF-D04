@@ -46,7 +46,7 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 		Date moment;
 		Date startMoment;
 		Date endMoment;
-		long aDayInMs = 24 * 60 * 60 * 1000;
+		long aDayInMs = (long) 24 * 60 * 60 * 1000;
 
 		moment = MomentHelper.getCurrentMoment();
 		startMoment = new Date(moment.getTime() + aDayInMs);
