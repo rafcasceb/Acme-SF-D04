@@ -75,10 +75,14 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		}
 
 		Collection<ProgressLog> pl;
-
 		pl = this.repository.findManyProgressLogsByContractId(object.getId());
-
 		super.state(pl.stream().allMatch(ProgressLog::isPublished), "*", "validation.contract.publish.unpublished-progress-log");
+
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(object.getBudget().getAmount() >= 0., "budget", "client.contract.form.error.budgetPositive");
+
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(object.getBudget().getAmount() <= 1000000., "budget", "client.contract.form.error.budgetRange");
 		//TODO: formato de budget
 		//TODO: validacion del budget que tiene que ser menor al del proyecto asociado
 	}

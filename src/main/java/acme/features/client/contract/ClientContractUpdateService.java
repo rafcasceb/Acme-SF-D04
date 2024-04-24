@@ -82,6 +82,12 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "client.contract.form.error.already-published");
 
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(object.getBudget().getAmount() >= 0., "budget", "client.contract.form.error.budgetPositive");
+
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(object.getBudget().getAmount() <= 1000000., "budget", "client.contract.form.error.budgetRange");
+
 		//TODO: formato de budget
 	}
 

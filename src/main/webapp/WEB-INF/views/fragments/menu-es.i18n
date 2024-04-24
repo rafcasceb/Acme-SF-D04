@@ -70,6 +70,7 @@ master.menu.auditor.show-dashboard = Panel de estadísticas
 master.menu.client = Cliente
 master.menu.client.contract.list-mine = Listar mis contratos
 master.menu.client.progress-log.list-mine = Listar mis registros de progreso
+master.menu.client.show-dashboard = Panel de estadísticas
 
 # master.menu.provider ########################################################
 
