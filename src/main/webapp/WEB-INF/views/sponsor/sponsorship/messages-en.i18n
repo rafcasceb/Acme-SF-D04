@@ -35,10 +35,12 @@ sponsor.sponsorship.list.label.project = Project
 sponsor.sponsorship.list.label.type = Type
 sponsor.sponsorship.list.label.amount = Amount
 
-sponsor.sponsorhsip.form.error.duplicate = This code already exists
-sponsor.sponsorhsip.form.error.period = Period must be at least a month
-sponsor.sponsorhsip.form.error.startDate = Start date must be in the future
-sponsor.sponsorhsip.form.error.endDate = End date must be after the start date
+sponsor.sponsorship.form.error.duplicate = This code already exists
+sponsor.sponsorship.form.error.period = Period must be at least a month
+sponsor.sponsorship.form.error.startDate = Start date must be in the future
+sponsor.sponsorship.form.error.endDate = End date must be after the start date
 sponsor.sponsorship.form.error.amount = The invoices must add up to amount
-sponsor.invoice.form.error.sponsorship = Cannot associate an invoice to an already published sponsorship
 sponsor.sponsorship.form.error.published = Cannot modify an already published sponsorship
+sponsor.sponsorship.form.error.deleteWithPublishedInvoices = Cannot delete an sponsorship with published invoices
+sponsor.sponsorship.form.error.amountOutOfBounds = Amount must be in between -1000000.00 and 1000000.00
+sponsor.sponsorship.form.error.currencyChange = Cannot change currency with published invoices

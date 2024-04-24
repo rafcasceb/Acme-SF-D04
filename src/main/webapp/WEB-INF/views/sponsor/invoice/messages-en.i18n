@@ -37,4 +37,6 @@ sponsor.invoice.form.error.duplicate = Duplicate code
 sponsor.invoice.form.error.dueDate = Due date must be in the future
 sponsor.invoice.form.error.period = Validity period must be at least a Month
 sponsor.invoice.form.error.published = Cannot update an already published invoice
-invoice.sponsorship.form.error.amount = Impossible to publish. This invoice makes the value of the sponsorship greater than the real amount.
+invoice.sponsorship.form.error.amount = Impossible to publish. This invoice makes the value of the sponsorship greater than the real amount
+sponsor.invoice.form.error.amountOutOfBounds = Quantity must be between -1000000.00 and 1000000.00
+sponsor.invoice.form.error.currency = Currency mismatch between sponsorship and invoice

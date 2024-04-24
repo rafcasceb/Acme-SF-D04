@@ -82,6 +82,9 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			super.state(total + object.getValue().getAmount() <= object.getSponsorship().getAmount().getAmount(), "sponsorship", "invoice.sponsorship.form.error.amount");
 		}
 
+		if (!super.getBuffer().getErrors().hasErrors("quantity"))
+			super.state(object.getSponsorship() != null && object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");
+
 	}
 
 	@Override

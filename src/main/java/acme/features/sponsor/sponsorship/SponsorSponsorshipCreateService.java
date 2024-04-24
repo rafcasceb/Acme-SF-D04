@@ -49,13 +49,20 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void load() {
 		Sponsorship object;
 		Date moment;
+		Date startMoment;
+		Date endMoment;
 		moment = MomentHelper.getCurrentMoment();
+		long aDayInMs = 24 * 60 * 60 * 1000;
+
+		startMoment = new Date(moment.getTime() + aDayInMs);
+		endMoment = new Date(startMoment.getTime() + aDayInMs * 31);
+
 		Sponsor sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 
 		object = new Sponsorship();
 		object.setMoment(moment);
-		object.setStartDate(moment);
-		object.setEndDate(moment);
+		object.setStartDate(startMoment);
+		object.setEndDate(endMoment);
 
 		object.setPublished(false);
 		object.setSponsor(sponsor);
@@ -87,17 +94,21 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship sponsorshipSameCode;
 			sponsorshipSameCode = this.repository.findSponsorshipByCode(object.getCode());
-			super.state(sponsorshipSameCode == null, "code", "sponsor.sponsorhsip.form.error.duplicate");
+			super.state(sponsorshipSameCode == null, "code", "sponsor.sponsorship.form.error.duplicate");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "administrator.banner.form.error.startDate");
+			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.startDate");
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isAfter(object.getEndDate(), object.getMoment()), "endDate", "administrator.banner.form.error.endDate");
+			super.state(MomentHelper.isAfter(object.getEndDate(), object.getMoment()), "endDate", "sponsor.sponsorship.form.error.endDate");
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "endDate", "administrator.banner.form.error.period");
+			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "endDate", "sponsor.sponsorship.form.error.period");
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() <= 1000000.00 && object.getAmount().getAmount() >= -1000000.00, "amount", "sponsor.sponsorship.form.error.amountOutOfBounds");
+
 	}
 
 	@Override
