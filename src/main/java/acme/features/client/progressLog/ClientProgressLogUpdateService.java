@@ -14,7 +14,7 @@ import acme.entities.contracts.ProgressLog;
 import acme.roles.Client;
 
 @Service
-public class ClientProgressLogDeleteService extends AbstractService<Client, ProgressLog> {
+public class ClientProgressLogUpdateService extends AbstractService<Client, ProgressLog> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -54,6 +54,7 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 	@Override
 	public void bind(final ProgressLog object) {
 		assert object != null;
+
 		int contractId;
 		Contract contract;
 
@@ -62,32 +63,34 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 
 		object.setContract(contract);
 		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson");
-
 	}
 
 	@Override
 	public void validate(final ProgressLog object) {
-
 		assert object != null;
 
 		if (!super.getBuffer().getErrors().hasErrors("contract"))
 			super.state(!object.getContract().isPublished(), "contract", "validation.progresslog.published.contract-is-published");
 
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "validation.progresslog.published");
+		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
+			ProgressLog isCodeUnique;
+			isCodeUnique = this.repository.findProgressLogByCodeDifferentId(object.getRecordId(), object.getId());
+			super.state(isCodeUnique == null, "recordId", "validation.progresslog.code.duplicate");
+
+			if (!super.getBuffer().getErrors().hasErrors("published"))
+				super.state(!object.isPublished(), "published", "validation.progresslog.published");
+		}
 
 	}
 
 	@Override
 	public void perform(final ProgressLog object) {
 		assert object != null;
-
-		this.repository.delete(object);
+		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final ProgressLog object) {
-
 		assert object != null;
 
 		SelectChoices contracts;
