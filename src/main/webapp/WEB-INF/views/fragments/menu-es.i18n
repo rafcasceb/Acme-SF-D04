@@ -59,6 +59,7 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.create-banner = Crear banner
 master.menu.administrator.list-banner = Listar banners
 master.menu.administrator.configuration = Configuración del sistema
+master.menu.administrator.objective = Crear objetivo
 
 master.menu.administrator = Banner
 master.menu.administrator.create = Crear Banner
@@ -76,6 +77,8 @@ master.menu.client = Cliente
 master.menu.client.contract.list-mine = Listar mis contratos
 master.menu.client.progress-log.list-mine = Listar mis registros de progreso
 master.menu.client.show-dashboard = Panel de estadísticas
+
+master.menu.objective.create = Crear Objetivo
 
 # master.menu.provider ########################################################
 
