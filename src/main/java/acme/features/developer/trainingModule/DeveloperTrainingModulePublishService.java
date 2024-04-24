@@ -85,10 +85,18 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 		{
 			Collection<TrainingSession> sessions;
 			int totalSessions;
+			boolean publishedSessions = true;
 
 			sessions = this.repository.findManyTrainingSessionByModuleId(object.getId());
 			totalSessions = sessions.size();
 			super.state(totalSessions >= 1, "*", "developer.training-module.form.error.no-training-sessions");
+			for (TrainingSession ts : sessions)
+				if (!ts.isPublished()) {
+					publishedSessions = false;
+					break;
+				}
+			super.state(publishedSessions, "*", "developer.training-module.form.error.no-training-sessions-published");
+
 		}
 	}
 
