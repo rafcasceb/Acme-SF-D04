@@ -80,7 +80,7 @@ master.menu.manager.show-dashboard = Panel de estadísticas
 # master.menu.developer ##########################################################
 
 master.menu.developer = Desarrollador
-master.menu.developer.list-my-traning-modules = Listar mis módulos de entrenamiento
+master.menu.developer.list-my-training-modules = Listar mis módulos de entrenamiento
 master.menu.developer.dashboard = Panel de estadísticas
 
 
