@@ -78,6 +78,13 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(object.isPublished() == false, "code", "sponsor.sponsorship.form.error.published");
 
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(object.getAmount().getAmount() <= 1000000.00 && object.getAmount().getAmount() >= -1000000.00, "amount", "sponsor.sponsorship.form.error.amountOutOfBounds");
+
+		if (!super.getBuffer().getErrors().hasErrors("amount"))
+			super.state(this.repository.countPublishedInvoicesBySponsorshipId(object.getId()) == 0 || object.getAmount().getCurrency().equals(this.repository.findOneSponsorshipById(object.getId()).getAmount().getCurrency()), "amount",
+				"sponsor.sponsorship.form.error.currencyChange");
+
 	}
 
 	@Override

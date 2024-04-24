@@ -1,12 +1,16 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
+import acme.features.sponsor.invoice.SponsorInvoiceRepository;
 import acme.roles.Sponsor;
 
 @Service
@@ -15,7 +19,10 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipRepository repository;
+	private SponsorSponsorshipRepository	repository;
+
+	@Autowired
+	private SponsorInvoiceRepository		invoiceRepository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -47,11 +54,18 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		assert object != null;
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(object.isPublished() == false, "code", "sponsor.sponsorship.form.error.published");
+
+		if (!super.getBuffer().getErrors().hasErrors("published"))
+			super.state(this.repository.countPublishedInvoicesBySponsorshipId(object.getId()) == 0, "published", "sponsor.sponsorship.form.error.deleteWithPublishedInvoices");
 	}
 
 	@Override
 	public void perform(final Sponsorship object) {
 		assert object != null;
+		Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorshipId(object.getId());
+		for (Invoice i : invoices)
+			this.invoiceRepository.delete(i);
+
 		this.repository.delete(object);
 	}
 
@@ -59,7 +73,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	public void unbind(final Sponsorship object) {
 		assert object != null;
 		Dataset dataset;
-		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "email", "link", "published");
+		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "type", "email", "link", "published", "project");
 		super.getResponse().addData(dataset);
 	}
 

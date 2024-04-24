@@ -47,12 +47,14 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	public void load() {
 		Invoice object;
 		Date moment;
+		long aDayInMs = 24 * 60 * 60 * 1000;
 		moment = MomentHelper.getCurrentMoment();
+		Date dueDate = new Date(moment.getTime() + aDayInMs * 31);
 
 		object = new Invoice();
 
 		object.setRegistrationTime(moment);
-		object.setDueDate(moment);
+		object.setDueDate(dueDate);
 		object.setLink(null);
 		object.setTax(0.21);
 
@@ -94,6 +96,12 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 
 		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
 			super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
+
+		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
+			super.state(object.getQuantity() != null && object.getQuantity().getAmount() <= 1000000.00 && object.getQuantity().getAmount() >= -1000000.00, "quantity", "sponsor.invoice.form.error.amountOutOfBounds");
+
+		if (!super.getBuffer().getErrors().hasErrors("quantity"))
+			super.state(object.getSponsorship() != null && object.getQuantity() != null && object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");
 
 	}
 

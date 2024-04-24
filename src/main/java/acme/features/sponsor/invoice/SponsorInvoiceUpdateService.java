@@ -77,6 +77,12 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(object.isPublished() == false, "sponsorship", "sponsor.invoice.form.error.published");
 
+		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
+			super.state(object.getQuantity().getAmount() <= 1000000.00 && object.getQuantity().getAmount() >= -1000000.00, "quantity", "sponsor.invoice.form.error.amountOutOfBounds");
+
+		if (!super.getBuffer().getErrors().hasErrors("quantity"))
+			super.state(object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");
+
 	}
 
 	@Override
