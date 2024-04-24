@@ -28,7 +28,7 @@ public class SponsorInvoiceDeleteService extends AbstractService<Sponsor, Invoic
 
 		invoiceId = super.getRequest().getData("id", int.class);
 		invoice = this.repository.findOneInvoiceById(invoiceId);
-		status = invoice != null && super.getRequest().getPrincipal().hasRole(invoice.getSponsorship().getSponsor());
+		status = !invoice.isPublished() && invoice != null && super.getRequest().getPrincipal().hasRole(invoice.getSponsorship().getSponsor());
 
 		super.getResponse().setAuthorised(status);
 	}
