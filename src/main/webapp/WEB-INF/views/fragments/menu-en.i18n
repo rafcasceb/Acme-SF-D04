@@ -101,3 +101,5 @@ master.menu.user-account.developer = Developer data
 master.menu.user-account.become-developer = Become a developer
 master.menu.user-account.auditor = Auditor data
 master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.become-client = Become a client
+master.menu.user-account.client = Client data
