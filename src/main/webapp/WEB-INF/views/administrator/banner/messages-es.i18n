@@ -26,6 +26,6 @@ administrator.banner.form.button.delete = Borrar
 administrator.banner.form.button.update = Actualizar
 administrator.banner.form.label.confirmation = Porfavor, confirme que el banner es correcto
 
-administrator.banner.form.error.startDate = La fecha de inicialización debe ser posterior a la de instanciación
+administrator.banner.form.error.startDate = La fecha de inicialización debe ser en el futuro
 administrator.banner.form.error.period = El periódo de validez debe ser superior a una semana
 administrator.banner.form.error.endDate = La fecha de finalización debe ser posterior a la de inicialización
