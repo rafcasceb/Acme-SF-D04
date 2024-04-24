@@ -110,6 +110,10 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 		dataset.put("difficultyLevels", choices);
 		dataset.put("project", projectsChoices.getSelected().getKey());
 		dataset.put("projects", projectsChoices);
+		Date moment;
+
+		moment = MomentHelper.getCurrentMoment();
+		object.setUpdateMoment(moment);
 		super.getResponse().addData(dataset);
 
 	}
