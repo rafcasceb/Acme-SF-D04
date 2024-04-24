@@ -64,6 +64,7 @@
 		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
 			<acme:menu-suboption code="master.menu.client.contract.list-mine" action="/client/contract/list-mine"/>
 			<acme:menu-suboption code="master.menu.client.progress-log.list-mine" action="/client/progress-log/list-mine"/>
+			<acme:menu-suboption code="master.menu.client.show-dashboard" action="/client/client-dashboard/show"/>
 		</acme:menu-option>
 
 

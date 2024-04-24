@@ -70,6 +70,11 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 			contractSameCode = this.repository.findContractByCode(object.getCode());
 			super.state(contractSameCode == null, "code", "client.contract.form.error.duplicate");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(object.getBudget().getAmount() >= 0., "budget", "client.contract.form.error.budgetPositive");
+
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(object.getBudget().getAmount() <= 1000000., "budget", "client.contract.form.error.budgetRange");
 		//TODO: formato de budget
 	}
 

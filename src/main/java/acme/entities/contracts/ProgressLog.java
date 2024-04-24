@@ -39,7 +39,6 @@ public class ProgressLog extends AbstractEntity {
 	@NotBlank
 	private String				recordId;
 
-	//TODO: ver si el rango es de 0.00 a 100.00 o de 0.00 a 1.00
 	//TODO: ver si el incremento tiene que ser estrictamente positivo respecto al anterior PG
 	@DecimalMin(value = "0.00", inclusive = true)
 	@DecimalMax(value = "100.00", inclusive = true)
