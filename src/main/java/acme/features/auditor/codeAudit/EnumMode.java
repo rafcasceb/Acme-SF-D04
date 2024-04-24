@@ -2,18 +2,22 @@
 package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 import acme.entities.audits.Mark;
 
 public class EnumMode {
 
+	private EnumMode() {
+		throw new IllegalStateException("Utility class.");
+	}
+
 	public static String mode(final Collection<Mark> marks) {
 		if (marks == null || marks.isEmpty())
 			return null;
 
-		Map<Mark, Integer> frequencyMap = new HashMap<>();
+		Map<Mark, Integer> frequencyMap = new EnumMap<>(Mark.class);
 
 		for (Mark mark : marks)
 			if (frequencyMap.containsKey(mark))
@@ -21,7 +25,7 @@ public class EnumMode {
 			else
 				frequencyMap.put(mark, 1);
 
-		Mark modeMark = null;
+		Mark modeMark = Mark.F_MINUS;
 		int maxFrequency = 0;
 
 		for (Map.Entry<Mark, Integer> entry : frequencyMap.entrySet()) {

@@ -28,8 +28,10 @@ client.contract.form.button.create = Create
 client.contract.form.button.update = Save changes
 client.contract.form.button.delete = Delete
 client.contract.form.button.publish = Publish
-manager.project.form.button.user-stories = See user stories
+client.contract.form.button.progressLog = See progress logs
 
 client.contract.form.error.duplicate = This code is already in use
-manager.project.form.error.zero-user-stories = A project without User stories cannot be published
+validation.contract.publish.unpublished-progress-log = This contract has unpublished progress logs
 client.contract.form.error.already-published = A published contract cannot be updated or deleted
+client.contract.form.error.budgetPositive = The amount must be positive
+client.contract.form.error.budgetRange = The maximum amount of money is 1000000.00
