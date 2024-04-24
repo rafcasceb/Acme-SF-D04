@@ -11,7 +11,7 @@ user-story-09,коза коза,Description 1,5,Acceptance criteria 1,MUST,https
 user-story-10,وصف المثال.,Description 1,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-11.0,<script> window.location = ‘https://example.com’; </script>,Description 1,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-11.1,<h1>Example Heading</h1>,Description 1,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
-user-story-11.2,SELECT * FROM users WHERE username = '' AND password = '' OR '1'='1';,Description 1,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
+user-story-11.2,' OR '1,Description 1,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-12,Title 1,a,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-13,Title 1,aa,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-14,Title 1,Filler description to reach ninety nine (99) characters in attribute description of the user story.,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
@@ -21,7 +21,7 @@ user-story-17,Title 1,وصف المثال.,5,Acceptance criteria 1,MUST,https://
 user-story-18,Title 1,貸んい建濯よ芝弾テソ,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-19.0,Title 1,<script> window.location = ‘https://example.com’; </script>,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-19.1,Title 1,<h1>Example Heading</h1>,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
-user-story-19.2,Title 1,SELECT * FROM users WHERE username = '' AND password = '' OR '1'='1';,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
+user-story-19.2,Title 1,' OR '1,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-20,Title 1,Description 1,0,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-21,Title 1,Description 1,1,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
 user-story-22,Title 1,Description 1,9,Acceptance criteria 1,MUST,https://link1.com,manager-01,false
@@ -35,7 +35,7 @@ user-story-29,Title 1,Description 1,5,وصف المثال.,MUST,https://link1.co
 user-story-30,Title 1,Description 1,5,貸んい建濯よ芝弾テ,MUST,https://link1.com,manager-02,false
 user-story-31.0,Title 1,Description 1,5,<script> window.location = ‘https://example.com’; </script>,MUST,https://link1.com,manager-02,false
 user-story-31.1,Title 1,Description 1,5,<h1>Example Heading</h1>,MUST,https://link1.com,manager-02,false
-user-story-31.2,Title 1,Description 1,5,SELECT * FROM users WHERE username = '' AND password = '' OR '1'='1';,MUST,https://link1.com,manager-02,false
+user-story-31.2,Title 1,Description 1,5,' OR '1,MUST,https://link1.com,manager-02,false
 user-story-32,Title 1,Description 1,5,Acceptance criteria 1,SHOULD,https://link1.com,manager-02,false
 user-story-33,Title 1,Description 1,5,Acceptance criteria 1,COULD,https://link1.com,manager-02,false
 user-story-34,Title 1,Description 1,5,Acceptance criteria 1,WONT,https://link1.com,manager-02,false
@@ -43,7 +43,9 @@ user-story-35,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://a.com,m
 user-story-36,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://fillerURL.com/254characters/maxLength-1/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,manager-02,true
 user-story-37,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,manager-02,true
 user-story-38,Title 1,Description 1,5,Acceptance criteria 1,MUST,,manager-02,false
-user-story-39,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://example.com/claim/otherpage?utm_source=google&utm_medium=cpc,manager-02,false
+user-story-39.0,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://example.com/claim/otherpage?utm_source=google&utm_medium=cpc,manager-02,false
+user-story-39.1,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://www.example.com/example_page?,manager-02,false
+user-story-39.2,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://www.example.com/example_page?activo=true,manager-02,false
 user-story-40,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,true
 user-story-41,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,true
 user-story-42,Title 1,Description 1,5,Acceptance criteria 1,MUST,https://link1.com,manager-01,true

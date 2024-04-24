@@ -24,6 +24,8 @@
 			<acme:menu-suboption code="master.menu.any.claims" action="/any/claim/list"/>
 			<acme:menu-suboption code="master.menu.any.training-modules" action="/any/training-module/list"/>
 			<acme:menu-suboption code="master.menu.any.sponsorships" action="/any/sponsorship/list"/>
+			<acme:menu-suboption code="master.menu.any.codeaudits" action="/any/code-audit/list"/>
+
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
@@ -38,10 +40,14 @@
 		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.authenticated.risks" action="/authenticated/risk/list"/>
 			<acme:menu-suboption code="master.menu.authenticated.objectives" action="/authenticated/objective/list"/>
+			<acme:menu-suboption code="master.menu.authenticated.notices" action="/authenticated/notice/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.authenticated.money-exchange" action="/authenticated/money-exchange/perform"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
+			<acme:menu-suboption code="master.menu.administrator.configuration" action="/administrator/configuration/show"/>
 			<acme:menu-suboption code="master.menu.administrator.risks" action="/administrator/risk/list"/>
 			<acme:menu-suboption code="master.menu.administrator.list-banner" action="/administrator/banner/list-all"/>
 			<acme:menu-separator/>
@@ -55,6 +61,14 @@
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">
 			<acme:menu-suboption code="master.menu.auditor.codeaudit.list-mine" action="/auditor/code-audit/list-mine"/>
+			<acme:menu-suboption code="master.menu.auditor.auditrecord.list-my-audit-records" action="/auditor/audit-record/list-mine"/>
+			<acme:menu-suboption code="master.menu.auditor.show-dashboard" action="/auditor/auditor-dashboard/show"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.client" access="hasRole('Client')">
+			<acme:menu-suboption code="master.menu.client.contract.list-mine" action="/client/contract/list-mine"/>
+			<acme:menu-suboption code="master.menu.client.progress-log.list-mine" action="/client/progress-log/list-mine"/>
+			<acme:menu-suboption code="master.menu.client.show-dashboard" action="/client/client-dashboard/show"/>
 		</acme:menu-option>
 
 
@@ -93,16 +107,18 @@
 
 		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
-			<acme:menu-suboption code="master.menu.user-account.become-provider" action="/authenticated/provider/create" access="!hasRole('Provider')"/>
-			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
-			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
-			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-manager" action="/authenticated/manager/create" access="!hasRole('Manager')"/>
 			<acme:menu-suboption code="master.menu.user-account.manager" action="/authenticated/manager/update" access="hasRole('Manager')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-developer" action="/authenticated/developer/create" access="!hasRole('Developer')"/>
 			<acme:menu-suboption code="master.menu.user-account.developer" action="/authenticated/developer/update" access="hasRole('Developer')"/>
+
 			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create" access="!hasRole('Sponsor')"/>
 			<acme:menu-suboption code="master.menu.user-account.sponsor" action="/authenticated/sponsor/update" access="hasRole('Sponsor')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create" access="!hasRole('Auditor')"/>
+			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update" access="hasRole('Auditor')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-client" action="/authenticated/client/create" access="!hasRole('Client')"/>
+			<acme:menu-suboption code="master.menu.user-account.client" action="/authenticated/client/update" access="hasRole('Client')"/>
+
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/authenticated/system/sign-out" access="isAuthenticated()"/>
