@@ -14,7 +14,7 @@ import acme.entities.contracts.ProgressLog;
 import acme.roles.Client;
 
 @Service
-public class ClientProgressLogDeleteService extends AbstractService<Client, ProgressLog> {
+public class ClientProgressLogPublishService extends AbstractService<Client, ProgressLog> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -54,27 +54,12 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 	@Override
 	public void bind(final ProgressLog object) {
 		assert object != null;
-		int contractId;
-		Contract contract;
-
-		contractId = super.getRequest().getData("contract", int.class);
-		contract = this.repository.findOneContractById(contractId);
-
-		object.setContract(contract);
-		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson");
-
+		super.bind(object, "publish");
 	}
 
 	@Override
 	public void validate(final ProgressLog object) {
-
 		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("contract"))
-			super.state(!object.getContract().isPublished(), "contract", "validation.progresslog.published.contract-is-published");
-
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "validation.progresslog.published");
 
 	}
 
@@ -82,12 +67,12 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 	public void perform(final ProgressLog object) {
 		assert object != null;
 
-		this.repository.delete(object);
+		object.setPublished(true);
+		this.repository.save(object);
 	}
 
 	@Override
 	public void unbind(final ProgressLog object) {
-
 		assert object != null;
 
 		SelectChoices contracts;

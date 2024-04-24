@@ -65,6 +65,7 @@ master.menu.auditor.show-dashboard = Dashboard
 master.menu.client = Client
 master.menu.client.contract.list-mine = List my contracts
 master.menu.client.progress-log.list-mine = List my progress logs
+master.menu.client.show-dashboard = Dashboard
 
 # master.menu.provider ########################################################
 
