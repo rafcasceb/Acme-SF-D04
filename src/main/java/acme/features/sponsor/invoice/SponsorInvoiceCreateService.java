@@ -13,8 +13,10 @@
 package acme.features.sponsor.invoice;
 
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,6 +85,8 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		assert object != null;
 		String dateString = "2201/01/01 00:00";
 		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
+		String acceptedCurrencies = this.repository.findConfiguration().getAcceptedCurrencies();
+		List<String> acceptedCurrencyList = Arrays.asList(acceptedCurrencies.split("\\s*,\\s*"));
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Invoice invoiceSameCode;
@@ -104,6 +108,9 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 
 		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
 			super.state(object.getQuantity() != null && object.getQuantity().getAmount() <= 1000000.00 && object.getQuantity().getAmount() >= -1000000.00, "quantity", "sponsor.invoice.form.error.amountOutOfBounds");
+
+		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
+			super.state(object.getSponsorship() != null && acceptedCurrencyList.contains(object.getQuantity().getCurrency()), "quantity", "sponsor.invoice.form.error.currencyNotSupported");
 
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getSponsorship() != null && object.getQuantity() != null && object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");
