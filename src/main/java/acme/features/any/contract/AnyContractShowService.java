@@ -1,40 +1,38 @@
 
-package acme.features.client.contract;
+package acme.features.any.contract;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.contracts.Contract;
 import acme.entities.projects.Project;
-import acme.roles.Client;
 
 @Service
-public class ClientContractShowService extends AbstractService<Client, Contract> {
+public class AnyContractShowService extends AbstractService<Any, Contract> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private ClientContractRepository repository;
+	private AnyContractRepository repository;
 
-	// AbstractService<Auditor, CodeAudit> ---------------------------
+	// AbstractService interface ----------------------------------------------
 
 
 	@Override
 	public void authorise() {
 		boolean status;
-		int id;
-		int clientId;
+		int masterId;
 		Contract contract;
 
-		id = super.getRequest().getData("id", int.class);
-		clientId = super.getRequest().getPrincipal().getActiveRoleId();
-		contract = this.repository.findOneContractById(id);
-		status = clientId == contract.getClient().getId();
+		masterId = super.getRequest().getData("id", int.class);
+		contract = this.repository.findOneContractById(masterId);
+		status = contract != null && contract.isPublished();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -57,8 +55,8 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 		SelectChoices projects;
 		Dataset dataset;
 
-		Collection<Project> allProjects = this.repository.findAllProjects();
-		projects = SelectChoices.from(allProjects, "title", object.getProject());
+		Collection<Project> unpublishedProjects = this.repository.findAllProjects();
+		projects = SelectChoices.from(unpublishedProjects, "title", object.getProject());
 
 		dataset = super.unbind(object, "code", "providerName", "customerName", "goals", "budget", "published");
 		dataset.put("project", projects.getSelected().getKey());

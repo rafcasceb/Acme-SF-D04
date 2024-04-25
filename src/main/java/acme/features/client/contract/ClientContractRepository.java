@@ -34,12 +34,15 @@ public interface ClientContractRepository extends AbstractRepository {
 	Project findOneProjectById(int id);
 
 	@Query("select p from Project p")
-	Collection<Project> findManyProjects();
+	Collection<Project> findAllProjects();
 
 	@Query("select p from Project p where p.published = false")
 	Collection<Project> findAllUnpublishedProjects();
 
 	@Query("select p from ProgressLog p where p.contract.id = :contractId ")
 	Collection<ProgressLog> findManyProgressLogsByContractId(int contractId);
+
+	@Query("select c.acceptedCurrencies from Configuration c")
+	String findAcceptedCurrencies();
 
 }
