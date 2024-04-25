@@ -23,6 +23,7 @@ master.menu.any.claims = Listar reclamaciones
 master.menu.any.training-modules = Listar módulos de entrenamiento
 master.menu.any.sponsorships = Listar patrocinios
 master.menu.any.codeaudits = Listar auditorías de código
+master.menu.any.contracts = Listar contratos
 
 # master.menu.anonymous #######################################################
 

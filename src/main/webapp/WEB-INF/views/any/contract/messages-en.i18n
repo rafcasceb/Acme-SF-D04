@@ -8,27 +8,27 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-client.contract.list.title = Listing of my contracts
-client.contract.form.title = Contract form
-client.contract.list.label.published = Publishedclient.contract.list.label.code = Code
-client.contract.list.label.providerName = Provider Name
-client.contract.list.label.customerName = Customer Name
+any.contract.list.title = Listing of published contracts
+any.contract.form.title = Contract form
+any.contract.list.label.published = Publishedany.contract.list.label.code = Code
+any.contract.list.label.providerName = Provider Name
+any.contract.list.label.customerName = Customer Name
 
-client.contract.form.label.code = Code
-client.contract.form.label.instantiationMoment = Instantiation Moment
-client.contract.form.label.providerName = Provider Name
-client.contract.form.label.customerName = Customer Name
-client.contract.form.label.budget = Budget
-client.contract.form.label.goals = Goals
-client.contract.form.label.published = Published
-client.contract.form.label.project = Associated project
+any.contract.form.label.code = Code
+any.contract.form.label.instantiationMoment = Instantiation Moment
+any.contract.form.label.providerName = Provider Name
+any.contract.form.label.customerName = Customer Name
+any.contract.form.label.budget = Budget
+any.contract.form.label.goals = Goals
+any.contract.form.label.published = Published
+any.contract.form.label.project = Associated project
 
 client.contract.list.button.create = Create
 client.contract.form.button.create = Create
 client.contract.form.button.update = Save changes
 client.contract.form.button.delete = Delete
 client.contract.form.button.publish = Publish
-client.contract.form.button.progressLog = See progress logs
+any.contract.form.button.progressLog = See progress logs
 
 client.contract.form.error.duplicate = This code is already in use
 validation.contract.publish.unpublished-progress-log = This contract has unpublished progress logs
@@ -36,4 +36,3 @@ client.contract.form.error.already-published = A published contract cannot be up
 client.contract.form.error.budgetPositive = The amount must be positive
 client.contract.form.error.budgetRange = The maximum amount of money is 1000000.00
 client.contract.form.error.currency = The system has not support for this currency
-validation.contract.published.project-is-published = This project is published. Choose another one
