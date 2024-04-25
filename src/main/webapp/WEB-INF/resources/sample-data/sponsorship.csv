@@ -18,11 +18,11 @@ sponsorship-17,ABS-443,2022/07/29 00:00,2022/08/29 00:00,2200/12/31 23:58,EUR 20
 sponsorship-18,ABD-133,2022/07/29 00:00,2022/08/29 00:00,2200/12/31 23:59,EUR 20000.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
 sponsorship-19,ABH-143,2022/07/29 00:00,2022/08/29 00:00,2024/02/28 23:59,EUR 20000.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
 sponsorship-20,ABJ-443,2022/07/29 00:00,2022/08/29 00:00,2024/02/29 00:00,EUR 20000.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
-sponsorship-21,ABK-153,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR -1000000.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
-sponsorship-22,ABL-163,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR -999999.99,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
+sponsorship-21,ABK-153,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 0.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
+sponsorship-22,ABL-163,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 0.01,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
 sponsorship-23,ABZ-173,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 999999.99,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
 sponsorship-24,ABX-183,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 1000000.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
-sponsorship-25,ABC-193,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR 0.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
+sponsorship-25,ABC-193,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,EUR -0.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
 sponsorship-26,ABB-163,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,USD 20000.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
 sponsorship-27,ABN-173,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,CAD 20000.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
 sponsorship-28,ABM-183,2022/07/29 00:00,2022/08/06 00:00,2025/08/13 00:00,THB 20000.00,FINANCIAL,sample@gmail.com,https://sample.com,false,project-01,sponsor-01
