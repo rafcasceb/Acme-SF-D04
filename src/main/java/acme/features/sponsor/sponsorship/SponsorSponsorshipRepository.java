@@ -19,6 +19,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
 import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
@@ -51,4 +52,6 @@ public interface SponsorSponsorshipRepository extends AbstractRepository {
 	@Query("SELECT COUNT(i) FROM Invoice i WHERE i.sponsorship.id = :id AND i.published = true")
 	int countPublishedInvoicesBySponsorshipId(@Param("id") int id);
 
+	@Query("SELECT config FROM Configuration config")
+	Configuration findConfiguration();
 }
