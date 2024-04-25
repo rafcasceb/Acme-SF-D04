@@ -27,16 +27,18 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 	public void load() {
 		int sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 
+		String defaultCurrency = this.repository.findConfiguration().getDefaultCurrency();
+
 		int totalNumberInvoicesTaxEqualOrLessThan21 = this.repository.countInvoicesWithTaxLessThanOrEqual21(sponsorId);
 		int totalNumberSponsorshipsWithLink = this.repository.countSponsorshipsWithLink(sponsorId);
-		Double averageAmountSponsorships = this.repository.averageAmountSponsorships(sponsorId);
-		Double stdevAmountSponsorships = this.repository.stdevAmountSponsorships(sponsorId);
-		Double minimumAmountSponsorships = this.repository.minimumAmountSponsorships(sponsorId);
-		Double maximumAmountSponsorships = this.repository.maximumAmountSponsorships(sponsorId);
-		Double averageQuantityInvoices = this.repository.averageQuantityInvoices(sponsorId);
-		Double stdevQuantityInvoices = this.repository.stdevQuantityInvoices(sponsorId);
-		Double minimumQuantityInvoices = this.repository.minimumQuantityInvoices(sponsorId);
-		Double maximumQuantityInvoices = this.repository.maximumQuantityInvoices(sponsorId);
+		Double averageAmountSponsorships = this.repository.averageAmountSponsorships(sponsorId, defaultCurrency);
+		Double stdevAmountSponsorships = this.repository.stdevAmountSponsorships(sponsorId, defaultCurrency);
+		Double minimumAmountSponsorships = this.repository.minimumAmountSponsorships(sponsorId, defaultCurrency);
+		Double maximumAmountSponsorships = this.repository.maximumAmountSponsorships(sponsorId, defaultCurrency);
+		Double averageQuantityInvoices = this.repository.averageQuantityInvoices(sponsorId, defaultCurrency);
+		Double stdevQuantityInvoices = this.repository.stdevQuantityInvoices(sponsorId, defaultCurrency);
+		Double minimumQuantityInvoices = this.repository.minimumQuantityInvoices(sponsorId, defaultCurrency);
+		Double maximumQuantityInvoices = this.repository.maximumQuantityInvoices(sponsorId, defaultCurrency);
 
 		SponsorDashboard dashboard = new SponsorDashboard();
 		dashboard.setTotalNumberInvoicesTaxEqualOrLessThan21(totalNumberInvoicesTaxEqualOrLessThan21);

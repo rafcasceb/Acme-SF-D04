@@ -675,29 +675,6 @@ style=wordwrap</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;230.0;1330.0;240.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>80</x>
-      <y>360</y>
-      <w>1100</w>
-      <h>280</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-x</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;530.0;2180.0;540.0;2180.0;370.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>95</x>
-      <y>365</y>
-      <w>20</w>
-      <h>15</h>
-    </coordinates>
-    <panel_attributes>1
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
       <x>135</x>
@@ -714,18 +691,6 @@ style=wordwrap</panel_attributes>
     <coordinates>
       <x>765</x>
       <y>460</y>
-      <w>20</w>
-      <h>15</h>
-    </coordinates>
-    <panel_attributes>0..*
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>1175</x>
-      <y>545</y>
       <w>20</w>
       <h>15</h>
     </coordinates>
