@@ -21,6 +21,7 @@ master.menu.any = Cualquiera
 master.menu.any.projects = Listar proyectos
 master.menu.any.claims = Listar reclamaciones
 master.menu.any.training-modules = Listar módulos de entrenamiento
+master.menu.any.sponsorships = Listar patrocinios
 master.menu.any.codeaudits = Listar auditorías de código
 
 # master.menu.anonymous #######################################################
@@ -58,7 +59,11 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.create-banner = Crear banner
 master.menu.administrator.list-banner = Listar banners
 master.menu.administrator.configuration = Configuración del sistema
+master.menu.administrator.objective = Crear objetivo
 
+master.menu.administrator = Banner
+master.menu.administrator.create = Crear Banner
+master.menu.administrator.list = Listar Banners
 # master.menu.auditor ########################################################
 
 master.menu.auditor = Auditor
@@ -72,6 +77,8 @@ master.menu.client = Cliente
 master.menu.client.contract.list-mine = Listar mis contratos
 master.menu.client.progress-log.list-mine = Listar mis registros de progreso
 master.menu.client.show-dashboard = Panel de estadísticas
+
+master.menu.objective.create = Crear Objetivo
 
 # master.menu.provider ########################################################
 
@@ -96,17 +103,29 @@ master.menu.developer = Desarrollador
 master.menu.developer.list-my-training-modules = Listar mis módulos de entrenamiento
 master.menu.developer.dashboard = Panel de estadísticas
 
+# master.menu.sponsor ########################################################
+
+master.menu.sponsor = Patrocinador
+master.menu.sponsor.sponsorships = Patrocinio
+master.menu.sponsor.invoices = Facturas
+master.menu.sponsor.dashboard = Dashboard
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+
+master.menu.user-account.become-sponsor = Hazte patrocinador
+master.menu.user-account.sponsor = Datos de patrocinador
+
 master.menu.user-account.manager = Datos de manager
 master.menu.user-account.become-manager = Hazte manager
 master.menu.user-account.developer = Datos de desarrollador
 master.menu.user-account.become-developer = Hazte desarrollador
+
 master.menu.user-account.become-manager = Hazte manager
 master.menu.user-account.auditor = Datos de auditor
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.become-client = Hazte cliente
 master.menu.user-account.client = Client data = Datos de cliente
+
