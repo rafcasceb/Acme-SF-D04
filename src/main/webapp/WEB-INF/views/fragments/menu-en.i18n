@@ -56,9 +56,6 @@ master.menu.administrator.list-banner = List banners
 master.menu.administrator.configuration = System configuration
 master.menu.administrator.objective = Create objective
 
-master.menu.banner = Banner
-master.menu.banner.create = Create Banner
-master.menu.banner.list = List Banners
 # master.menu.auditor ########################################################
 
 master.menu.auditor = Auditor
