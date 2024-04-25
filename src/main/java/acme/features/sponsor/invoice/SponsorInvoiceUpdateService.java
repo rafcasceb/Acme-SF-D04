@@ -66,6 +66,9 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 	public void validate(final Invoice object) {
 		assert object != null;
 
+		String dateString = "2201/01/01 00:00";
+		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Invoice invoiceSameCode;
 			invoiceSameCode = this.repository.findInvoiceByCode(object.getCode());
@@ -79,6 +82,9 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
 			super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
 
+		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+			super.state(MomentHelper.isBefore(object.getDueDate(), futureMostDate), "dueDate", "sponsor.invoice.form.error.dateOutOfBounds");
+
 		if (!super.getBuffer().getErrors().hasErrors("sponsorship"))
 			super.state(object.getSponsorship().isPublished() == false, "sponsorship", "sponsor.invoice.form.error.sponsorship");
 
@@ -86,7 +92,7 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 			super.state(object.isPublished() == false, "sponsorship", "sponsor.invoice.form.error.published");
 
 		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
-			super.state(object.getQuantity().getAmount() <= 1000000.00 && object.getQuantity().getAmount() >= -1000000.00, "quantity", "sponsor.invoice.form.error.amountOutOfBounds");
+			super.state(object.getQuantity().getAmount() <= 1000000.00 && object.getQuantity().getAmount() >= 0.00, "quantity", "sponsor.invoice.form.error.amountOutOfBounds");
 
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");

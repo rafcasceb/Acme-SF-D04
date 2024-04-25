@@ -42,5 +42,6 @@ sponsor.sponsorship.form.error.endDate = End date must be after the start date
 sponsor.sponsorship.form.error.invoices = All invoices must be published and must add up to amount
 sponsor.sponsorship.form.error.published = Cannot modify an already published sponsorship
 sponsor.sponsorship.form.error.deleteWithPublishedInvoices = Cannot delete an sponsorship with published invoices
-sponsor.sponsorship.form.error.amountOutOfBounds = Amount must be in between -1000000.00 and 1000000.00
+sponsor.sponsorship.form.error.amountOutOfBounds = Amount must be in between 0.00 and 1000000.00
 sponsor.sponsorship.form.error.currencyChange = Cannot change currency with published invoices
+sponsor.sponsorship.form.error.dateOutOfBounds = All dates must be prior to 2200/12/31 23:59
