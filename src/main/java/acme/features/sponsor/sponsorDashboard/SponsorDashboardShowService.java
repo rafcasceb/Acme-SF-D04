@@ -1,6 +1,9 @@
 
 package acme.features.sponsor.sponsorDashboard;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +32,8 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 
 		int totalNumberInvoicesTaxEqualOrLessThan21 = this.repository.countInvoicesWithTaxLessThanOrEqual21(sponsorId);
 		int totalNumberSponsorshipsWithLink = this.repository.countSponsorshipsWithLink(sponsorId);
-		Double averageAmountSponsorships = this.repository.averageAmountSponsorships(sponsorId);
+		Double averageAmountSponsorships = this.repository.averageAmountSponsorships(sponsorId, "EUR");
+		Double averageAmountSponsorshipsUSD = this.repository.averageAmountSponsorships(sponsorId, "USD");
 		Double stdevAmountSponsorships = this.repository.stdevAmountSponsorships(sponsorId);
 		Double minimumAmountSponsorships = this.repository.minimumAmountSponsorships(sponsorId);
 		Double maximumAmountSponsorships = this.repository.maximumAmountSponsorships(sponsorId);
@@ -38,10 +42,14 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 		Double minimumQuantityInvoices = this.repository.minimumQuantityInvoices(sponsorId);
 		Double maximumQuantityInvoices = this.repository.maximumQuantityInvoices(sponsorId);
 
+		List<Double> averages = new ArrayList<>();
+		averages.add(averageAmountSponsorships);
+		averages.add(averageAmountSponsorshipsUSD);
+
 		SponsorDashboard dashboard = new SponsorDashboard();
 		dashboard.setTotalNumberInvoicesTaxEqualOrLessThan21(totalNumberInvoicesTaxEqualOrLessThan21);
 		dashboard.setTotalNumberSponsorshipsWithLink(totalNumberSponsorshipsWithLink);
-		dashboard.setAverageAmountSponsorships(averageAmountSponsorships);
+		dashboard.setAverageAmountSponsorships(averages);
 		dashboard.setStdevAmountSponsorships(stdevAmountSponsorships);
 		dashboard.setMinimumAmountSponsorships(minimumAmountSponsorships);
 		dashboard.setMaximumAmountSponsorships(maximumAmountSponsorships);
@@ -63,6 +71,9 @@ public class SponsorDashboardShowService extends AbstractService<Sponsor, Sponso
 			"minimumAmountSponsorships", "maximumAmountSponsorships", //
 			"averageQuantityInvoices", "stdevQuantityInvoices", //
 			"minimumQuantityInvoices", "maximumQuantityInvoices");
+
+		dataset.put("averageAmountSponsorshipsUSD", object.getAverageAmountSponsorships().get(1));
+		dataset.put("averageAmountSponsorshipsEUR", object.getAverageAmountSponsorships().get(0));
 
 		super.getResponse().addData(dataset);
 	}
