@@ -1,8 +1,10 @@
 
 package acme.features.client.contract;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,6 +67,9 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 	public void validate(final Contract object) {
 		assert object != null;
 
+		if (!super.getBuffer().getErrors().hasErrors("project"))
+			super.state(!object.getProject().isPublished(), "project", "validation.contract.published.project-is-published");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Contract contractSameCode;
 			contractSameCode = this.repository.findContractByCode(object.getCode());
@@ -75,7 +80,12 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 			super.state(object.getBudget().getAmount() <= 1000000., "budget", "client.contract.form.error.budgetRange");
-		//TODO: formato de budget
+
+		String currencies = this.repository.findAcceptedCurrencies();
+		String[] acceptedCurrencies = currencies.split(",");
+		Stream<String> streamCurrencies = Arrays.stream(acceptedCurrencies);
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(streamCurrencies.anyMatch(currency -> currency.equals(object.getBudget().getCurrency())), "budget", "client.contract.form.error.currency");
 	}
 
 	@Override
@@ -92,8 +102,8 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		SelectChoices projects;
 		Dataset dataset;
 
-		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
-		projects = SelectChoices.from(unpublishedProjects, "code", object.getProject());
+		Collection<Project> allProjects = this.repository.findAllProjects();
+		projects = SelectChoices.from(allProjects, "code", object.getProject());
 
 		dataset = super.unbind(object, "published", "code", "providerName", "customerName", "goals", "budget");
 		dataset.put("project", projects.getSelected().getKey());
