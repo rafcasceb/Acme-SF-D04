@@ -67,6 +67,9 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
+		String dateString = "2201/01/01 00:00";
+		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Sponsorship sponsorshipSameCode;
 			sponsorshipSameCode = this.repository.findSponsorshipByCode(object.getCode());
@@ -82,6 +85,9 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
 			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "endDate", "administrator.banner.form.error.period");
+
+		if (!super.getBuffer().getErrors().hasErrors("endDate"))
+			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "sponsor.sponsorship.form.error.dataOutOfBounds");
 
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(object.isPublished() == false, "code", "sponsor.sponsorship.form.error.published");

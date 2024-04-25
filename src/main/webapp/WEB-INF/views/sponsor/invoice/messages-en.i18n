@@ -40,3 +40,4 @@ sponsor.invoice.form.error.published = Cannot update an already published invoic
 invoice.sponsorship.form.error.amount = Impossible to publish. This invoice makes the value of the sponsorship greater than the real amount
 sponsor.invoice.form.error.amountOutOfBounds = Quantity must be between -1000000.00 and 1000000.00
 sponsor.invoice.form.error.currency = Currency mismatch between sponsorship and invoice
+sponsor.invoice.form.error.dateOutOfBounds = All dates must be prior to 2200/12/31 23:59

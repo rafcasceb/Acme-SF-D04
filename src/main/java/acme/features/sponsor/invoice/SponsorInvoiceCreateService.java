@@ -81,6 +81,8 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	public void validate(final Invoice object) {
 
 		assert object != null;
+		String dateString = "2201/01/01 00:00";
+		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Invoice invoiceSameCode;
@@ -93,6 +95,9 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 
 		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
 			super.state(MomentHelper.isAfter(object.getDueDate(), object.getRegistrationTime()), "dueDate", "sponsor.invoice.form.error.dueDate");
+
+		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+			super.state(MomentHelper.isBefore(object.getDueDate(), futureMostDate), "dueDate", "sponsor.invoice.form.error.dateOutOfBounds");
 
 		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
 			super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
