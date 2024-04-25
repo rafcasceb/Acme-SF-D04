@@ -70,9 +70,6 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("contract"))
-			super.state(!object.getContract().isPublished(), "contract", "validation.progresslog.published.contract-is-published");
-
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "validation.progresslog.published");
 
@@ -93,7 +90,10 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 		SelectChoices contracts;
 		Dataset dataset;
 
-		Collection<Contract> unpublishedContracts = this.repository.findAllUnpublishedContracts();
+		int clientId;
+		clientId = super.getRequest().getPrincipal().getActiveRoleId();
+
+		Collection<Contract> unpublishedContracts = this.repository.findAllMyContracts(clientId);
 		contracts = SelectChoices.from(unpublishedContracts, "code", object.getContract());
 
 		dataset = super.unbind(object, "recordId", "completeness", "comment", "responsiblePerson", "published");
