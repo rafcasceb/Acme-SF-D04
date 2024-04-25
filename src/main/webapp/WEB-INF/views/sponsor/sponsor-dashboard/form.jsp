@@ -16,10 +16,13 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-    <acme:input-integer code="sponsor.dashboard.form.label.totalNumberInvoicesTaxEqualOrLessThan21" path="totalNumberInvoicesTaxEqualOrLessThan21" readonly="true"/>
+    <acme:input-integer code="sponsor.dashboard.form.label.totalNumberInvoicesTaxEqualOrLessThan21" path="totalNumberInvoicesTaxEqualOrLessThan" readonly="true"/>
     <acme:input-integer code="sponsor.dashboard.form.label.totalNumberSponsorshipsWithLink" path="totalNumberSponsorshipsWithLink" readonly="true"/>
 
-    <acme:input-double code="sponsor.dashboard.form.label.averageAmountSponsorships" path="averageAmountSponsorships" readonly="true" placeholder="--"/>
+    <acme:input-double code="sponsor.dashboard.form.label.averageAmountSponsorshipsEUR" path="averageAmountSponsorshipsEUR" readonly="true" placeholder="--"/>
+    <acme:input-double code="sponsor.dashboard.form.label.averageAmountSponsorshipsUSD" path="averageAmountSponsorshipsUSD" readonly="true" placeholder="--"/>
+    <acme:input-double code="sponsor.dashboard.form.label.averageAmountSponsorshipsGBP" path="averageAmountSponsorshipsGBP" readonly="true" placeholder="--"/>
+    
     <acme:input-double code="sponsor.dashboard.form.label.stdevAmountSponsorships" path="stdevAmountSponsorships" readonly="true" placeholder="--"/>
     <acme:input-double code="sponsor.dashboard.form.label.minimumAmountSponsorships" path="minimumAmountSponsorships" readonly="true" placeholder="--"/>
     <acme:input-double code="sponsor.dashboard.form.label.maximumAmountSponsorships" path="maximumAmountSponsorships" readonly="true" placeholder="--"/>

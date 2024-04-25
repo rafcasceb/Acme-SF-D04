@@ -15,8 +15,8 @@ public interface SponsorDashboardRepository extends AbstractRepository {
 	@Query("SELECT COUNT(s) FROM Sponsorship s WHERE s.sponsor.id = :id AND s.link IS NOT NULL")
 	int countSponsorshipsWithLink(int id);
 
-	@Query("SELECT AVG(s.amount.amount) FROM Sponsorship s WHERE s.sponsor.id = :id")
-	Double averageAmountSponsorships(int id);
+	@Query("SELECT AVG(s.amount.amount) FROM Sponsorship s WHERE s.sponsor.id = :id AND s.amount.currency = :currency")
+	Double averageAmountSponsorships(int id, String currency);
 
 	@Query("SELECT STDDEV(s.amount.amount) FROM Sponsorship s WHERE s.sponsor.id = :id")
 	Double stdevAmountSponsorships(int id);
