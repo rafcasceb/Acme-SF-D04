@@ -12,11 +12,11 @@ invoice-10,IN-1130-1180,2022/07/29 00:00,2200/12/31 23:58,EUR 20000.00,0.21,http
 invoice-11,IN-2234-1294,2022/07/29 00:00,2200/12/31 23:59,EUR 20000.00,0.21,https://sample.com,false,sponsorship-01
 invoice-12,IN-2234-1134,2022/07/29 00:00,2024/02/28 23:59,EUR 20000.00,0.21,https://sample.com,false,sponsorship-01
 invoice-13,IN-2234-1234,2022/07/29 00:00,2024/02/29 00:00,EUR 20000.00,0.21,https://sample.com,false,sponsorship-01
-invoice-14,IN-1233-1333,2022/07/29 00:00,2023/08/06 00:00,EUR -1000000.00,0.21,https://sample.com,false,sponsorship-01
-invoice-15,IN-1232-1432,2022/07/29 00:00,2023/08/06 00:00,EUR -999999.99,0.21,https://sample.com,false,sponsorship-01
+invoice-14,IN-1233-1333,2022/07/29 00:00,2023/08/06 00:00,EUR 0.00,0.21,https://sample.com,false,sponsorship-01
+invoice-15,IN-1232-1432,2022/07/29 00:00,2023/08/06 00:00,EUR 0.01,0.21,https://sample.com,false,sponsorship-01
 invoice-16,IN-1231-1531,2022/07/29 00:00,2023/08/06 00:00,EUR 1000000.00,0.21,https://sample.com,false,sponsorship-01
 invoice-17,IN-1230-1630,2022/07/29 00:00,2023/08/06 00:00,EUR 999999.99,0.21,https://sample.com,false,sponsorship-01
-invoice-18,IN-1229-1729,2022/07/29 00:00,2023/08/06 00:00,EUR 0.00,0.21,https://sample.com,false,sponsorship-01
+invoice-18,IN-1229-1729,2022/07/29 00:00,2023/08/06 00:00,EUR -0.00,0.21,https://sample.com,false,sponsorship-01
 invoice-19,IN-1233-1833,2022/07/29 00:00,2023/08/06 00:00,BGP 20000.00,0.21,https://sample.com,false,sponsorship-01
 invoice-20,IN-1232-1932,2022/07/29 00:00,2023/08/06 00:00,USD 20000.00,0.21,https://sample.com,false,sponsorship-01
 invoice-21,IN-1231-2231,2022/07/29 00:00,2023/08/06 00:00,CAD 20000.00,0.21,https://sample.com,false,sponsorship-01
