@@ -83,7 +83,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 			super.state(object.getBudget().getAmount() <= 1000000., "budget", "client.contract.form.error.budgetRange");
-		//TODO: formato de budget
 		//TODO: validacion del budget que tiene que ser menor al del proyecto asociado
 	}
 
@@ -103,8 +102,8 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		SelectChoices projects;
 		Dataset dataset;
 
-		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
-		projects = SelectChoices.from(unpublishedProjects, "code", object.getProject());
+		Collection<Project> allProjects = this.repository.findAllProjects();
+		projects = SelectChoices.from(allProjects, "code", object.getProject());
 
 		dataset = super.unbind(object, "published", "code", "providerName", "customerName", "goals", "budget");
 		dataset.put("project", projects.getSelected().getKey());

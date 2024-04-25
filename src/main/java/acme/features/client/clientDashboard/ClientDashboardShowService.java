@@ -39,15 +39,16 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 		Double stddevBudget;
 		Double maxBudget;
 		Double minBudget;
+		String defaultCurrency = this.repository.findDefaultCurrency();
 
 		percentil1 = this.repository.firstPercentileProgressLogCompleteness(clientId);
 		percentil2 = this.repository.secondPercentileProgressLogCompleteness(clientId);
 		percentil3 = this.repository.thirdPercentileProgressLogCompleteness(clientId);
 		percentil4 = this.repository.fourthPercentileProgressLogCompleteness(clientId);
-		avgBudget = this.repository.avgAmountBudget(clientId);
-		stddevBudget = this.repository.stddevAmountBudget(clientId);
-		maxBudget = this.repository.maxAmountBudget(clientId);
-		minBudget = this.repository.minAmountBudget(clientId);
+		avgBudget = this.repository.avgAmountBudget(clientId, defaultCurrency);
+		stddevBudget = this.repository.stddevAmountBudget(clientId, defaultCurrency);
+		maxBudget = this.repository.maxAmountBudget(clientId, defaultCurrency);
+		minBudget = this.repository.minAmountBudget(clientId, defaultCurrency);
 
 		int[] percentilArray = new int[4];
 		percentilArray[0] = percentil1;

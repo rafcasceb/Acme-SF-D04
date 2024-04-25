@@ -8,22 +8,22 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-client.contract.list.title = Listado de mis contratos
-client.contract.form.title = Detalles del contrato
+any.contract.list.title = Listado de contratos publicados
+any.contract.form.title = Detalles del contrato
 
-client.contract.list.label.published = Publicado
-client.contract.list.label.code = Código
-client.contract.list.label.providerName = Nombre del proveedor
-client.contract.list.label.customerName = Nombre del cliente
+any.contract.list.label.published = Publicado
+any.contract.list.label.code = Código
+any.contract.list.label.providerName = Nombre del proveedor
+any.contract.list.label.customerName = Nombre del cliente
 
-client.contract.form.label.code = Código
-client.contract.form.label.instantiationMoment = Momento de instanciación
-client.contract.form.label.providerName = Nombre del proveedor
-client.contract.form.label.customerName = Nombre del cliente
-client.contract.form.label.budget = Presupuesto
-client.contract.form.label.goals = Metas
-client.contract.form.label.published = Publicado
-client.contract.form.label.project = Proyecto asociado
+any.contract.form.label.code = Código
+any.contract.form.label.instantiationMoment = Momento de instanciación
+any.contract.form.label.providerName = Nombre del proveedor
+any.contract.form.label.customerName = Nombre del cliente
+any.contract.form.label.budget = Presupuesto
+any.contract.form.label.goals = Metas
+any.contract.form.label.published = Publicado
+any.contract.form.label.project = Proyecto asociado
 
 
 client.contract.list.button.create = Crear
@@ -31,7 +31,7 @@ client.contract.form.button.create = Crear
 client.contract.form.button.update = Guardar cambios
 client.contract.form.button.delete = Eliminar
 client.contract.form.button.publish = Publicar
-client.contract.form.button.progressLog = Ver registros de progreso
+any.contract.form.button.progressLog = Ver registros de progreso
 
 client.contract.form.error.duplicate = Este código ya está en uso
 client.contract.form.error.already-published = No se puede editar o eliminar un contrato ya publicado
@@ -39,4 +39,3 @@ validation.contract.publish.unpublished-progress-log = Este contrato tiene regis
 client.contract.form.error.budgetPositive = La cantidad debe ser positiva
 client.contract.form.error.budgetRange = La cantidad máxima de dinero es de 1000000.00
 client.contract.form.error.currency = El sistema no tiene soporte para esta divisa
-validation.contract.published.project-is-published = El proyecto ya esta publicado. Elige otro
