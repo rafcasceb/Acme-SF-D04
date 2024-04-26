@@ -58,6 +58,8 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 	@Override
 	public void validate(final TrainingSession object) {
 		assert object != null;
+		String dateString = "2201/01/01 00:00";
+		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingSession existing;
@@ -81,6 +83,11 @@ public class DeveloperTrainingSessionUpdateService extends AbstractService<Devel
 			minimumEnd = MomentHelper.deltaFromMoment(object.getStartDate(), 7, ChronoUnit.DAYS);
 			super.state(MomentHelper.isAfter(object.getEndDate(), minimumEnd), "endDate", "developer.training-session.form.error.too-close");
 		}
+		if (!super.getBuffer().getErrors().hasErrors("endDate"))
+			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "developer.training-session.form.error.date-not-before-limit");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "developer.training-session.form.error.date-not-before-limit");
 
 	}
 
