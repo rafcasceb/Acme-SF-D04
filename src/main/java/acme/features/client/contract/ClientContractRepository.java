@@ -45,4 +45,7 @@ public interface ClientContractRepository extends AbstractRepository {
 	@Query("select c.acceptedCurrencies from Configuration c")
 	String findAcceptedCurrencies();
 
+	@Query("select sum(c.budget.amount) from Contract c where c.project.id = :projectId and c.id != :id")
+	Double findAmountContractsFromSameProjectExceptThis(int projectId, int id);
+
 }
