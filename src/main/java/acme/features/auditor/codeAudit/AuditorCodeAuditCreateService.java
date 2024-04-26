@@ -2,15 +2,19 @@
 package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.components.EnumMode;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
+import acme.entities.audits.Mark;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
 
@@ -61,6 +65,11 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 	public void validate(final CodeAudit object) {
 		assert object != null;
 
+		Date pastMostDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
+
+		if (object.getExecution() != null && !super.getBuffer().getErrors().hasErrors("execution"))
+			super.state(MomentHelper.isAfterOrEqual(object.getExecution(), pastMostDate), "execution", "validation.auditrecord.moment.minimum-date");
+
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			CodeAudit isCodeUnique;
 			isCodeUnique = this.repository.findCodeAuditByCode(object.getCode());
@@ -81,7 +90,10 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		SelectChoices choices;
 		SelectChoices projects;
 		Dataset dataset;
+		String modeMark;
 
+		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
+		modeMark = EnumMode.mode(marks);
 		Collection<Project> allProjects = this.repository.findAllProjects();
 		projects = SelectChoices.from(allProjects, "code", object.getProject());
 		choices = SelectChoices.from(AuditType.class, object.getType());
@@ -90,6 +102,7 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 		dataset.put("project", projects.getSelected().getKey());
 		dataset.put("projects", projects);
 		dataset.put("auditTypes", choices);
+		dataset.put("modeMark", modeMark);
 
 		super.getResponse().addData(dataset);
 	}
