@@ -61,14 +61,13 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void bind(final Sponsorship object) {
 		assert object != null;
-		super.bind(object, "published");
 	}
 
 	@Override
 	public void validate(final Sponsorship object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("published")) {
+		if (!super.getBuffer().getErrors().hasErrors("amount")) {
 			Double amount = object.getAmount().getAmount();
 			Double total = 0.0;
 			boolean allPublished = true;
@@ -79,7 +78,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 				else
 					allPublished = false;
 
-			super.state(amount.equals(total) && allPublished, "published", "sponsor.sponsorship.form.error.invoices");
+			super.state(amount.equals(total) && allPublished, "amount", "sponsor.sponsorship.form.error.invoices");
+
 		}
 
 	}
