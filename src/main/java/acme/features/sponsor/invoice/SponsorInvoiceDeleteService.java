@@ -53,8 +53,8 @@ public class SponsorInvoiceDeleteService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void validate(final Invoice object) {
 		assert object != null;
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(object.isPublished() == false, "sponsorship", "sponsor.invoice.form.error.published");
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(object.isPublished() == false, "code", "sponsor.invoice.form.error.published");
 	}
 
 	@Override
