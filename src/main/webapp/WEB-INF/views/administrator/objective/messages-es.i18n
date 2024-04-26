@@ -27,3 +27,5 @@ administrator.objective.form.error.confirmation = Debes confirmar el objetivo an
 validation.objective.moment.startDate = La fecha de cominezo debe estar en el futuro
 validation.objective.moment.start-after-end = La fecha de cominezo debe ser anterior a la fecha de finalización
 validation.objective.moment.minimum-one-hour = El tiempo entre la fecha de comienzo y la fecha de finalización debe ser de al menos una hora
+admininstrator.objective.form.error.dateOutOfBounds =  Todas las fechas deben ser anteriores a 2200/12/31 23:59
+validation.objective.moment.endDate = La fecha de finalización debe estar en el futuro
