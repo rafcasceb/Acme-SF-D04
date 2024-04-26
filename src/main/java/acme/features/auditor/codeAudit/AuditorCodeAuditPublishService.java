@@ -2,11 +2,13 @@
 package acme.features.auditor.codeAudit;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.components.EnumMode;
@@ -57,9 +59,14 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 	@Override
 	public void bind(final CodeAudit object) {
-		assert object != null;
+		int projectId;
+		Project project;
 
-		super.bind(object, "publish");
+		projectId = super.getRequest().getData("project", int.class);
+		project = this.repository.findOneProjectById(projectId);
+
+		object.setProject(project);
+		super.bind(object, "code", "execution", "type", "correctiveActions", "link");
 	}
 
 	@Override
@@ -83,6 +90,17 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 		auditRecords = this.repository.findManyAuditRecordsByCodeAuditId(object.getId());
 
 		super.state(auditRecords.stream().allMatch(AuditRecord::isPublished), "*", "validation.codeaudit.publish.unpublished-audit-records");
+
+		Date pastMostDate = MomentHelper.parse("2000/01/01 00:00", "yyyy/MM/dd HH:mm");
+
+		if (object.getExecution() != null && !super.getBuffer().getErrors().hasErrors("execution"))
+			super.state(MomentHelper.isAfterOrEqual(object.getExecution(), pastMostDate), "execution", "validation.auditrecord.moment.minimum-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			CodeAudit isCodeUnique;
+			isCodeUnique = this.repository.findCodeAuditByCodeDifferentId(object.getCode(), object.getId());
+			super.state(isCodeUnique == null, "code", "validation.codeaudit.code.duplicate");
+		}
 	}
 
 	@Override
@@ -104,7 +122,6 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		Collection<Mark> marks = this.repository.findMarksByAuditId(object.getId());
 		modeMark = EnumMode.mode(marks);
-
 		Collection<Project> allProjects = this.repository.findAllProjects();
 		projects = SelectChoices.from(allProjects, "code", object.getProject());
 		choices = SelectChoices.from(AuditType.class, object.getType());
