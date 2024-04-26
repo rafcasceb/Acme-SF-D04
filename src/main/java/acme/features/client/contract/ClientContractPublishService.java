@@ -104,7 +104,15 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		Stream<String> streamCurrencies = Arrays.stream(acceptedCurrencies);
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 			super.state(object.getBudget() != null && streamCurrencies.anyMatch(currency -> currency.equals(object.getBudget().getCurrency())), "budget", "client.contract.form.error.currency");
-		//TODO: validacion del budget que tiene que ser menor al del proyecto asociado
+
+		Double contractsAmountFromSameProjectExceptMine = this.repository.findAmountContractsFromSameProjectExceptThis(object.getProject().getId(), object.getId());
+		if (contractsAmountFromSameProjectExceptMine == null)
+			contractsAmountFromSameProjectExceptMine = 0.;
+		double totalContractAmount = contractsAmountFromSameProjectExceptMine + object.getBudget().getAmount();
+		double conversionFactor = 10.;
+		double projectAmount = object.getProject().getEstimatedCostInHours() * conversionFactor;
+		if (!super.getBuffer().getErrors().hasErrors("budget"))
+			super.state(object.getBudget() != null && totalContractAmount <= projectAmount, "budget", "client.contract.form.error.amount");
 	}
 
 	@Override
