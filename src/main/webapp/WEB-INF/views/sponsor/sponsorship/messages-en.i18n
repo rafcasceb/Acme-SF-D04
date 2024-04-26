@@ -45,4 +45,5 @@ sponsor.sponsorship.form.error.deleteWithPublishedInvoices = Cannot delete an sp
 sponsor.sponsorship.form.error.amountOutOfBounds = Amount must be in between 0.00 and 1000000.00
 sponsor.sponsorship.form.error.currencyChange = Cannot change currency with published invoices
 sponsor.sponsorship.form.error.dateOutOfBounds = All dates must be prior to 2200/12/31 23:59
-sponsor.sponsorship.form.error.currencyNotSupported = That currency is not supported by the system.
+sponsor.sponsorship.form.error.currencyNotSupported = That currency is not supported by the system
+sponsor.sponsorship.form.error.startDateBeforeEndDate = Start date must be before End date
