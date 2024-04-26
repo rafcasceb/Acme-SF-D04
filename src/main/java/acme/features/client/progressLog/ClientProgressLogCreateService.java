@@ -64,16 +64,11 @@ public class ClientProgressLogCreateService extends AbstractService<Client, Prog
 	public void validate(final ProgressLog object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("contract"))
-			super.state(!object.getContract().isPublished(), "contract", "validation.progresslog.published.contract-is-published");
-
 		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
 			ProgressLog isCodeUnique;
 			isCodeUnique = this.repository.findProgressLogByCode(object.getRecordId());
 			super.state(isCodeUnique == null, "recordId", "validation.progresslog.code.duplicate");
 		}
-		//if (!super.getBuffer().getErrors().hasErrors("registrationMoment"))
-		//	super.state(MomentHelper.isAfter(object.getRegistrationMoment(), object.getContract().getInstantiationMoment()), "registrationMoment", "validation.progresslog.moment.registration-after-inst");
 
 	}
 
