@@ -97,7 +97,7 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 		String[] acceptedCurrencies = currencies.split(",");
 		Stream<String> streamCurrencies = Arrays.stream(acceptedCurrencies);
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
-			super.state(streamCurrencies.anyMatch(currency -> currency.equals(object.getBudget().getCurrency())), "budget", "client.contract.form.error.currency");
+			super.state(object.getBudget() != null && streamCurrencies.anyMatch(currency -> currency.equals(object.getBudget().getCurrency())), "budget", "client.contract.form.error.currency");
 	}
 
 	@Override
