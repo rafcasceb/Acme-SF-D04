@@ -2,6 +2,7 @@
 package acme.features.developer.trainingModule;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -103,6 +104,10 @@ public class DeveloperTrainingModulePublishService extends AbstractService<Devel
 	@Override
 	public void perform(final TrainingModule object) {
 		assert object != null;
+		Date moment;
+
+		moment = MomentHelper.getCurrentMoment();
+		object.setUpdateMoment(moment);
 
 		object.setPublished(true);
 		this.repository.save(object);
