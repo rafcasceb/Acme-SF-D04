@@ -2,11 +2,13 @@
 package acme.features.client.progressLog;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.contracts.Contract;
@@ -54,12 +56,36 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 	@Override
 	public void bind(final ProgressLog object) {
 		assert object != null;
-		super.bind(object, "publish");
+
+		Date registrationMoment;
+		registrationMoment = MomentHelper.getCurrentMoment();
+
+		int contractId;
+		Contract contract;
+
+		contractId = super.getRequest().getData("contract", int.class);
+		contract = this.repository.findOneContractById(contractId);
+
+		object.setRegistrationMoment(registrationMoment);
+		object.setContract(contract);
+		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson");
 	}
 
 	@Override
 	public void validate(final ProgressLog object) {
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("contract"))
+			super.state(!object.getContract().isPublished(), "contract", "validation.progresslog.published.contract-is-published");
+
+		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
+			ProgressLog isCodeUnique;
+			isCodeUnique = this.repository.findProgressLogByCodeDifferentId(object.getRecordId(), object.getId());
+			super.state(isCodeUnique == null, "recordId", "validation.progresslog.code.duplicate");
+
+			if (!super.getBuffer().getErrors().hasErrors("published"))
+				super.state(!object.isPublished(), "published", "validation.progresslog.published");
+		}
 
 	}
 
