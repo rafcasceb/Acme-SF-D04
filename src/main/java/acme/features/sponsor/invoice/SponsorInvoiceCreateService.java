@@ -48,17 +48,10 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void load() {
 		Invoice object;
-		Date moment;
-		long aDayInMs = 24 * 60 * 60 * 1000;
-		moment = MomentHelper.getCurrentMoment();
-		Date dueDate = new Date(moment.getTime() + aDayInMs * 31);
 
 		object = new Invoice();
-
-		object.setRegistrationTime(moment);
-		object.setDueDate(dueDate);
 		object.setLink(null);
-		object.setTax(0.21);
+		object.setRegistrationTime(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().addData(object);
 	}
@@ -97,14 +90,17 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 		if (!super.getBuffer().getErrors().hasErrors("sponsorship"))
 			super.state(object.getSponsorship().isPublished() == false, "sponsorship", "sponsor.invoice.form.error.sponsorship");
 
-		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
-			super.state(MomentHelper.isAfter(object.getDueDate(), object.getRegistrationTime()), "dueDate", "sponsor.invoice.form.error.dueDate");
+		if (object.getDueDate() != null) {
 
-		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
-			super.state(MomentHelper.isBefore(object.getDueDate(), futureMostDate), "dueDate", "sponsor.invoice.form.error.dateOutOfBounds");
+			if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+				super.state(MomentHelper.isAfter(object.getDueDate(), object.getRegistrationTime()), "dueDate", "sponsor.invoice.form.error.dueDate");
 
-		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
-			super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
+			if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+				super.state(MomentHelper.isBefore(object.getDueDate(), futureMostDate), "dueDate", "sponsor.invoice.form.error.dateOutOfBounds");
+
+			if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+				super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
 			super.state(object.getQuantity() != null && object.getQuantity().getAmount() <= 1000000.00 && object.getQuantity().getAmount() >= 0.00, "quantity", "sponsor.invoice.form.error.amountOutOfBounds");
