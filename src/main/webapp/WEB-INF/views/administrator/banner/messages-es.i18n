@@ -29,5 +29,5 @@ administrator.banner.form.label.confirmation = Porfavor, confirme que el banner 
 administrator.banner.form.error.startDate = La fecha de inicialización debe ser en el futuro
 administrator.banner.form.error.period = El periódo de validez debe ser superior a una semana
 administrator.banner.form.error.endDate = La fecha de finalización debe ser posterior a la de inicialización
-administrator.banner.form.error.dateOutOfBounds = Toda fecha debe ser anterior a 2200/12/31 23:59
+administrator.banner.form.error.dateOutOfBounds = Toda fecha debe ser anterior al 2201/01/01 00:00
 administrator.banner.form.error.startDateAfterEndDate = La fecha de inicio debe ser anterior a la de finalización

@@ -41,7 +41,7 @@ public class AnySponsorshipListService extends AbstractService<Any, Sponsorship>
 	@Override
 	public void load() {
 		Collection<Sponsorship> objects;
-		objects = this.repository.findAllSponsorships();
+		objects = this.repository.findAllPublishedSponsorships();
 		super.getBuffer().addData(objects);
 	}
 
