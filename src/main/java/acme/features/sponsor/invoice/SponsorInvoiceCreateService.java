@@ -48,17 +48,9 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 	@Override
 	public void load() {
 		Invoice object;
-		Date moment;
-		long aDayInMs = 24 * 60 * 60 * 1000;
-		moment = MomentHelper.getCurrentMoment();
-		Date dueDate = new Date(moment.getTime() + aDayInMs * 31);
 
 		object = new Invoice();
-
-		object.setRegistrationTime(moment);
-		object.setDueDate(dueDate);
 		object.setLink(null);
-		object.setTax(0.21);
 
 		super.getBuffer().addData(object);
 	}
