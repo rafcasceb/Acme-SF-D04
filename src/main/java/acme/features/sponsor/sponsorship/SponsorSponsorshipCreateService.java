@@ -50,26 +50,13 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void load() {
 		Sponsorship object;
-		Date moment;
-		Date startMoment;
-		Date endMoment;
-		moment = MomentHelper.getCurrentMoment();
-		long aDayInMs = 24 * 60 * 60 * 1000;
-
-		startMoment = new Date(moment.getTime() + aDayInMs);
-		endMoment = new Date(startMoment.getTime() + aDayInMs * 31);
 
 		Sponsor sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 
 		object = new Sponsorship();
-		object.setMoment(moment);
-		object.setStartDate(startMoment);
-		object.setEndDate(endMoment);
 
 		object.setPublished(false);
 		object.setSponsor(sponsor);
-
-		object.setType(SponsorshipType.FINANCIAL);
 
 		super.getBuffer().addData(object);
 	}
