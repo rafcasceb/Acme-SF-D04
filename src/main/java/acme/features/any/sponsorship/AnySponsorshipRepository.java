@@ -33,4 +33,7 @@ public interface AnySponsorshipRepository extends AbstractRepository {
 	@Query("select p from Project p")
 	Collection<Project> findAllProjects();
 
+	@Query("select s from Sponsorship s where s.published = true")
+	Collection<Sponsorship> findAllPublishedSponsorships();
+
 }

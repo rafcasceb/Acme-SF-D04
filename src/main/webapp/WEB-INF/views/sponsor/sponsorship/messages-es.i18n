@@ -43,6 +43,6 @@ sponsor.sponsorship.form.error.published = Imposible modificar un patrocinio ya 
 sponsor.sponsorship.form.error.currencyChange = Imposible modificar la moneda de pago con facturas ya publicadas
 sponsor.sponsorship.form.error.amountOutOfBounds = La cantidad debe encontrarse entre 0.00 y 1000000.00
 sponsor.sponsorship.form.error.deleteWithPublishedInvoices = Imposible borrar un patrocinio con facturas ya publicadas
-sponsor.sponsorship.form.error.dateOutOfBounds = Todas las fechas deben ser anteriores a 2200/12/31 23:59
+sponsor.sponsorship.form.error.dateOutOfBounds = Todas las fechas deben ser anteriores a 2201/01/01 00:00
 sponsor.sponsorship.form.error.currencyNotSupported = La divisa elegida no cuenta con soporte en este sistema.
 sponsor.sponsorship.form.error.startDateBeforeEndDate = La fecha de inicio debe ser anterior a la de fin

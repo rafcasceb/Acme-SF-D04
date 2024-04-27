@@ -50,26 +50,14 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	@Override
 	public void load() {
 		Sponsorship object;
-		Date moment;
-		Date startMoment;
-		Date endMoment;
-		moment = MomentHelper.getCurrentMoment();
-		long aDayInMs = 24 * 60 * 60 * 1000;
-
-		startMoment = new Date(moment.getTime() + aDayInMs);
-		endMoment = new Date(startMoment.getTime() + aDayInMs * 31);
 
 		Sponsor sponsor = this.repository.findOneSponsorById(super.getRequest().getPrincipal().getActiveRoleId());
 
 		object = new Sponsorship();
-		object.setMoment(moment);
-		object.setStartDate(startMoment);
-		object.setEndDate(endMoment);
 
 		object.setPublished(false);
 		object.setSponsor(sponsor);
-
-		object.setType(SponsorshipType.FINANCIAL);
+		object.setMoment(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().addData(object);
 	}
@@ -104,27 +92,38 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 			super.state(sponsorshipSameCode == null, "code", "sponsor.sponsorship.form.error.duplicate");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.startDate");
+		if (object.getStartDate() != null) {
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isAfter(object.getEndDate(), object.getMoment()), "endDate", "sponsor.sponsorship.form.error.endDate");
+			if (!super.getBuffer().getErrors().hasErrors("startDate"))
+				super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.startDate");
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "sponsor.sponsorship.form.error.startDateBeforeEndDate");
+			if (!super.getBuffer().getErrors().hasErrors("startDate"))
+				super.state(MomentHelper.isBefore(object.getStartDate(), futureMostDate), "startDate", "sponsor.sponsorship.form.error.dateOutOfBounds");
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "sponsor.sponsorship.form.error.dateOutOfBounds");
+			if (object.getEndDate() != null) {
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "endDate", "sponsor.sponsorship.form.error.period");
+				if (!super.getBuffer().getErrors().hasErrors("endDate"))
+					super.state(MomentHelper.isAfter(object.getEndDate(), object.getMoment()), "endDate", "sponsor.sponsorship.form.error.endDate");
 
-		if (!super.getBuffer().getErrors().hasErrors("amount"))
-			super.state(object.getAmount().getAmount() <= 1000000.00 && object.getAmount().getAmount() >= 0.00, "amount", "sponsor.sponsorship.form.error.amountOutOfBounds");
+				if (!super.getBuffer().getErrors().hasErrors("startDate"))
+					super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "sponsor.sponsorship.form.error.startDateBeforeEndDate");
 
-		if (!super.getBuffer().getErrors().hasErrors("amount"))
-			super.state(object.getAmount() != null && acceptedCurrencyList.contains(object.getAmount().getCurrency()), "amount", "sponsor.sponsorship.form.error.currencyNotSupported");
+				if (!super.getBuffer().getErrors().hasErrors("endDate"))
+					super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "sponsor.sponsorship.form.error.dateOutOfBounds");
 
+				if (!super.getBuffer().getErrors().hasErrors("endDate"))
+					super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "endDate", "sponsor.sponsorship.form.error.period");
+
+			}
+		}
+
+		if (object.getAmount() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("amount"))
+				super.state(object.getAmount().getAmount() <= 1000000.00 && object.getAmount().getAmount() >= 0.00, "amount", "sponsor.sponsorship.form.error.amountOutOfBounds");
+
+			if (!super.getBuffer().getErrors().hasErrors("amount"))
+				super.state(acceptedCurrencyList.contains(object.getAmount().getCurrency()), "amount", "sponsor.sponsorship.form.error.currencyNotSupported");
+		}
 	}
 
 	@Override

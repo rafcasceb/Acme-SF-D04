@@ -80,17 +80,20 @@ public class SponsorInvoiceUpdateService extends AbstractService<Sponsor, Invoic
 			super.state(id == object.getId() || invoiceSameCode == null, "code", "sponsor.invoice.form.error.duplicate");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
-			super.state(MomentHelper.isAfter(object.getDueDate(), MomentHelper.getCurrentMoment()), "dueDate", "sponsor.invoice.form.error.dueDate");
+		if (object.getDueDate() != null) {
 
-		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
-			super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
+			if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+				super.state(MomentHelper.isAfter(object.getDueDate(), object.getRegistrationTime()), "dueDate", "sponsor.invoice.form.error.dueDate");
 
-		if (!super.getBuffer().getErrors().hasErrors("dueDate"))
-			super.state(MomentHelper.isBefore(object.getDueDate(), futureMostDate), "dueDate", "sponsor.invoice.form.error.dateOutOfBounds");
+			if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+				super.state(MomentHelper.isBefore(object.getDueDate(), futureMostDate), "dueDate", "sponsor.invoice.form.error.dateOutOfBounds");
+
+			if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+				super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("sponsorship"))
-			super.state(object.getSponsorship().isPublished() == false, "sponsorship", "sponsor.invoice.form.error.sponsorship");
+			super.state(object.getSponsorship() != null && object.getSponsorship().isPublished() == false, "sponsorship", "sponsor.invoice.form.error.sponsorship");
 
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(object.isPublished() == false, "sponsorship", "sponsor.invoice.form.error.published");

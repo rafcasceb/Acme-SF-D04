@@ -1,8 +1,11 @@
 
 package acme.features.sponsor.invoice;
 
+import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,12 +51,14 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 
 		Invoice object;
 		int id;
-		Date instantiationMoment;
-		instantiationMoment = MomentHelper.getCurrentMoment();
 
 		id = super.getRequest().getData("id", int.class);
 		object = this.repository.findOneInvoiceById(id);
-		object.setRegistrationTime(instantiationMoment);
+
+		Date moment;
+		moment = MomentHelper.getCurrentMoment();
+		object.setRegistrationTime(moment);
+
 		object.setPublished(false);
 
 		super.getBuffer().addData(object);
@@ -63,6 +68,7 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	@Override
 	public void bind(final Invoice object) {
 		assert object != null;
+		super.bind(object, "code", "link", "dueDate", "quantity", "tax", "sponsorship");
 
 	}
 
@@ -84,7 +90,45 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getSponsorship() != null && object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");
 
-		System.out.println(super.getBuffer().getErrors());
+		String dateString = "2201/01/01 00:00";
+		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
+		String acceptedCurrencies = this.repository.findConfiguration().getAcceptedCurrencies();
+		List<String> acceptedCurrencyList = Arrays.asList(acceptedCurrencies.split("\\s*,\\s*"));
+
+		if (!super.getBuffer().getErrors().hasErrors("code")) {
+			Invoice invoiceSameCode;
+			invoiceSameCode = this.repository.findInvoiceByCode(object.getCode());
+			int id = invoiceSameCode.getId();
+			super.state(id == object.getId() || invoiceSameCode == null, "code", "sponsor.invoice.form.error.duplicate");
+		}
+
+		if (object.getDueDate() != null) {
+
+			if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+				super.state(MomentHelper.isAfter(object.getDueDate(), object.getRegistrationTime()), "dueDate", "sponsor.invoice.form.error.dueDate");
+
+			if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+				super.state(MomentHelper.isBefore(object.getDueDate(), futureMostDate), "dueDate", "sponsor.invoice.form.error.dateOutOfBounds");
+
+			if (!super.getBuffer().getErrors().hasErrors("dueDate"))
+				super.state(MomentHelper.isLongEnough(object.getRegistrationTime(), object.getDueDate(), 1, ChronoUnit.MONTHS), "dueDate", "sponsor.invoice.form.error.period");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("sponsorship"))
+			super.state(object.getSponsorship() != null && object.getSponsorship().isPublished() == false, "sponsorship", "sponsor.invoice.form.error.sponsorship");
+
+		if (!super.getBuffer().getErrors().hasErrors("published"))
+			super.state(object.isPublished() == false, "sponsorship", "sponsor.invoice.form.error.published");
+
+		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
+			super.state(object.getSponsorship() != null && object.getQuantity().getAmount() <= 1000000.00 && object.getQuantity().getAmount() >= 0.00, "quantity", "sponsor.invoice.form.error.amountOutOfBounds");
+
+		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
+			super.state(object.getQuantity() != null && acceptedCurrencyList.contains(object.getQuantity().getCurrency()), "quantity", "sponsor.invoice.form.error.currencyNotSupported");
+
+		if (!super.getBuffer().getErrors().hasErrors("quantity"))
+			super.state(object.getSponsorship() != null && object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");
+
 	}
 
 	@Override
