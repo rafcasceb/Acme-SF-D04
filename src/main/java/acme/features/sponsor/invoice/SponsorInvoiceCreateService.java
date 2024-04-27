@@ -51,6 +51,7 @@ public class SponsorInvoiceCreateService extends AbstractService<Sponsor, Invoic
 
 		object = new Invoice();
 		object.setLink(null);
+		object.setRegistrationTime(MomentHelper.getCurrentMoment());
 
 		super.getBuffer().addData(object);
 	}
