@@ -23,6 +23,8 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.banners.Banner;
+import acme.entities.configuration.Configuration;
+import spam_detector.SpamDetector;
 
 @Service
 public class AdministratorBannerCreateService extends AbstractService<Administrator, Banner> {
@@ -31,6 +33,8 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 	@Autowired
 	private AdministratorBannerRepository repository;
+
+	// Spam detector
 
 	// AbstractService interface ----------------------------------------------
 
@@ -89,6 +93,14 @@ public class AdministratorBannerCreateService extends AbstractService<Administra
 
 			if (!super.getBuffer().getErrors().hasErrors("displayEndMoment"))
 				super.state(MomentHelper.isBefore(object.getDisplayEndMoment(), futureMostDate), "displayEndMoment", "administrator.banner.form.error.dateOutOfBounds");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("slogan")) {
+			Configuration config = this.repository.findConfiguration();
+			String spamTerms = config.getSpamTerms();
+			Double spamThreshold = config.getSpamThreshold();
+			SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+			super.state(!spamHelper.isSpam(object.getSlogan()), "slogan", "administrator.banner.form.error.spam");
 		}
 
 	}
