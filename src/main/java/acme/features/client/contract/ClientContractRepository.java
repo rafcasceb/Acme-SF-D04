@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.configuration.Configuration;
 import acme.entities.contracts.Contract;
 import acme.entities.contracts.ProgressLog;
 import acme.entities.projects.Project;
@@ -47,5 +48,8 @@ public interface ClientContractRepository extends AbstractRepository {
 
 	@Query("select sum(c.budget.amount) from Contract c where c.project.id = :projectId and c.id != :id")
 	Double findAmountContractsFromSameProjectExceptThis(int projectId, int id);
+
+	@Query("select c from Configuration c")
+	Configuration findConfiguration();
 
 }

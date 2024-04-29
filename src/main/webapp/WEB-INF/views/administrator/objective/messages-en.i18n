@@ -30,7 +30,8 @@ validation.objective.moment.start-after-end = The start date must be before the 
 validation.objective.moment.minimum-one-hour = The time between the start and the end date must be of at least an hour long
 admininstrator.objective.form.error.dateOutOfBounds =  All dates must be prior to 2200/12/31 23:59
 validation.objective.moment.endDate = The end date must be in the future
-
+administrator.objective.form.error.spam = Spam detected
+validation.objective.form.error.startDateBeforeEndDate = Start date must be before end date
 
 
 

@@ -20,3 +20,4 @@ authenticated.client.form.button.create = Registrar
 authenticated.client.form.button.update = Actualizar
 
 validation.client.code.duplicate = Esta identificación está en uso
+client.form.error.spam = Spam detectado
