@@ -16,11 +16,11 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<acme:input-integer code="administrator.dashboard.form.label.numberAuditor" path="numberAuditor" readonly="true"/>
-	<acme:input-integer code="administrator.dashboard.form.label.numberClient" path="numberClient" readonly="true"/>	
-	<acme:input-integer code="administrator.dashboard.form.label.numberDev" path="numberDev" readonly="true"/>
-	<acme:input-integer code="administrator.dashboard.form.label.numberMan" path="numberMan" readonly="true"/>
-	<acme:input-integer code="administrator.dashboard.form.label.numberSpon" path="numberSpon" readonly="true"/>
+	<acme:input-integer code="administrator.dashboard.form.label.numberAuditor" path="numberAuditor" readonly="true" placeholder="--"/>
+	<acme:input-integer code="administrator.dashboard.form.label.numberClient" path="numberClient" readonly="true" placeholder="--"/>	
+	<acme:input-integer code="administrator.dashboard.form.label.numberDev" path="numberDev" readonly="true" placeholder="--"/>
+	<acme:input-integer code="administrator.dashboard.form.label.numberMan" path="numberMan" readonly="true" placeholder="--"/>
+	<acme:input-integer code="administrator.dashboard.form.label.numberSpon" path="numberSpon" readonly="true" placeholder="--"/>
 	<acme:input-double code="administrator.dashboard.form.label.ratioOfNoticeWithLinkAndEmail" path="ratioOfNoticeWithLinkAndEmail" readonly="true" placeholder="--"/>
 	<acme:input-double code="administrator.dashboard.form.label.ratioOfObjetiveCritical" path="ratioOfObjetiveCritical" readonly="true" placeholder="--"/>
 	<acme:input-double code="administrator.dashboard.form.label.ratioOfObjetiveNonCritical" path="ratioOfObjetiveNonCritical" readonly="true" placeholder="--"/>

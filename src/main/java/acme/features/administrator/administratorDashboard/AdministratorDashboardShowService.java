@@ -90,6 +90,7 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 		dashboard.setMaximumNumberOfClaimsLastTenWeeks(maxClaimsTenWeeks);
 		dashboard.setMinimumNumberOfClaimsLastTenWeeks(minClaimsTenWeeks);
 
+		super.getBuffer().addData(dashboard);
 	}
 
 	@Override
