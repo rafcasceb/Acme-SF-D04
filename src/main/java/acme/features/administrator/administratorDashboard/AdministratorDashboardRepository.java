@@ -23,7 +23,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select count(m) from Manager m")
 	int totalNumberOfManagers();
 
-	@Query("select count(s) from Sponsor c")
+	@Query("select count(c) from Sponsor c")
 	int totalNumberOfSponsors();
 
 	@Query("select count(n) from Notice n")
@@ -78,7 +78,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select count(c) from Claim c where c.moment >= :threshold")
 	int NumberOfClaimPostedTenWeeksAgo(Date threshold);
 
-	@Query("select c from Claim c")
+	@Query("select count(c) from Claim c")
 	int NumberOfClaimPosted();
 
 }
