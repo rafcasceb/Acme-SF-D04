@@ -45,4 +45,5 @@ developer.training-module.list.label.link = Enlace
 developer.training-module.list.label.estimated-total-time = Tiempo Total Estimado
 developer.training-module.list.label.published = Publicado
 developer.training-module.list.button.create = Crear
+validation.training-module.form.error.spam = Spam detectado
 

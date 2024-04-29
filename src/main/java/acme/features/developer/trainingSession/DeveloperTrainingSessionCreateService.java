@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.entities.configuration.Configuration;
 import acme.entities.trainingmodule.TrainingModule;
 import acme.entities.trainingmodule.TrainingSession;
 import acme.roles.Developer;
+import spam_detector.SpamDetector;
 
 @Service
 public class DeveloperTrainingSessionCreateService extends AbstractService<Developer, TrainingSession> {
@@ -89,6 +91,22 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "developer.training-session.form.error.date-not-before-limit");
+
+		if (!super.getBuffer().getErrors().hasErrors("location")) {
+			Configuration config = this.repository.findConfiguration();
+			String spamTerms = config.getSpamTerms();
+			Double spamThreshold = config.getSpamThreshold();
+			SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+			super.state(!spamHelper.isSpam(object.getLocation()), "location", "validation.training-module.form.error.spam");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("instructor")) {
+			Configuration config = this.repository.findConfiguration();
+			String spamTerms = config.getSpamTerms();
+			Double spamThreshold = config.getSpamThreshold();
+			SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+			super.state(!spamHelper.isSpam(object.getInstructor()), "instructor", "validation.training-module.form.error.spam");
+		}
 
 	}
 
