@@ -18,6 +18,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.configuration.Configuration;
 import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
 
@@ -27,8 +28,8 @@ public interface SponsorInvoiceRepository extends AbstractRepository {
 	@Query("select i from Invoice i where i.sponsorship.id = :id")
 	Collection<Invoice> findInvoiceBySponsorshipId(int id);
 
-	@Query("select i from Invoice i ")
-	Collection<Invoice> findAllInvoices();
+	@Query("select i from Invoice i where i.sponsorship.sponsor.id = :id")
+	Collection<Invoice> findAllInvoicesBySponsorId(int id);
 
 	@Query("select i from Invoice i where i.id = :id")
 	Invoice findOneInvoiceById(int id);
@@ -47,5 +48,8 @@ public interface SponsorInvoiceRepository extends AbstractRepository {
 
 	@Query("select i from Invoice i where i.sponsorship.id = :id")
 	Collection<Invoice> findAllInvoicesBySponsorshipId(int id);
+
+	@Query("SELECT config FROM Configuration config")
+	Configuration findConfiguration();
 
 }

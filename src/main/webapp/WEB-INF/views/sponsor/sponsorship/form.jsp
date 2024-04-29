@@ -24,7 +24,6 @@
 	<acme:input-url code="sponsor.sponsorship.form.label.link" path="link"/>
 	<acme:input-email code="sponsor.sponsorship.form.label.email" path="email"/>
 	<acme:input-select code="sponsor.sponsorship.form.label.project" path="project"  choices="${projects}"/>
-	<acme:input-checkbox code="sponsor.sponsorship.form.label.published" path="published" readonly="True"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && published == false}">

@@ -58,6 +58,9 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 	public void validate(final Objective object) {
 		assert object != null;
 
+		String dateString = "2201/01/01 00:00";
+		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
+
 		if (!super.getBuffer().getErrors().hasErrors("confirmation")) {
 			boolean confirmation;
 			confirmation = super.getRequest().getData("confirmation", boolean.class);
@@ -67,12 +70,17 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(MomentHelper.isAfter(object.getStartDate(), instantiationMoment), "startDate", "validation.objective.moment.startDate");
 
+		if (!super.getBuffer().getErrors().hasErrors("endDate"))
+			super.state(MomentHelper.isAfter(object.getEndDate(), instantiationMoment), "endDate", "validation.objective.moment.endDate");
+
 		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
 			Date minimumEnd;
-
 			minimumEnd = MomentHelper.deltaFromMoment(object.getStartDate(), 1, ChronoUnit.HOURS);
 			super.state(MomentHelper.isAfterOrEqual(object.getEndDate(), minimumEnd), "endDate", "validation.objective.moment.minimum-one-hour");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("endDate"))
+			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "admininstrator.objective.form.error.dateOutOfBounds");
 	}
 
 	@Override
