@@ -25,6 +25,7 @@
 			<acme:menu-suboption code="master.menu.any.training-modules" action="/any/training-module/list"/>
 			<acme:menu-suboption code="master.menu.any.sponsorships" action="/any/sponsorship/list"/>
 			<acme:menu-suboption code="master.menu.any.codeaudits" action="/any/code-audit/list"/>
+			<acme:menu-suboption code="master.menu.any.contracts" action="/any/contract/list"/>
 
 		</acme:menu-option>
 
@@ -56,8 +57,6 @@
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/administrator/system/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/system/shut-down"/>
-			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.banner.list" action="/administrator/banner/list-all"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">

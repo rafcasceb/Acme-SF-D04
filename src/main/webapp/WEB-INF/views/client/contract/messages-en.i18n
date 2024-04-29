@@ -35,3 +35,5 @@ validation.contract.publish.unpublished-progress-log = This contract has unpubli
 client.contract.form.error.already-published = A published contract cannot be updated or deleted
 client.contract.form.error.budgetPositive = The amount must be positive
 client.contract.form.error.budgetRange = The maximum amount of money is 1000000.00
+client.contract.form.error.currency = The system has not support for this currency
+validation.contract.published.project-is-published = This project is published. Choose another one

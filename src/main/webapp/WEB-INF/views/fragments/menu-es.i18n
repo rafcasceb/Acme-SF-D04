@@ -23,6 +23,7 @@ master.menu.any.claims = Listar reclamaciones
 master.menu.any.training-modules = Listar módulos de entrenamiento
 master.menu.any.sponsorships = Listar patrocinios
 master.menu.any.codeaudits = Listar auditorías de código
+master.menu.any.contracts = Listar contratos
 
 # master.menu.anonymous #######################################################
 
@@ -56,14 +57,10 @@ master.menu.administrator.risks = Listar Riesgos
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
-master.menu.administrator.create-banner = Crear banner
 master.menu.administrator.list-banner = Listar banners
 master.menu.administrator.configuration = Configuración del sistema
 master.menu.administrator.objective = Crear objetivo
 
-master.menu.administrator = Banner
-master.menu.administrator.create = Crear Banner
-master.menu.administrator.list = Listar Banners
 # master.menu.auditor ########################################################
 
 master.menu.auditor = Auditor

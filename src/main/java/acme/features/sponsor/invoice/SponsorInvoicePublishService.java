@@ -63,7 +63,6 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	@Override
 	public void bind(final Invoice object) {
 		assert object != null;
-		super.bind(object, "published");
 
 	}
 
@@ -85,6 +84,7 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
 			super.state(object.getSponsorship() != null && object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");
 
+		System.out.println(super.getBuffer().getErrors());
 	}
 
 	@Override

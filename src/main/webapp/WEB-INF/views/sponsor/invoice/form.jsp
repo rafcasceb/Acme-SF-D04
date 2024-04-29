@@ -22,7 +22,6 @@
 	<acme:input-double code="sponsor.invoice.form.label.tax" path="tax"/>
 	<acme:input-url code="sponsor.invoice.form.label.link" path="link"/>
 	<acme:input-select code="sponsor.invoice.form.label.sponsorship" path="sponsorship"  choices="${sponsorships}"/>
-	<acme:input-checkbox code="sponsor.invoice.form.label.published" path="published" readonly="True"/>
 	
 	
 	
