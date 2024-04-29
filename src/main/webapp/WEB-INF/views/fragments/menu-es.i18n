@@ -60,6 +60,7 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.administrator.list-banner = Listar banners
 master.menu.administrator.configuration = Configuración del sistema
 master.menu.administrator.objective = Crear objetivo
+master.menu.administrator.show-dashboard = Panel de estadísticas
 
 # master.menu.auditor ########################################################
 
