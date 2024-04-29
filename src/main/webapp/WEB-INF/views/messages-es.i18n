@@ -11,7 +11,7 @@
 validation.claim.code	= El código debe estar en el formato 'C-' seguido de cuatro dígitos
 validation.sponsorship.code	= El código debe estar en el formato de una a tres letras mayúsculas, '-' y tres dígito
 validation.audit.code	= El código debe estar en el formato de una a tres letras mayúsculas, seguidas de un guión y luego exactamente tres dígitos
-validation.record.code	= El códig debe estar en el formato 'AU-' seguido de cuatro dígitos, un guión, y luego exactamente tres dígitos
+validation.record.code	= El código debe estar en el formato 'AU-' seguido de cuatro dígitos, un guión, y luego exactamente tres dígitos
 validation.invoice.code	= El código debe estar en el formato 'IN-' seguido de cuatro dígitos, '-', seguido de otros cuatro dígitos
 validation.project.code = El código debe estar en el formato de tres letras mayúsculas, seguidas de un guión, y luego tres dígitos
 validation.contract.code = El código debe estar en el formato de una a tres letras mayúsculas, '-' y tres dígitos

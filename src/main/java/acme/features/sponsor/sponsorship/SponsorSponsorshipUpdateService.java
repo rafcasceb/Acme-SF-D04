@@ -38,6 +38,7 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 
 		sponsorshipId = super.getRequest().getData("id", int.class);
 		sponsorship = this.repository.findOneSponsorshipById(sponsorshipId);
+
 		status = !sponsorship.isPublished() && sponsorship != null && super.getRequest().getPrincipal().hasRole(sponsorship.getSponsor());
 
 		super.getResponse().setAuthorised(status);
@@ -81,33 +82,42 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 			super.state(id == object.getId() || sponsorshipSameCode == null, "code", "sponsor.sponsorhsip.form.error.duplicate");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "administrator.banner.form.error.startDate");
+		if (object.getStartDate() != null) {
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isAfter(object.getEndDate(), object.getMoment()), "endDate", "administrator.banner.form.error.endDate");
+			if (!super.getBuffer().getErrors().hasErrors("startDate"))
+				super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.startDate");
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "sponsor.sponsorship.form.error.startDateBeforeEndDate");
+			if (object.getEndDate() != null) {
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "endDate", "administrator.banner.form.error.period");
+				if (!super.getBuffer().getErrors().hasErrors("endDate"))
+					super.state(MomentHelper.isAfter(object.getEndDate(), object.getMoment()), "endDate", "sponsor.sponsorship.form.error.endDate");
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "sponsor.sponsorship.form.error.dataOutOfBounds");
+				if (!super.getBuffer().getErrors().hasErrors("startDate"))
+					super.state(MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "sponsor.sponsorship.form.error.startDateBeforeEndDate");
+
+				if (!super.getBuffer().getErrors().hasErrors("endDate"))
+					super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "sponsor.sponsorship.form.error.dateOutOfBounds");
+
+				if (!super.getBuffer().getErrors().hasErrors("endDate"))
+					super.state(MomentHelper.isLongEnough(object.getStartDate(), object.getEndDate(), 1, ChronoUnit.MONTHS), "endDate", "sponsor.sponsorship.form.error.period");
+
+			}
+		}
+
+		if (object.getAmount() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("amount"))
+				super.state(object.getAmount().getAmount() <= 1000000.00 && object.getAmount().getAmount() >= 0.00, "amount", "sponsor.sponsorship.form.error.amountOutOfBounds");
+
+			if (!super.getBuffer().getErrors().hasErrors("amount"))
+				super.state(this.repository.countPublishedInvoicesBySponsorshipId(object.getId()) == 0 || object.getAmount().getCurrency().equals(this.repository.findOneSponsorshipById(object.getId()).getAmount().getCurrency()), "amount",
+					"sponsor.sponsorship.form.error.currencyChange");
+
+			if (!super.getBuffer().getErrors().hasErrors("amount"))
+				super.state(acceptedCurrencyList.contains(object.getAmount().getCurrency()), "amount", "sponsor.sponsorship.form.error.currencyNotSupported");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(object.isPublished() == false, "code", "sponsor.sponsorship.form.error.published");
-
-		if (!super.getBuffer().getErrors().hasErrors("amount"))
-			super.state(object.getAmount().getAmount() <= 1000000.00 && object.getAmount().getAmount() >= 0.00, "amount", "sponsor.sponsorship.form.error.amountOutOfBounds");
-
-		if (!super.getBuffer().getErrors().hasErrors("amount"))
-			super.state(this.repository.countPublishedInvoicesBySponsorshipId(object.getId()) == 0 || object.getAmount().getCurrency().equals(this.repository.findOneSponsorshipById(object.getId()).getAmount().getCurrency()), "amount",
-				"sponsor.sponsorship.form.error.currencyChange");
-
-		if (!super.getBuffer().getErrors().hasErrors("amount"))
-			super.state(object.getAmount() != null && acceptedCurrencyList.contains(object.getAmount().getCurrency()), "amount", "sponsor.sponsorship.form.error.currencyNotSupported");
 
 	}
 

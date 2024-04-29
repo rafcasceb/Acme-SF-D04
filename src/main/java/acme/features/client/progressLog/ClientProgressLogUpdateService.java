@@ -2,11 +2,13 @@
 package acme.features.client.progressLog;
 
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.contracts.Contract;
@@ -55,12 +57,16 @@ public class ClientProgressLogUpdateService extends AbstractService<Client, Prog
 	public void bind(final ProgressLog object) {
 		assert object != null;
 
+		Date registrationMoment;
+		registrationMoment = MomentHelper.getCurrentMoment();
+
 		int contractId;
 		Contract contract;
 
 		contractId = super.getRequest().getData("contract", int.class);
 		contract = this.repository.findOneContractById(contractId);
 
+		object.setRegistrationMoment(registrationMoment);
 		object.setContract(contract);
 		super.bind(object, "recordId", "completeness", "comment", "responsiblePerson");
 	}
