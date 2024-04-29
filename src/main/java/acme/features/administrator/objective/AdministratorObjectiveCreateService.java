@@ -12,8 +12,10 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.configuration.Configuration;
 import acme.entities.objectives.Objective;
 import acme.entities.objectives.ObjectiveStatus;
+import spam_detector.SpamDetector;
 
 @Service
 public class AdministratorObjectiveCreateService extends AbstractService<Administrator, Objective> {
@@ -58,6 +60,11 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 	public void validate(final Objective object) {
 		assert object != null;
 
+		Configuration config = this.repository.findConfiguration();
+		String spamTerms = config.getSpamTerms();
+		Double spamThreshold = config.getSpamThreshold();
+		SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+
 		String dateString = "2201/01/01 00:00";
 		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
 
@@ -68,19 +75,31 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 		}
 		Date instantiationMoment = MomentHelper.getCurrentMoment();
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isAfter(object.getStartDate(), instantiationMoment), "startDate", "validation.objective.moment.startDate");
+			super.state(object.getStartDate() != null && MomentHelper.isAfter(object.getStartDate(), instantiationMoment), "startDate", "validation.objective.moment.startDate");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(object.getStartDate() != null && MomentHelper.isBefore(object.getStartDate(), futureMostDate), "startDate", "admininstrator.objective.form.error.dateOutOfBounds");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(object.getEndDate() != null && object.getStartDate() != null && MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "validation.objective.form.error.startDateBeforeEndDate");
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isAfter(object.getEndDate(), instantiationMoment), "endDate", "validation.objective.moment.endDate");
+			super.state(object.getEndDate() != null && MomentHelper.isAfter(object.getEndDate(), instantiationMoment), "endDate", "validation.objective.moment.endDate");
 
-		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+		if (!super.getBuffer().getErrors().hasErrors("endDate") && object.getStartDate() != null) {
 			Date minimumEnd;
 			minimumEnd = MomentHelper.deltaFromMoment(object.getStartDate(), 1, ChronoUnit.HOURS);
-			super.state(MomentHelper.isAfterOrEqual(object.getEndDate(), minimumEnd), "endDate", "validation.objective.moment.minimum-one-hour");
+			super.state(object.getStartDate() != null && object.getEndDate() != null && MomentHelper.isAfterOrEqual(object.getEndDate(), minimumEnd), "endDate", "validation.objective.moment.minimum-one-hour");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "admininstrator.objective.form.error.dateOutOfBounds");
+			super.state(object.getEndDate() != null && MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "admininstrator.objective.form.error.dateOutOfBounds");
+
+		if (!super.getBuffer().getErrors().hasErrors("title"))
+			super.state(!spamHelper.isSpam(object.getTitle()), "title", "administrator.objective.form.error.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("description"))
+			super.state(!spamHelper.isSpam(object.getDescription()), "description", "administrator.objective.form.error.spam");
 	}
 
 	@Override

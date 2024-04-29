@@ -13,10 +13,12 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.configuration.Configuration;
 import acme.entities.contracts.Contract;
 import acme.entities.contracts.ProgressLog;
 import acme.entities.projects.Project;
 import acme.roles.Client;
+import spam_detector.SpamDetector;
 
 @Service
 public class ClientContractPublishService extends AbstractService<Client, Contract> {
@@ -77,6 +79,11 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	public void validate(final Contract object) {
 		assert object != null;
 
+		Configuration config = this.repository.findConfiguration();
+		String spamTerms = config.getSpamTerms();
+		Double spamThreshold = config.getSpamThreshold();
+		SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+
 		if (!super.getBuffer().getErrors().hasErrors("project"))
 			super.state(!object.getProject().isPublished(), "project", "validation.contract.published.project-is-published");
 
@@ -113,6 +120,15 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		double projectAmount = object.getProject().getEstimatedCostInHours() * conversionFactor;
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 			super.state(object.getBudget() != null && totalContractAmount <= projectAmount, "budget", "client.contract.form.error.amount");
+
+		if (!super.getBuffer().getErrors().hasErrors("providerName"))
+			super.state(!spamHelper.isSpam(object.getProviderName()), "providerName", "client.contract.form.error.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("customerName"))
+			super.state(!spamHelper.isSpam(object.getCustomerName()), "customerName", "client.contract.form.error.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("goals"))
+			super.state(!spamHelper.isSpam(object.getGoals()), "goals", "client.contract.form.error.spam");
 	}
 
 	@Override

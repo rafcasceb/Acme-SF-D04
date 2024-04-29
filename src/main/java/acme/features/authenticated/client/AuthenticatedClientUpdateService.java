@@ -10,8 +10,10 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.configuration.Configuration;
 import acme.roles.Client;
 import acme.roles.ClientType;
+import spam_detector.SpamDetector;
 
 @Service
 public class AuthenticatedClientUpdateService extends AbstractService<Authenticated, Client> {
@@ -53,11 +55,19 @@ public class AuthenticatedClientUpdateService extends AbstractService<Authentica
 	public void validate(final Client object) {
 		assert object != null;
 
+		Configuration config = this.repository.findConfiguration();
+		String spamTerms = config.getSpamTerms();
+		Double spamThreshold = config.getSpamThreshold();
+		SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+
 		if (!super.getBuffer().getErrors().hasErrors("identification")) {
 			Client isCodeUnique;
 			isCodeUnique = this.repository.findClientByCodeDifferentId(object.getIdentification(), object.getId());
 			super.state(isCodeUnique == null, "identification", "validation.client.code.duplicate");
 		}
+
+		if (!super.getBuffer().getErrors().hasErrors("companyName"))
+			super.state(!spamHelper.isSpam(object.getCompanyName()), "companyName", "client.form.error.spam");
 	}
 
 	@Override
