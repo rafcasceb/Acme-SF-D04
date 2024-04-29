@@ -16,8 +16,10 @@ import acme.entities.audits.AuditRecord;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
+import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
+import spam_detector.SpamDetector;
 
 @Service
 public class AuditorCodeAuditPublishService extends AbstractService<Auditor, CodeAudit> {
@@ -95,6 +97,14 @@ public class AuditorCodeAuditPublishService extends AbstractService<Auditor, Cod
 
 		if (object.getExecution() != null && !super.getBuffer().getErrors().hasErrors("execution"))
 			super.state(MomentHelper.isAfterOrEqual(object.getExecution(), pastMostDate), "execution", "validation.auditrecord.moment.minimum-date");
+
+		if (!super.getBuffer().getErrors().hasErrors("correctiveActions")) {
+			Configuration config = this.repository.findConfiguration();
+			String spamTerms = config.getSpamTerms();
+			Double spamThreshold = config.getSpamThreshold();
+			SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+			super.state(!spamHelper.isSpam(object.getCorrectiveActions()), "correctiveActions", "validation.codeaudit.form.error.spam");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			CodeAudit isCodeUnique;
