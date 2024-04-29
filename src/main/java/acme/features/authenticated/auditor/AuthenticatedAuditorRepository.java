@@ -20,4 +20,7 @@ public interface AuthenticatedAuditorRepository extends AbstractRepository {
 	@Query("select a from Auditor a where a.professionalID = :code")
 	Auditor findAuditorByCode(String code);
 
+	@Query("select a from Auditor a where a.professionalID = :code and a.id != :auditorId")
+	Auditor findAuditorByCodeDifferentId(String code, int auditorId);
+
 }
