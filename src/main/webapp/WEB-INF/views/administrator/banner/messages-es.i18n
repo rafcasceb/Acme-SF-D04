@@ -15,6 +15,7 @@ administrator.banner.form.label.displayEndDate = Fecha de finialización
 administrator.banner.form.label.slogan = Slogan
 administrator.banner.form.label.picture = Imagen
 administrator.banner.form.label.target = Link
+administrator.banner.form.error.spam = Spam detectado
 
 administrator.banner.list.title = Lista de Banners
 administrator.banner.list.label.slogan = Slogan
