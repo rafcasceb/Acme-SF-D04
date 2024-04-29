@@ -41,3 +41,5 @@ client.contract.form.error.budgetRange = La cantidad máxima de dinero es de 100
 client.contract.form.error.currency = El sistema no tiene soporte para esta divisa
 validation.contract.published.project-is-published = El proyecto ya esta publicado. Elige otro
 client.contract.form.error.amount = La suma de los presupuestos excede el coste del proyecto
+
+client.contract.form.error.spam = Spam detectado
