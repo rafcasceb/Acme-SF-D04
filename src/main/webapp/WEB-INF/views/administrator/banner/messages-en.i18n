@@ -31,3 +31,4 @@ administrator.banner.form.error.endDate = Display end date must be after display
 administrator.banner.form.error.period = Display period must be at least one week long
 administrator.banner.form.error.dateOutOfBounds = All dates must be prior to 2200/12/31 23:59
 administrator.banner.form.error.startDateAfterEndDate = Start date must be before End date
+administrator.banner.form.error.spam = Spam detected

@@ -29,6 +29,7 @@ import acme.entities.projects.Project;
 import acme.entities.sponsorships.Sponsorship;
 import acme.entities.sponsorships.SponsorshipType;
 import acme.roles.Sponsor;
+import spam_detector.SpamDetector;
 
 @Service
 public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sponsorship> {
@@ -36,7 +37,11 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipRepository repository;
+	private SponsorSponsorshipRepository	repository;
+
+	// Dependencies
+
+	private SpamDetector					spamDetector	= new SpamDetector();
 
 	// AbstractService interface ----------------------------------------------
 
