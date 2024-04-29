@@ -11,10 +11,12 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
 import acme.entities.trainingmodule.DifficultyLevel;
 import acme.entities.trainingmodule.TrainingModule;
 import acme.roles.Developer;
+import spam_detector.SpamDetector;
 
 @Service
 public class DeveloperTrainingModuleUpdateService extends AbstractService<Developer, TrainingModule> {
@@ -78,6 +80,14 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 
 		if (!super.getBuffer().getErrors().hasErrors("published"))
 			super.state(!object.isPublished(), "published", "developer.trainingModule.form.error.already-published");
+
+		if (!super.getBuffer().getErrors().hasErrors("details")) {
+			Configuration config = this.repository.findConfiguration();
+			String spamTerms = config.getSpamTerms();
+			Double spamThreshold = config.getSpamThreshold();
+			SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+			super.state(!spamHelper.isSpam(object.getDetails()), "details", "validation.training-module.form.error.spam");
+		}
 	}
 
 	@Override
