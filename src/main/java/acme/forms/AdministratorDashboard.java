@@ -30,7 +30,7 @@ public class AdministratorDashboard extends AbstractForm {
 
 	private Double				avgNumberOfClaimsLastTenWeeks;
 	private Double				stanDevNumberOfClaimsLastTenWeeks;
-	private Integer				maximumNumberOfClaimsLastTenWeeks;
-	private Integer				minimumNumberOfClaimsLastTenWeeks;
+	private Double				maximumNumberOfClaimsLastTenWeeks;
+	private Double				minimumNumberOfClaimsLastTenWeeks;
 
 }
