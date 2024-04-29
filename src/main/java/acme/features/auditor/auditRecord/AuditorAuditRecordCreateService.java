@@ -71,6 +71,7 @@ public class AuditorAuditRecordCreateService extends AbstractService<Auditor, Au
 			isCodeUnique = this.repository.findAuditRecordByCode(object.getCode());
 			super.state(isCodeUnique == null, "code", "validation.auditrecord.code.duplicate");
 		}
+
 		if (object.getInitialMoment() != null && object.getFinalMoment() != null) {
 			if (!super.getBuffer().getErrors().hasErrors("initialMoment"))
 				super.state(MomentHelper.isAfterOrEqual(object.getInitialMoment(), pastMostDate), "initialMoment", "validation.auditrecord.moment.minimum-date");

@@ -15,8 +15,10 @@ import acme.components.EnumMode;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
+import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
+import spam_detector.SpamDetector;
 
 @Service
 public class AuditorCodeAuditCreateService extends AbstractService<Auditor, CodeAudit> {
@@ -74,6 +76,14 @@ public class AuditorCodeAuditCreateService extends AbstractService<Auditor, Code
 			CodeAudit isCodeUnique;
 			isCodeUnique = this.repository.findCodeAuditByCode(object.getCode());
 			super.state(isCodeUnique == null, "code", "validation.codeaudit.code.duplicate");
+		}
+
+		if (!super.getBuffer().getErrors().hasErrors("correctiveActions")) {
+			Configuration config = this.repository.findConfiguration();
+			String spamTerms = config.getSpamTerms();
+			Double spamThreshold = config.getSpamThreshold();
+			SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+			super.state(!spamHelper.isSpam(object.getCorrectiveActions()), "correctiveActions", "validation.codeaudit.form.error.spam");
 		}
 	}
 
