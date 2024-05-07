@@ -1,7 +1,7 @@
 
 package acme.features.administrator.administratorDashboard;
 
-import java.util.Calendar;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.forms.AdministratorDashboard;
 
@@ -39,8 +40,8 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 		rolesCounter[4] = this.repository.totalNumberOfSponsors();
 
 		int totalNumberOfNotice = this.repository.totalNumberNotices();
-		int NoticesWithEmailAndLink = this.repository.totalNumberNoticesWithBothEmailAndLink();
-		Double ratioOfNotices = this.calculateAverage(NoticesWithEmailAndLink, totalNumberOfNotice);
+		int noticesWithEmailAndLink = this.repository.totalNumberNoticesWithBothEmailAndLink();
+		Double ratioOfNotices = this.calculateAverage(noticesWithEmailAndLink, totalNumberOfNotice);
 
 		int totalNumberOfObjectives = this.repository.totalNumberObjectives();
 		int objectivesCrit = this.repository.totalNumberObjectivesCrit();
@@ -64,17 +65,12 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 		Double minProb = this.repository.minProbRisk();
 		Double minValue = this.getValue(minImpact, minProb);
 
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
-		calendar.add(Calendar.WEEK_OF_YEAR, -10);
-		Date threshold = calendar.getTime();
-
-		int totalClaim = this.repository.NumberOfClaimPosted();
-		int totalClaim10Week = this.repository.NumberOfClaimPostedTenWeeksAgo(threshold);
-		Double avgClaimsTenWeeks = this.calculateAverage(totalClaim10Week, totalClaim);
-		// Double stddevClaimsTenWeeks = this.repository.stddevNumberOfClaimPostedTenWeeksAgo(threshold);
-		Double maxClaimsTenWeeks = this.repository.maxNumberOfClaimPostedTenWeeksAgo(threshold);
-		Double minClaimsTenWeeks = this.calculateMin(maxClaimsTenWeeks);
+		Integer weeksOffset = -10;
+		Date threshold = MomentHelper.deltaFromCurrentMoment(weeksOffset, ChronoUnit.WEEKS);
+		double avgClaimsLastTenWeeks = this.repository.avgNumberOfClaimsPostedLastTenWeeks(threshold);
+		double stddevClaimsLastTenWeeks = this.repository.deviationNumberOfClaimPostedLastTenWeeks(threshold);
+		int maxClaimsTenWeeks = this.repository.maxNumberOfClaimsPostedLastTenWeeks();
+		int minClaimsTenWeeks = this.repository.minNumberOfClaimsPostedLastTenWeeks();
 
 		AdministratorDashboard dashboard = new AdministratorDashboard();
 		dashboard.setPrincipalRolesCounter(rolesCounter);
@@ -85,8 +81,8 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 		dashboard.setStanDevValueInRisks(stddevValue);
 		dashboard.setMaximumValueInRisks(maxValue);
 		dashboard.setMinimumValueInRisks(minValue);
-		dashboard.setAvgNumberOfClaimsLastTenWeeks(avgClaimsTenWeeks);
-		dashboard.setStanDevNumberOfClaimsLastTenWeeks(Math.sqrt(Math.pow(totalClaim / avgClaimsTenWeeks, 2)));
+		dashboard.setAvgNumberOfClaimsLastTenWeeks(avgClaimsLastTenWeeks);
+		dashboard.setStanDevNumberOfClaimsLastTenWeeks(stddevClaimsLastTenWeeks);
 		dashboard.setMaximumNumberOfClaimsLastTenWeeks(maxClaimsTenWeeks);
 		dashboard.setMinimumNumberOfClaimsLastTenWeeks(minClaimsTenWeeks);
 
@@ -118,7 +114,7 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 	}
 
 	private Double calculateAverage(final int sum, final int total) {
-		return sum / total * 1.;
+		return sum * 1. / total;
 	}
 
 	public Double getValue(final Double impact, final Double prob) {
