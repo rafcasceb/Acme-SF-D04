@@ -68,9 +68,13 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 		calendar.setTime(new Date());
 		calendar.add(Calendar.WEEK_OF_YEAR, -10);
 		Date threshold = calendar.getTime();
+		//String threshold3 = threshold.toGMTString();
+		//Date threshold2 = MomentHelper.parse(threshold3, "yyyy/MM/dd HH:mm");
+		//System.out.println(threshold2);
 
 		int totalClaim = this.repository.NumberOfClaimPosted();
 		int totalClaim10Week = this.repository.NumberOfClaimPostedTenWeeksAgo(threshold);
+		//System.out.println(totalClaim10Week);
 		Double avgClaimsTenWeeks = this.calculateAverage(totalClaim10Week, totalClaim);
 		// Double stddevClaimsTenWeeks = this.repository.stddevNumberOfClaimPostedTenWeeksAgo(threshold);
 		Double maxClaimsTenWeeks = this.repository.maxNumberOfClaimPostedTenWeeksAgo(threshold);
@@ -118,7 +122,9 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 	}
 
 	private Double calculateAverage(final int sum, final int total) {
-		return sum / total * 1.;
+		double suma = sum * 1.;
+		double totalD = total * 1.;
+		return suma / totalD;
 	}
 
 	public Double getValue(final Double impact, final Double prob) {
