@@ -1,11 +1,13 @@
 
 package acme.features.administrator.administratorDashboard;
 
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.client.helpers.MomentHelper;
 import acme.client.repositories.AbstractRepository;
 
 @Repository
@@ -65,20 +67,66 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select max(r.probability) from Risk r")
 	Double maxProbRisk();
 
-	//@Query("select avg(sub.count) from (select count(c) as count from Claim c where c.moment >= :threshold group by c) as sub")
-	//Double avgNumberOfClaimPostedTenWeeksAgo(Date threshold);
+	@Query("select count(c) from Claim c where c.moment > :threshold")
+	int numberOfClaimPostedAfterThreshold(Date threshold);
 
-	//@Query("select sqrt(avg((sub.count - avg.count) * (sub.count - avg.count))) " + "from (select count(c) as count from Claim c where c.moment >= :threshold group by c) as sub, "
-	//	+ "(select avg(cnt) as count from (select count(c) as cnt from Claim c where c.moment >= :threshold group by c) as counts) as avg")
-	//Double stddevNumberOfClaimPostedTenWeeksAgo(Date threshold);
+	@Query("select count(c) / 10.0 from Claim c where c.moment > :threshold")
+	double avgNumberOfClaimsPostedLastTenWeeks(Date threshold);
 
-	@Query("select count(c) from Claim c where c.moment >= :threshold")
-	Double maxNumberOfClaimPostedTenWeeksAgo(Date threshold);
+	@Query("select count(c) from Claim c where c.moment > :farThreshold and c.moment <= :closeThreshold")
+	int numberOfClaimPostedBetweenThresholds(Date farThreshold, Date closeThreshold);
 
-	@Query("select count(c) from Claim c where c.moment >= :threshold")
-	int NumberOfClaimPostedTenWeeksAgo(Date threshold);
+	default double deviationNumberOfClaimPostedLastTenWeeks(final Date threshold) {
+		double averageOfClaims = this.avgNumberOfClaimsPostedLastTenWeeks(threshold);
+		double totalSum = 0;
+		Date farThreshold = MomentHelper.getCurrentMoment();
+		Date closeThreshold;
 
-	@Query("select count(c) from Claim c")
-	int NumberOfClaimPosted();
+		for (int w = 1; w <= 10; w++) {
+			Integer weeksOffset = -1 * w;
+			closeThreshold = farThreshold;
+			farThreshold = MomentHelper.deltaFromCurrentMoment(weeksOffset, ChronoUnit.WEEKS);
+			int numberOfClaimsOfWeek = this.numberOfClaimPostedBetweenThresholds(farThreshold, closeThreshold);
+			totalSum += Math.pow(numberOfClaimsOfWeek - averageOfClaims, 2);
+		}
+
+		return Math.sqrt(totalSum / 10.0);
+	}
+
+	default int maxNumberOfClaimsPostedLastTenWeeks() {
+		int maxNumberOfClaims = 0;
+		Date farThreshold = MomentHelper.getCurrentMoment();
+		Date closeThreshold;
+
+		for (int w = 1; w <= 10; w++) {
+			Integer weeksOffset = -1 * w;
+			closeThreshold = farThreshold;
+			farThreshold = MomentHelper.deltaFromCurrentMoment(weeksOffset, ChronoUnit.WEEKS);
+			int numberOfClaimsOfWeek = this.numberOfClaimPostedBetweenThresholds(farThreshold, closeThreshold);
+			if (numberOfClaimsOfWeek > maxNumberOfClaims)
+				maxNumberOfClaims = numberOfClaimsOfWeek;
+		}
+
+		return maxNumberOfClaims;
+	}
+
+	default int minNumberOfClaimsPostedLastTenWeeks() {
+		Integer minNumberOfClaims = null;
+		Date farThreshold = MomentHelper.getCurrentMoment();
+		Date closeThreshold;
+
+		for (int w = 1; w <= 10; w++) {
+			Integer weeksOffset = -1 * w;
+			closeThreshold = farThreshold;
+			farThreshold = MomentHelper.deltaFromCurrentMoment(weeksOffset, ChronoUnit.WEEKS);
+			int numberOfClaimsOfWeek = this.numberOfClaimPostedBetweenThresholds(farThreshold, closeThreshold);
+			if (numberOfClaimsOfWeek == 0)
+				return 0;
+			else if (minNumberOfClaims == null || numberOfClaimsOfWeek < minNumberOfClaims)
+				minNumberOfClaims = numberOfClaimsOfWeek;
+		}
+
+		return minNumberOfClaims;
+	}
 
 }
