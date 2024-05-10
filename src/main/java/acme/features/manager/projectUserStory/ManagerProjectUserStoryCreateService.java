@@ -70,16 +70,19 @@ public class ManagerProjectUserStoryCreateService extends AbstractService<Manage
 	public void validate(final ProjectUserStory object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("project"))
-			super.state(!object.getProject().isPublished(), "project", "manager.project-user-story.form.error.published");
+		if (!super.getBuffer().getErrors().hasErrors("projectId"))
+			super.state(object.getProject() != null, "projectId", "manager.project-user-story.form.error.no-project");
 
-		if (!super.getBuffer().getErrors().hasErrors("project")) {
+		if (!super.getBuffer().getErrors().hasErrors("projectId") && object.getProject() != null)
+			super.state(!object.getProject().isPublished(), "projectId", "manager.project-user-story.form.error.published");
+
+		if (!super.getBuffer().getErrors().hasErrors("projectId") && object.getProject() != null) {
 			int projectManagerId;
 			int userStoryManagerId;
 
 			projectManagerId = object.getProject().getManager().getId();
 			userStoryManagerId = object.getUserStory().getManager().getId();
-			super.state(projectManagerId == userStoryManagerId, "project", "manager.project-user-story.form.error.manager");
+			super.state(projectManagerId == userStoryManagerId, "projectId", "manager.project-user-story.form.error.manager");
 		}
 	}
 
