@@ -63,6 +63,7 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 		assert object != null;
 		String dateString = "2201/01/01 00:00";
 		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
+		Date startMaximumDate = MomentHelper.parse("2200/12/25 00:00", "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingSession existing;
@@ -70,27 +71,35 @@ public class DeveloperTrainingSessionCreateService extends AbstractService<Devel
 			existing = this.repository.findOneTrainingSessionByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "developer.training-session.form.error.duplicated");
 		}
+		if (object.getStartDate() != null) {
+			if (!super.getBuffer().getErrors().hasErrors("startDate"))
+				super.state(MomentHelper.isBefore(object.getStartDate(), futureMostDate), "startDate", "developer.training-session.form.error.date-not-before-limit");
 
-		if (!super.getBuffer().getErrors().hasErrors("startDate")) {
-			TrainingModule module;
-			int masterId;
+			if (!super.getBuffer().getErrors().hasErrors("startDate"))
+				super.state(MomentHelper.isBefore(object.getStartDate(), startMaximumDate), "startDate", "developer.training-session.form.error.date-not-before-limit-week");
 
-			masterId = super.getRequest().getData("masterId", int.class);
-			module = this.repository.findOneTrainingModuleById(masterId);
-			super.state(MomentHelper.isAfter(object.getStartDate(), module.getCreationMoment()), "startDate", "developer.training-session.form.error.creation-moment-invalid");
+			if (!super.getBuffer().getErrors().hasErrors("startDate")) {
+				TrainingModule module;
+				int masterId;
+
+				masterId = super.getRequest().getData("masterId", int.class);
+				module = this.repository.findOneTrainingModuleById(masterId);
+				super.state(MomentHelper.isAfter(object.getStartDate(), module.getCreationMoment()), "startDate", "developer.training-session.form.error.creation-moment-invalid");
+			}
+
+			if (object.getEndDate() != null) {
+
+				if (!super.getBuffer().getErrors().hasErrors("endDate")) {
+					Date minimumEnd;
+
+					minimumEnd = MomentHelper.deltaFromMoment(object.getStartDate(), 7, ChronoUnit.DAYS);
+					super.state(object.getStartDate() != null && MomentHelper.isAfter(object.getEndDate(), minimumEnd), "endDate", "developer.training-session.form.error.too-close");
+				}
+				if (!super.getBuffer().getErrors().hasErrors("endDate"))
+					super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "developer.training-session.form.error.date-not-before-limit");
+
+			}
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("endDate")) {
-			Date minimumEnd;
-
-			minimumEnd = MomentHelper.deltaFromMoment(object.getStartDate(), 7, ChronoUnit.DAYS);
-			super.state(MomentHelper.isAfter(object.getEndDate(), minimumEnd), "endDate", "developer.training-session.form.error.too-close");
-		}
-		if (!super.getBuffer().getErrors().hasErrors("endDate"))
-			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "developer.training-session.form.error.date-not-before-limit");
-
-		if (!super.getBuffer().getErrors().hasErrors("startDate"))
-			super.state(MomentHelper.isBefore(object.getEndDate(), futureMostDate), "endDate", "developer.training-session.form.error.date-not-before-limit");
 
 		if (!super.getBuffer().getErrors().hasErrors("location")) {
 			Configuration config = this.repository.findConfiguration();
