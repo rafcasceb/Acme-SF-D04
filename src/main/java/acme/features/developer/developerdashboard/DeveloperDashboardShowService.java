@@ -41,13 +41,6 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 		Collection<TrainingModule> modules = this.dashboardRepository.findAllTrainingModulesByDeveloperId(id);
 		Collection<TrainingSession> sessions = this.dashboardRepository.findAllTrainingSessionsByDeveloperId(id);
 
-		developerDashboard.setTotalNumberTrainingSessionsWithLink(0);
-		developerDashboard.setTotalNumberTrainingModulesWithUpdateMoment(0);
-		developerDashboard.setAverageTimeTrainingModules(0.);
-		developerDashboard.setDeviationTimeTrainingModules(0.);
-		developerDashboard.setMinimumTimeTrainingModules(0);
-		developerDashboard.setMaximumTimeTrainingModules(0);
-
 		if (!modules.isEmpty()) {
 			developerDashboard.setTotalNumberTrainingModulesWithUpdateMoment(this.dashboardRepository.totalTrainingModulesWithUpdateMoment(id));
 			developerDashboard.setAverageTimeTrainingModules(this.dashboardRepository.averageTrainingModulesTime(id));
@@ -60,7 +53,6 @@ public class DeveloperDashboardShowService extends AbstractService<Developer, De
 			developerDashboard.setTotalNumberTrainingSessionsWithLink(this.dashboardRepository.totalTrainingSessionsWithLink(id));
 
 		super.getBuffer().addData(developerDashboard);
-		System.out.println(this.dashboardRepository.deviatonTrainingModulesTime(id));
 
 	}
 
