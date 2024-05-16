@@ -54,7 +54,7 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 	public void bind(final Sponsorship object) {
 		assert object != null;
 
-		super.bind(object, "code", "moment", "startDate", "endDate", "amount", "email", "link", "published");
+		super.bind(object, "code", "moment", "startDate", "endDate", "amount", "email", "link", "type", "project");
 	}
 
 	@Override

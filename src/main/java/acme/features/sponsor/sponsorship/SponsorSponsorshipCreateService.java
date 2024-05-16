@@ -83,6 +83,9 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 		String dateString = "2201/01/01 00:00";
 		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
+		dateString = "2200/12/25 00:00";
+		Date latestStartDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
+
 		String acceptedCurrencies = this.repository.findConfiguration().getAcceptedCurrencies();
 		List<String> acceptedCurrencyList = Arrays.asList(acceptedCurrencies.split("\\s*,\\s*"));
 
@@ -98,7 +101,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 				super.state(MomentHelper.isAfter(object.getStartDate(), object.getMoment()), "startDate", "sponsor.sponsorship.form.error.startDate");
 
 			if (!super.getBuffer().getErrors().hasErrors("startDate"))
-				super.state(MomentHelper.isBefore(object.getStartDate(), futureMostDate), "startDate", "sponsor.sponsorship.form.error.dateOutOfBounds");
+				super.state(MomentHelper.isBefore(object.getStartDate(), latestStartDate), "startDate", "sponsor.sponsorship.form.error.startDateOutOfBounds");
 
 			if (object.getEndDate() != null) {
 
