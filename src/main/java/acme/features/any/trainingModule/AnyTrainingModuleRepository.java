@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.projects.Project;
-import acme.entities.trainingmodule.TrainingModule;
+import acme.entities.trainingModule.TrainingModule;
 
 @Repository
 public interface AnyTrainingModuleRepository extends AbstractRepository {
