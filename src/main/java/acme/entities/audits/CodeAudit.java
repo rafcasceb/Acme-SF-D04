@@ -5,7 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -26,6 +28,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "id"), //
+	@Index(columnList = "auditor_id"), //
+	@Index(columnList = "project_id"), //
+	@Index(columnList = "code"), //
+	@Index(columnList = "code, id")
+})
 public class CodeAudit extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------

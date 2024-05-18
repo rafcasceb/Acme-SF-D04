@@ -94,9 +94,6 @@ public class AuditorCodeAuditUpdateService extends AbstractService<Auditor, Code
 			SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
 			super.state(!spamHelper.isSpam(object.getCorrectiveActions()), "correctiveActions", "validation.codeaudit.form.error.spam");
 		}
-
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "validation.codeaudit.published");
 	}
 
 	@Override
