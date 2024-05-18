@@ -1,5 +1,5 @@
 
-package acme.components;
+package acme.components.moneyExchange;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
