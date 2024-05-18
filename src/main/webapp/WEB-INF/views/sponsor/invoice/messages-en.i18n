@@ -21,6 +21,7 @@ sponsor.invoice.form.label.code = Code
 sponsor.invoice.form.label.registrationTime = Registration Date
 sponsor.invoice.form.label.dueDate = Due Date
 sponsor.invoice.form.label.quantity = Quantity
+sponsor.invoice.form.label.quantity-default = Quantity (system currency)
 sponsor.invoice.form.label.tax = Tax
 sponsor.invoice.form.label.link = link
 sponsor.invoice.form.label.value = Total

@@ -17,9 +17,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.components.moneyExchange.MoneyExchangePerformer;
 import acme.entities.projects.Project;
 import acme.entities.sponsorships.Sponsorship;
 import acme.entities.sponsorships.SponsorshipType;
@@ -31,7 +33,9 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorSponsorshipRepository repository;
+	private SponsorSponsorshipRepository	repository;
+	@Autowired
+	private MoneyExchangePerformer			moneyExchangePerformer;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -67,15 +71,18 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		Dataset dataset;
 		SelectChoices choices;
 		SelectChoices projects;
+		Money amountDefault;
 
 		choices = SelectChoices.from(SponsorshipType.class, object.getType());
 		Collection<Project> unpublishedProjects = this.repository.findAllUnpublishedProjects();
 		projects = SelectChoices.from(unpublishedProjects, "code", object.getProject());
+		amountDefault = this.moneyExchangePerformer.performMoneyExchangeToDefault(object.getAmount());
 
 		dataset = super.unbind(object, "code", "moment", "startDate", "endDate", "amount", "email", "link", "published");
 		dataset.put("project", projects.getSelected().getKey());
 		dataset.put("projects", projects);
 		dataset.put("types", choices);
+		dataset.put("amountDefault", amountDefault);
 
 		super.getResponse().addData(dataset);
 	}
