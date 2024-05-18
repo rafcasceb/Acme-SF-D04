@@ -117,17 +117,11 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 		return sum * 1. / total;
 	}
 
-	public Double getValue(final Double impact, final Double prob) {
+	private Double getValue(final Double impact, final Double prob) {
 		if (prob != null && impact != null)
 			return impact * prob;
 		else
 			return null;
 	}
 
-	public Double calculateMin(final Double max) {
-		if (max != null)
-			return 0.;
-		else
-			return null;
-	}
 }
