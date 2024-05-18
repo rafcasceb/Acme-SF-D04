@@ -41,7 +41,6 @@ master.menu.authenticated = Authenticated
 master.menu.authenticated.risks = List risks
 master.menu.authenticated.objectives = List objectives
 master.menu.authenticated.notices = List recent notices
-master.menu.authenticated.money-exchange = Money exchange
 
 # master.menu.administrator ###################################################
 
