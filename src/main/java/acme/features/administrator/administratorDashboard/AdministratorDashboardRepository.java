@@ -90,7 +90,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 			totalSum += Math.pow(numberOfClaimsOfWeek - averageOfClaims, 2);
 		}
 
-		return Math.sqrt(totalSum / 10.0);
+		return Math.sqrt(totalSum / (10.0 - 1.0));
 	}
 
 	default int maxNumberOfClaimsPostedLastTenWeeks() {
