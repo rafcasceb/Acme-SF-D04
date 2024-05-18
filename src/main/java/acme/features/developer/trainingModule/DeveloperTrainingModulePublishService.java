@@ -13,9 +13,9 @@ import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
-import acme.entities.trainingmodule.DifficultyLevel;
-import acme.entities.trainingmodule.TrainingModule;
-import acme.entities.trainingmodule.TrainingSession;
+import acme.entities.trainingModule.DifficultyLevel;
+import acme.entities.trainingModule.TrainingModule;
+import acme.entities.trainingModule.TrainingSession;
 import acme.roles.Developer;
 import spam_detector.SpamDetector;
 

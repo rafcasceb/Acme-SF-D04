@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.trainingmodule.TrainingModule;
+import acme.entities.trainingModule.TrainingModule;
 
 @Service
 public class AnyTrainingModuleListService extends AbstractService<Any, TrainingModule> {

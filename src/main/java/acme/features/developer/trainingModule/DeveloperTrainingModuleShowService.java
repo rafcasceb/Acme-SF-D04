@@ -10,8 +10,8 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
-import acme.entities.trainingmodule.DifficultyLevel;
-import acme.entities.trainingmodule.TrainingModule;
+import acme.entities.trainingModule.DifficultyLevel;
+import acme.entities.trainingModule.TrainingModule;
 import acme.roles.Developer;
 
 @Service
