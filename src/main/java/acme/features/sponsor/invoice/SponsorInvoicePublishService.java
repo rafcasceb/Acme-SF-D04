@@ -79,12 +79,16 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		double total = 0.0;
 
 		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
-			Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorshipId(object.getSponsorship().getId());
-			for (Invoice invoice : invoices)
-				if (invoice.isPublished())
-					total += invoice.getValue().getAmount();
+			Sponsorship sponsorship = object.getSponsorship();
 
-			super.state(total + object.getValue().getAmount() <= object.getSponsorship().getAmount().getAmount(), "sponsorship", "invoice.sponsorship.form.error.amount");
+			if (sponsorship != null) {
+				Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorshipId(sponsorship.getId());
+				for (Invoice invoice : invoices)
+					if (invoice.isPublished())
+						total += invoice.getValue().getAmount();
+
+				super.state(total + object.getValue().getAmount() <= object.getSponsorship().getAmount().getAmount(), "sponsorship", "invoice.sponsorship.form.error.amount");
+			}
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
