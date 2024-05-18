@@ -78,9 +78,6 @@ public class AuditorAuditRecordUpdateService extends AbstractService<Auditor, Au
 		if (!super.getBuffer().getErrors().hasErrors("audit"))
 			super.state(!object.getAudit().isPublished(), "audit", "validation.auditrecord.published.audit-is-published");
 
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "validation.auditrecord.published");
-
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			AuditRecord isCodeUnique;
 			isCodeUnique = this.repository.findAuditRecordByCodeDifferentId(object.getCode(), object.getId());
