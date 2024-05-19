@@ -17,9 +17,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.components.moneyExchange.MoneyExchangePerformer;
 import acme.entities.sponsorships.Invoice;
 import acme.entities.sponsorships.Sponsorship;
 import acme.roles.Sponsor;
@@ -30,7 +32,9 @@ public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice>
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private SponsorInvoiceRepository repository;
+	private SponsorInvoiceRepository	repository;
+	@Autowired
+	private MoneyExchangePerformer		moneyExchangePerformer;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -66,6 +70,7 @@ public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice>
 
 		Dataset dataset;
 		SelectChoices sponsorships;
+		Money quantityDefault;
 		int sponsorId = super.getRequest().getPrincipal().getActiveRoleId();
 
 		Collection<Sponsorship> sponsorSponsorships = this.repository.findSponsorshipBySponsorId(sponsorId);
@@ -83,6 +88,9 @@ public class SponsorInvoiceShowService extends AbstractService<Sponsor, Invoice>
 		sponsorships = SelectChoices.from(sponsorSponsorships, "code", object.getSponsorship());
 
 		dataset.put("sponsorships", sponsorships);
+
+		quantityDefault = this.moneyExchangePerformer.performMoneyExchangeToDefault(object.getQuantity());
+		dataset.put("quantityDefault", quantityDefault);
 
 		super.getResponse().addData(dataset);
 	}
