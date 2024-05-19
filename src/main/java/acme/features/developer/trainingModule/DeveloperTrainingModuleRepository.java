@@ -4,6 +4,7 @@ package acme.features.developer.trainingModule;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
@@ -46,4 +47,6 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 	@Query("select c from Configuration c")
 	Configuration findConfiguration();
 
+	@Query("SELECT COUNT(ts) FROM TrainingSession ts where ts.trainingModule.id = :id AND ts.published = true")
+	int countPublishedSessionsByModuleId(@Param("id") int id);
 }
