@@ -46,7 +46,6 @@ master.menu.authenticated = Autenticado
 master.menu.authenticated.risks = Listar riesgos
 master.menu.authenticated.objectives = Listar objetivos
 master.menu.authenticated.notices = Listar avisos recientes
-master.menu.authenticated.money-exchange = Cambio de dinero
 
 # master.menu.administrator ###################################################
 

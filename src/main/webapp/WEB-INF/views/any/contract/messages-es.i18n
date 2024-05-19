@@ -21,6 +21,7 @@ any.contract.form.label.instantiationMoment = Momento de instanciación
 any.contract.form.label.providerName = Nombre del proveedor
 any.contract.form.label.customerName = Nombre del cliente
 any.contract.form.label.budget = Presupuesto
+any.contract.form.label.budget-default = Presupuesto (moneda del sistema)
 any.contract.form.label.goals = Metas
 any.contract.form.label.published = Publicado
 any.contract.form.label.project = Proyecto asociado
