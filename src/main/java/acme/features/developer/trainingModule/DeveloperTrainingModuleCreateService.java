@@ -76,9 +76,6 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 			super.state(existing == null || existing.equals(object), "code", "developer.training-module.form.error.duplicated");
 		}
 
-		if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
-			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.trainingModule.form.error.not-after");
-
 		if (!super.getBuffer().getErrors().hasErrors("details")) {
 			Configuration config = this.repository.findConfiguration();
 			String spamTerms = config.getSpamTerms();

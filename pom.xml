@@ -41,5 +41,10 @@
   
 	<dependencies>
 
+	<dependency>
+		<groupId>Acme</groupId>
+		<artifactId>Acme-Framework</artifactId>
+		<version>24.1.0</version>
+	</dependency>
 	</dependencies>
 </project>
