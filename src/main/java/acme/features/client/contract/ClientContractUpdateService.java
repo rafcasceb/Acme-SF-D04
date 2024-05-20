@@ -91,8 +91,6 @@ public class ClientContractUpdateService extends AbstractService<Client, Contrac
 			isCodeUnique = this.repository.findContractByCodeDifferentId(object.getCode(), object.getId());
 			super.state(isCodeUnique == null, "code", "client.contract.form.error.duplicate");
 		}
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "client.contract.form.error.already-published");
 
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 			super.state(object.getBudget().getAmount() >= 0., "budget", "client.contract.form.error.budgetPositive");
