@@ -11,8 +11,8 @@
 client.client-dashboard.form.title = Client dashboard
 
 client.dashboard.form.label.completenessFirstPercentile = Total progress logs with completeness bellow 25%
-client.dashboard.form.label.completenessSecondPercentile = Total progress logs with completeness between 25% and 50%
-client.dashboard.form.label.completenessThirdPercentile = Total progress logs with completeness between 50% and 75%
+client.dashboard.form.label.completenessSecondPercentile = Total progress logs with completeness between 25% (included) and 50%
+client.dashboard.form.label.completenessThirdPercentile = Total progress logs with completeness between 50% and 75% (both included)
 client.dashboard.form.label.completenessFourthPercentile = Total progress logs with completeness above 75%
 client.dashboard.form.label.contractBudgetAverage = Average amount on budgets (Default currency)
 client.dashboard.form.label.contractBudgetDeviation = Deviation in amount on budgets (Default currency)
