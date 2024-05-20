@@ -114,7 +114,9 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 	}
 
 	private Double calculateAverage(final int sum, final int total) {
-		return sum * 1. / total;
+		double totalD = total * 1.;
+		double sumD = sum * 1.;
+		return sumD / totalD;
 	}
 
 	private Double getValue(final Double impact, final Double prob) {

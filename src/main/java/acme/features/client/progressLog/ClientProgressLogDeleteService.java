@@ -1,14 +1,10 @@
 
 package acme.features.client.progressLog;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
 import acme.entities.contracts.Contract;
 import acme.entities.contracts.ProgressLog;
 import acme.roles.Client;
@@ -68,11 +64,6 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 	@Override
 	public void validate(final ProgressLog object) {
 
-		assert object != null;
-
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "validation.progresslog.published");
-
 	}
 
 	@Override
@@ -85,22 +76,6 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 	@Override
 	public void unbind(final ProgressLog object) {
 
-		assert object != null;
-
-		SelectChoices contracts;
-		Dataset dataset;
-
-		int clientId;
-		clientId = super.getRequest().getPrincipal().getActiveRoleId();
-
-		Collection<Contract> allContracts = this.repository.findAllMyContracts(clientId);
-		contracts = SelectChoices.from(allContracts, "code", object.getContract());
-
-		dataset = super.unbind(object, "recordId", "completeness", "comment", "responsiblePerson", "published");
-		dataset.put("contract", contracts.getSelected().getKey());
-		dataset.put("contracts", contracts);
-
-		super.getResponse().addData(dataset);
 	}
 
 }
