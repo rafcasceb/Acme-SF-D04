@@ -25,6 +25,7 @@ sponsor.sponsorship.form.label.startDate = Start Date
 sponsor.sponsorship.form.label.endDate = Deadline
 sponsor.sponsorship.form.label.type = Type
 sponsor.sponsorship.form.label.amount = Amount
+sponsor.sponsorship.form.label.amount-default = Amount (system currency)
 sponsor.sponsorship.form.label.link = Link
 sponsor.sponsorship.form.label.email = Email
 sponsor.sponsorship.form.label.published = Published
