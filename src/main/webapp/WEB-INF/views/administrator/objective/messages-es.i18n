@@ -31,3 +31,4 @@ admininstrator.objective.form.error.dateOutOfBounds =  Todas las fechas deben se
 validation.objective.moment.endDate = La fecha de finalización debe estar en el futuro
 administrator.objective.form.error.spam = Spam detectado
 validation.objective.form.error.startDateBeforeEndDate = La fecha de comienzo debe ser anterior a la fecha de finalización
+validation.objective.form.error.startDateBeforeEndDateOneHour = La fecha de comienzo debe ser una hora anterior a la fecha de finalización

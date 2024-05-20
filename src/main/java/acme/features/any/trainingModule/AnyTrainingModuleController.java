@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 
 import acme.client.controllers.AbstractController;
 import acme.client.data.accounts.Any;
-import acme.entities.trainingmodule.TrainingModule;
+import acme.entities.trainingModule.TrainingModule;
 
 @Controller
 public class AnyTrainingModuleController extends AbstractController<Any, TrainingModule> {

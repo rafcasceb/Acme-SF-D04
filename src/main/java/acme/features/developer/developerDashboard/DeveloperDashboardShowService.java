@@ -1,5 +1,5 @@
 
-package acme.features.developer.developerdashboard;
+package acme.features.developer.developerDashboard;
 
 import java.util.Collection;
 
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.trainingmodule.TrainingModule;
-import acme.entities.trainingmodule.TrainingSession;
+import acme.entities.trainingModule.TrainingModule;
+import acme.entities.trainingModule.TrainingSession;
 import acme.forms.DeveloperDashboard;
 import acme.roles.Developer;
 

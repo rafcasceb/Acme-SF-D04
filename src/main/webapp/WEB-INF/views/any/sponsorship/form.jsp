@@ -21,6 +21,9 @@
 	<acme:input-moment code="sponsor.sponsorship.form.label.endDate" path="endDate" readonly="True"/>
 	<acme:input-select code="sponsor.sponsorship.form.label.type" path="type"  choices="${types}" readonly="True"/>
 	<acme:input-money code="sponsor.sponsorship.form.label.amount" path="amount" readonly="True"/>
+	<jstl:if test="${_command == 'show'}">
+		<acme:input-money code="sponsor.sponsorship.form.label.amount-default" path="amountDefault" readonly="true" placeholder="N/A"/>
+	</jstl:if>
 	<acme:input-url code="sponsor.sponsorship.form.label.link" path="link" readonly="True"/>
 	<acme:input-email code="sponsor.sponsorship.form.label.email" path="email" readonly="True"/>
 	<acme:input-select code="sponsor.sponsorship.form.label.project" path="project"  choices="${projects}" readonly="True"/>

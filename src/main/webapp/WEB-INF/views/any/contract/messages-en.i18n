@@ -19,6 +19,7 @@ any.contract.form.label.instantiationMoment = Instantiation Moment
 any.contract.form.label.providerName = Provider Name
 any.contract.form.label.customerName = Customer Name
 any.contract.form.label.budget = Budget
+any.contract.form.label.budget-default = Budget (system currency)
 any.contract.form.label.goals = Goals
 any.contract.form.label.published = Published
 any.contract.form.label.project = Associated project
