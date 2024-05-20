@@ -22,6 +22,7 @@ administrator.objective.form.label.link = Link
 administrator.objective.form.label.confirmation = Please, confirm that the objective is correct.
 
 
+
 administrator.objective.form.button.create = Publish
 
 administrator.objective.form.error.confirmation = You must confirm the objective before publishing it
@@ -32,6 +33,7 @@ admininstrator.objective.form.error.dateOutOfBounds =  All dates must be prior t
 validation.objective.moment.endDate = The end date must be in the future
 administrator.objective.form.error.spam = Spam detected
 validation.objective.form.error.startDateBeforeEndDate = Start date must be before end date
+validation.objective.form.error.startDateBeforeEndDateOneHour = Start date must be one hour before end date
 
 
 

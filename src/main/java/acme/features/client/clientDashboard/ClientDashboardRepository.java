@@ -9,13 +9,13 @@ import acme.client.repositories.AbstractRepository;
 @Repository
 public interface ClientDashboardRepository extends AbstractRepository {
 
-	@Query("select count(pl) from ProgressLog pl where pl.contract.client.id = :clientId and pl.completeness <= 25.00")
+	@Query("select count(pl) from ProgressLog pl where pl.contract.client.id = :clientId and pl.completeness < 25.00")
 	int firstPercentileProgressLogCompleteness(int clientId);
 
-	@Query("select count(pl) from ProgressLog pl where pl.contract.client.id = :clientId and pl.completeness > 25.00 and pl.completeness <= 50.00")
+	@Query("select count(pl) from ProgressLog pl where pl.contract.client.id = :clientId and pl.completeness >= 25.00 and pl.completeness < 50.00")
 	int secondPercentileProgressLogCompleteness(int clientId);
 
-	@Query("select count(pl) from ProgressLog pl where pl.contract.client.id = :clientId and pl.completeness > 50.00 and pl.completeness <= 75.00")
+	@Query("select count(pl) from ProgressLog pl where pl.contract.client.id = :clientId and pl.completeness >= 50.00 and pl.completeness <= 75.00")
 	int thirdPercentileProgressLogCompleteness(int clientId);
 
 	@Query("select count(pl) from ProgressLog pl where pl.contract.client.id = :clientId and pl.completeness > 75.00 and pl.completeness <= 100.00")
