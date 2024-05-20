@@ -27,8 +27,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "id"), //
-	@Index(columnList = "audit_id"), //
 	@Index(columnList = "code"), //
 	@Index(columnList = "code, id")
 })
