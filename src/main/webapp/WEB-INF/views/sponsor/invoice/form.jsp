@@ -19,9 +19,6 @@
 	<acme:input-textbox code="sponsor.invoice.form.label.code" path="code"/>
 	<acme:input-moment code="sponsor.invoice.form.label.dueDate" path="dueDate"/>
 	<acme:input-money code="sponsor.invoice.form.label.quantity" path="quantity"/>
-	<jstl:if test="${_command == 'show'}">
-		<acme:input-money code="sponsor.invoice.form.label.quantity-default" path="quantityDefault" readonly="true" placeholder="N/A"/>
-	</jstl:if>
 	<acme:input-double code="sponsor.invoice.form.label.tax" path="tax"/>
 	<acme:input-url code="sponsor.invoice.form.label.link" path="link"/>
 	<acme:input-select code="sponsor.invoice.form.label.sponsorship" path="sponsorship"  choices="${sponsorships}"/>
