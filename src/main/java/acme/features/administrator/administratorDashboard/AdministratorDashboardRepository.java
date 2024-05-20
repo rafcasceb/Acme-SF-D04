@@ -31,7 +31,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select count(n) from Notice n")
 	int totalNumberNotices();
 
-	@Query("select count(n) from Notice n where n.email != null and n.link != null")
+	@Query("select count(n) from Notice n where n.email is not null and n.link is not null")
 	int totalNumberNoticesWithBothEmailAndLink();
 
 	@Query("select count(o) from Objective o")

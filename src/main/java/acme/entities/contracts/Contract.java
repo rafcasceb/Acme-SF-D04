@@ -5,7 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -26,6 +28,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "code"), @Index(columnList = "id,code"), @Index(columnList = "published"), @Index(columnList = "client_id,budget_currency")
+})
 public class Contract extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------

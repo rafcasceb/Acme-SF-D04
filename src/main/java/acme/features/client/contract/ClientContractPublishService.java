@@ -93,9 +93,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			super.state(isCodeUnique == null, "code", "client.contract.form.error.duplicate");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "client.contract.form.error.already-published");
-
 		Collection<ProgressLog> pl;
 		pl = this.repository.findManyProgressLogsByContractId(object.getId());
 		super.state(pl.stream().allMatch(ProgressLog::isPublished), "*", "validation.contract.publish.unpublished-progress-log");
