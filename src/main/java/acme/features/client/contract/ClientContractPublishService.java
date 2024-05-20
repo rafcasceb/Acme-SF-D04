@@ -113,7 +113,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			super.state(object.getBudget() != null && streamCurrencies.anyMatch(currency -> currency.trim().equals(object.getBudget().getCurrency())), "budget", "client.contract.form.error.currency");
 		}
 
-		if (object.getProject() != null) {
+		if (object.getProject() != null && object.getBudget() != null) {
 			Double contractsAmountFromSameProjectExceptMine = this.repository.findAmountContractsFromSameProjectExceptThis(object.getProject().getId(), object.getId());
 
 			if (contractsAmountFromSameProjectExceptMine == null && object.getProject() != null)
