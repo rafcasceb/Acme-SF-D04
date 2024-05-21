@@ -45,7 +45,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="/Spam_Detector"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Acme-Framework-24.4.0">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
