@@ -67,7 +67,12 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 
 	@Override
 	public void validate(final TrainingModule object) {
+
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(this.repository.countPublishedSessionsByModuleId(object.getId()) == 0, "code", "developer.training-module.form.error.delete-with-sessions-published");
+
 	}
 
 	@Override
