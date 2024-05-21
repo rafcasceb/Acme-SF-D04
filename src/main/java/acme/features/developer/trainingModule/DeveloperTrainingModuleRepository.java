@@ -46,4 +46,6 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 	@Query("select c from Configuration c")
 	Configuration findConfiguration();
 
+	@Query("SELECT COUNT(ts) FROM TrainingSession ts where ts.trainingModule.id = :id AND ts.published = true")
+	int countPublishedSessionsByModuleId(int id);
 }

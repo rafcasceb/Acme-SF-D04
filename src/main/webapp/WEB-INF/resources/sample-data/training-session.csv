@@ -10,7 +10,7 @@ session-08,TS-IJK-563,2020/04/04 14:35,2200/12/31 23:59,This is a test text,This
 session-09,TS-IJK-582,2020/04/04 14:35,2020/02/29 00:00,This is a test text,This is a test text,test@gmail.com,https://example.es,false,module-19
 session-10,TS-IJK-547,2020/04/04 14:35,2020/12/31 23:59,This is a test text,This is a test text,test@gmail.com,https://example.es,false,module-19
 session-11,TS-IJK-557,2020/04/04 14:35,2021/01/01 00:00,This is a test text,This is a test text,test@gmail.com,https://example.es,false,module-19
-session-12,TS-ABC-123,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.es,false,module-01
+session-12,TS-ABC-123,2020/04/04 14:35,2020/04/14 14:35,This is a test text,This is a test text,test@gmail.com,https://example.es,true,module-01
 session-13,TS-XYZ-456,2020/04/04 14:35,2020/04/14 14:35,السلام عليكم ورحمة الله وبركاته. كيف حالكم اليوم؟,This is a test text,test@gmail.com,https://example.es,false,module-02
 session-14,TS-DEF-789,2020/04/04 14:35,2020/04/14 14:35,Привет! Как дела? Надеюсь,This is a test text,test@gmail.com,https://example.es,false,module-03
 session-15,TS-LMN-012,2020/04/04 14:35,2020/04/14 14:35,你好！今天天气很好 你想做些什么？,This is a test text,test@gmail.com,https://example.es,false,module-04
