@@ -48,3 +48,4 @@ sponsor.sponsorship.form.error.currencyChange = Cannot change currency with publ
 sponsor.sponsorship.form.error.dateOutOfBounds = All dates must be prior to 2201/01/01 00:00
 sponsor.sponsorship.form.error.currencyNotSupported = That currency is not supported by the system
 sponsor.sponsorship.form.error.startDateBeforeEndDate = Start date must be before End date
+sponsor.sponsorship.form.error.startDateOutOfBounds = Start dates must be prior to 2200/12/25 00:00

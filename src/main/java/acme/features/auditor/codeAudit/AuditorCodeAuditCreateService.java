@@ -12,13 +12,13 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.components.EnumMode;
+import acme.components.SpamDetector;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
 import acme.entities.audits.Mark;
 import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
 import acme.roles.Auditor;
-import spam_detector.SpamDetector;
 
 @Service
 public class AuditorCodeAuditCreateService extends AbstractService<Auditor, CodeAudit> {

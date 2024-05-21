@@ -78,13 +78,17 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		assert object != null;
 		double total = 0.0;
 
-		if (!super.getBuffer().getErrors().hasErrors("sponsorship")) {
-			Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorshipId(object.getSponsorship().getId());
-			for (Invoice invoice : invoices)
-				if (invoice.isPublished())
-					total += invoice.getValue().getAmount();
+		if (!super.getBuffer().getErrors().hasErrors("quantity")) {
+			Sponsorship sponsorship = object.getSponsorship();
 
-			super.state(total + object.getValue().getAmount() <= object.getSponsorship().getAmount().getAmount(), "sponsorship", "invoice.sponsorship.form.error.amount");
+			if (sponsorship != null) {
+				Collection<Invoice> invoices = this.repository.findAllInvoicesBySponsorshipId(sponsorship.getId());
+				for (Invoice invoice : invoices)
+					if (invoice.isPublished())
+						total += invoice.getValue().getAmount();
+
+				super.state(total + object.getValue().getAmount() <= object.getSponsorship().getAmount().getAmount(), "sponsorship", "invoice.sponsorship.form.error.amount");
+			}
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
@@ -98,8 +102,10 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Invoice invoiceSameCode;
 			invoiceSameCode = this.repository.findInvoiceByCode(object.getCode());
-			int id = invoiceSameCode.getId();
-			super.state(id == object.getId() || invoiceSameCode == null, "code", "sponsor.invoice.form.error.duplicate");
+			if (invoiceSameCode != null) {
+				int id = invoiceSameCode.getId();
+				super.state(id == object.getId(), "code", "sponsor.invoice.form.error.duplicate");
+			}
 		}
 
 		if (object.getDueDate() != null) {
@@ -121,13 +127,13 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 			super.state(object.isPublished() == false, "sponsorship", "sponsor.invoice.form.error.published");
 
 		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
-			super.state(object.getSponsorship() != null && object.getQuantity().getAmount() <= 1000000.00 && object.getQuantity().getAmount() >= 0.00, "quantity", "sponsor.invoice.form.error.amountOutOfBounds");
+			super.state(object.getQuantity() != null && object.getQuantity().getAmount() <= 1000000.00 && object.getQuantity().getAmount() >= 0.00, "quantity", "sponsor.invoice.form.error.amountOutOfBounds");
 
 		if (!super.getBuffer().getErrors().hasErrors("quanitity"))
 			super.state(object.getQuantity() != null && acceptedCurrencyList.contains(object.getQuantity().getCurrency()), "quantity", "sponsor.invoice.form.error.currencyNotSupported");
 
 		if (!super.getBuffer().getErrors().hasErrors("quantity"))
-			super.state(object.getSponsorship() != null && object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");
+			super.state(object.getQuantity() != null && object.getSponsorship() != null && object.getQuantity().getCurrency().equals(object.getSponsorship().getAmount().getCurrency()), "quantity", "sponsor.invoice.form.error.currency");
 
 	}
 
