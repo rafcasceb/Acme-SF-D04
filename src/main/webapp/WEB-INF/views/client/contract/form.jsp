@@ -21,9 +21,6 @@
 	<acme:input-textbox code="client.contract.form.label.customerName" path="customerName"/>
 	<acme:input-textbox code="client.contract.form.label.goals" path="goals"/>
 	<acme:input-money code="client.contract.form.label.budget" path="budget"/>
-	<jstl:if test="${_command == 'show'}">
-		<acme:input-money code="client.contract.form.label.budget-default" path="budgetDefault" readonly="true" placeholder="N/A"/>
-	</jstl:if>
 	<acme:input-select code="client.contract.form.label.project" path="project" choices="${projects}"/>
 	
 	<jstl:choose>

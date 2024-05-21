@@ -72,9 +72,4 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 		this.repository.delete(object);
 	}
 
-	@Override
-	public void unbind(final Contract object) {
-
-	}
-
 }
