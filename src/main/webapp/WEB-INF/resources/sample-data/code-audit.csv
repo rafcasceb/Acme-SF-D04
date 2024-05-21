@@ -20,8 +20,6 @@ audit-18,false,ABC-018,2021/01/01 08:00,STATIC,Корректирующие де
 audit-19,false,ABC-019,2021/01/01 08:00,STATIC,監査01に対する是正措置。,https://example.com/project-01,project-01,auditor-02
 audit-20,false,ABC-020,2021/01/01 08:00,STATIC,الإجراءات التصحيحية للتدقيق,https://example.com/project-01,project-01,auditor-02
 audit-21,false,ABC-021,2021/01/01 08:00,STATIC,Corrective actions for audit 01.,,project-01,auditor-02
-audit-32,false,ABC-032,2021/01/01 08:00,STATIC,Corrective actions for audit 01.,https://a.com,project-01,auditor-02
-audit-33,false,ABC-033,2021/01/01 08:00,STATIC,Corrective actions for audit 01.,https://aa.com,project-01,auditor-02
 audit-22,false,ABC-022,2021/01/01 08:00,STATIC,Corrective actions for audit 01.,https://fillerURL.com/254characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,project-01,auditor-02
 audit-23,false,ABC-023,2021/01/01 08:00,STATIC,Corrective actions for audit 01.,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,project-01,auditor-02
 audit-24,false,ABC-024,2021/01/01 08:00,STATIC,Corrective actions for audit 01.,ftp://example.com/record,project-01,auditor-02
