@@ -26,7 +26,7 @@ public class SponsorInvoicePublishService extends AbstractService<Sponsor, Invoi
 	@Autowired
 	private SponsorInvoiceRepository repository;
 
-	// AbstractService<Auditor, CodeAudit> ---------------------------
+	// AbstractService interface ---------------------------
 
 
 	@Override
