@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.trainingmodule.TrainingModule;
 import acme.entities.trainingmodule.TrainingSession;
 import acme.roles.Developer;
-import spam_detector.SpamDetector;
 
 @Service
 public class DeveloperTrainingSessionPublishService extends AbstractService<Developer, TrainingSession> {

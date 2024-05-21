@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
 import acme.roles.Manager;
-import spam_detector.SpamDetector;
 
 @Service
 public class ManagerProjectUpdateService extends AbstractService<Manager, Project> {

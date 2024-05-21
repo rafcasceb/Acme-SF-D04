@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.projects.UserStory;
 import acme.entities.projects.UserStoryPriority;
 import acme.roles.Manager;
-import spam_detector.SpamDetector;
 
 @Service
 public class ManagerUserStoryUpdateService extends AbstractService<Manager, UserStory> {

@@ -11,13 +11,13 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
 import acme.entities.trainingmodule.DifficultyLevel;
 import acme.entities.trainingmodule.TrainingModule;
 import acme.entities.trainingmodule.TrainingSession;
 import acme.roles.Developer;
-import spam_detector.SpamDetector;
 
 @Service
 public class DeveloperTrainingModulePublishService extends AbstractService<Developer, TrainingModule> {

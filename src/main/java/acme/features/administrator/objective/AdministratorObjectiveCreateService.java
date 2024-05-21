@@ -12,10 +12,10 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.objectives.Objective;
 import acme.entities.objectives.ObjectiveStatus;
-import spam_detector.SpamDetector;
 
 @Service
 public class AdministratorObjectiveCreateService extends AbstractService<Administrator, Objective> {
