@@ -27,7 +27,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "reference"),
+	@Index(columnList = "reference")
 })
 public class Risk extends AbstractEntity {
 
