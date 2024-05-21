@@ -72,4 +72,6 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 		this.repository.delete(object);
 	}
 
+	// The unbind method is not override since it will never be called. There is no validation beyond the authorisation.
+
 }
