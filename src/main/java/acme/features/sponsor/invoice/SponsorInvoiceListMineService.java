@@ -23,7 +23,7 @@ import acme.entities.sponsorships.Invoice;
 import acme.roles.Sponsor;
 
 @Service
-public class SponsorInvoiceListService extends AbstractService<Sponsor, Invoice> {
+public class SponsorInvoiceListMineService extends AbstractService<Sponsor, Invoice> {
 
 	// Internal state ---------------------------------------------------------
 

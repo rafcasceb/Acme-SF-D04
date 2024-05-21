@@ -10,9 +10,9 @@ import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.risks.Risk;
-import spam_detector.SpamDetector;
 
 @Service
 public class AdministratorRiskCreateService extends AbstractService<Administrator, Risk> {
