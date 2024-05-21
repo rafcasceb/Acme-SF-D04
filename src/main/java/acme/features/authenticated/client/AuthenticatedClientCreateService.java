@@ -11,10 +11,10 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.roles.Client;
 import acme.roles.ClientType;
-import spam_detector.SpamDetector;
 
 @Service
 public class AuthenticatedClientCreateService extends AbstractService<Authenticated, Client> {

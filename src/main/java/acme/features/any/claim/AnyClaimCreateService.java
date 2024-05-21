@@ -10,9 +10,9 @@ import acme.client.data.accounts.Any;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.components.SpamDetector;
 import acme.entities.claims.Claim;
 import acme.entities.configuration.Configuration;
-import spam_detector.SpamDetector;
 
 @Service
 public class AnyClaimCreateService extends AbstractService<Any, Claim> {
