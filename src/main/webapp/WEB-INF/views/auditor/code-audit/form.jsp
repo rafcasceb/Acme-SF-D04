@@ -36,5 +36,8 @@
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="auditor.codeaudit.form.button.create" action="/auditor/code-audit/create"/>
 		</jstl:when>
+		<jstl:when test="${_command == 'show'}">
+			<acme:button code="auditor.codeaudit.form.button.auditrecords" action="/auditor/audit-record/list-for-code-audits?codeAuditId=${id}"/>
+		</jstl:when>
 	</jstl:choose>
 </acme:form>

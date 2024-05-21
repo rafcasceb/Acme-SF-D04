@@ -3,6 +3,8 @@ package acme.roles;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
@@ -15,6 +17,11 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "professionalid"), //
+	@Index(columnList = "professionalid, id"), //
+	@Index(columnList = "user_account_id")
+})
 public class Auditor extends AbstractRole {
 
 	// Serialisation identifier -----------------------------------------------

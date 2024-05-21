@@ -1,17 +1,12 @@
 
 package acme.features.auditor.auditRecord;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.client.views.SelectChoices;
 import acme.entities.audits.AuditRecord;
 import acme.entities.audits.CodeAudit;
-import acme.entities.audits.Mark;
 import acme.roles.Auditor;
 
 @Service
@@ -70,12 +65,6 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	public void validate(final AuditRecord object) {
 		assert object != null;
 
-		if (!super.getBuffer().getErrors().hasErrors("audit"))
-			super.state(!object.getAudit().isPublished(), "audit", "validation.auditrecord.published.audit-is-published");
-
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "validation.auditrecord.published");
-
 	}
 
 	@Override
@@ -89,23 +78,6 @@ public class AuditorAuditRecordDeleteService extends AbstractService<Auditor, Au
 	public void unbind(final AuditRecord object) {
 		assert object != null;
 
-		int auditorId;
-		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
-
-		SelectChoices choices;
-		SelectChoices codeAudits;
-		Dataset dataset;
-
-		Collection<CodeAudit> allCodeAudits = this.repository.findAllMyCodeAudits(auditorId);
-		codeAudits = SelectChoices.from(allCodeAudits, "code", object.getAudit());
-		choices = SelectChoices.from(Mark.class, object.getMark());
-
-		dataset = super.unbind(object, "code", "published", "link", "mark", "initialMoment", "finalMoment");
-		dataset.put("audit", codeAudits.getSelected().getKey());
-		dataset.put("codeaudits", codeAudits);
-		dataset.put("marks", choices);
-
-		super.getResponse().addData(dataset);
 	}
 
 }
