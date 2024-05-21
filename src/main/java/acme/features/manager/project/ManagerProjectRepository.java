@@ -14,7 +14,7 @@ import acme.entities.projects.Project;
 import acme.entities.projects.ProjectUserStory;
 import acme.entities.projects.UserStory;
 import acme.entities.sponsorships.Sponsorship;
-import acme.entities.trainingmodule.TrainingModule;
+import acme.entities.trainingModule.TrainingModule;
 import acme.roles.Manager;
 
 @Repository

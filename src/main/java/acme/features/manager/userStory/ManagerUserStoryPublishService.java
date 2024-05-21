@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.components.SpamDetector;
+import acme.client.views.SelectChoices;
 import acme.entities.configuration.Configuration;
 import acme.entities.projects.UserStory;
+import acme.entities.projects.UserStoryPriority;
 import acme.roles.Manager;
 
 @Service
@@ -86,9 +88,12 @@ public class ManagerUserStoryPublishService extends AbstractService<Manager, Use
 	public void unbind(final UserStory object) {
 		assert object != null;
 
+		SelectChoices choices;
 		Dataset dataset;
 
+		choices = SelectChoices.from(UserStoryPriority.class, object.getPriority());
 		dataset = super.unbind(object, "published", "title", "description", "estimatedCostInHours", "acceptanceCriteria", "priority", "link");
+		dataset.put("priorities", choices);
 
 		super.getResponse().addData(dataset);
 	}

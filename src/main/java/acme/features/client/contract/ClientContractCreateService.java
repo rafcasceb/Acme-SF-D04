@@ -88,11 +88,12 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 			super.state(object.getBudget().getAmount() <= 1000000., "budget", "client.contract.form.error.budgetRange");
 
-		String currencies = this.repository.findAcceptedCurrencies();
-		String[] acceptedCurrencies = currencies.split(",");
-		Stream<String> streamCurrencies = Arrays.stream(acceptedCurrencies);
-		if (!super.getBuffer().getErrors().hasErrors("budget"))
-			super.state(object.getBudget() != null && streamCurrencies.anyMatch(currency -> currency.equals(object.getBudget().getCurrency())), "budget", "client.contract.form.error.currency");
+		if (!super.getBuffer().getErrors().hasErrors("budget")) {
+			String currencies = this.repository.findAcceptedCurrencies();
+			String[] acceptedCurrencies = currencies.split(",");
+			Stream<String> streamCurrencies = Arrays.stream(acceptedCurrencies);
+			super.state(object.getBudget() != null && streamCurrencies.anyMatch(currency -> currency.trim().equals(object.getBudget().getCurrency())), "budget", "client.contract.form.error.currency");
+		}
 
 		if (!super.getBuffer().getErrors().hasErrors("providerName"))
 			super.state(!spamHelper.isSpam(object.getProviderName()), "providerName", "client.contract.form.error.spam");

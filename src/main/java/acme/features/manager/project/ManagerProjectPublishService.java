@@ -70,9 +70,6 @@ public class ManagerProjectPublishService extends AbstractService<Manager, Proje
 		if (!super.getBuffer().getErrors().hasErrors("fatalErrorPresent"))
 			super.state(!object.isFatalErrorPresent(), "fatalErrorPresent", "manager.project.form.error.fatal-errors");
 
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "manager.project.form.error.already-published");
-
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Project projectSameCode;
 			Boolean isCodeUsedByAnotherProject;

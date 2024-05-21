@@ -89,9 +89,6 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 			ProgressLog isCodeUnique;
 			isCodeUnique = this.repository.findProgressLogByCodeDifferentId(object.getRecordId(), object.getId());
 			super.state(isCodeUnique == null, "recordId", "validation.progresslog.code.duplicate");
-
-			if (!super.getBuffer().getErrors().hasErrors("published"))
-				super.state(!object.isPublished(), "published", "validation.progresslog.published");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("comment"))

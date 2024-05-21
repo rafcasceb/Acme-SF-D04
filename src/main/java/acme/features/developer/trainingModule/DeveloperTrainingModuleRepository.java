@@ -9,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
-import acme.entities.trainingmodule.TrainingModule;
-import acme.entities.trainingmodule.TrainingSession;
+import acme.entities.trainingModule.TrainingModule;
+import acme.entities.trainingModule.TrainingSession;
 import acme.roles.Developer;
 
 @Repository
@@ -46,4 +46,6 @@ public interface DeveloperTrainingModuleRepository extends AbstractRepository {
 	@Query("select c from Configuration c")
 	Configuration findConfiguration();
 
+	@Query("SELECT COUNT(ts) FROM TrainingSession ts where ts.trainingModule.id = :id AND ts.published = true")
+	int countPublishedSessionsByModuleId(int id);
 }
