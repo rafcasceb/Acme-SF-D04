@@ -30,7 +30,8 @@ import lombok.Setter;
 @Setter
 @Table(indexes = {
 	@Index(columnList = "code"), //
-	@Index(columnList = "code, id")
+	@Index(columnList = "code, id"), //
+	@Index(columnList = "published")
 })
 public class CodeAudit extends AbstractEntity {
 
