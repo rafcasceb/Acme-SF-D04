@@ -28,7 +28,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Autowired
 	private SponsorSponsorshipRepository repository;
 
-	// AbstractService<Auditor, CodeAudit> ---------------------------
+	// AbstractService interface ---------------------------
 
 
 	@Override

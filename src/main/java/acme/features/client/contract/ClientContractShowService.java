@@ -21,7 +21,7 @@ public class ClientContractShowService extends AbstractService<Client, Contract>
 	@Autowired
 	private ClientContractRepository repository;
 
-	// AbstractService<Auditor, CodeAudit> ---------------------------
+	// AbstractService interface ---------------------------
 
 
 	@Override
