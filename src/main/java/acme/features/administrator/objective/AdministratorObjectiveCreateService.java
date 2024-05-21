@@ -68,6 +68,9 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 		String dateString = "2201/01/01 00:00";
 		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
 
+		String dateString2 = "2200/12/31 23:00";
+		Date futureMostDateForStartDate = MomentHelper.parse(dateString2, "yyyy/MM/dd HH:mm");
+
 		if (!super.getBuffer().getErrors().hasErrors("confirmation")) {
 			boolean confirmation;
 			confirmation = super.getRequest().getData("confirmation", boolean.class);
@@ -82,6 +85,9 @@ public class AdministratorObjectiveCreateService extends AbstractService<Adminis
 
 		if (!super.getBuffer().getErrors().hasErrors("startDate"))
 			super.state(object.getEndDate() != null && object.getStartDate() != null && MomentHelper.isBefore(object.getStartDate(), object.getEndDate()), "startDate", "validation.objective.form.error.startDateBeforeEndDate");
+
+		if (!super.getBuffer().getErrors().hasErrors("startDate"))
+			super.state(object.getStartDate() != null && MomentHelper.isBefore(object.getStartDate(), futureMostDateForStartDate), "startDate", "validation.objective.form.error.startDateBeforeEndDateOneHour");
 
 		if (!super.getBuffer().getErrors().hasErrors("endDate"))
 			super.state(object.getEndDate() != null && MomentHelper.isAfter(object.getEndDate(), instantiationMoment), "endDate", "validation.objective.moment.endDate");

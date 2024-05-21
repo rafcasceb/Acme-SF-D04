@@ -14,8 +14,8 @@ import acme.client.views.SelectChoices;
 import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
-import acme.entities.trainingmodule.DifficultyLevel;
-import acme.entities.trainingmodule.TrainingModule;
+import acme.entities.trainingModule.DifficultyLevel;
+import acme.entities.trainingModule.TrainingModule;
 import acme.roles.Developer;
 
 @Service
@@ -113,7 +113,7 @@ public class DeveloperTrainingModuleUpdateService extends AbstractService<Develo
 		choices = SelectChoices.from(DifficultyLevel.class, object.getDifficultyLevel());
 		projects = this.repository.findManyProjects();
 		projectsChoices = SelectChoices.from(projects, "code", object.getProject());
-		dataset = super.unbind(object, "code", "details", "difficultyLevel", "link", "estimatedTotalTime", "published", "project");
+		dataset = super.unbind(object, "code", "details", "difficultyLevel", "link", "estimatedTotalTime", "published", "project", "creationMoment");
 		dataset.put("difficultyLevels", choices);
 		dataset.put("project", projectsChoices.getSelected().getKey());
 		dataset.put("projects", projectsChoices);

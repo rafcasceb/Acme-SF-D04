@@ -6,8 +6,8 @@ import org.springframework.stereotype.Service;
 
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
-import acme.entities.trainingmodule.TrainingModule;
-import acme.entities.trainingmodule.TrainingSession;
+import acme.entities.trainingModule.TrainingModule;
+import acme.entities.trainingModule.TrainingSession;
 import acme.roles.Developer;
 
 @Service
@@ -52,7 +52,6 @@ public class DeveloperTrainingSessionShowService extends AbstractService<Develop
 
 		dataset = super.unbind(object, "code", "startDate", "endDate", "location", "instructor", "email", "link", "published");
 		dataset.put("masterId", object.getTrainingModule().getId());
-		//dataset.put("published", object.getTrainingModule().isPublished());
 
 		super.getResponse().addData(dataset);
 	}

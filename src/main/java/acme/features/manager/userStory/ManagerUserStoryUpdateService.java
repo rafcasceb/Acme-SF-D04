@@ -66,9 +66,6 @@ public class ManagerUserStoryUpdateService extends AbstractService<Manager, User
 		Double spamThreshold = config.getSpamThreshold();
 		SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
 
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "manager.user-story.form.error.already-published");
-
 		if (!super.getBuffer().getErrors().hasErrors("title"))
 			super.state(!spamHelper.isSpam(object.getTitle()), "title", "manager.user-story.form.error.spam");
 

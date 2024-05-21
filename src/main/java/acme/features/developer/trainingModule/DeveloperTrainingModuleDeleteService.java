@@ -10,9 +10,9 @@ import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.entities.projects.Project;
-import acme.entities.trainingmodule.DifficultyLevel;
-import acme.entities.trainingmodule.TrainingModule;
-import acme.entities.trainingmodule.TrainingSession;
+import acme.entities.trainingModule.DifficultyLevel;
+import acme.entities.trainingModule.TrainingModule;
+import acme.entities.trainingModule.TrainingSession;
 import acme.roles.Developer;
 
 @Service
@@ -67,7 +67,12 @@ public class DeveloperTrainingModuleDeleteService extends AbstractService<Develo
 
 	@Override
 	public void validate(final TrainingModule object) {
+
 		assert object != null;
+
+		if (!super.getBuffer().getErrors().hasErrors("code"))
+			super.state(this.repository.countPublishedSessionsByModuleId(object.getId()) == 0, "code", "developer.training-module.form.error.delete-with-sessions-published");
+
 	}
 
 	@Override

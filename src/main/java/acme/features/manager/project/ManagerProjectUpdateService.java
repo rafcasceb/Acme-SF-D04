@@ -64,9 +64,6 @@ public class ManagerProjectUpdateService extends AbstractService<Manager, Projec
 		Double spamThreshold = config.getSpamThreshold();
 		SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
 
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(!object.isPublished(), "published", "manager.project.form.error.already-published");
-
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			Project projectSameCode;
 			Boolean isCodeUsedByAnotherProject;

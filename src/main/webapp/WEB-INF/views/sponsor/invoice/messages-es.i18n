@@ -24,6 +24,7 @@ sponsor.invoice.form.label.moment = Fecha de Creación
 sponsor.invoice.form.label.startDate = Fecha de Inicialización
 sponsor.invoice.form.label.dueDate = Vencimiento
 sponsor.invoice.form.label.quantity = Cantidad
+sponsor.invoice.form.label.quantity-default = Cantidad (moneda del sistema)
 sponsor.invoice.form.label.tax = Impuesto
 sponsor.invoice.form.label.link = Link
 sponsor.invoice.form.label.email = Email

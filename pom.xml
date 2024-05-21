@@ -37,9 +37,4 @@
 		<version>24.4.0</version>
 		<relativePath>../../pom-24.4.0.xml</relativePath>
 	</parent>
-
-  
-	<dependencies>
-
-	</dependencies>
 </project>
