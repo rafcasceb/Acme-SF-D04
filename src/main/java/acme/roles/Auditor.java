@@ -19,8 +19,7 @@ import lombok.Setter;
 @Setter
 @Table(indexes = {
 	@Index(columnList = "professionalid"), //
-	@Index(columnList = "professionalid, id"), //
-	@Index(columnList = "user_account_id")
+	@Index(columnList = "professionalid, id")
 })
 public class Auditor extends AbstractRole {
 
