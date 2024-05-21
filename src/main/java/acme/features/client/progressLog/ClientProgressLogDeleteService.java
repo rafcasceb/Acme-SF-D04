@@ -73,9 +73,4 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 		this.repository.delete(object);
 	}
 
-	@Override
-	public void unbind(final ProgressLog object) {
-
-	}
-
 }
