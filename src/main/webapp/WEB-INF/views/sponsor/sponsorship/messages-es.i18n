@@ -47,3 +47,4 @@ sponsor.sponsorship.form.error.deleteWithPublishedInvoices = Imposible borrar un
 sponsor.sponsorship.form.error.dateOutOfBounds = Todas las fechas deben ser anteriores a 2201/01/01 00:00
 sponsor.sponsorship.form.error.currencyNotSupported = La divisa elegida no cuenta con soporte en este sistema.
 sponsor.sponsorship.form.error.startDateBeforeEndDate = La fecha de inicio debe ser anterior a la de fin
+sponsor.sponsorship.form.error.startDateOutOfBounds = La fecha de inicio debe ser anterior a 2200/12/25 00:00

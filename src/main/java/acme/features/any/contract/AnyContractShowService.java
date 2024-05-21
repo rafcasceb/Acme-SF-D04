@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Any;
-import acme.client.data.datatypes.Money;
 import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.components.moneyExchange.MoneyExchangePerformer;
 import acme.entities.contracts.Contract;
 import acme.entities.projects.Project;
 
@@ -21,9 +19,7 @@ public class AnyContractShowService extends AbstractService<Any, Contract> {
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AnyContractRepository	repository;
-	@Autowired
-	private MoneyExchangePerformer	moneyExchangePerformer;
+	private AnyContractRepository repository;
 
 	// AbstractService interface ----------------------------------------------
 
@@ -58,16 +54,13 @@ public class AnyContractShowService extends AbstractService<Any, Contract> {
 
 		SelectChoices projects;
 		Dataset dataset;
-		Money budgetDefault;
 
 		Collection<Project> unpublishedProjects = this.repository.findAllProjects();
 		projects = SelectChoices.from(unpublishedProjects, "code", object.getProject());
-		budgetDefault = this.moneyExchangePerformer.performMoneyExchangeToDefault(object.getBudget());
 
 		dataset = super.unbind(object, "code", "providerName", "customerName", "goals", "budget", "published");
 		dataset.put("project", projects.getSelected().getKey());
 		dataset.put("projects", projects);
-		dataset.put("budgetDefault", budgetDefault);
 
 		super.getResponse().addData(dataset);
 	}

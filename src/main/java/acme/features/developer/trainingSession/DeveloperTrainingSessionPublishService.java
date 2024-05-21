@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.trainingModule.TrainingModule;
 import acme.entities.trainingModule.TrainingSession;
 import acme.roles.Developer;
-import spam_detector.SpamDetector;
 
 @Service
 public class DeveloperTrainingSessionPublishService extends AbstractService<Developer, TrainingSession> {
@@ -60,7 +60,7 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 		assert object != null;
 		String dateString = "2201/01/01 00:00";
 		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
-		Date startMaximumDate = MomentHelper.parse("2200/12/25 00:00", "yyyy/MM/dd HH:mm");
+		Date startMaximumDate = MomentHelper.parse("2200/12/24 23:59", "yyyy/MM/dd HH:mm");
 
 		if (!super.getBuffer().getErrors().hasErrors("code")) {
 			TrainingSession existing;
@@ -78,9 +78,13 @@ public class DeveloperTrainingSessionPublishService extends AbstractService<Deve
 			if (!super.getBuffer().getErrors().hasErrors("startDate")) {
 				TrainingModule module;
 				int id;
+				Date minimumStart;
 				id = super.getRequest().getData("id", int.class);
 				module = this.repository.findOneTrainingModuleByTrainingSessionId(id);
-				super.state(MomentHelper.isAfter(object.getStartDate(), module.getCreationMoment()), "startDate", "developer.training-session.form.error.creation-moment-invalid");
+
+				minimumStart = MomentHelper.deltaFromMoment(module.getCreationMoment(), 7, ChronoUnit.DAYS);
+
+				super.state(MomentHelper.isAfter(object.getStartDate(), minimumStart), "startDate", "developer.training-session.form.error.creation-moment-invalid");
 			}
 			if (object.getEndDate() != null) {
 

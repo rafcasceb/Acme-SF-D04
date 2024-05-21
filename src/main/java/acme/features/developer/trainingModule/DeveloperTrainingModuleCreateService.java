@@ -11,12 +11,12 @@ import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.projects.Project;
 import acme.entities.trainingModule.DifficultyLevel;
 import acme.entities.trainingModule.TrainingModule;
 import acme.roles.Developer;
-import spam_detector.SpamDetector;
 
 @Service
 public class DeveloperTrainingModuleCreateService extends AbstractService<Developer, TrainingModule> {
@@ -75,9 +75,6 @@ public class DeveloperTrainingModuleCreateService extends AbstractService<Develo
 			existing = this.repository.findOneTrainingModuleByCode(object.getCode());
 			super.state(existing == null || existing.equals(object), "code", "developer.training-module.form.error.duplicated");
 		}
-
-		if (object.getUpdateMoment() != null && !super.getBuffer().getErrors().hasErrors("updateMoment"))
-			super.state(MomentHelper.isAfter(object.getUpdateMoment(), object.getCreationMoment()), "updateMoment", "developer.trainingModule.form.error.not-after");
 
 		if (!super.getBuffer().getErrors().hasErrors("details")) {
 			Configuration config = this.repository.findConfiguration();

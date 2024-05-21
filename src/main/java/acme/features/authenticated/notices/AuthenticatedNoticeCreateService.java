@@ -10,9 +10,9 @@ import acme.client.data.accounts.Authenticated;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
+import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.notices.Notice;
-import spam_detector.SpamDetector;
 
 @Service
 public class AuthenticatedNoticeCreateService extends AbstractService<Authenticated, Notice> {
