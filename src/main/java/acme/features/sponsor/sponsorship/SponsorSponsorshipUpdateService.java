@@ -124,9 +124,6 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 				super.state(acceptedCurrencyList.contains(object.getAmount().getCurrency()), "amount", "sponsor.sponsorship.form.error.currencyNotSupported");
 		}
 
-		if (!super.getBuffer().getErrors().hasErrors("published"))
-			super.state(object.isPublished() == false, "code", "sponsor.sponsorship.form.error.published");
-
 	}
 
 	@Override
