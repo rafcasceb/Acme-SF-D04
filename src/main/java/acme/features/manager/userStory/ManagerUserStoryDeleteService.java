@@ -71,6 +71,6 @@ public class ManagerUserStoryDeleteService extends AbstractService<Manager, User
 		this.repository.delete(object);
 	}
 
-	// The unbind method is not overrode since it will never be called. There is no validation beyond the authorisation.
+	// The unbind method is not override since it will never be called. There is no validation beyond the authorisation.
 
 }

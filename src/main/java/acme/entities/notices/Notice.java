@@ -4,6 +4,8 @@ package acme.entities.notices;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
@@ -21,6 +23,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "email, link"), @Index(columnList = "instantiationMoment"),
+})
 public class Notice extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
