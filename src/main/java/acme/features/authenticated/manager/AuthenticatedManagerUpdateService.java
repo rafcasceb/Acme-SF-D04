@@ -9,6 +9,8 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
+import acme.components.SpamDetector;
+import acme.entities.configuration.Configuration;
 import acme.roles.Manager;
 
 @Service
@@ -50,6 +52,20 @@ public class AuthenticatedManagerUpdateService extends AbstractService<Authentic
 	@Override
 	public void validate(final Manager object) {
 		assert object != null;
+
+		Configuration config = this.repository.findConfiguration();
+		String spamTerms = config.getSpamTerms();
+		Double spamThreshold = config.getSpamThreshold();
+		SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+
+		if (!super.getBuffer().getErrors().hasErrors("degree"))
+			super.state(!spamHelper.isSpam(object.getDegree()), "degree", "authenticated.manager.form.error.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("overview"))
+			super.state(!spamHelper.isSpam(object.getOverview()), "overview", "authenticated.manager.form.error.spam");
+
+		if (!super.getBuffer().getErrors().hasErrors("certifications"))
+			super.state(!spamHelper.isSpam(object.getCertifications()), "certifications", "authenticated.manager.form.error.spam");
 	}
 
 	@Override
