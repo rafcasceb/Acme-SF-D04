@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.data.accounts.Administrator;
-import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.banners.Banner;
 
@@ -51,14 +50,6 @@ public class AdministratorBannerDeleteService extends AbstractService<Administra
 	public void perform(final Banner object) {
 		assert object != null;
 		this.repository.delete(object);
-	}
-
-	@Override
-	public void unbind(final Banner object) {
-		assert object != null;
-		Dataset dataset;
-		dataset = super.unbind(object, "moment", "displayStartMoment", "displayEndMoment", "picture", "slogan", "target");
-		super.getResponse().addData(dataset);
 	}
 
 }
