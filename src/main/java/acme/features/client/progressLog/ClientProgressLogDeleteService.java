@@ -73,4 +73,5 @@ public class ClientProgressLogDeleteService extends AbstractService<Client, Prog
 		this.repository.delete(object);
 	}
 
+	// The unbind method is not override since it will never be called. There is no validation beyond the authorisation.
 }
