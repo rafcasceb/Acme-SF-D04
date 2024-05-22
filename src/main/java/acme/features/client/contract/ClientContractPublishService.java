@@ -28,7 +28,7 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 	@Autowired
 	private ClientContractRepository repository;
 
-	// AbstractService<Auditor, CodeAudit> ---------------------------
+	// AbstractService interface ---------------------------
 
 
 	@Override

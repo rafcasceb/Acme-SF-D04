@@ -17,3 +17,5 @@ authenticated.manager.form.label.link = Enlace
 
 authenticated.manager.form.button.create = Registrar
 authenticated.manager.form.button.update = Actualizar
+
+authenticated.manager.form.error.spam = Spam detectado
