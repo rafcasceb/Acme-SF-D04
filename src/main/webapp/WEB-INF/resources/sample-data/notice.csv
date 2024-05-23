@@ -15,7 +15,7 @@ notice-13,2021/02/13 19:39,هذه رسالة نصية,This is a test notice,john
 notice-14,2021/02/13 19:39,यह एक टेक्स्ट संदेश है,This is a test notice,johndoe@gmail.com,https://google.com,John Doe
 notice-15,2021/02/13 19:39,这是一条短信,This is a test notice,johndoe@gmail.com,https://google.com,John Doe
 notice-16,2021/02/13 19:39,これはテキストメッセージです,This is a test notice,johndoe@gmail.com,https://google.com,John Doe
-notice-42,2021/02/13 19:39,console.log("This is a test notice!"),This is a test notice,johndoe@gmail.com,https://google.com,John Doe
+notice-42,2021/02/13 19:39,<button onclick="showAlert()">Alert</button>,This is a test notice,johndoe@gmail.com,https://google.com,John Doe
 notice-43,2021/02/13 19:39,' OR '1,This is a test notice,johndoe@gmail.com,https://google.com,John Doe
 notice-17,2000/01/01 00:00,Test title,T,johndoe@gmail.com,https://google.com,John Doe
 notice-18,2000/01/01 00:00,Test title,Th,johndoe@gmail.com,https://google.com,John Doe
@@ -27,7 +27,7 @@ notice-23,2021/02/13 19:39,Test title,यह एक टेक्स्ट सं
 notice-24,2021/02/13 19:39,Test title,这是一条短信,johndoe@gmail.com,https://google.com,John Doe
 notice-25,2021/02/13 19:39,Test title,これはテキストメッセージです,johndoe@gmail.com,https://google.com,John Doe
 notice-26,2021/02/13 19:39,Test title,This is a test notice,johndoe@gmail.com,https://google.com,John Doe
-notice-27,2021/02/13 19:39,Test title,console.log("This is a test notice!");,johndoe@gmail.com,https://google.com,John Doe
+notice-27,2021/02/13 19:39,Test title,<button onclick="showAlert()">Alert</button>;,johndoe@gmail.com,https://google.com,John Doe
 notice-28,2021/02/13 19:39,Test title,<title>This is a test notice</title>,johndoe@gmail.com,https://google.com,John Doe
 notice-44,2021/02/13 19:39,Test title,' OR '1,johndoe@gmail.com,https://google.com,John Doe
 notice-29,2021/02/13 19:39,Test title,This is a test notice,,https://google.com,John Doe
@@ -48,5 +48,5 @@ notice-46,2021/02/13 19:39,Test title,This is a test notice,johndoe@yahoo.com,ht
 notice-47,2021/02/13 19:39,Test title,This is a test notice,johndoe@yahoo.com,https://google.com,यह एक टेक्स्ट संदेश है
 notice-48,2021/02/13 19:39,Test title,This is a test notice,johndoe@yahoo.com,https://google.com,这是一条短信
 notice-49,2021/02/13 19:39,Test title,This is a test notice,johndoe@yahoo.com,https://google.com,これはテキストメッセージです
-notice-50,2021/02/13 19:39,Test title,This is a test notice,johndoe@yahoo.com,https://google.com,console.log("This is a test notice!")
+notice-50,2021/02/13 19:39,Test title,This is a test notice,johndoe@yahoo.com,https://google.com,<button onclick="showAlert()">Alert</button>
 notice-51,2021/02/13 19:39,Test title,This is a test notice,johndoe@yahoo.com,https://google.com,' OR '1
