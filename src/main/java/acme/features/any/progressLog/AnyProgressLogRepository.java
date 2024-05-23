@@ -13,7 +13,7 @@ import acme.entities.contracts.ProgressLog;
 @Repository
 public interface AnyProgressLogRepository extends AbstractRepository {
 
-	@Query("select p from ProgressLog p where p.contract.id = :contractId")
+	@Query("select p from ProgressLog p where p.contract.id = :contractId and p.published = true")
 	Collection<ProgressLog> findManyProgressLogsByContractId(int contractId);
 
 	@Query("select c from Contract c where c.id = :contractId")
