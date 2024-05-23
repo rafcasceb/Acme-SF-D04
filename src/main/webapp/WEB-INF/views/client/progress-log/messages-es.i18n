@@ -30,6 +30,6 @@ client.progresslog.form.button.delete = Eliminar
 client.progresslog.form.button.publish = Publicar
 
 validation.progresslog.code.duplicate = Este codigo ya está en uso
-validation.progresslog.published.contract-is-published = Este contrato ya está publicado
+validation.progresslog.published.contract-isnot-published = Este contrato no está aún publicado. Elija uno publicado
 validation.progresslog.published = Este registro de progreso ya ha sido publicado
 client.progresslog.form.error.spam = Spam detectado
