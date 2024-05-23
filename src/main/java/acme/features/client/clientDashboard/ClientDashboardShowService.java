@@ -47,6 +47,8 @@ public class ClientDashboardShowService extends AbstractService<Client, ClientDa
 		percentil4 = this.repository.fourthPercentileProgressLogCompleteness(clientId);
 		avgBudget = this.repository.avgAmountBudget(clientId, defaultCurrency);
 		stddevBudget = this.repository.stddevAmountBudget(clientId, defaultCurrency);
+		if (stddevBudget == 0.)
+			stddevBudget = null;
 		maxBudget = this.repository.maxAmountBudget(clientId, defaultCurrency);
 		minBudget = this.repository.minAmountBudget(clientId, defaultCurrency);
 
