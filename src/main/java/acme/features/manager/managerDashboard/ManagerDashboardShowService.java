@@ -46,11 +46,23 @@ public class ManagerDashboardShowService extends AbstractService<Manager, Manage
 		managerId = super.getRequest().getPrincipal().getActiveRoleId();
 		totalNumberUserStoriesByPriority = this.repository.totalNumberUserStoriesByPriority(managerId);
 		averageEstimatedCostUserStories = this.repository.averageEstimatedCostUserStories(managerId);
-		deviationEstimatedCostUserStories = this.repository.deviationEstimatedCostUserStories(managerId);
+
+		int numberUserStories = totalNumberUserStoriesByPriority.values().stream().mapToInt(Integer::intValue).sum();
+		if (numberUserStories <= 1)
+			deviationEstimatedCostUserStories = null;
+		else
+			deviationEstimatedCostUserStories = this.repository.deviationEstimatedCostUserStories(managerId);
+
 		minimumEstimatedCostUserStories = this.repository.minimumEstimatedCostUserStories(managerId);
 		maximumEstimatedCostUserStories = this.repository.maximumEstimatedCostUserStories(managerId);
 		averageCostProjects = this.repository.averageCostProjects(managerId);
-		deviationCostProjects = this.repository.deviationCostProjects(managerId);
+
+		int numberProjects = this.repository.numberProjects(managerId);
+		if (numberProjects <= 1)
+			deviationCostProjects = null;
+		else
+			deviationCostProjects = this.repository.deviationCostProjects(managerId);
+
 		minimumCostProjects = this.repository.minimumCostProjects(managerId);
 		maximumCostProjects = this.repository.maximumCostProjects(managerId);
 
