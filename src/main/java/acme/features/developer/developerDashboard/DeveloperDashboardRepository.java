@@ -23,7 +23,7 @@ public interface DeveloperDashboardRepository extends AbstractRepository {
 	@Query("select avg(tm.estimatedTotalTime) from TrainingModule tm where tm.developer.id = :id")
 	Double averageTrainingModulesTime(int id);
 
-	@Query("select stddev(tm.estimatedTotalTime) from TrainingModule tm where tm.developer.id = :id")
+	@Query("select case when count(tm) > 1 then stddev(tm.estimatedTotalTime) else null end from TrainingModule tm where tm.developer.id = :id")
 	Double deviatonTrainingModulesTime(int id);
 
 	@Query("select min(tm.estimatedTotalTime) from TrainingModule tm where tm.developer.id = :id")
