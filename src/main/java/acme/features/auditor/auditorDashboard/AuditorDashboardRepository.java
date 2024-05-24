@@ -45,7 +45,7 @@ public interface AuditorDashboardRepository extends AbstractRepository {
 	@Query("select avg(time_to_sec(timediff(ar.finalMoment, ar.initialMoment)) / 3600) from AuditRecord ar where ar.audit.auditor.id = :auditorId")
 	Double averageRecordPeriod(int auditorId);
 
-	@Query("select stddev(time_to_sec(timediff(ar.finalMoment, ar.initialMoment)) / 3600) from AuditRecord ar where ar.audit.auditor.id = :auditorId")
+	@Query("SELECT CASE WHEN COUNT(ar) > 1 THEN stddev(time_to_sec(timediff(ar.finalMoment, ar.initialMoment)) / 3600) ELSE NULL END from AuditRecord ar where ar.audit.auditor.id = :auditorId")
 	Double deviationRecordPeriod(int auditorId);
 
 	@Query("select min(time_to_sec(timediff(ar.finalMoment, ar.initialMoment)) / 3600) from AuditRecord ar where ar.audit.auditor.id = :auditorId")

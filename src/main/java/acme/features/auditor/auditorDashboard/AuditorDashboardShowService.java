@@ -97,7 +97,7 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		Double res;
 		Double aux;
 		res = null;
-		if (!values.isEmpty()) {
+		if (values.size() > 1) {
 			Double average = this.calculateAverage(values);
 			aux = 0.0;
 			for (final Double value : values)
