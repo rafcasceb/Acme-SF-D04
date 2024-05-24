@@ -4,7 +4,6 @@ package acme.features.developer.trainingSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.data.models.Dataset;
 import acme.client.services.AbstractService;
 import acme.entities.trainingModule.TrainingModule;
 import acme.entities.trainingModule.TrainingSession;
@@ -64,14 +63,17 @@ public class DeveloperTrainingSessionDeleteService extends AbstractService<Devel
 
 	@Override
 	public void unbind(final TrainingSession object) {
-
 		assert object != null;
-
-		Dataset dataset;
-
-		dataset = super.unbind(object, "code", "startDate", "endDate", "location", "instructor", "email", "link", "published");
-		dataset.put("masterId", object.getTrainingModule().getId());
-
-		super.getResponse().addData(dataset);
+		/*
+		 * Here you would normally add the following code. However, as the delete has no validations,
+		 * it doesn't make sense to keep this code here.
+		 * 
+		 * Dataset dataset;
+		 * 
+		 * dataset = super.unbind(object, "code", "startDate", "endDate", "location", "instructor", "email", "link", "published");
+		 * dataset.put("masterId", object.getTrainingModule().getId());
+		 * 
+		 * super.getResponse().addData(dataset);
+		 */
 	}
 }

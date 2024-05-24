@@ -82,8 +82,9 @@ public class ClientProgressLogPublishService extends AbstractService<Client, Pro
 		Double spamThreshold = config.getSpamThreshold();
 		SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
 
-		if (!super.getBuffer().getErrors().hasErrors("contract"))
-			super.state(!object.getContract().isPublished(), "contract", "validation.progresslog.published.contract-is-published");
+		if (object.getContract() != null)
+			if (!super.getBuffer().getErrors().hasErrors("contract"))
+				super.state(object.getContract().isPublished(), "contract", "validation.progresslog.published.contract-isnot-published");
 
 		if (!super.getBuffer().getErrors().hasErrors("recordId")) {
 			ProgressLog isCodeUnique;

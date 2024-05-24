@@ -73,7 +73,7 @@ public class AdministratorRiskUpdateService extends AbstractService<Administrato
 			Date minimumDate;
 
 			minimumDate = MomentHelper.parse("01/01/2000", "dd/MM/yyyy");
-			super.state(MomentHelper.isAfter(object.getIdentificationDate(), minimumDate), "probability", "administrator.risk.form.error.identification-date");
+			super.state(MomentHelper.isAfterOrEqual(object.getIdentificationDate(), minimumDate), "identificationDate", "administrator.risk.form.error.identification-date");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("impact"))
