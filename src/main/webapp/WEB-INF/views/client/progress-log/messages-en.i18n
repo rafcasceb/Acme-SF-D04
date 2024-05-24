@@ -29,6 +29,6 @@ client.progresslog.form.button.publish = Publish
 
 
 validation.progresslog.code.duplicate = This code is already in use
-validation.progresslog.published.contract-is-published = This contract is already published
+validation.progresslog.published.contract-isnot-published = This contract is not published. Please choose a published contract
 validation.progresslog.published = This progress log is already published
 client.progresslog.form.error.spam = Spam detected

@@ -50,7 +50,7 @@ public class DeveloperTrainingSessionListService extends AbstractService<Develop
 
 		Dataset dataset;
 
-		dataset = super.unbind(object, "code", "startDate", "endDate", "location", "instructor", "email", "link", "published");
+		dataset = super.unbind(object, "code", "startDate", "endDate", "location", "instructor");
 
 		super.getResponse().addData(dataset);
 	}
