@@ -61,20 +61,26 @@ public class DeveloperTrainingSessionDeleteService extends AbstractService<Devel
 		this.repository.delete(object);
 	}
 
-	@Override
-	public void unbind(final TrainingSession object) {
-		/*
-		 * * Here you would normally add the following code. However, as the delete has no validations,
-		 * it doesn't make sense to keep this code here.
-		 * 
-		 * assert object != null;
-		 * 
-		 * Dataset dataset;
-		 * 
-		 * dataset = super.unbind(object, "code", "startDate", "endDate", "location", "instructor", "email", "link", "published");
-		 * dataset.put("masterId", object.getTrainingModule().getId());
-		 * 
-		 * super.getResponse().addData(dataset);
-		 */
-	}
+	/*
+	 * * Here you would normally add the following code. However, as the delete has no validations,
+	 * it doesn't make sense to keep this code here.
+	 * 
+	 * @Override
+	 * public void unbind(final TrainingSession object) {
+	 * /*
+	 * 
+	 * 
+	 * assert object != null;
+	 * 
+	 * Dataset dataset;
+	 * 
+	 * dataset = super.unbind(object, "code", "startDate", "endDate", "location", "instructor", "email", "link", "published");
+	 * dataset.put("masterId", object.getTrainingModule().getId());
+	 * 
+	 * super.getResponse().addData(dataset);
+	 * 
+	 * 
+	 * }
+	 */
+
 }
