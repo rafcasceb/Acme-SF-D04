@@ -63,10 +63,11 @@ public class DeveloperTrainingSessionDeleteService extends AbstractService<Devel
 
 	@Override
 	public void unbind(final TrainingSession object) {
-		assert object != null;
 		/*
-		 * Here you would normally add the following code. However, as the delete has no validations,
+		 * * Here you would normally add the following code. However, as the delete has no validations,
 		 * it doesn't make sense to keep this code here.
+		 * 
+		 * assert object != null;
 		 * 
 		 * Dataset dataset;
 		 * 
