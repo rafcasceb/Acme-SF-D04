@@ -3,6 +3,7 @@ package acme.features.auditor.auditorDashboard;
 
 import java.util.Collection;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.jpa.repository.Query;
@@ -31,7 +32,7 @@ public interface AuditorDashboardRepository extends AbstractRepository {
 	}
 
 	@Query("select (select count(ar) from AuditRecord ar where ar.audit.id = a.id) from CodeAudit a where a.auditor.id = :auditorId")
-	Collection<Double> auditingRecordsPerAudit(int auditorId);
+	List<Integer> auditingRecordsPerAudit(int auditorId);
 
 	@Query("select avg(select count(ar) from AuditRecord ar where ar.audit.id = a.id) from CodeAudit a where a.auditor.id = :auditorId")
 	Double averageAuditingRecords(int auditorId);
