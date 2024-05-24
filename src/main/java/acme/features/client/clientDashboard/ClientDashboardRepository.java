@@ -36,4 +36,7 @@ public interface ClientDashboardRepository extends AbstractRepository {
 	@Query("select c.defaultCurrency from Configuration c")
 	String findDefaultCurrency();
 
+	@Query("select count(c) from Contract c where c.client.id = :clientId and c.budget.currency = :currency")
+	int numberContractsOfGivenCurrency(int clientId, String currency);
+
 }

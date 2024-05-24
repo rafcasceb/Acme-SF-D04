@@ -16,5 +16,5 @@ client.dashboard.form.label.completenessThirdPercentile = Número de registros d
 client.dashboard.form.label.completenessFourthPercentile = Número de registros de progreso por encima del 75% de completitud
 client.dashboard.form.label.contractBudgetAverage = Media de cantidad de dinero en presupuestos (Divisa predeterminada)
 client.dashboard.form.label.contractBudgetDeviation = Desviación de cantidad de dinero en presupuestos (Divisa predeterminada)
-client.dashboard.form.label.minimumBudget = Máxima cantidad de dinero en presupuestos (Divisa predeterminada)
-client.dashboard.form.label.maximumBudget = Mínima cantidad de dinero en presupuestos (Divisa predeterminada)
+client.dashboard.form.label.minimumBudget = Mínima cantidad de dinero en presupuestos (Divisa predeterminada)
+client.dashboard.form.label.maximumBudget = Máxima cantidad de dinero en presupuestos (Divisa predeterminada)
