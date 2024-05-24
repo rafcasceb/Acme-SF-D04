@@ -54,7 +54,11 @@ public class AdministratorDashboardShowService extends AbstractService<Administr
 		Double avgValue = this.getValue(avgImpact, avgProb);
 
 		Double stddevImpact = this.repository.stddevImpactRisk();
+		if (stddevImpact == 0)
+			stddevImpact = null;
 		Double stddevProb = this.repository.stddevProbRisk();
+		if (stddevProb == 0)
+			stddevProb = null;
 		Double stddevValue = this.getValue(stddevImpact, stddevProb);
 
 		Double maxImpact = this.repository.maxImpactRisk();
