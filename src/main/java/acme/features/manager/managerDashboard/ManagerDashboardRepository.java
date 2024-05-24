@@ -57,4 +57,7 @@ public interface ManagerDashboardRepository extends AbstractRepository {
 	@Query("select max(p.estimatedCostInHours) from Project p where p.manager.id = :managerId")
 	Integer maximumCostProjects(int managerId);
 
+	@Query("select count(p) from Project p where p.manager.id = :managerId")
+	int numberProjects(int managerId);
+
 }
