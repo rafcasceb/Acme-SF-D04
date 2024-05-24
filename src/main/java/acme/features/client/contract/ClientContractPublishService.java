@@ -16,7 +16,6 @@ import acme.client.views.SelectChoices;
 import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.contracts.Contract;
-import acme.entities.contracts.ProgressLog;
 import acme.entities.projects.Project;
 import acme.roles.Client;
 
@@ -92,10 +91,6 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 			isCodeUnique = this.repository.findContractByCodeDifferentId(object.getCode(), object.getId());
 			super.state(isCodeUnique == null, "code", "client.contract.form.error.duplicate");
 		}
-
-		Collection<ProgressLog> pl;
-		pl = this.repository.findManyProgressLogsByContractId(object.getId());
-		super.state(pl.stream().allMatch(ProgressLog::isPublished), "*", "validation.contract.publish.unpublished-progress-log");
 
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 			super.state(object.getBudget().getAmount() >= 0., "budget", "client.contract.form.error.budgetPositive");

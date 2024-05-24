@@ -35,7 +35,7 @@ project-29,false,CDR-0029,Title 1,Description 1,false,200,https://aa.com,manager
 project-30,false,CDR-0030,Title 1,Description 1,false,200,https://fillerURL.com/254characters/maxLength-1/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,manager-02
 project-31.0,false,CDR-0031,Title 1,Description 1,false,200,https://fillerURL.com/255characters/maxLength/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa,manager-02
 project-31.1,false,CDR-0131,Title 1,Description 1,false,200,https://www.example.com/example_page?,manager-02
-project-31.2,false,CDR-0231,Title 1,Description 1,false,200,https://www.example.com/example_page?activo=true,manager-02
+project-31.2,false,CDR-0231,Title 1,Description 1,false,200,https://www.example.com/example_page?activo=aa&siu,manager-02
 project-32,true,CDR-0032,Title 1,Description 1,false,200,https://link1.com,manager-01
 project-33,true,CDR-0033,Title 1,Description 1,false,200,https://link1.com,manager-02
 project-34,true,CDR-0034,Title 1,Description 1,false,200,https://link1.com,manager-02
