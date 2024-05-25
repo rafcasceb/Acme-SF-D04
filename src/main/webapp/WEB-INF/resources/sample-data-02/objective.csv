@@ -1,0 +1,10 @@
+key,instantiation-moment,title,description,priority,critical,start-date,end-date,link
+objective-01,2022/04/03 00:00,Title 1,This is a description,LOW,true,2022/11/11 10:35,2022/12/09 08:00,https://link1.com
+objective-01,2022/04/03 00:00,Title 1,This is a description,LOW,true,2022/11/11 10:35,2022/12/09 08:00,https://a.com
+objective-01,2022/04/03 00:00,Title 1,This is a description,LOW,true,2022/11/11 10:35,2022/12/09 08:00,https://aa.com
+objective-01,2022/04/03 00:00,Title 1,This is a description,LOW,true,2022/11/11 10:35,2022/12/09 08:00,http://www.example.com/a123456789b123456789c123456789d123456789e123456789f123456789g123456789h123456789i123456789j123456789k123456789l123456789m123456789n123456789o12345678kkk9p123456789q123456789r123456789s123456789t123456789u123456789v123456789w12345678
+objective-01,2022/04/03 00:00,Title 1,This is a description,LOW,true,2022/11/11 10:35,2022/12/09 08:00,http://www.example.com/a123456789b123456789c123456789d123456789e123456789f123456789g123456789h123456789i123456789j123456789k123456789l123456789m123456789n123456789o12345678kkk9p123456789q123456789r123456789s123456789t123456789u123456789v123456789w1234567
+objective-01,2022/04/03 00:00,Title 1,This is a description,LOW,true,2022/11/11 10:35,2022/12/09 08:00,http://example.com/offer?param1=value1&param2=value
+objective-01,2022/04/03 00:00,Title 1,This is a description,LOW,true,2022/11/11 10:35,2022/12/09 08:00,https://example.com/offer/subfolder/file.pdf
+objective-01,2022/04/03 00:00,Title 1,This is a description,LOW,true,2022/11/11 10:35,2022/12/09 08:00,https://example.com?
+objective-01,2022/04/03 00:00,Title 1,This is a description,LOW,true,2022/11/11 10:35,2022/12/09 08:00,https://example.com?A
