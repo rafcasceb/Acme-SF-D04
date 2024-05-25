@@ -94,8 +94,6 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 	}
 
 	public Double computeDeviation(final Collection<Integer> values) {
-		System.out.println("values: " + values);
-		System.out.println();
 		Double res;
 		Double aux;
 		res = null;
