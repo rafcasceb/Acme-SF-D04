@@ -4,12 +4,14 @@ package acme.features.authenticated.developer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.SpamDetector;
 import acme.client.data.accounts.Authenticated;
 import acme.client.data.accounts.Principal;
 import acme.client.data.accounts.UserAccount;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
+import acme.entities.configuration.Configuration;
 import acme.roles.Developer;
 
 @Service
@@ -55,6 +57,20 @@ public class AuthenticatedDeveloperCreateService extends AbstractService<Authent
 	@Override
 	public void validate(final Developer object) {
 		assert object != null;
+		
+		Configuration config = this.repository.findConfiguration();
+		String spamTerms = config.getSpamTerms();
+		Double spamThreshold = config.getSpamThreshold();
+		SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);
+		
+		if (!super.getBuffer().getErrors().hasErrors("degree"))
+			super.state(!spamHelper.isSpam(object.getDegree()), "degree", "developer.form.error.spam");
+		
+		if (!super.getBuffer().getErrors().hasErrors("skillsList"))
+			super.state(!spamHelper.isSpam(object.getSkillsList()), "skillsList", "developer.form.error.spam");
+		
+		if (!super.getBuffer().getErrors().hasErrors("specialisation"))
+			super.state(!spamHelper.isSpam(object.getSpecialisation()), "specialisation", "developer.form.error.spam");
 	}
 
 	@Override
