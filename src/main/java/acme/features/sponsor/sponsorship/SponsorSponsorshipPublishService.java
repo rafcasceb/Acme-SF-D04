@@ -90,7 +90,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 		String dateString = "2201/01/01 00:00";
 		Date futureMostDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
-		dateString = "2200/12/25 00:00";
+		dateString = "2200/12/1 00:00";
 		Date latestStartDate = MomentHelper.parse(dateString, "yyyy/MM/dd HH:mm");
 
 		String acceptedCurrencies = this.repository.findConfiguration().getAcceptedCurrencies();

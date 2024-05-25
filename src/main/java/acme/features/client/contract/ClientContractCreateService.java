@@ -9,11 +9,11 @@ import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.SpamDetector;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
-import acme.components.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.entities.contracts.Contract;
 import acme.entities.projects.Project;
@@ -70,6 +70,7 @@ public class ClientContractCreateService extends AbstractService<Client, Contrac
 		assert object != null;
 
 		Configuration config = this.repository.findConfiguration();
+
 		String spamTerms = config.getSpamTerms();
 		Double spamThreshold = config.getSpamThreshold();
 		SpamDetector spamHelper = new SpamDetector(spamTerms, spamThreshold);

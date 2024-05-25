@@ -11,7 +11,7 @@ import acme.client.data.accounts.Administrator;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
-import acme.components.SpamDetector;
+import acme.SpamDetector;
 import acme.entities.banners.Banner;
 import acme.entities.configuration.Configuration;
 

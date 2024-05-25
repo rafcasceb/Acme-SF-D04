@@ -9,7 +9,7 @@ import acme.client.data.accounts.Principal;
 import acme.client.data.models.Dataset;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractService;
-import acme.components.SpamDetector;
+import acme.SpamDetector;
 import acme.entities.configuration.Configuration;
 import acme.roles.Auditor;
 

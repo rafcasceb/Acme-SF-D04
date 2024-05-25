@@ -36,7 +36,12 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>classes</name>
+			<name>Spam_Detector</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/Spam_Detector</locationURI>
+		</link>
+		<link>
+			<name>acme-framework-24.5.0</name>
 			<type>2</type>
 			<locationURI>WORKSPACE_LOC/Frameworks/Acme-Framework-24.5.0/target/classes</locationURI>
 		</link>
