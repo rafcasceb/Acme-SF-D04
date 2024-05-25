@@ -1,14 +1,11 @@
 
 package acme.features.client.contract;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.services.AbstractService;
 import acme.entities.contracts.Contract;
-import acme.entities.contracts.ProgressLog;
 import acme.roles.Client;
 
 @Service
@@ -65,10 +62,6 @@ public class ClientContractDeleteService extends AbstractService<Client, Contrac
 	public void perform(final Contract object) {
 		assert object != null;
 
-		Collection<ProgressLog> progressLogs;
-
-		progressLogs = this.repository.findManyProgressLogsByContractId(object.getId());
-		this.repository.deleteAll(progressLogs);
 		this.repository.delete(object);
 	}
 
