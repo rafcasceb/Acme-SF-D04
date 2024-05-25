@@ -98,24 +98,25 @@ public class ClientContractPublishService extends AbstractService<Client, Contra
 		if (!super.getBuffer().getErrors().hasErrors("budget"))
 			super.state(object.getBudget().getAmount() <= 1000000., "budget", "client.contract.form.error.budgetRange");
 
-		if (!super.getBuffer().getErrors().hasErrors("budget")) {
-			String currencies = this.repository.findAcceptedCurrencies();
-			String[] acceptedCurrencies = currencies.split(",");
-			Stream<String> streamCurrencies = Arrays.stream(acceptedCurrencies);
-			super.state(object.getBudget() != null && streamCurrencies.anyMatch(currency -> currency.trim().equals(object.getBudget().getCurrency())), "budget", "client.contract.form.error.currency");
-		}
+		if (object.getBudget() != null)
+			if (!super.getBuffer().getErrors().hasErrors("budget")) {
+				String currencies = this.repository.findAcceptedCurrencies();
+				String[] acceptedCurrencies = currencies.split(",");
+				Stream<String> streamCurrencies = Arrays.stream(acceptedCurrencies);
+				super.state(streamCurrencies.anyMatch(currency -> currency.trim().equals(object.getBudget().getCurrency())), "budget", "client.contract.form.error.currency");
+			}
 
 		if (object.getProject() != null && object.getBudget() != null) {
 			Double contractsAmountFromSameProjectExceptMine = this.repository.findAmountContractsFromSameProjectExceptThis(object.getProject().getId(), object.getId());
 
-			if (contractsAmountFromSameProjectExceptMine == null && object.getProject() != null)
+			if (contractsAmountFromSameProjectExceptMine == null)
 				contractsAmountFromSameProjectExceptMine = 0.;
 
 			double totalContractAmount = contractsAmountFromSameProjectExceptMine + object.getBudget().getAmount();
 			double conversionFactor = 50.;
 			double projectAmount = object.getProject().getEstimatedCostInHours() * conversionFactor;
 			if (!super.getBuffer().getErrors().hasErrors("budget"))
-				super.state(object.getProject() != null && object.getBudget() != null && totalContractAmount <= projectAmount, "budget", "client.contract.form.error.amount");
+				super.state(totalContractAmount <= projectAmount, "budget", "client.contract.form.error.amount");
 		}
 
 		if (!super.getBuffer().getErrors().hasErrors("providerName"))

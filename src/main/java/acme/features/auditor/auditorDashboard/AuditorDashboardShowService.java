@@ -35,7 +35,7 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		AuditorDashboard dashboard;
 
 		auditorId = super.getRequest().getPrincipal().getActiveRoleId();
-		Collection<Double> auditingRecordsPerAudit = this.repository.auditingRecordsPerAudit(auditorId);
+		Collection<Integer> auditingRecordsPerAudit = this.repository.auditingRecordsPerAudit(auditorId);
 
 		Map<AuditType, Integer> totalAuditTypes;
 		Double averageAuditRecords;
@@ -93,23 +93,25 @@ public class AuditorDashboardShowService extends AbstractService<Auditor, Audito
 		super.getResponse().addData(dataset);
 	}
 
-	public Double computeDeviation(final Collection<Double> values) {
+	public Double computeDeviation(final Collection<Integer> values) {
+		System.out.println("values: " + values);
+		System.out.println();
 		Double res;
 		Double aux;
 		res = null;
-		if (!values.isEmpty()) {
+		if (values.size() > 1) {
 			Double average = this.calculateAverage(values);
 			aux = 0.0;
-			for (final Double value : values)
+			for (final Integer value : values)
 				aux += Math.pow(value - average, 2);
 			res = Math.sqrt(aux / values.size());
 		}
 		return res;
 	}
 
-	private Double calculateAverage(final Collection<Double> values) {
+	private Double calculateAverage(final Collection<Integer> values) {
 		double sum = 0.0;
-		for (Double value : values)
+		for (Integer value : values)
 			sum += value;
 		return sum / values.size();
 	}

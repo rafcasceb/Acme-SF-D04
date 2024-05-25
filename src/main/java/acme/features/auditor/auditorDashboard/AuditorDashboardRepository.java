@@ -3,6 +3,7 @@ package acme.features.auditor.auditorDashboard;
 
 import java.util.Collection;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.jpa.repository.Query;
@@ -31,7 +32,7 @@ public interface AuditorDashboardRepository extends AbstractRepository {
 	}
 
 	@Query("select (select count(ar) from AuditRecord ar where ar.audit.id = a.id) from CodeAudit a where a.auditor.id = :auditorId")
-	Collection<Double> auditingRecordsPerAudit(int auditorId);
+	List<Integer> auditingRecordsPerAudit(int auditorId);
 
 	@Query("select avg(select count(ar) from AuditRecord ar where ar.audit.id = a.id) from CodeAudit a where a.auditor.id = :auditorId")
 	Double averageAuditingRecords(int auditorId);
@@ -45,7 +46,7 @@ public interface AuditorDashboardRepository extends AbstractRepository {
 	@Query("select avg(time_to_sec(timediff(ar.finalMoment, ar.initialMoment)) / 3600) from AuditRecord ar where ar.audit.auditor.id = :auditorId")
 	Double averageRecordPeriod(int auditorId);
 
-	@Query("select stddev(time_to_sec(timediff(ar.finalMoment, ar.initialMoment)) / 3600) from AuditRecord ar where ar.audit.auditor.id = :auditorId")
+	@Query("SELECT CASE WHEN COUNT(ar) > 1 THEN stddev(time_to_sec(timediff(ar.finalMoment, ar.initialMoment)) / 3600) ELSE NULL END from AuditRecord ar where ar.audit.auditor.id = :auditorId")
 	Double deviationRecordPeriod(int auditorId);
 
 	@Query("select min(time_to_sec(timediff(ar.finalMoment, ar.initialMoment)) / 3600) from AuditRecord ar where ar.audit.auditor.id = :auditorId")

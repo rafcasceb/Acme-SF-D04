@@ -16,7 +16,7 @@ client.dashboard.form.label.completenessThirdPercentile = Total progress logs wi
 client.dashboard.form.label.completenessFourthPercentile = Total progress logs with completeness above 75%
 client.dashboard.form.label.contractBudgetAverage = Average amount on budgets (Default currency)
 client.dashboard.form.label.contractBudgetDeviation = Deviation in amount on budgets (Default currency)
-client.dashboard.form.label.minimumBudget = Maximum amount on budgets (Default currency)
-client.dashboard.form.label.maximumBudget = Minimum amount on budgets (Default currency)
+client.dashboard.form.label.minimumBudget = Minimum amount on budgets (Default currency)
+client.dashboard.form.label.maximumBudget = Maximum amount on budgets (Default currency)
 
 
