@@ -732,16 +732,4 @@ style=wordwrap</panel_attributes>
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>1095</x>
-      <y>615</y>
-      <w>60</w>
-      <h>15</h>
-    </coordinates>
-    <panel_attributes>&lt;- managed by
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
 </diagram>

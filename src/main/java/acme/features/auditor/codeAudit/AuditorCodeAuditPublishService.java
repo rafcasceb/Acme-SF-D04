@@ -12,7 +12,7 @@ import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.client.views.SelectChoices;
 import acme.components.EnumMode;
-import acme.components.SpamDetector;
+import acme.SpamDetector;
 import acme.entities.audits.AuditRecord;
 import acme.entities.audits.AuditType;
 import acme.entities.audits.CodeAudit;
