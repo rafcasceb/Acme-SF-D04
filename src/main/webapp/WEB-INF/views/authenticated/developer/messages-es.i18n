@@ -17,3 +17,4 @@ authenticated.developer.form.label.link = Enlace
 
 authenticated.developer.form.button.create = Registrar
 authenticated.developer.form.button.update = Actualizar
+developer.form.error.spam = Spam detectado
