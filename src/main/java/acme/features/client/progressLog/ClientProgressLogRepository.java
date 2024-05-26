@@ -20,17 +20,8 @@ public interface ClientProgressLogRepository extends AbstractRepository {
 	@Query("select p from ProgressLog p where p.contract.id = :contractId")
 	Collection<ProgressLog> findManyProgressLogsByContractId(int contractId);
 
-	@Query("select p from ProgressLog p where p.id = :id")
-	Collection<ProgressLog> findManyProgressLogsById(int id);
-
 	@Query("select c from Contract c where c.id = :id")
 	Contract findOneContractById(int id);
-
-	@Query("select p from ProgressLog p where p.recordId = :recordId")
-	ProgressLog findProgressLogByRecordId(String recordId);
-
-	@Query("select p from ProgressLog p where p.recordId = :recordId and p.id != :id")
-	ProgressLog findProgressLogByRecordIdDifferentId(String recordId, int id);
 
 	@Query("select c from Contract c where c.published = false")
 	Collection<Contract> findAllUnpublishedContracts();
