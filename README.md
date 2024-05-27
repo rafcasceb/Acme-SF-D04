@@ -22,4 +22,7 @@ the following resources:
 ### Acme-SpamHelper
 https://github.com/luimeldia/SpamDetector
 
+## Additional Information
+The general conversion factor from project hours to money amount is: 1h --> 50 (EUR, USD, GBP)
+
  
